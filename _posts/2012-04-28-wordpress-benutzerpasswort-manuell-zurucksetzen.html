@@ -1,0 +1,43 @@
+---
+layout: default
+title: 'Wordpress: Benutzerpasswort manuell zurücksetzen'
+date: 2012-04-28 13:49:19.000000000 +02:00
+categories:
+- Blogging
+- Online
+tags:
+- mysql
+- passwort
+- WordPress
+status: publish
+type: post
+published: true
+---
+<p><em>Mal wieder ein Beitrag für mich, der sicherlich auch für den ein oder anderen nützlich sein wird.</em></p>
+<p><em></em>Wenn ihr das Passwort eines Users einer eurer Wordpress Installationen verlegt habt und keine korrekte E-Mail Adresse angegeben habt (etwa weil es eine Testinstallation ist), dann könnt ihr das Passwort dieses Users recht leicht manuell in MySQL zurücksetzen:</p>
+<ol>
+<li>Generiert den MD5-Hash eures gewünschten neuen Passworts, etwa über <em>md5sum</em> unter Linux oder über einen Online <a href="http://www.md5hashgenerator.com/" target="_blank">MD5Hashgenerator</a></li>
+<li>Loggt euch in MySQL ein
+
+{% highlight bash %}
+mysql -u root -p
+{% endhighlight %}
+
+</li>
+<li>Wählt die Datenbank eurer Wordpress-Installation aus
+
+{% highlight mysql %}
+use datenbankname;
+{% endhighlight %}
+
+</li>
+<li>Nutzt nun den im ersten Schritt generierten MD5Hash, um das Passwort eures Benutzers zu ändern
+
+{% highlight mysql %}
+UPDATE wp_users SET user_pass="(MD5HASH)" WHERE user_login='username';
+{% endhighlight %}
+
+</li>
+</ol>
+<p>Nun könnt ihr euch mit eurem gewählten Passwort wieder ganz normal einloggen.</p>
+<p><a href="http://www.adminswerk.de/wp-content/uploads/2012/04/2012-04-28-wordpress-userpass-mysql.png"><img class="alignnone size-medium wp-image-1901" title="2012-04-28-wordpress-userpass-mysql" src="assets/2012-04-28-wordpress-userpass-mysql-300x251.png" alt="" width="300" height="251" /></a></p>

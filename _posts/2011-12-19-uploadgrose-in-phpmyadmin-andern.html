@@ -1,0 +1,44 @@
+---
+layout: default
+title: Uploadgröße in PHPMyAdmin ändern
+date: 2011-12-19 11:08:40.000000000 +01:00
+categories:
+- Administration
+- Blogging
+tags:
+- php
+- PHPMyAdmin
+- WordPress
+- xampp
+status: publish
+type: post
+published: true
+---
+<p>Vor einer Woche beschrieb ich anläßlich des Erscheinens von Wordpress 3.3 <a title="WordPress: Richtig Backups erstellen" href="http://www.adminswerk.de/wordpress-richtig-backups-erstellen/">wie man ein richtiges Wordpressbackup macht</a>. Im Zuge des natürlich folgenden Blogposts der Wiederherstellung dieses Backups bin ich auf ein Problem gestoßen, dessen Lösung ich euch nicht vorenthalten will.</p>
+<p>Will man über PHPMyAdmin eine Datenbank importieren, etwa um seinen Blog über XAMPP lokal laufen zu lassen, kann es schnell passieren, dass man durch diesen Fehler aufgehalten wird:</p>
+<p><a href="http://www.adminswerk.de/wp-content/uploads/2011/12/2011-12-19-phpmyadmin-db-import-error.jpg"><img class="alignnone size-full wp-image-1322" style="margin: 5px;" title="2011-12-19-phpmyadmin-db-import-error" src="assets/2011-12-19-phpmyadmin-db-import-error.jpg" alt="" width="730" height="91" /></a></p>
+<p>Bzw. schon vorher durch die Maximale Dateigröße in seinem Tatendrang gebremst wird:</p>
+<p><a href="http://www.adminswerk.de/wp-content/uploads/2011/12/2011-12-19-phpmyadmin-max-filesize.jpg"><img class="alignnone size-full wp-image-1320" style="margin: 5px;" title="2011-12-19-phpmyadmin-max-filesize" src="assets/2011-12-19-phpmyadmin-max-filesize.jpg" alt="" width="664" height="33" /></a></p>
+<p>8 Megabyte sind nicht viel, eine Datenbank wird schnell um einiges größer. Wie ändert man diese Größe also?</p>
+<p>Da diese Limitierung nicht von PHPMyAdmin kommt, sondern von PHP selbst, müssen wir die <strong>php.ini</strong> editieren. Wir suchen die Einträge</p>
+
+{% highlight php %}
+upload_max_filesize
+{% endhighlight %}
+
+<p>und</p>
+
+{% highlight php %}
+post_max_size
+{% endhighlight %}
+
+<p>und setzen sie auf unseren Wunschwert. Hierbei sei gewarnt, dass diese Modifikation je nach Serverkonfiguration auch für andere User gilt. Habt ihr also noch mehr Benutzer auf eurem Server, seid vorsichtig mit dieser Einstellung. Da meine XAMPP-Umgebung nur für meine Tests genutzt wird, habe ich die Größe auf übertriebene <strong>512M</strong> geschraubt, um nie mehr Probleme damit zu haben.</p>
+<p>Startet nach den Änderungen euren Apache-Dienst neu und ihr solltet diesbezüglich nicht mehr gestört werden.</p>
+<p><a href="http://www.adminswerk.de/wp-content/uploads/2011/12/2011-12-19-phpmyadmin-max-filesize2.jpg"><img class="alignnone size-full wp-image-1323" style="margin: 5px;" title="2011-12-19-phpmyadmin-max-filesize2" src="assets/2011-12-19-phpmyadmin-max-filesize2.jpg" alt="" width="667" height="24" /></a></p>
+<p>Eventuell wollt ihr für weitere Tests auch noch den Wert für die maximale Ausführungszeit von Skripten etwas hochsetzen. Sucht dazu den Wert</p>
+
+{% highlight php %}
+max_execution_time
+{% endhighlight %}
+
+<p>in der php.ini und ändert ihn euren Anforderungen entsprechend.</p>

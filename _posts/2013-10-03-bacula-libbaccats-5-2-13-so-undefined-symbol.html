@@ -1,0 +1,41 @@
+---
+layout: default
+title: 'Bacula: libbaccats-5.2.13.so undefined symbol'
+date: 2013-10-03 07:52:08.000000000 +02:00
+categories:
+- Linux
+tags:
+- bacula
+- fehler
+- source
+status: publish
+type: post
+published: true
+---
+<p>Nachdem ich das Backuptool Bacula kompiliert hatte, meldete mir der Bacula Director beim Starten einen Fehler:</p>
+
+{% highlight bash %}
+bacula-dir: symbol lookup error: libbaccats-5.2.13.so: undefined symbol: mysql_thread_safe
+{% endhighlight %}
+
+<p>Wie sich nach längerer Internetrecherche rausstellte, ist das <em>configure</em>-Skript von Bacula offenbar ein bisschen verbuggt. Obwohl es keine Fehler meldet, kann es die benötigten MySQL-Libs nicht finden. Um das zu berichtigen, solltet ihr nach der Ausführung von <em>configure</em> auf eurem System nach der <strong>libmysqlclient_r</strong> suchen.</p>
+
+{% highlight bash %}
+find / -name "libmyslqclient_r*"
+{% endhighlight %}
+
+<p>Bei mir beinhaltete das Verzeichnis /usr/lib die benötigte Datei. Nun öffnet ihr die Datei <strong>src/cats/Makefile</strong> im Source Verzeichnis von Bacula und sucht nach dem Eintrag <strong>MYSQL_LIBS =</strong> und tragt dort den Pfad in Verbindung mit einem <strong>-lmysqlclient_r</strong> ein. Bei mir sah das so aus:</p>
+
+{% highlight ini %}
+MYSQL_INCLUDE = -I/usr/include/mysql
+MYSQL_LIBS = /usr/lib -lmysqlclient_r
+MYSQL_SRCS = mysql.c
+{% endhighlight %}
+
+<p>Nun könnt Bacula ihr wie gewohnt installieren</p>
+
+{% highlight bash %}
+make && make install
+{% endhighlight %}
+
+<p>Damit sollte die Fehlermeldung verschwunden sein.</p>

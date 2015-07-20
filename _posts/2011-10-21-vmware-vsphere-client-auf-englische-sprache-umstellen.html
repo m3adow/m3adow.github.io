@@ -1,0 +1,24 @@
+---
+layout: default
+title: 'VMware: vSphere Client auf englische Sprache umstellen'
+date: 2011-10-21 08:00:00.000000000 +02:00
+categories:
+- Administration
+tags:
+- vmware
+- vSphere Client
+status: publish
+type: post
+published: true
+---
+<p>Die deutsche Übersetzung des vSphere Clients beinhaltet großartige Formatierungsfehler , die ein entspanntes Arbeiten Quasi unmöglich machen und sich bereits am Login-Fenster oder in den Einstellungen einer VM zeigen:</p>
+<p><a href="http://www.adminswerk.de/wp-content/uploads/2011/10/2011-10-20-vsphereclient_1.jpg"><img class="alignnone size-medium wp-image-954" style="margin: 5px;" title="2011-10-20-vsphereclient_1" src="assets/2011-10-20-vsphereclient_1-300x231.jpg" alt="" width="300" height="231" /></a><a href="http://www.adminswerk.de/wp-content/uploads/2011/10/2011-10-20-vsphereclient_2.jpg"><img class="alignnone size-medium wp-image-955" style="margin: 5px;" title="2011-10-20-vsphereclient_2" src="assets/2011-10-20-vsphereclient_2-300x252.jpg" alt="" width="300" height="252" /></a></p>
+<p>Um den Client also wieder auf englisch umzuschalten, hängt den Startparameter <strong>-locale en-US</strong>  an eure vSphere Client-Verknüpfung. Das Verknüpfungsziel sähe dann im Standard so aus:</p>
+
+{% highlight batch %}
+"C:\Programme\VMware\Infrastructure\Virtual Infrastructure Client\Launcher\VpxClient.exe" -locale en-US
+{% endhighlight %}
+
+<p>Damit könnt ihr dann den vSphere Client in seiner nativen Sprache und ohne Formatierungsfehler oder eventuelle Übersetzungsschnitzer genießen.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>

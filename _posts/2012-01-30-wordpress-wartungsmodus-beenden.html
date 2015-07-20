@@ -1,0 +1,19 @@
+---
+layout: default
+title: Wordpress Wartungsmodus beenden
+date: 2012-01-30 10:30:33.000000000 +01:00
+categories:
+- Blogging
+tags:
+- fehler
+- Wartung
+- WordPress
+status: publish
+type: post
+published: true
+---
+<p>Seit einigen Versionen hat Wordpress die Funktionalität direkt über das Administrationsinterface Updates durchzuführen. Diese Funktion nutze ich auch gerne. Grade für kleine Updates bei Plugins oder Themes ist das sehr praktisch und geht schnell von der Hand. In der Zeit, in der geupdatet wird, schaltet Wordpress automatisch einen Wartungsmodus (Maintenance Mode), der Zugriffe auf euren Blog und damit eventuelle Änderungen während des Update vorgangs verhindert. Leider passiert es immer wieder, dass dieser Maintenance Mode nicht sauber beendet wird, wenn ihr eure Seite aufruft, bleibt der Bildschirm dann ziemlich karg.</p>
+<p><a href="http://www.adminswerk.de/wp-content/uploads/2012/01/2012-01-30-maintenance-mode-wordpress.jpg"><img class="alignnone size-medium wp-image-1603" title="2012-01-30-maintenance-mode-wordpress" src="assets/2012-01-30-maintenance-mode-wordpress-300x127.jpg" alt="" width="300" height="127" /></a></p>
+<p>Simple Lösung: Per FTP auf eure Wordpressinstallation verbinden und im Hauptverzeichnis die Datei .maintenance löschen. Dafür müsst ihr in eurem FTP-Programm versteckte Dateien anzeigen lassen, aber das sollte in den meisten Fällen sowieso aktiviert sein.</p>
+<p><a href="http://www.adminswerk.de/wp-content/uploads/2012/01/2012-01-30-maintenance-mode-wordpress-2.jpg"><img class="alignnone size-medium wp-image-1605" title="2012-01-30-maintenance-mode-wordpress-2" src="assets/2012-01-30-maintenance-mode-wordpress-2-231x300.jpg" alt="" width="231" height="300" /></a></p>
+<p>Danach läuft euer Blog wieder wie gewohnt. Allerdings solltet ihr dann prüfen, warum der Maintenance Mode nicht behoben wurde und ob das gewünschte Update überhaupt durchgeführt wurde.</p>

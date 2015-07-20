@@ -1,0 +1,30 @@
+---
+layout: default
+title: Anleitung für WinSetupfromUSB
+date: 2011-11-16 09:48:50.000000000 +01:00
+categories:
+- Software
+tags:
+- usb-stick
+- Windows
+- WinSetupFromUSB
+status: publish
+type: post
+published: true
+---
+<p>Vor einiger Zeit habe ich die <a href="http://www.adminswerk.de/softwareempfehlung-winsetupfromusb/">Software WinSetupFromUSB </a>zur Erstellung von bootfähigen USB-Sticks mit entsprechenden Betriebssysteminstallationen drauf empfohlen. Da dieser Artikel sehr oft bei der Suche nach einer Anleitung für das erwähnte Programm gefunden wurde, eigentlich aber keine Anleitung bietet, habe ich beschlossen, hier eine Anleitung für die momentan aktuelle Version 1.0 beta7 zu schreiben. Sie ist eventuell nicht vollständig, sollte aber vermutlich für die meisten Benutzer ausreichen.</p>
+<h6>Voraussetzungen</h6>
+<p><iframe style="border: none; float: left; margin: 10px;" src="http://rcm-de.amazon.de/e/cm?t=admwer-21&amp;o=3&amp;p=8&amp;l=st1&amp;mode=computers&amp;search=USB-Stick&amp;fc1=000000&amp;lt1=_blank&amp;lc1=3366FF&amp;bg1=FFFFFF&amp;f=ifr" height="240" width="120" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>Bevor wir mit der eigentlichen Anleitung starten, sollten wir alle benötigten Dateien besorgen. Wir brauchen natürlich erstmal WinSetupfromUSB. Die Originalversion kann man <a href="http://www.winsetupfromusb.com/downloads/" target="_blank">HIER</a> herunterladen. Schundblätter wie die Computer Bild bieten auch Downloadmöglichkeiten an, die sind aber zumeist veraltet. Außerdem benötigt ihr die Setupdateien des gewünschten Betriebssystems. Die bekommt ihr entweder, indem ihr einfach eine Installations-CD einlegt und alle darauf befindlichen Dateien in einen Ordner auf der Festplatte kopiert oder indem ihr ein ISO-Image dieses Betriebssystems in einen Ordner entpackt. Ersteres dürfte zumeist bei Windows der Fall sein, da man da selten(er) die ISO-Dateien zur Hand hat, zweiteres dürfte bei Linux zutreffen, bei dem man die Imagedateien zumeist einfach aus dem Netz saugt.</p>
+<h6>Anleitung</h6>
+<p>&nbsp;</p>
+<ol>
+<li>Das Programm starten und den zu bearbeitenden USB-Stick auswählen. Geht sicher, dass der ausgewählte Stick auch wirklich der richtige ist. Wurde er nicht erkannt, etwa weil ihr ihn erst nach Programmstart eingesteckt habt, klickt auf <em>Refresh</em>.<br />
+<a href="http://www.adminswerk.de/wp-content/uploads/2011/11/2011-11-16-winsetupfromusb-1.jpg"><img class="size-thumbnail wp-image-1058 alignnone" style="margin: 10px;" title="2011-11-16-winsetupfromusb-1" alt="" src="assets/2011-11-16-winsetupfromusb-1-113x150.jpg" width="113" height="150" /></a></li>
+<li>Den USB-Stick mit einem der in WinSetupFromUSB integrierten Tools formatieren. Ich wähle RMPrepUSB. Achtet auch in diesem Programm darauf, dass der richtige USB-Stick ausgewählt ist.</li>
+<li><a href="http://www.adminswerk.de/wp-content/uploads/2011/11/2011-11-16-winsetupfromusb-2.jpg"><img class="alignright size-medium wp-image-1059" style="margin: 10px;" title="2011-11-16-winsetupfromusb-2" alt="" src="assets/2011-11-16-winsetupfromusb-2-300x249.jpg" width="300" height="249" /></a>In unserem Beispiel wollen wir Windows XP vom USB-Stick installieren. Also nehmen wir die entsprechenden Einstellungen bei RMPrepUSB unter dem Punkt <em>3 Boot Options </em>vor. Dadurch werden die anderen Parameter automatisch mit angepasst. Ihr könnt den USB-Stick auch mit <strong>NTFS</strong> anstatt mit <strong>FAT32</strong> formatieren, was angeblich einen Geschwindigkeitsschub bringen soll. Ich habe in meinen Tests kaum einen Unterschied spüren können.</li>
+<li>Klickt anschließend auf <em>6 Prepare Drive</em>. Dadurch wird der USB-Stick formatiert und für das Setupprogramm des entsprechenden Betriebssystems vorbereitet. Schließt RMPrepUSB nach der Formatierung.</li>
+<li>Zurückgekehrt auf die WinSetupFromUSB Oberfläche könnt ihr nun ein Häkchen bei eurem gewünschten Betriebssystem setzen und den in den Voraussetzungen erwähnten Ordner mit den Installationsdateien des Betriebssystems angeben.</li>
+<li>Anschließend auf <em>GO </em>klicken, auf die Beendigung warten und schon ist euer USB-Stick einsatzbereit.</li>
+</ol>
+<p>Abschließend sei zu erwähnen, dass diverse Hersteller auch eigene Tools für die Installation des Betriebssystems von einem USB-Stick anbieten. So hat Microsoft für Windows 7 das <a href="http://emea.microsoftstore.com/DE/de-DE/Hilfe/USB-DVD-Downloadtool-fur-Windows-7" target="_blank">USB/DVD-Downloadtool</a> zur Verfügung gestellt und auch Canonical schlägt für <a href="http://www.ubuntu.com/download/ubuntu/download" target="_blank">Ubuntu</a> eine eigene Methode vor.</p>
+<p>Habt ihr noch Fragen, Anregungen oder Probleme, schreibt sie mir in den Kommentaren.</p>

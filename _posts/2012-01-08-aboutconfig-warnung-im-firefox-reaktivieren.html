@@ -1,0 +1,28 @@
+---
+layout: default
+title: about:config Warnung im Firefox reaktivieren
+date: 2012-01-08 09:52:43.000000000 +01:00
+categories:
+- Software
+tags:
+- about:config
+- Firefox
+- Warnung
+status: publish
+type: post
+published: true
+---
+<p>Wenn ihr das erste Mal im Firefox in der <strong>about:config</strong> rumkonfiguriert, bekommt ihr eine Sicherheitswarnung, die sich recht simpel wegklicken lässt. Zusätzlich lässt sich ein Haken setzen, der ein erneutes Anzeigen der Warnung verhindert. Wollt ihr aber die Warnung nun wiederhaben, etwa weil ihr den Firefox nur für wen vorkonfiguriert habt oder weil ihr von der Warnung einen Screenshot machen wollt (etwa für einen Blogeintrag ;-) ), dann geht wie folgt vor:</p>
+<ol>
+<li>Öffnet die <strong>about:config</strong>.</li>
+<li>Sucht im Filter oben nach
+
+{% highlight text %}
+general.warnOnAboutConfig
+{% endhighlight %}
+
+</li>
+<li>Ändert den Wert des Eintrags mit einem Doppelklick auf <strong>true</strong>.</li>
+</ol>
+<p>Sobald ihr das nächste Mal eure <strong>about:config</strong> öffnet, werdet ihr wieder wie gewünscht gewarnt.</p>
+<p><a href="http://www.adminswerk.de/wp-content/uploads/2012/01/2012-01-06-about-config-warnung.png"><img class="size-medium wp-image-1454 alignnone" style="margin: 10px;" title="2012-01-06-about-config-warnung" src="assets/2012-01-06-about-config-warnung-300x185.png" alt="" width="300" height="185" /></a></p>

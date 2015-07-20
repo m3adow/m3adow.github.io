@@ -1,0 +1,22 @@
+---
+layout: default
+title: 'Kurztipp: Mediawiki - Fatal exception of type MWException'
+date: 2013-10-22 07:48:35.000000000 +02:00
+categories:
+- Linux
+- Software
+tags:
+- fehler
+- Mediawiki
+status: publish
+type: post
+published: true
+---
+<p>Falls ihr Probleme mit dem Passwort-Reset eines Users in eurer Mediawiki Installation habt, prüft die Version eures LocalisationUpdate-Plugins. Es ist gut möglich, dass diese nicht mit der Version eures Mediawikis kompatibel ist. Um dies zu berichtigen, könnt ihr versuchen, das Updateskript des Plugins zu nutzen. Das muss über die Kommandozeile geschehen. Aus dem Wurzelverzeichnis eurer MW-Installation sähe das dann so aus:</p>
+
+{% highlight bash %}
+php extensions/LocalisationUpdate/update.php
+{% endhighlight %}
+
+<p>Danach könnt ihr es erneut versuchen und habt jetzt (hoffentlich) keine Fehler mehr.<br />
+Ansonsten solltet ihr mal versuchen, das Plugin in der LocalSettings.php auszukommentieren und danach prüfen, ob es dann funktioniert.</p>

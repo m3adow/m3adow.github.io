@@ -1,0 +1,40 @@
+---
+layout: default
+title: CM10.1 Nightlies mit TabletUI und MultiuserUnterstützung
+date: 2013-05-15 07:16:54.000000000 +02:00
+categories:
+- Android
+tags:
+- android
+- CM10.1
+- Cyanogenmod
+- Mutliuser
+- Tabletui
+- Xoom
+status: publish
+type: post
+published: true
+---
+<p>Meine Spielerin #2 und ich besitzen und benutzen zusammen ein <a href="http://www.amazon.de/gp/product/B004Q7E8FQ/ref=as_li_ss_tl?ie=UTF8&amp;camp=1638&amp;creative=19454&amp;creativeASIN=B004Q7E8FQ&amp;linkCode=as2&amp;tag=admwer-21" target="_blank">Motorola Xoom</a>*. Weil ich ein großer Fan von Custom-ROMs, insbesondere des Cyanogenmods bin, läuft dort natürlich auch CM drauf, natürlich die neuste Version CM10.1, die es für das Xoom bisher nur als Nightlies gibt. Leider ist bei unserer Version mit 3G (der Modellname ist Everest) im Default der Multiusermodus, der für Android 4.2 angekündigt wurde, wegen irgendwelchen Problemen deaktiviert worden. Da mich aber sowohl die Benachrichtigungen als auch die Apps meiner Geliebten wenig interessieren, will ich diesen unbedingt haben. Eventuelle kleinere Probleme nehme ich dafür in Kauf. Außerdem gefällt es mir auch nicht, dass das Cyanogenmodteam dem Xoom eine "Phablet"-Ui verpasst hat. Die sieht im Standard so aus:<br />
+<a href="http://www.adminswerk.de/wp-content/uploads/2013/05/2013-05-06-xoom-phabletui.png"><img class="alignnone size-medium wp-image-2932" style="margin: 10px;" alt="2013-05-06-xoom-phabletui" src="assets/2013-05-06-xoom-phabletui-300x187.png" width="300" height="187" /></a></p>
+<p>Eine obere Notificationbar auf einem Tablet? Halte ich für sinnfrei, will ich nicht. Hier also meine Vorgehensweise. Ich empfehle, euch genaustens an die Schritte und die Reihenfolge zu halten, da es sonst Probleme geben könnte, vor allem bei der Multiuserunterstützung. <strong>Diese Vorgehensweise dürfte in begrenztem Maße auch für die meisten anderen Tablets und Smartphones funktionieren.</strong> Nach meiner Erfahrung sind ROMs ohne integrierte Google Apps empfehlenswert.</p>
+<ol>
+<li>Das gewünschte ROM herunterladen und flashen. Die neusten CM10.1 ROMs für das Xoom Everest findet ihr <a href="http://download.cyanogenmod.org/?type=nightly&amp;device=everest" target="_blank">hier</a>. Für andere Xoom Versionen, schaut in den <a href="http://forum.xda-developers.com/showthread.php?t=2084236" target="_blank">Thread auf XDA-Developers</a>. Je nachdem welches ROM vorher installiert war, ist ein Wipe des Caches und des Dalvik Caches ausreichend, ansonsten ist ein Full Wipe notwendig.</li>
+<li>Android booten, die App "4.2 Multiple User Enabler" runterladen und installieren.<br />
+Der XDA-Developers Thread dazu befindet sich <a href="http://forum.xda-developers.com/showthread.php?t=2187934" target="_blank">hier</a>. Leider bietet der Entwickler keinen direkten APK-Download an, sondern nur über den Play Store, den wir aber noch gar nicht installiert haben (und auch noch nicht installieren wollen). Deswegen habe ich die App extrahiert. Ihr könnt die APK hier in gezippter Form herunterladen:  <a href="http://www.adminswerk.de/wp-content/uploads/2013/05/org.sferadev.multipleuser-1.zip" target="_blank">4.2 Multiple User Enabler </a></li>
+<li>Nachdem ihr die App installiert habt, führt sie aus, "<strong>Enable the feature</strong>" und bestätigt die Superuser-Berechtigungen.<br />
+<a href="http://www.adminswerk.de/wp-content/uploads/2013/05/2013-05-06-4-2-multiple-user-enable.png"><img class="alignnone size-medium wp-image-2934" style="margin: 10px;" alt="2013-05-06-4-2-multiple-user-enable" src="assets/2013-05-06-4-2-multiple-user-enable-300x187.png" width="300" height="187" /></a></li>
+<li>Rebootet anschließend ins Recovery, wipet Dalvik-Cache und Cache.</li>
+<li>Dann wieder ins Android-System zurück. Legt nun alle Benutzer an, die ihr auf eurem Tablet haben wollt. Versucht auch direkt, euch mit diesen einzuloggen. Wenn dabei ein unzähmbarer Haufen an Absturzberichten kommt, funktioniert meine Methode für euch eventuell nicht oder ihr habt die Reihenfolge nicht eingehalten. Bei meinem Xoom funktionierte aber alles.</li>
+<li>Wechselt nun wieder in das Recovery und flasht eure Google Apps.</li>
+<li>Startet das Tablet anschließend wieder in das System und checkt, ob ihr euch mit allen Benutzern an eurem Google Konto anmelden könnt (wenn gewünscht).</li>
+<li>Nun kommen wir zur TabletUi. Dafür benötigen wir den <a href="http://forum.xda-developers.com/showthread.php?t=1719408" target="_blank">Autopatcher.</a><br />
+Ich empfehle die Nutzung der neusten Version von <a href="https://github.com/mateor/auto-patcher" target="_blank">github</a>, da ich bei den älteren Versionen Probleme mit dem Patchen hatte.</li>
+<li>Patcht euer Rom mit dem tabletUI-Mod. Wie ihr das macht, hängt von eurem Betriebssystem ab, ist aber im Autopatcher-Thread ausreichend erklärt.<br />
+Wenn ihr schon dabei seid, würde ich zusätzlich noch den Openpdroid-Mod empfehlen, der es einem per Zusatzapp ermöglicht, anderen Apps Rechte zu verwehren. So oder so erhaltet ihr am Ende zwei Dateien, eine update-* und eine restore-*.</li>
+<li>Kopiert beide Dateien auf euer Tablet und flasht die update-* via Recovery. Macht anschließend wieder ein Wipe von Cache und Dalvik-Cache.</li>
+<li>Startet ins System und prüft bei allen Benutzern, ob alles erwartungsgemäß funktioniert.</li>
+</ol>
+<p>Fertig! Ihr habt nun (hoffentlich) ein System mit Multiuser-Unterstützung und einer vernünftigen UI für ein Tablet.</p>
+<p><a href="http://www.adminswerk.de/wp-content/uploads/2013/05/2013-05-06-xoom-tabletui.png"><img class="alignnone size-medium wp-image-2931" style="margin: 10px;" alt="2013-05-06-xoom-tabletui" src="assets/2013-05-06-xoom-tabletui-300x187.png" width="300" height="187" /></a></p>
+<p>Falls ihr doch Probleme habt, fragt hier oder je nach Schritt besser in dem jeweiligen XDA-Developers Thread.</p>

@@ -1,0 +1,78 @@
+---
+layout: default
+title: MySQL-Befehle, die man immer wieder braucht
+date: 2012-05-08 09:28:22.000000000 +02:00
+categories:
+- Administration
+tags:
+- befehle
+- benutzer
+- mysql
+- standard
+status: publish
+type: post
+published: true
+---
+<p>Da ich grade ziemlich viel auf meinem vServer konfiguriere, stolpere ich immer wieder über bestimmte Befehle in MySQL, die ich ständig brauche. Da ich seit geraumer Zeit nicht mehr mit MySQL gearbeitet habe und dementsprechend eingerostet war, hier mal eine Übersicht wichtiger Befehle. Für mich zum Einprägen, für euch zum Helfen. ;)</p>
+<p style="margin-top: 20px;">
+Alle in der MySQL Instanz vorhandenen Datenbanken anzeigen:</p>
+
+{% highlight mysql %}
+SHOW DATABASES;
+{% endhighlight %}
+
+<p>Alle Tabellen einer bestimmten Datenbank anzeigen:</p>
+
+{% highlight mysql %}
+USE datenbank; SHOW TABLES;
+{% endhighlight %}
+
+<p>Rechte eines Benutzers anzeigen:</p>
+
+{% highlight mysql %}
+SHOW GRANTS FOR 'benutzername'@'localhost';
+{% endhighlight %}
+
+<p>Alle MySQL Benutzer in alphabetischer Reihenfolge anzeigen:</p>
+
+{% highlight mysql %}
+SELECT user FROM mysql.user ORDER BY user ASC;
+{% endhighlight %}
+
+<p>Einem MySQL Benutzer ein neues Passwort zuweisen:</p>
+
+{% highlight mysql %}
+UPDATE mysql.user SET Password=PASSWORD('neuespaswort') WHERE User='benutzername'; FLUSH PRIVILEGES;
+{% endhighlight %}
+
+<p>Einem Benutzer alle Rechte auf eine Datenbank oder Tabelle entziehen:</p>
+
+{% highlight mysql %}
+REVOKE ALL PRIVILEGES ON datenbankname FROM 'benutzername'@'localhost';
+{% endhighlight %}
+
+<p>Einen neuen Benutzer anlegen:</p>
+
+{% highlight mysql %}
+CREATE USER 'benutzername'@'localhost' IDENTIFIED BY 'passwort';
+{% endhighlight %}
+
+<p>Einen Benutzer löschen:</p>
+
+{% highlight mysql %}
+DROP USER 'benutzername'@'localhost';
+{% endhighlight %}
+
+<p>Eine neue Datenbank anlegen:</p>
+
+{% highlight mysql %}
+CREATE DATABASE 'datenbankname';
+{% endhighlight %}
+
+<p>Eine neue Datenbank anlegen und direkt einem neuen (oder bestehenden) Nutzer alle Rechte darauf geben:</p>
+
+{% highlight mysql %}
+CREATE DATABASE datenbankname; GRANT ALL ON datenbankname.* TO 'benutzername'@'localhost' IDENTIFIED BY 'passwort' WITH GRANT OPTION; FLUSH PRIVILEGES;
+{% endhighlight %}
+</p>
+<p>Falls mir noch ein paar mehr einfallen, werde ich die Liste entsprechend aktualisieren.</p>

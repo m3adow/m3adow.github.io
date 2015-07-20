@@ -1,0 +1,35 @@
+---
+layout: default
+title: 'SSH: Das Leben erleichtern mit einer config-Datei'
+date: 2013-05-08 10:35:51.000000000 +02:00
+categories:
+- Linux
+tags:
+- config
+- ssh
+status: publish
+type: post
+published: true
+---
+<p><em>Hier wieder ein kleiner Happen für zwischendurch, während ich an ein paar längeren Artikeln schreibe (deren Veröffentlichungsdatum <a href="http://www.wowwiki.com/Soon" target="_blank">soon™</a> ist).</em></p>
+<p>Ich habe schon seit Jahren mit Linux und SSH zu tun. Immer wieder habe ich mich darüber geärgert, Aliases für jede Verbindung anlegen zu müssen, um Servername, Benutzername, SSH-Port und Private Key passend aneinanderzubringen. Vor Kurzem habe ich von der Möglichkeit gelesen, eine <em>config</em>-Datei unter <em>~/.ssh/</em> zu erstellen, wodurch sich die ganze Sache schonmal etwas vereinfacht hat. Wie gesagt legen wir im .ssh-Unterordner unseres Homeverzeichnisses eine <em>config</em>-Datei an. Diese kann man etwa so befüllen:</p>
+
+{% highlight bash %}
+Host Server1
+    HostName foo.bar.org
+    Port 1122
+    IdentityFile ~/.ssh/foobar.rsa
+    User Foo
+Host Server2
+    HostName bar.foo.org
+{% endhighlight %}
+
+<p>Die Parameter sind meiner Meinung nach selbst erklärend. Nun kann ich mich durch eine simple Eingabe von</p>
+
+{% highlight bash %}
+ssh Server1
+{% endhighlight %}
+
+<p>mit dem Server unter dem angegebenen Hostname mit dem angegebenen Port, dem eingestellten Private Key und dem genannten Benutzer verbinden.<br />
+Natürlich kann man die <em>config</em>-Datei für viel mehr benutzen, etwa individuelle Hosteinstellungen oder globale Benutzereinstellungen, aber für mich ist das momentan die nützlichste Funktion.<br />
+Frage an meine Mitleserschaft: Wie macht ihr das mit der Verwaltung von SSH-Verbindungen? SSH-Agent, Aliases oder vielleicht eine ganz andere Methode? Ich bin für jede Vereinfachung offen. :-)</p>

@@ -1,0 +1,50 @@
+---
+layout: default
+title: 'Linux Mint: Razer Mausgeschwindigkeit runtersetzen'
+date: 2012-01-10 15:21:38.000000000 +01:00
+categories:
+- Hardware
+- Linux
+tags:
+- Linux
+- Maus
+- Razer
+status: publish
+type: post
+published: true
+---
+<p><a href="http://www.adminswerk.de/wp-content/uploads/2012/01/2012-01-09-razer-deathadder.jpg"><img class="alignright size-medium wp-image-1476" style="margin: 10px;" title="2012-01-09-razer-deathadder" src="assets/2012-01-09-razer-deathadder-225x300.jpg" alt="" width="225" height="300" /></a>Wie ich in meinem Post über <a title="Gamer Mäuse für Linkshänder" href="http://www.adminswerk.de/gamer-mause-fur-linkshander/">Gämermäuse für Linkshänder</a> erwähnt habe, habe ich mir die Razer DeathAdder Left Handed Edition gekauft. In ein paar Tagen oder Wochen werde ich dazu auch noch einen Erfahrungsbericht für die Nachwelt schreiben, doch darum geht es nicht.</p>
+<p>Ich habe zum neuen Jahr beschlossen, weitestgehend von Windows auf Linux umzusteigen und nur noch zum Zocken auf Windows zu wechseln - quasi als guter Vorsatz. :-D</p>
+<p>Nun ist meine Distributionswahl aus verschiedenen Gründen auf Linux Mint 12 gefallen, welches ich heute über mein vor ein paar Monaten halbherzig installiertes SUSE gezogen habe. Erster Eindruck: Gut. Zweiter Eindruck: Die Maus ist viel zu schnell. Sehr viel! Die Geschwindigkeitseinstellungen waren bereits auf ihrem Minimum.</p>
+<p>Wie macht man die Maus also NOCH langsamer?</p>
+<p><!--more--></p>
+<p>Öffnet eine Terminalsitzung und gebt dort</p>
+
+{% highlight bash %}
+xinput --list --short
+{% endhighlight %}
+
+<p>ein. Daraufhin werdet ihr eine Ausgabe ähnlich dieser bekommen</p>
+
+{% highlight bash %}
+⎡ Virtual core pointer                    	id=2	[master pointer  (3)]
+⎜   ↳ Virtual core XTEST pointer              	id=4	[slave  pointer  (2)]
+⎜   ↳ Microsoft Microsoft® SiderWinderTM X6 Keyboard	id=9	[slave  pointer  (2)]
+⎜   ↳ Razer Razer DeathAdder                  	id=10	[slave  pointer  (2)]
+⎣ Virtual core keyboard                   	id=3	[master keyboard (2)]
+    ↳ Virtual core XTEST keyboard             	id=5	[slave  keyboard (3)]
+    ↳ Power Button                            	id=6	[slave  keyboard (3)]
+    ↳ Power Button                            	id=7	[slave  keyboard (3)]
+    ↳ Microsoft Microsoft® SiderWinderTM X6 Keyboard	id=8	[slave  keyboard (3)]
+    ↳ Eee PC WMI hotkeys                      	id=11	[slave  keyboard (3)]
+{% endhighlight %}
+
+<p>Da habt ihr den Namen eures Geräts (Ersetzt in den folgenden Schritten den Namen meiner DeathAdder mit dem Namen eurer Maus). Ändert nun den Wert für die Abbremsung</p>
+
+{% highlight bash %}
+xinput --set-prop "Razer Razer DeathAdder" "Device Accel Constant Deceleration" 4
+{% endhighlight %}
+
+<p>Die 4 ist dabei nur ein Beispielwert, spielt mit dieser Einstellung. Niedrigere Werte stehen für eine schnellere Maus, dementsprechend bremsen höhere Werte eure Mausgeschwindigkeit.</p>
+<p>Bezüglich Razermäusen und Linux kann ich übrigens noch das <a href="http://bu3sch.de/cms/hacking/razercfg.html" target="_blank">Razer Config Tool</a> von Michael Büsch empfehlen.</p>
+<p>(<a href="http://patrickmylund.com/blog/lowering-gaming-mouse-sensitivity-in-ubuntu-9-10/" target="_blank">via</a>) <em>Bild: <a href="http://www.flickr.com/photos/dbgg1979/3959230434/" target="_blank">dbgg1979</a>, <a href="http://creativecommons.org/licenses/by/2.0/deed.en" target="_blank">CC-BY 2.0</a></em></p>

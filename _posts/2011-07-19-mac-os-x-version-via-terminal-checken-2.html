@@ -1,0 +1,23 @@
+---
+layout: default
+title: Mac - OS X Version via Terminal checken
+date: 2011-07-19 12:25:26.000000000 +02:00
+categories:
+- Software
+tags:
+- Mac
+- OS X
+- Terminal
+status: publish
+type: post
+published: true
+---
+<p>Falls ihr mal wie ich das Problem habt, dass ihr unbedingt die Version eures Macs rausbekommen wollt, aber aus irgendwelchen Gründen der angestammte Weg über das Apfellogo und dann <em>Über diesen Mac </em>nicht klappt (etwa weil es eine VM auf einem Windowsrechner ist, die nicht so ganz sauber installiert wurde und entsprechend unrund läuft), gibt es eine Ausweichmöglichkeit über das Terminal.</p>
+<p>Dazu das Terminal starten (<em>Gehe zu -&gt; Dienstprogramme -&gt; Terminal</em>) und dort folgendes eingeben:</p>
+
+{% highlight bash %}
+/usr/bin/sw_vers
+{% endhighlight %}
+
+<p>Das gibt euch dann alles aus, was ihr wissen wolltet.</p>
+<p><a href="http://www.adminswerk.de/wp-content/uploads/2011/07/2011-07-19-macosx-terminal.jpg"><img class="alignnone size-medium wp-image-674" title="2011-07-19-macosx-terminal" src="assets/2011-07-19-macosx-terminal-300x245.jpg" alt="" width="300" height="245" /></a></p>

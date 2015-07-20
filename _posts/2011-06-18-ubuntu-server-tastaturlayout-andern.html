@@ -1,0 +1,32 @@
+---
+layout: default
+title: 'Ubuntu Server: Tastaturlayout ändern'
+date: 2011-06-18 20:10:41.000000000 +02:00
+categories:
+- Linux
+tags:
+- Linux
+- Tastaturlayout
+- ubuntu
+status: publish
+type: post
+published: true
+---
+<p>Um mal das Softwareverteilungsprogramm <a href="http://www.opsi.org/" target="_blank">OPSI</a> zu testen, habe ich mir zu Hause eine Ubuntu Server VM mit Virtual Box aufgesetzt. Neben der Tatsache, dass mein Rechner schon fünf Jahre alt ist und für VMs nur bedingt geeignet, bin ich früh auf ein komisches Problem gestoßen, welches sicherlich den ein oder anderen Neuling in Verzweiflung getrieben hat.</p>
+<p>Auch wenn während der Installation die deutsche Sprache mit deutschem Tastaturlayout gewählt wurde, wird nach der Installation das amerikanische Layout benutzt. Das ist für uns natürlich ungewohnt und entsprechend nervig. Hier also wie ihr das ändert:</p>
+
+{% highlight bash %}
+sudo dpkg-reconfigure keyboard-configuration
+{% endhighlight %}
+
+<p>Damit könnt ihr bequem eure Tastatureinstellungen ändern. In der Regel sollten die Einstellungen "<strong>Generische Tastatur mit 105 Tasten (Intl)</strong>", "<strong>Deutschland</strong>", nochmal "<strong>Deutschland</strong>", "<strong>Right Alt (AltGr)</strong>" und "<strong>No compose Key</strong>" euer Malheur beheben.</p>
+<p><a href="http://www.adminswerk.de/wp-content/uploads/2011/06/2011-06-18-ubuntu_tastatur.png"><img class="size-thumbnail wp-image-538 alignnone" title="2011-06-18-ubuntu_tastatur" src="assets/2011-06-18-ubuntu_tastatur-150x128.png" alt="" width="150" height="128" /><br />
+</a></p>
+<p>Sollte zusätzlich noch der Zeichensatz verstellt sein, ändert ihr das mit dem Befehl</p>
+
+{% highlight bash %}
+sudo dpkg-reconfigure console-setup
+{% endhighlight %}
+
+<p>Die Einstellungen dort könnt ihr alle so weit beibehalten, mit Ausnahme des zu unterstützenden Zeichensatzes, den ihr auf "<strong>. Kombiniert - Latein, slawisches Kyrillisch, Griechisch</strong>" stellen solltet.</p>
+<p>Beide Einstellungen greifen direkt.</p>

@@ -1,0 +1,21 @@
+---
+layout: default
+title: Leerzeilen und Absätze in Wordpress
+date: 2011-12-01 09:00:30.000000000 +01:00
+categories:
+- Blogging
+tags: []
+status: publish
+type: post
+published: true
+---
+<p>Nur schnell eine kleine Problemlösung zwischendurch, damit ich sie hoffentlich nie wieder vergesse:</p>
+<p>Die in meinen Augen einfachste und gleichzeitig eleganteste Lösung in Wordpress Leerzeilen oder größere Zwischenräume zu erzeugen ist die Nutzung von CSS in einem &lt;p&gt;-Tag. Der Code dafür sieht so aus:</p>
+
+{% highlight html %}
+&lt;p style="margin-top: 20px;"&gt;Text nach dem Absatz&lt;/p&gt;
+{% endhighlight %}
+
+<p>In Wordpress sieht ein entsprechend erzeugter Absatz dann so aus (beachtet den folgenden Absatz):</p>
+<p style="margin-top: 40px;">Und im wordpresseigenen HTML-Editor sieht dieser Artikel (ohne Bild) dann so aus.</p>
+<p><a href="http://www.adminswerk.de/wp-content/uploads/2011/12/2011-11-30-wordpress-absatz.jpg"><img class="alignnone size-large wp-image-1200" title="2011-11-30-wordpress-absatz" src="assets/2011-11-30-wordpress-absatz-1024x332.jpg" alt="" width="1024" height="332" /></a></p>

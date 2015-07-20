@@ -1,0 +1,35 @@
+---
+layout: default
+title: 'Debian: Aus der Quelle kompilierte Programme löschen'
+date: 2013-09-24 06:10:20.000000000 +02:00
+categories:
+- Linux
+tags:
+- CentOS
+- checkinstall
+- deb
+- Debian
+- rpm
+status: publish
+type: post
+published: true
+---
+<p>Wenn man Programme aus der Quelle kompiliert, ist es oft schwierig, diese wieder zu deinstallieren. Wenn der Ersteller der Sources nicht ein <strong>make uninstall</strong> eingebaut hat, ist ein es mühevolles Durchklauben der einzelnen Verzeichnisse.<br />
+Die Lösung für dieses Problems hört auf den Namen <a href="http://asic-linux.com.mx/~izto/checkinstall/" target="_blank">checkinstall</a>. Dieses kleine Helferlein erstellt aus den vorher vorbereiteten und kompilierten Dateien ein .deb-Paket (bzw. bei RedHat, Fedora, CentOS ein rpm) und installiert es dann. Dadurch kann man es einfach mit dpkg (bzw. rpm) wieder deinstallieren. Weiterer Vorteil: Man kann das erstellte Paket auch sichern oder mit anderen teilen.<br />
+Ein Kompilierungsvorgang mit checkinstall sieht dann so aus:</p>
+
+{% highlight bash %}
+./configure #hier koennen natuerlich auch Optionen angegeben werden
+make
+sudo checkinstall --type=debian --install=yes
+{% endhighlight %}
+
+<p>Nachdem checkinstall fertig ist, könnt ihr die Installation leicht prüfen. Für die Backupsoftware <a href="http://amanda.org/" target="_blank">Amanda</a>, über die ihr in Bälde hier vermutlich auch noch etwas lesen werdet, sähe das so aus:</p>
+
+{% highlight bash %}
+root@foo:/usr/local/src/amanda-3.3.4# dpkg --get-selections |grep amanda
+amanda                                          install
+root@foo:/usr/local/src/amanda-3.3.4# 
+{% endhighlight %}
+
+<p>Die Deinstallation ginge dann dementsprechend mit <strong>dpkg -r</strong> oder <strong>-P</strong>. Checkinstall ist in den Debian Repositories in der neusten Version verfügbar, für CentOS muss es selbst kompiliert werden.</p>

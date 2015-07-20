@@ -1,0 +1,84 @@
+---
+layout: default
+title: 'Linux: SSH-Server sichern'
+date: 2013-09-13 05:30:30.000000000 +02:00
+categories:
+- Linux
+tags:
+- sicherheit
+- ssh
+status: publish
+type: post
+published: true
+---
+<p>Da ich meinen vServer ja <a href="http://www.adminswerk.de/warum-man-immer-ein-backup-haben-sollte/" title="Warum man immer ein Backup haben sollte…">komplett neu aufsetzen muss</a>, nutze ich die Gelegenheit, um hier meine Konfiguration der <strong>/etc/ssh/sshd_config</strong> zur Sicherung des SSH-Servers aufzuführen. Dazu poste ich hier einfach eine beispielhafte sshd_config mit (englischen) Kommentaren.</p>
+<p style="margin-top:20px;">
+
+{% highlight bash %}
+# sshd_config by m3adow, created 2013-09-06
+# Tested for:
+# OpenSSH_5.3p1, OpenSSL 1.0.0-fips 29 Mar 2010
+
+# Restrict to IPv4. Change to inet6 for IPv6 only. Comment it out or use "any" for no restriction.
+AddressFamily inet
+
+# Set AuthorizedKeysFile to standard for visibility.
+#AuthorizedKeysFile .ssh/authorized_keys
+
+# Disable ALL authentication methods
+# We'll enable those for our loginuser.
+ChallengeResponseAuthentication no
+GSSAPIAuthentication no
+HostbasedAuthentication no
+KerberosAuthentication no
+PasswordAuthentication no
+PubKeyAuthentication no
+RSAAuthentication no
+UsePAM no
+
+# Reduce LoginGraceTime to 60 seconds
+LoginGraceTime 60
+
+# Reduce MaxAuthTries to make manual bruteforcing more difficult
+MaxSessions 4
+# Enable random early drops for unauthenticated connections
+MaxStartups 4:60:8
+
+# Configure Logging
+LogLevel INFO
+SyslogFacility AUTH
+
+# Empty Passwords are bad, mkay? Use Pubkeys for this.
+PermitEmptyPasswords no
+
+# Root Login via SSH is bad too.
+# If you really want this, use "without-password" to enable root Login with Pubkey only.
+PermitRootLogin no
+
+# Change the SSH-Port to prevent a lot of automated Login Tries which clutter up your logfiles.
+Port 4711
+
+# Print the last Login.
+PrintLastLog yes
+
+# Only use the secure SSH-Protocol 2
+Protocol 2
+
+# Enable StrictMode
+StrictModes yes
+
+# Since I don't think X11 belongs to a server, there's no use for Forwarding.
+X11Forwarding no
+
+# Only use Ciphers and MACs which are declared safe by the German BSI
+Ciphers aes128-ctr,aes192-ctr,aes256-ctr,arcfour256
+MACs hmac-sha1,umac-64@openssh.com,hmac-ripemd160
+
+# No we set up our loginuser "foo" which is the only user allowed to access the server.
+Match User foo
+        # We only want Public Key Authentication since it's the most secure way.
+        PubKeyAuthentication yes
+{% endhighlight %}
+
+<p>Die Datei kann natürlich gerne auf anderen Servern genutzt werden. :-)<br />
+Ich denke, dass diese config-Datei selbst erklärend ist. Falls ihr aber trotzdem noch Fragen habt, nur zu.</p>

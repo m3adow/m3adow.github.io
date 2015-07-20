@@ -1,0 +1,55 @@
+---
+layout: default
+title: 'ESXi: Aliases definieren'
+date: 2012-02-15 15:18:15.000000000 +01:00
+categories:
+- Administration
+tags:
+- alias
+- esxi
+- vmware
+status: publish
+type: post
+published: true
+---
+<p>Unter Linux ist es normal, dass man sich seine eigenen Aliases definiert, um schneller arbeiten zu können. Meine Standardaliases sehen zumeist irgendwie so aus:</p>
+
+{% highlight bash %}
+alias ls='ls -l'
+alias la='ls -la'
+alias ..='cd ..'
+alias ...='cd ../..'
+{% endhighlight %}
+
+<p>Je nach Distribution dann noch mit <em>--color=auto</em> Zusatz. Um zu verhindern, dass die Aliases nach einem Neustart oder einem Logout verschwunden sind, schreibt man sie meist in die <em>~/bash.rc</em> Datei.</p>
+<p>Auf dem VMware ESXi-Server gibt es diese Datei allerdings nicht. Zusätzlich werden viele Dateien nach einem Neustart wieder entfernt, bzw. gereinigt. Um im VMware ESXi Aliases anzulegen, müsst ihr diese in die Datei <em>/etc/profile</em> schreiben.</p>
+
+{% highlight bash %}
+vi /etc/profile
+{% endhighlight %}
+
+<p>Wie ihr mit vi umgeht, könnt ihr zum Beispiel <strong><a href="http://www.sits.de/mini/vi.html" target="_blank">hier</a></strong> nachlesen. Nach meiner Bearbeitung sah die Datei dann so aus.</p>
+
+{% highlight bash %}
+#!/bin/ash
+
+export TERMINFO=/usr/share/terminfo
+export PYTHONHOME=/
+export PYTHONPATH=/lib/python2.5-visor:/lib/python2.5-visor/lib-dynload:/lib/pyt
+
+if [ `id -u` -eq 0 ]; then
+   PATH=/bin:/sbin
+   umask 0022
+else
+   PATH=/bin
+   umask 0002
+fi
+
+export PATH
+alias ls='ls -a'
+alias la='ls -la'
+alias ..='cd ..'
+alias ...='cd ../..'
+{% endhighlight %}
+
+<p>Damit kann ich nun wieder navigieren, wie ich es gewohnt bin.</p>

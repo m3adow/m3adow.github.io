@@ -1,0 +1,40 @@
+---
+layout: default
+title: 'SSH: "Failed public key file"-Fehler beheben'
+date: 2013-03-11 11:37:59.000000000 +01:00
+categories:
+- Linux
+tags:
+- Berechtigung
+- fehler
+- ssh
+status: publish
+type: post
+published: true
+---
+<p>Jeder der etwas mit SSH arbeitet weiß, dass bei Fehlern immer eine Devise gilt: <strong>Berechtigungen checken, Berechtigungen checken, Berechtigungen checken!</strong> Damit kann man i.d.R. auch 98% aller Fehler beheben.<br />
+Ebenso der heute bei mir aufgetretene Fehler in einer Appliance. Der Root-User kann sich hervorragend per SSH in die Maschine einloggen, der neu erstellte User kann es nicht. Die Keys werden durch einen Eintrag in der <em>sshd_config</em> zentral verwaltet.</p>
+
+{% highlight bash %}
+AuthorizedKeysFile /usr/local/etc/sshd/.authorized_keys/%u
+{% endhighlight %}
+
+<p>Setzt man das <strong>LogLevel</strong> in der <em>sshd_config</em> auf <strong>DEBUG3</strong>, bekommt man Logeinträge die etwa so aussehen:</p>
+
+{% highlight bash %}
+Feb 16 11:08:54 testserver sshd[16398]: debug1: userauth-request for user testuser service ssh-connection method publickey
+[...]
+Feb 16 11:08:54 testserver sshd[16397]: debug3: mm_answer_keyallowed entering
+Feb 16 11:08:54 testserver sshd[16397]: debug3: mm_answer_keyallowed: key_from_blob: 0x406da540
+Feb 16 11:08:54 testserver sshd[16397]: debug1: temporarily_use_uid: 1002/100 (e=0/0)
+Feb 16 11:08:54 testserver sshd[16397]: debug1: trying public key file /usr/local/etc/sshd/.authorized_keys/testuser
+Feb 16 11:08:54 testserver sshd[16397]: debug1: restore_uid: 0/0
+Feb 16 11:08:54 testserver sshd[16397]: debug1: temporarily_use_uid: 1002/100 (e=0/0)
+Feb 16 11:08:54 testserver sshd[16397]: debug1: trying public key file /usr/local/etc/sshd/.authorized_keys/testuser
+Feb 16 11:08:54 testserver sshd[16397]: debug1: restore_uid: 0/0
+Feb 16 11:08:54 testserver sshd[16397]: Failed publickey for testuser from 10.0.0.1 port 42784 ssh2
+Feb 16 11:08:54 testserver sshd[16397]: debug3: mm_answer_keyallowed: key 0x406da540 is disallowed
+{% endhighlight %}
+
+<p>Die 3 hervorgehobenen Zeilen sind hier die wichtigen. SSHD versucht, auf das entsprechende AuthorizedKeyFile mit der User- und Group-ID des gewünschten Benutzers zuzugreifen. In diesem Falle versucht also der User <em>testuser</em> auf die Datei <em>/usr/local/etc/sshd/.authorized_keys/testuser</em> zuzugreifen. Dies muss ihm auch erlaubt sein. In meinem Fall konnte er das nicht, da das .authorized_keys-Verzeichnis eine 700er-Berechtigung hatte. Warum man die Berechtigung für einen Public Keys Ordner so restriktiv gesetzt war und warum OpenSSH selbst auf der höchsten Logstufe keine vielsagendere Fehlermeldung gibt, wird mir auf immer schleierhaft bleiben.<br />
+Da ich nicht wusste, dass der SSHD den Zugriff mit dem jeweiligen User versucht, hatte ich diese Problemquelle auch gar nicht ausgemacht und war schon mitten in der Fehlersuche in PAM- und SeLinux-Einstellungen. :-P</p>

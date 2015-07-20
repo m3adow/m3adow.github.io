@@ -1,0 +1,37 @@
+---
+layout: default
+title: 'apt-get: Media change Fehler beheben'
+date: 2012-03-07 06:58:17.000000000 +01:00
+categories:
+- Linux
+tags:
+- apt-get
+- fehler
+- Linux
+status: publish
+type: post
+published: true
+---
+<p>Zu Testzwecken habe ich mir auf meinem alten Rechner einen Debianserver aufgesetzt. Wie eigentlich immer bei mir kam es am Anfang zu kleineren Problemchen. Als ich meinen geliebten Midnight Commander mit apt-get installieren wollte, bekam ich den Fehler</p>
+
+{% highlight text %}
+Media change: please insert the disc labeled
+ 'Debian GNU/Linux 6.0.4 _Squeeze_ - Official amd64 DVD Binary-1 20120128-13:42'
+in the drive '/media/cdrom/' and press enter
+{% endhighlight %}
+
+<p><a href="http://www.adminswerk.de/wp-content/uploads/2012/02/2012-02-25-debian-apt-problem.png"><img class="alignnone size-thumbnail wp-image-1808" title="2012-02-25-debian-apt-problem" src="assets/2012-02-25-debian-apt-problem-150x94.png" alt="" width="150" height="94" /></a><br />
+Spitze! Die Lösung ist allerdings simpel.</p>
+<ol>
+<li>  Die Apt-get Sources List mit eurem favorisierten Editior öffnen
+
+{% highlight bash %}
+nano /etc/apt/sources.list
+{% endhighlight %}
+
+</li>
+<li>Kommentiert oder löscht jede Zeile, die <strong>deb cdrom: </strong>enthält und speichert.<br />
+<a href="http://www.adminswerk.de/wp-content/uploads/2012/02/2012-02-25-debian-apt-problem-2.png"><img class="alignnone size-medium wp-image-1809" style="margin-top: 10px; margin-bottom: 10px;" title="2012-02-25-debian-apt-problem-2" src="assets/2012-02-25-debian-apt-problem-2-300x188.png" alt="" width="300" height="188" /></a><br />
+Wie man sieht, war dieser Eintrag zweimal bei mir, einer war noch nicht auskommentiert.</li>
+<li>Ab nun könnt ihr wieder wie gewohnt mit apt-get arbeiten.</li>
+</ol>

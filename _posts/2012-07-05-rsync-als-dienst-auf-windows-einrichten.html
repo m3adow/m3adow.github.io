@@ -1,0 +1,104 @@
+---
+layout: default
+title: Rsync als Dienst auf Windows einrichten
+date: 2012-07-05 08:11:37.000000000 +02:00
+categories:
+- Administration
+- Windows
+tags:
+- 64-Bit
+- rsync
+- Windows
+- windows server
+status: publish
+type: post
+published: true
+---
+<p>Zur Sicherung unserer Windowsserver setzen wir unter anderem auch <a href="http://de.wikipedia.org/wiki/Rsync" target="_blank">rsync</a> ein, ein Programm, das aus der Linux Welt bekannt ist. Um dieses auf Windows laufen zu lassen ist etwas Arbeit nötig. Da ich letzte Woche feststellen musste, dass unsere bisher verwendete Version nicht auf 64-Bit Versionen von Windows läuft, habe ich hier eine Anleitung geschrieben, wie man ein aktuelles rsync-Paket bastelt und dieses dann auf dem Server als Dienst laufen lässt. Ganz unten habe ich das fertige Paket dann auch angehängt.</p>
+<p>Teile dieser Anleitung basieren auf der schon einige Jahre alten <a href="http://www.brentnorris.net/rsyncntdoc.html" target="_blank">Anleitung von Brent Norris</a>.</p>
+<h6>Voraussetzungen</h6>
+<p>Wir benötigen:</p>
+<ul>
+<li><a href="http://cygwin.com/install.html" target="_blank">Cygwin</a>, bzw. 4 Dateien aus der Cygwin-Installation:</li>
+<ul style="list-style-type: square;">
+<li><strong>cygiconv-2.dll</strong><br />
+<strong></strong></li>
+<li><strong>cygpopt-0.dll </strong></li>
+<li><strong>cygwin1.dll</strong></li>
+<li><strong>rsync.exe</strong></li>
+</ul>
+<li>Die Dateien <strong>instserv.exe</strong> und <strong>srvany.exe</strong> aus dem <a href="http://www.microsoft.com/en-us/download/confirmation.aspx?id=17657" target="_blank">Windows 2003 Ressource Kit</a></li>
+</ul>
+<h6>Umsetzung</h6>
+<p>Nun geht's los.</p>
+<p><!--more--></p>
+<ol>
+<li>Kopiert die oben genannten Dateien alle in den Ordner, von dem ihr den Dienst ausführen wollt, bei mir ist es das Verzeichnis <strong>C:\Program Files (x86)\rsyncd</strong>.</li>
+<li>Öffnet eine CMD und wechselt in euer gewünschtes Verzeichnis:
+
+{% highlight batch %}
+cd ":\Program Files (x86)\rsyncd\"
+{% endhighlight %}
+
+</li>
+<li>Gebt hiernach diesen Befehl in der CMD ein:
+
+{% highlight batch %}
+instsrv.exe rsyncd "C:\Program Files (x86)\rsyncd\srvany.exe"
+{% endhighlight %}
+
+<p>Dabei müsst ihr den Pfad natürlich entsprechend auf euren Pfad ändern.</li>
+<li>Nun haben wir schonmal einen <em>rsyncd</em>-Dienst in der Diensteverwaltung eingetragen, dieser ist aber noch nicht funktionsfähig. Als nächstes müssen wir den Dienst mit entsprechenden Konfigurationen füttern. Dazu brauchen wir einige Regeinträge. Entweder legt ihr diese Per Hand an oder ihr kopiert euch den unten stehenden Code in eine .reg-Datei und führt diese aus. Auch hier müssen die Pfade wieder entsprechend angepasst werden. Beachtet, dass die Pfade in einer Regdatei doppelte Backslashes haben, in einem händisch erstellten Registryeintrag aber nur einzelne.
+
+{% highlight registry%}
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\rsyncd\Parameters]
+"AppDirectory"="\"C:\Program Files (x86)\rsyncd\""
+"Application"="C:\Program Files (x86)\rsyncd\rsync.exe"
+"AppParameters"="--config=\"C:\Program Files (x86)\rsyncd\rsyncd.conf\" --daemon --no-detach"
+{% endhighlight %}
+
+</li>
+<li>Nun ist der Dienst quasi funktionsfähig, wir brauchen lediglich noch die rsyncd.conf im Diensteverzeichnis erstellen, die wir eben bei den <em>AppParameters</em> angegeben haben.<br />
+Die könnte etwa so aussehen:</p>
+
+{% highlight ini %}
+use chroot = false
+strict modes = false
+log file = C:\Program Files (x86)\rsyncd\rsyncd.log
+
+[backup]
+path = /cygdrive/c/backup/
+comment = Backup-Verzeichnis
+read only = yes
+hosts allow = 192.168.0.0/16
+list = true
+{% endhighlight %}
+
+<p>Ich denke, ein Großteil der Angaben ist selbsterklärend, ansonsten verweise ich auf die <a href="http://linux.die.net/man/5/rsyncd.conf" target="_blank">rsync.conf Manpage</a>.</li>
+<li>Jetzt ist der Dienst wirklich funktionsfähig. Je nach Berechtigungsverwaltung und Benutzer, unter dem ihr den Dienst ausführt, müsst ihr eventuell noch die Berechtigungen der <em>rsyncd.log</em> ändern, damit diese auch beschreibbar ist.</li>
+</ol>
+<h6>Funktionstest</h6>
+<p>Wenn rsync dann startet, sollte im Log etwa so etwas stehen:</p>
+
+{% highlight irc %}
+2012/06/11 10:30:32 [4036] rsyncd version 3.0.9 starting, listening on port 873
+{% endhighlight %}
+
+<p>Um die Funktionalität des Rsync-Dienstes zu testen, öffnet eine Kommandozeile, navigiert in euer <em>rsyncd</em>-Verzeichnis und probiert folgenden Befehl aus:</p>
+
+{% highlight batch %}
+rsync.exe ::
+{% endhighlight %}
+
+<p>Die Ausgabe sollte dann eure eingerichteten rsync-Ordner wiedergeben. Bei der obigen rsync.conf würde das dann so aussehen:</p>
+
+{% highlight batch %}
+C:\Program Files (x86)\rsyncd&gt;rsync.exe ::
+backup          Backup-Verzeichnis
+{% endhighlight %}
+
+<p>Damit ist euer rsync-Daemon für Windows fertig. Zum Aktualisieren der Versionen müssen lediglich die 4 Cygwin-Dateien durch neuere ersetzt und der Dienst neu gestartet werden.</p>
+<p style="margin-top: 20px;">Falls ihr an der Anleitung gescheitert oder einfach nur zu faul zum selbermachen seid, <a href="http://misc.adminswerk.de/rsyncd.zip" target="_blank"><strong>hier habe ich das"Rsync für Windows"-Paket</strong></a> zum Herunterladen bereitgestellt. Ihr müsst lediglich noch die gewünschten Pfade in der <strong><em>rsyncd.conf</em></strong> und der<strong><em> rsyncd.reg</em></strong> anpassen und die Reg-Datei danach ausführen. Wenn ihr rsync in <em>C:\\Program Files (x86)\\rsyncd</em> ausführen wollt, könnt ihr die Dateien so weitestgehend übernehmen.</p>
+<p><strong>Ich übernehme dafür keinerlei Haftung und empfehle jedem, die obige Anleitung zu befolgen, wenn er mir nicht hundertprozentig vertraut!</strong></p>

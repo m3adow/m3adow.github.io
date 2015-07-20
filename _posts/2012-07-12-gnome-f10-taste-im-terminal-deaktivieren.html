@@ -1,0 +1,49 @@
+---
+layout: default
+title: 'Gnome: F10-Taste im Terminal deaktivieren'
+date: 2012-07-12 08:49:39.000000000 +02:00
+categories:
+- Administration
+- Linux
+tags:
+- Gnome
+- Gnome Shell
+- Linux
+- Midnight Commander
+- Terminator
+status: publish
+type: post
+published: true
+---
+<p>Ich benutze regelmäßig den <a href="https://www.midnight-commander.org/" target="_blank">Midnight Commander</a> für die Administration von Terminalclients. Nun hatte ich vor Kurzem ein Problem mit dem Gnome Terminal bzw. mit meiner Alternative dem Shellprogramm <a href="http://software.jessies.org/terminator/" target="_blank">Terminator</a>. Der Hotkey zum Beenden des MC ist standardmäßig die <strong>F10</strong>-Taste, doch plötzlich hat diese Taste neben dem Beenden auch noch das Kontextmenü von Terminator aufgerufen.</p>
+<p><a href="http://www.adminswerk.de/wp-content/uploads/2012/05/2012-05-25-terminator-kontextmenue.png"><img class="alignnone size-medium wp-image-2032" title="2012-05-25-terminator-kontextmenue" src="assets/2012-05-25-terminator-kontextmenue-300x269.png" alt="" width="300" height="269" /></a></p>
+<p>Das hat mich verständlicherweise genervt, deswegen hier die Lösung für andere Suchende:</p>
+<ol>
+<li>In der Datei <strong>~/.gtkrc-2.0</strong>folgende Ergänzung hinzufügen:
+
+{% highlight bash %}
+binding "NoKeyboardNavigation" {
+        unbind "F10"
+}
+
+class "*" binding "NoKeyboardNavigation"
+{% endhighlight %}
+
+</li>
+<li>Außerdem in der Datei <strong>~/.config/gtk-3.0/gtk.css</strong>diese Zeilen ergänzen:
+
+{% highlight bash %}
+@binding-set NoKeyboardNavigation {
+ unbind "F10"
+}
+
+* {
+ gtk-key-bindings: NoKeyboardNavigation
+}
+{% endhighlight %}
+
+<p>Falls die Datei nicht vorhanden ist mit <em>touch</em> oder über Nautilus (bzw. den Dateimanager eurer Wahl) anlegen.</li>
+<li>Schließt nun alle Terminals.</li>
+</ol>
+<p>Wenn ihr nun ein neues Terminal aufruft oder Terminator startet, dann ist die nervige Kontextmenüfunktion auf F10 deaktiviert.</p>
+<p><em>(<a href="http://forum.ubuntuusers.de/topic/midnightcommander-im-terminal-f10-beenden/" target="_blank">via</a>)</em></p>

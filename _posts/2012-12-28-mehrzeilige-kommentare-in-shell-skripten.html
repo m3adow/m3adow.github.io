@@ -1,0 +1,41 @@
+---
+layout: default
+title: Mehrzeilige Kommentare in Shell Skripten
+date: 2012-12-28 11:27:40.000000000 +01:00
+categories:
+- Linux
+tags:
+- bash
+- kommentare
+- scripting
+- Shell
+status: publish
+type: post
+published: true
+---
+<p>In den letzten Tage habe ich ziemlich viel Shell Skripte geschrieben. Immer wieder wollte ich ganze Teile des Skripts auskommentieren, um diese zu überspringen. Leider sind mehrzeilige Kommentare im Stile von HTML mit <strong>&lt;!--</strong> und <strong>--&gt;</strong> oder wie bei PHP mit <strong>/*</strong> und <strong>*/</strong> bei Shell Skripten nicht  vorgesehen. Doch es gibt zwei kleine Workarounds:</p>
+
+{% highlight bash %}
+echo "Hiernach sind Kommentare."
+: '
+Ein mehrzeiliger Kommentar,
+der alles notwendige erlaeutert,
+was man wissen sollte
+'
+echo "Obendrueber steht ein Kommentar."
+{% endhighlight %}
+
+<p>Das ist der einfache Weg. Er funktioniert allerdings nur, wenn ihr keine einfachen Anführungszeichen im Kommentar habt. Das ist bei meistens immer der Fall. Wenn ihr diese einfachen Anführungszeichen aber in eurem Kommentar benötigt, dann nutzt Variante B:</p>
+
+{% highlight bash %}
+echo "Auch hiernach ein Kommentar."
+: <<KOMMENTARIO
+Ein toller und eloquenter Kommentar,
+der jeden Zweifel ueber schlechten Code
+ausrauemt.
+KOMMENTARIO
+echo "Obendrueber war ein Kommentar."
+{% endhighlight %}
+
+<p>Jetzt arbeiten wir also geschickt mit Sprungmarken. Das hat auch den Vorteil, dass man im vi oder dem entsprechenden Editor nach dem Name der jeweiligen Sprungmarke suchen kann. Achtet aber darauf, dass der Name eurer Sprungmarken eindeutig sein muss und nirgends sonst im Quellcode vorkommen darf.</p>
+<p><em>Quelle:</em> Das empfehlenswerte <a href="http://www.unix.com/shell-programming-scripting/39478-block-comment-shell-script.html" target="_blank">unix.com-Forum</a></p>

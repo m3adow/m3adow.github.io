@@ -1,0 +1,29 @@
+---
+layout: default
+title: 'Linux from Scratch: Software und Patches Liste'
+date: 2011-10-16 19:00:16.000000000 +02:00
+categories:
+- Linux
+tags:
+- lfs
+- Linux
+- Linux from scratch
+status: publish
+type: post
+published: true
+---
+<p><a href="http://www.linuxfromscratch.org/images/lfs-logo.png"><img class="alignleft" style="margin: 10px;" src="assets/lfs-logo.png" alt="" width="192" height="75" /></a>Für alle, die sich auch zeitnah durch <a href="http://www.linuxfromscratch.org/lfs/" target="_blank">Linux from Scratch</a> durcharbeiten hier eine <a href="http://www.adminswerk.de/wp-content/uploads/2011/lfs_software" target="_blank">Liste mit allen Software-Downloads und Patches</a> der LFS-Version 7.0RC1.</p>
+<p>Mit einem</p>
+
+{% highlight bash %}
+wget -i http://www.adminswerk.de/wp-content/uploads/2011/lfs_software -P $LFS/sources
+{% endhighlight %}
+
+<p>könnt ihr direkt alle Sources in euer LFS-Sources Verzeichnis saugen.</p>
+<p><strong>[Update 30.10.2011]</strong> Gestern ist die LFS-Version 7.0 Final rausgekommen und während ich so im <a href="http://www.linuxfromscratch.org/lfs/downloads/7.0/" target="_blank">Stable-Verzeichnis</a> stöberte, stieß ich auf die im Buch erwähnte <a href="http://www.linuxfromscratch.org/lfs/downloads/7.0/wget-list" target="_blank">wget-list</a>. Layer 8 Problem eben, hätte ich mal etwas besser gelesen und kapiert. Na ja, ihr könnt also die jeweils aktuellen Sources für jede LFS-Version mit</p>
+
+{% highlight bash %}
+wget -i http://www.linuxfromscratch.org/lfs/downloads/7.0/wget-list -P $LFS/sources
+{% endhighlight %}
+
+<p>erhalten, wobei ihr 7.0 eben durch die momentan aktuelle Release Version austauscht. <strong>[/Update]</strong></p>

@@ -1,0 +1,32 @@
+---
+layout: default
+title: 'Perl: CPAN durch Squid-Proxy mit HTTP nutzen'
+date: 2013-04-12 10:14:05.000000000 +02:00
+categories:
+- Administration
+- Linux
+tags:
+- CPAN
+- Perl
+- proxy
+status: publish
+type: post
+published: true
+---
+<p>Das Problem, dass ich keine Module über CPAN nachinstallieren konnte, weil ich hinter einem Squid-Proxy war, der kein FTP durchließ, hatte ich jetzt schon öfters. Weil ich jedes Mal wieder überlegen muss, wie man diese Problematik nun behebt, hier eine fixe Erklärung.</p>
+<p>Dazu bearbeiten wir die Konfigurationsdatei von CPAN, die überaschenderweise <strong>Config.pm</strong> heißt. Wo diese Datei zu finden ist, hängt unter anderem von der verwendeten Distribution ab. Bei meinem SLES11SP2 Testsystem liegt die Datei unter <em>/usr/lib/perl5/5.10.0/CPAN/</em>. In diese Datei fügen wir nun folgenden Eintrag ein:</p>
+
+{% highlight perl %}
+'dontload_hash' => { q[Net::FTP]=>q[1], q[LWP]=>q[1] },
+{% endhighlight %}
+
+<p>und bearbeiten wenn nicht schon bei der Ersteinrichtung geschehen den Eintrag für den HTTP-Proxy, um unseren Proxy-Server mitsamt Port dort zu hinterlegen.</p>
+
+{% highlight perl %}
+'http_proxy' => q[http://proxy.foobar.org:3128],
+{% endhighlight %}
+
+<p>Das war's eigentlich schon, damit sollte sich CPAN verbinden können. Doch was haben wir genau getan?<br />
+Wir haben CPAN angewiesen, die für FTP verwendeten Module nicht mehr zu laden. Dadurch gibt es ein Fallback auf WGET oder CURL, welche sich über HTTP verbinden und die dafür benutzten Proxyeinstellungen nutzen.</p>
+<p><a href="http://www.adminswerk.de/wp-content/uploads/2013/04/2013-04-05-config.pm_.png"><img class="alignnone size-medium wp-image-2848" style="margin: 10px;" alt="2013-04-05-config.pm" src="assets/2013-04-05-config.pm_-300x300.png" width="300" height="300" /></a></p>
+<p>Es kann sein, dass je nach Proxykonfiguration nicht beide Module deaktiviert werden müssen. Allerdings bin ich mit dieser Einstellungen bisher immer gut gefahren.</p>

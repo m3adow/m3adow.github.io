@@ -1,0 +1,38 @@
+---
+layout: default
+title: 'Linux: Pfeiltasten in vi oder vim fixen'
+date: 2011-12-27 12:28:04.000000000 +01:00
+categories:
+- Linux
+tags:
+- Linux
+- pfeiltasten
+- vi
+status: publish
+type: post
+published: true
+---
+<p>Wenn ihr in eurem <strong>vi</strong> oder <strong>vim</strong> das Problem habt, dass ihr nicht richtig mit den Pfeiltasten navigieren könnt, versucht folgendes:</p>
+<ol>
+<li>Öffnet die <strong>.profile</strong>-Datei in eurem home-Verzeichnis
+
+{% highlight bash %}
+vi ~/.profile
+{% endhighlight %}
+
+</li>
+<li>Packt
+
+{% highlight bash %}
+TERM=linux
+{% endhighlight %}
+
+<p>in die erste Zeile, speichert und verlasst die Datei. Eine kurze Anleitung für VI findet man beispielsweise <a href="http://www.linux-fuer-alle.de/doc_show.php?docid=29&amp;catid=8" target="_blank">HIER</a> oder über Google.</li>
+<li>Anschließend noch ein
+
+{% highlight bash %}
+source .profile
+{% endhighlight %}
+
+<p>und ihr habt euer Pfeiltastenproblem gelöst.</li>
+</ol>

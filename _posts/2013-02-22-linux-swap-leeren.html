@@ -1,0 +1,27 @@
+---
+layout: default
+title: 'Linux: Swap leeren'
+date: 2013-02-22 08:47:43.000000000 +01:00
+categories:
+- Linux
+tags:
+- Linux
+- swap
+status: publish
+type: post
+published: true
+---
+<p>Kurztipp: Wenn ihr unter Linux warum auch immer den Swapspeicher leeren wollt, ist das so möglich:</p>
+
+{% highlight bash %}
+swapoff -a && swapon -a
+{% endhighlight %}
+
+<p>Damit deaktivieren wir den Swap-Speicher erst komplett, wodurch dieser geleert wird, dann aktivieren wir ihn wieder. Bei größeren Swapauslastungen kann das durchaus ein paar Minuten dauern. Um den Fortschritt zu prüfen, könnt ihr in einem anderen Terminalfenster diesen Befehl ausführen:</p>
+
+{% highlight bash %}
+free -s 3 |grep Swap 
+{% endhighlight %}
+
+<p>Damit wird euch dann alle 3 Sekunden der Speicherstand des Swaps angezeigt. Dieser sollte sich dann natürlich kontinuierlich verringern und letzendlich auf null stehen.<br />
+<em>(<a href="http://wiki.ubuntuusers.de/Swap" target="_blank">via</a>)</em></p>

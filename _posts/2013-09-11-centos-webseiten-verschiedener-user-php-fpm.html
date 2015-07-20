@@ -1,0 +1,138 @@
+---
+layout: default
+title: 'CentOS: Webseiten verschiedener User mit PHP-FPM'
+date: 2013-09-11 13:36:24.000000000 +02:00
+categories:
+- Linux
+tags:
+- apache2
+- CentOS
+- php
+- php-fpm
+status: draft
+type: post
+published: false
+---
+<p>Auf meinen Servern laufen sehr viele unterschiedliche Webapplikationen mit PHP. Da ich mitunter auch andere Benutzer auf einzelne davon zugreifen lasse, sie aber nicht auf unbedingt auf die anderen zugreifen sollen, will ich für jede Webapplikation einen eigenen Benutzer haben, dem auch alle Daten dieser Applikation gehören. <a href="http://www.adminswerk.de/wp-content/uploads/2013/09/2013-09-10-php-fpm-conf.png"><img class="alignright size-medium wp-image-2985" style="margin: 5px;" alt="2013-09-10-php-fpm-conf" src="assets/2013-09-10-php-fpm-conf-300x184.png" width="300" height="184" /></a>Weiterhin will ich PHP via Opcache beschleunigen und Apache vom Prefork-Modul auf das flexiblere Worker-Modul umstellen.<br />
+Zusammengefasst sehen meine Anforderungen so aus:</p>
+<ul>
+<li>PHP-Skripte sollen dem zugehörigen Benutzer gehören und mit dessen Berechtigung laufen</li>
+<li>Opcache zur Beschleunigung</li>
+<li>Apache MPM worker</li>
+</ul>
+<p>Fangen wir also an:<br />
+<!--more--></p>
+<h6>Repository hinzufügen und Software installieren</h6>
+<p>Da das von mir verwendete CentOS 6.4 noch kein PHP 5.4 in seinen Repos beinhaltet, PHP-FPM aber erst seit PHP5.4 ein nicht experimentells core-Feature ist, werden wir uns dieses aus einem anderen Repo besorgen. Dafür gibt es einige Auswahlmöglichkeiten im Netz, ich habe mich für das Repo von <a href="http://www.webtatic.com/packages/php54/" target="_blank">webtatic</a> entschieden. Weil wir mit Custom Repos arbeiten, empfehle ich vorher die Installation von <strong>yum-plugin-priorities</strong>, um das versehentliche Überschreiben von Paketen aus den Standardrepos zu verhindern.</p>
+
+{% highlight bash %}
+yum -y install yum-plugin-priorities
+{% endhighlight %}
+
+<p>Anschließend editieren wir die <strong>/etc/yum.repos.d/CentOS-Base.repo</strong>, um den originalen CentOS-Repos die höchsten Prioritäten zu geben.</p>
+
+{% highlight bash %}
+sed -i -e '/^\(\[base\]\|\[updates\]\|\[extras\]\)$/ a\priority=1' -e '^\(\[centosplus\]\|\[contrib\]\)$/ a\priority=2' /etc/yum.repos.d/CentOS-Base.repo
+{% endhighlight %}
+
+<p>Nun installieren wir das Webtatic Repo.</p>
+
+{% highlight bash %}
+rpm -Uvh http://mirror.webtatic.com/yum/el6/latest.rpm
+{% endhighlight %}
+
+<p>und passen auch bei diesem die Priorität an.</p>
+
+{% highlight bash %}
+sed -i -e '/^\(\[webtatic-.*\]\)$/ a\priority=50' /etc/yum.repos.d/webtatic.repo
+{% endhighlight %}
+
+<p>Anschließend können wir die von uns benötigte Software installieren.</p>
+
+{% highlight bash %}
+yum install httpd mod_fastcgi php54-fpm php54-pecl-zendopcache
+{% endhighlight %}
+
+<h6>PHP-FPM Konfiguration</h6>
+<p>Jetzt kommen wir zur Konfiguration der Dienste. Wir beginnen mit einem ersten Pooleintrag für PHP-FPM. Hierzu entfernen wir zuerst den störenden Standardeintrag </p>
+
+{% highlight bash %}
+mv /etc/php-fpm.d/www.conf /etc/php-fpm.conf.dist
+{% endhighlight %}
+
+<p>und erstellen anschließend eine beliebig benannte Datei mit .conf-Endung und folgendem Inhalt:</p>
+
+{% highlight ini %}
+; Poolname
+[example.org]
+; Use a Unix socket
+listen = /var/www/.sockets/example.org.sock
+
+; Permissions for this socket
+listen.owner = exampleuser
+listen.group = exampleuser
+listen.mode = 0666
+
+; User and Group of PHP-FPM process
+user = exampleuser
+group = exampleuser
+
+; Choose Process Manager
+;pm = dynamic
+pm = ondemand
+
+pm.max_children = 5
+pm.process_idle_timeout = 600
+;pm.start_servers = 1
+;pm.min_spare_servers = 1
+;pm.max_spare_servers = 3
+
+slowlog = /var/log/php-fpm/slowlog/example.org.log
+
+; Specific PHP options for this pool
+php_admin_value[open_basedir]=/var/www/example.org/
+php_admin_value[session.save_path]=/var/www/example.org/tmp
+php_admin_value[upload_tmp_dir]=/var/www/example.org/tmp
+{% endhighlight %}
+
+<p>Ein paar erklärende Worte dazu:</p>
+<ul>
+<li><strong>exampleuser</strong> ist der Benutzer, unter dem die Webapplikation später mal laufen soll.</li>
+<li>PHP-FPM kann entweder den Process Manager <strong>ondemand</strong> or <strong>dynamic</strong> benutzen. Beide haben Vor- und Nachteile, auf die ich aber nicht eingehen will. Für unser Beispiel ist ondemand sinnvoller, weil der PHP-FPM Process erst bei Aufruf der Seite einen Childprozess erzeugen muss und somit vorher weniger Speicher verbraucht.</li>
+<li>Unter "Specific PHP-options..." kann man beliebige PHP-Optionen anlegen. So kann man für verschieden stark besuchte Seiten etwa ein unterschiedlich großes memory_limit anlegen oder individuellen Applikationen längere Skriptlaufzeiten oder den Upload größerer Dateien ermöglichen.</li>
+</ul>
+<p>Damit ist die Konfiguration von PHP-FPM abgeschlossen. Ihr könnt hier beliebig viele weitere Pools definieren.</p>
+<h6>Apache Konfiguration</h6>
+<p>Fahren wir mit der Konfiguration des Indianers fort. Damit zukünftig das Worker-Modul des Apache gestartet wird, ändern wir die <strong>/etc/sysconfig/httpd</strong>.</p>
+
+{% highlight bash %}
+sed -i 's#/usr/sbin/httpd#/usr/sbin/httpd.worker#' /etc/sysconfig/httpd
+{% endhighlight %}
+
+<p>Anschließend editieren wir die /etc/conf.d/fastcgi.conf.</p>
+
+{% highlight bash %}
+sed -i '/FastCgiWrapper/ s/On/Off/' /etc/httpd/conf.d/fastcgi.conf &&\
+echo -e "<ifmodule mod_fastcgi.c>\n\
+  AddHandler php5-fcgi .php\n\
+  Action php5-fcgi /cgi-bin/php5.external\n\
+  <Location \"/cgi-bin/php5.external\">\n\
+    Order Deny,Allow\n\
+    Deny from All\n\
+    Allow from env=REDIRECT_STATUS\n\
+  \n\
+</ifmodule>"
+{% endhighlight %}
+
+<p>Weil ich die Art vHosts in CentOs anzulegen als wenig gelungen empfinde, und lieber einen eigenen Ordner für vHosts habe, legen wir noch eine Datei an, die diesen Ordner nach .conf-Dateien durchsucht (Falls jemand einen besseren Weg als den zzz-Präfix kennt, um die entsprechende conf-Datei als letztes auszulesen, bitte melden).</p>
+
+{% highlight bash %}
+echo "Include vhosts.d/*.conf" > /etc/httpd/conf.d/zzz-vhosts-dir.conf
+{% endhighlight %}
+
+<p>Und natürlich auch den entsprechenden Ordner. </p>
+
+{% highlight bash %}
+mkdir /etc/httpd/vhosts.d/
+{% endhighlight %}
+

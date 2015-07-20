@@ -1,0 +1,22 @@
+---
+layout: default
+title: 'Linux: SSH Agent Forwarding nach sudo'
+date: 2013-09-28 12:21:38.000000000 +02:00
+categories:
+- Linux
+tags:
+- Forwarding
+- Linux
+- ssh
+status: publish
+type: post
+published: true
+---
+<p><strong>Kurztipp</strong>: Wenn ihr den durch SSH Agent Forwarding weitergebenen Private Key auch bei sudo-Befehlen nutzen wollt, müsst ihr die env-Variable <strong>SSH_AUTH_SOCK</strong> in der /etc/sudoers unter <strong>Defaults env_keep</strong> eintragen. Sähe dann beispielsweise so aus:</p>
+
+{% highlight ini %}
+Defaults env_reset
+Defaults env_keep = "LANG LC_ADDRESS LC_CTYPE LC_COLLATE LC_IDENTIFICATION LC_MEASUREMENT LC_MESSAGES LC_MONETARY LC_NAME LC_NUMERIC LC_PAPER LC_TELEPHONE LC_TIME LC_ALL LANGUAGE LINGUAS XDG_SESSION_COOKIE SSH_AUTH_SOCK"
+{% endhighlight %}
+
+<p>Achtet natürlich auch darauf, dass euer SSH-Client auch ForwardAgent aktiviert hat. ;-)</p>

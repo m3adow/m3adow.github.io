@@ -1,0 +1,54 @@
+---
+layout: default
+title: 'emacs: fehlende X development libraries installieren'
+date: 2011-10-05 20:27:29.000000000 +02:00
+categories:
+- Linux
+tags:
+- emacs
+- lfs
+- Linux
+- suse
+status: publish
+type: post
+published: true
+---
+<p>Ich arbeite mich momentan in meiner spärlichen freien Zeit durch die <a href="http://www.linuxfromscratch.org" target="_blank">Linux from Scratch</a> Reihe. Um da von ganz vorne anzufangen und alles mitzunehmen, was ich kann, habe ich auch die <a href="http://www.linuxfromscratch.org/hints/downloads/files/essential_prereading.txt" target="_blank">Essential Prereadings</a> gelesen. Hier wird unter anderem empfohlen, den populären emacs-Editor mal selbst zu kompilieren. Genau das wollte ich machen. Also fix die Source runtergeladen, die INSTALL-Datei gelesen und mich an die Anleitung gehalten, die damit anfängt, dass das <em>configure</em>-Skript ausgeführt werden soll.</p>
+<p>Und schon der Schritt brachte den ersten Fehler:</p>
+
+{% highlight text %}
+configure: error: You seem to be running X, but no X development libraries
+were found.  You should install the relevant development files for X
+and for the toolkit you want, such as Gtk+, Lesstif or Motif.  Also make
+sure you have development files for image handling, i.e.
+tiff, gif, jpeg, png and xpm.
+If you are sure you want Emacs compiled without X window support, pass
+  --without-x
+to configure.
+{% endhighlight %}
+
+<p>Leider war das nachinstallieren der X development libraries nicht so einfach. Über Yast ließ sich nichts finden, die Google Suche brauchte sehr lange, um ein Ergebnis auszuspucken. Darum hier nochmal für alle, die dieses Problem auch haben oder noch haben werden:</p>
+<p>Um diesen Fehler zu beheben, installiert zuerst das Paket <em>gtk2-devel</em>, bei meinem OpenSuse System mit <a title="Ubuntu Server – Dauerhaft sudo (root)" href="http://www.adminswerk.de/ubuntu-server-dauerhaft-sudo-root/" target="_blank">Sudo Shell</a> sähe das so aus:</p>
+
+{% highlight bash %}
+yast -i gtk2-devel
+{% endhighlight %}
+
+<p>Beim nächsten <em>configure</em>-Durchlauf werdet ihr vermutlich folgende Fehlermeldung bekommen:</p>
+
+{% highlight text %}
+configure: error: The following required libraries were not found:
+     libjpeg libgif/libungif libtiff
+Maybe some development libraries/packages are missing?
+If you don't want to link with them give
+     --with-jpeg=no --with-gif=no --with-tiff=no
+as options to configure
+{% endhighlight %}
+
+<p>Da ich emacs sowieso nicht als Image Viewer nehmen wollte, sondern nur zu Studienzwecken kompilieren, könnte ich hier natürlich den vorgeschlagenen Weg gehen und die 3 Parameter anhängen. Aber dann würde andere, die emacs eben doch als Image Viewer nehmen wollen und diesen Eintrag finden verzweifeln. Daher installieren wir diese libraries eben nach:</p>
+
+{% highlight bash %}
+yast -i libjpeg62-devel giflib-devel libtiff-devel
+{% endhighlight %}
+
+<p>Mit diesen Maßnahmen konnte mein <em>config</em>-Skript erfolgreich durchlaufen. Bei weiteren Fehlern werden weitere Posts folgen. :)</p>

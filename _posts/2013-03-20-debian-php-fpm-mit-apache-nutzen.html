@@ -1,0 +1,39 @@
+---
+layout: default
+title: 'Debian: PHP-FPM mit Apache nutzen'
+date: 2013-03-20 10:15:31.000000000 +01:00
+categories: []
+tags: []
+status: draft
+type: post
+published: false
+---
+<p>Weil ich auf meinem vServer mehrere Seiten hosten will, diese aber aus Sicherheitsgründen unter verschiedenen Benutzern und mit verschiedenen PHP-Konfigurationen laufen sollen, habe ich mich für den Einsatz von PHP-FPM entschieden. Leider habe ich wenige englisch- oder deutschsprachige Anleitungen für Debian gefunden, deshalb schreibe ich nun selbst eine. Dabei werde ich mich relativ nah an <a href="http://blog.myprod.net/2010/08/14/apache2-suexec-fastcgi-php-5-3-3-fpm-cache-opcode-apc/" target="_blank">die französische Anleitung von Fabien</a> halten, da ich diese für brauchbar halte.</p>
+<ol>
+<li><strong>Neue Repos einbinden:</strong><br />
+Die PHP-Version aus den Debian Repos ist deutlich älter als die Version, die wir verwenden wollen. Deswegen nutzen wir die Repos von <a href="http://www.dotdeb.org/" target="_blank">Dotdeb</a>. Wie immer beim Einbinden von externen Repos gilt: Wenn ihr diesen nicht vertraut, dann lasst es sein. Dotdeb ist relativ bekannt und etabliert, daher vertraue ich diesen Repositories. Also erstellen wir die Datei <em>/etc/apt/sources.list.d/dotdeb.list</em> und füllen sie mit Inhalt.</p>
+
+{% highlight bash %}
+deb http://ftp.hosteurope.de/mirror/packages.dotdeb.org/ stable all
+deb-src http://ftp.hosteurope.de/mirror/packages.dotdeb.org/ stable all
+#PHP 5.4
+deb http://packages.dotdeb.org squeeze-php54 all
+deb-src http://packages.dotdeb.org squeeze-php54 all
+{% endhighlight %}
+
+<p>Anschließend noch ein Update und die Quellen stehen zur Verfügung.</p>
+
+{% highlight bash %}
+aptitude update
+{% endhighlight %}
+
+</li>
+<li><strong>Apache und PHP5 installieren</strong><br />
+Nun saugen wir uns die benötigte Software.</p>
+
+{% highlight bash %}
+aptitude install apache2 apache2-mpm-worker libapache2-mod-fastcgi 
+{% endhighlight %}
+
+</li>
+</ol>

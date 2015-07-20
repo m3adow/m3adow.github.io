@@ -1,0 +1,32 @@
+---
+layout: default
+title: Linux - auf mehrere Strings in einer Zeile greppen
+date: 2013-06-21 06:29:41.000000000 +02:00
+categories:
+- Linux
+tags:
+- grep
+- Linux
+- Shell
+status: publish
+type: post
+published: true
+---
+<p>Linux ist toll. Für jedes Problem findet man schnell eine Lösung, die meistens sogar auf der Hand liegt oder einem zumindest nach Erklärung sofort einleuchtet. So auch bei diesem Kurztipp. Will man eine Datei nach mehreren Strings durchsuchen, habe ich zwei favorisierte Methoden.</p>
+<h6>Pcregrep</h6>
+<p>Weiß man, in welcher Reihenfolge die Strings in der Zeile vorkommen, kann man das Programm pcregrep nutzen, insofern es denn installiert ist oder nachinstalliert werden kann. Damit kann man dann perlähnliche Regular Expressions nutzen, die das ganze Konstrukt sehr einfach machen. Um beispielsweise den Benutzer "m3adow" mit der bash als Shell in der Passwd zu suchen, reicht dann ein:</p>
+
+{% highlight bash %}
+getent passwd | pcregrep "m3adow.*bash"
+{% endhighlight %}
+
+<p>Da pcregrep wie gesagt perlähnliche RegEx nutzt, ist es sehr mächtig.</p>
+<h6>Piping</h6>
+<p>Weiß man nicht genau, in welcher Reihenfolge die Strings in der Zeile vorkommen, hat pcregrep nicht auf dem System und kennt sich auch nicht mit Regular Expressions aus, kann man immer noch die "Lösung des kleinen Mannes" nutzen und mehrere greps hintereinander pipen.</p>
+
+{% highlight bash %}
+getent passwd|grep "m3adow"|grep "bash"
+{% endhighlight %}
+
+<p>Das ist zwar nicht so effizient, da grep mehrfach aufgerufen wird, klappt aber auf jeden Fall.<br />
+Falls ihr noch andere Methoden habt, dieses Problem zu lösen, freue ich mich, diese in den Kommentaren zu lesen. :-)</p>

@@ -1,0 +1,30 @@
+---
+layout: default
+title: Domäne - Druckerwarteschlangenverbindung verboten
+date: 2011-03-14 11:43:56.000000000 +01:00
+categories:
+- Domäne
+tags:
+- Domäne
+- Drucker
+- Druckerwarteschlange
+- fehler
+- LDAP
+- Linux
+- Richtlinie
+status: publish
+type: post
+published: true
+---
+<p>Bei uns in der Firma läuft ein LDAP-Dienst im Hintergrund, der eine NT-Domäne abbildet. Deswegen habe ich auch ab und an Probleme mit entsprechenden Richtlinieneinstellungen. So auch mit dem folgenden Fehler, der beim Anmelden eines Benutzers auftreten kann.</p>
+<p>Wenn unser Loginscript versucht einen Netzwerkdrucker zu verbinden, kommt die Fehlermeldung: <code>"Druckerverbindung herstellen - Aufgrund einer Richtlinie auf diesem Computer kann keine Verbindung mit dieser Druckerwarteschlange hergestellt werden. Wenden Sie sich an den Systemadministrator." </code>Neue Drucker können nicht hinzugefügt werden.</p>
+<p style="padding-left: 30px;">&nbsp;</p>
+<p>Lösung:</p>
+<ol>
+<li>Lokale Gruppenrichtline des Computers starten über <em>Start -&gt; Ausführen -&gt; gpedit.msc</em> (Administratorrechte benötigt).</li>
+<li>Zu <em>Benutzerkonfiguration -&gt; Administrative Vorlagen -&gt; Systemsteuerung -&gt; Drucker</em> navigieren.</li>
+<li><em>Point-and-Print Beschränkungen</em> deaktivieren.</li>
+</ol>
+<p>Anschließend ist es direkt möglich neue Drucker hinzuzufügen.</p>
+<p style="padding-left: 30px;">&nbsp;</p>
+<p><a rel="attachment wp-att-94" href="http://www.adminswerk.de/2011/03/domane-druckerwarteschlangenverbindung-verboten/2011-03-14-gpedit/"><img class="size-medium wp-image-94 alignnone" title="2011-03-14 -gpedit" src="assets/2011-03-14-gpedit-300x193.jpg" alt="" width="300" height="193" /></a></p>

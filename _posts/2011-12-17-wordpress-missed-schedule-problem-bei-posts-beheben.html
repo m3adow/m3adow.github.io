@@ -1,0 +1,47 @@
+---
+layout: default
+title: 'Wordpress: "Missed Schedule" Problem bei Posts beheben'
+date: 2011-12-17 09:51:09.000000000 +01:00
+categories:
+- Blogging
+tags:
+- fehler
+- Schedule
+- Worpress
+status: publish
+type: post
+published: true
+---
+<p>Ich hatte in den letzten Monaten <a title="RSS-Feed gefixt" href="http://www.adminswerk.de/rss-feed-gefixt/">Probleme mit meinem RSS-Feed</a>. Wie ich diese behoben habe, habe ich dort beschrieben. Dies hing vermutlich direkt mit meinem zweiten Problem zusammen, welches ich seit geraumer Zeit mit einem Plugin umgehe. Leider ist es bei mir nämlich so, dass Posts, deren Veröffentlichungszeitpunkt ich mit Wordpress' unheimlich praktischer Schedule-Funktion festlege, einfach nicht veröffentlicht werden. Hängt wahrscheinlich mit meinem supergünstigem Hosting bei tophoster.de zusammen, damals war ich eben geizig. Um das zu beheben, nutze ich nahezu seit Anbeginn dieses Blogs das Plugin <a href="http://wordpress.org/extend/plugins/wp-missed-schedule/" target="_blank"><strong>WP Missed Schedule</strong></a>, welches intervallmäßig alle verpassten Posts dann nachträglich veröffentlicht.</p>
+<p>Bevor ich mich für diese Variante entschieden habe, habe ich allerdings noch ein paar andere probiert, die ich euch nicht vorenthalten will:</p>
+<h6>Die Hosts-Datei manipulieren</h6>
+<p>Diesen Vorschlag habe ich über das englischsprachige Wordpress-Forum gefunden der die Fehlerlösung im Zusammenhang mit der Serververwaltung Plesk brachte. Da ich nur Webspace und keinen Server nutze, wollte ich gar nicht erst testen, ob ich ein SSH hinbekomme. Außerdem war mir die Lösung zu abwegig. Aber eventuell hilft sie ja einem von euch weiter. Die Blogeinträge diesbezüglich (beide in englisch) findet ihr <a href="http://busyblogging.com/technical/wordpress-problem-with-scheduled-post-solved/" target="_blank">HIER</a> und <a href="http://bradt.ca/archives/fix-wordpress-missed-schedule-error-on-media-temple-dv-plesk/" target="_blank">HIER</a>.</p>
+<h6>crontab.php editieren</h6>
+<p>Ist eine absurde Idee, die ich auch in den Weiten des Netzes gefunden habe. Die <strong>crontab.php</strong> ist die Datei, die für das Scheduling der Blogposts verantwortlich ist. Öffnet man sie mal und schaut sie sich an, fällt auf, dass die Datei unvollständig ist. Die letzen paar Zeilen sehen so aus:</p>
+
+{% highlight php %}
+			wp_unschedule_event($timestamp, $hook, $v['args']);
+
+ 			do_action_ref_array($hook, $v['args']);
+		}
+	}
+}
+
+die();
+{% endhighlight %}
+
+<p>Da dies aber eine PHP-Datei ist und sie auch mit einem PHP-Tag begonnen wird, muss man sie auch mit dem entsprechenden Pendant beenden. Also solltet ihr ganz am Ende noch eine Zeile mit dem PHP-Endtag hinzufügen:</p>
+
+{% highlight php %}
+			wp_unschedule_event($timestamp, $hook, $v['args']);
+
+ 			do_action_ref_array($hook, $v['args']);
+		}
+	}
+}
+
+die();
+?>
+{% endhighlight %}
+
+<p>Wie gesagt habe ich mich für das Plugin entschieden. Wenn ich mir dann eventuell in Bälde einen vServer besorge und den Blog darauf umziehe, dann ändere ich daran vermutlich was, wenn der Fehler dann überhaupt noch existent ist.</p>

@@ -1,0 +1,46 @@
+---
+layout: default
+title: Windows 7 und Linux auf Lenovo E325 installieren (Dualboot) und verschlüsseln
+date: 2012-06-08 11:16:23.000000000 +02:00
+categories:
+- Hardware
+- Linux
+- Windows
+tags:
+- DualBoot
+- Linux
+- Netbook
+- Subnotebook
+- TrueCrypt
+- Verschlüsselung
+- Windows
+status: draft
+type: post
+published: false
+---
+<p>UEFI/Legacy Boot -&gt; Both</p>
+<p>UEFI/Legacy Boot Priority -&gt; Legacy first</p>
+<p>Windows 7  USB-Stick Normal installieren</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Ich hatte ja schon <a href="http://www.adminswerk.de/?s=Lenovo+E325">ein paar Male erwähnt</a>, dass wir seit Weihnachten ein Lenovo E325 13" besitzen. Nachdem ich damals ganz fix nur Windows installiert hatte, habe ich mich nun dran gesetzt, das System mit Windows, für die Zockerei zwischendurch sowie ein paar wenige notwendige Programme und Linux Mint für den täglichen Gebrauch aufzusetzen. Natürlich wollte ich auch sichergehen, dass unsere Daten nur verschlüsselt vorliegen. Erstens mache ich das generell bei meinen IT-Systemen und zweitens würde ich es bei einem mobilen Gerät so oder so machen. Da ich dabei auf ein paar Probleme gestoßen bin, habe ich hier eine Anleitung verfasst. Ich gehe dafür chronologisch vor und gliedere die notwendigen Einstellungsmöglichkeiten in Sinneinheiten.</p>
+<h6>Bios</h6>
+<p>Wir beginnen im BIOS. Da der AMD-Chipsatz im E325 neuer ist und somit UEFI beherrscht, müssen wir hier ein paar Einstellungen ändern, um Linux vernünftig installieren zu können (warum das so ist, kann man etwa <a href="http://www.tschlotfeldt.de/elearning-blog/1391-uefi-der-designierte-bios-nachfolger-bereit-linux-probleme" target="_blank">HIER</a> kurz gefasst nachlesen).</p>
+<p>Dazu ändern wir auf der <strong>Startup</strong> Seite die Einstellung <strong>UEFI/Legacy Boot</strong> auf <strong>Both</strong> oder <strong>Legacy only</strong>. <strong></strong>Außerdem stellen wir die <strong>UEFI/Legacy Boot Priority</strong> auf <strong>Legacy First</strong>. Damit stellen wir sicher, dass der Linux Live USB-Stick nicht die UEFI-Variante von Linux bootet. Hiernach speichern wir die Änderungen und beenden gleichzeitig das BIOS mit <strong>F10</strong>. Wie ihr die Mediatasten des E325 auf die F-Tasten ändert, habe ich übrigens <a title="Lenovo Thinkpad E325: FN-Tasten zu F-Tasten ändern" href="http://www.adminswerk.de/lenovo-thinkpad-e325-fn-tasten-zu-f-tasten-andern/" target="_blank">auch schon</a> beschrieben.<!--more--></p>
+<h6>Partitionierung</h6>
+<p>Da Windows sich unnötig breit macht und Linux danach Probleme mit der Installation hat, partitionieren wir die Festplatte vor der Windowsinstallation. Dazu erstellen wir uns mit Hilfe des <a href="http://www.pendrivelinux.com/universal-usb-installer-easy-as-1-2-3/" target="_blank">Universal USB Installers</a> einen Live-USB-Stick. Weil ich Linux Mint installieren wollte, habe ich hier direkt den Stick dafür erstellt. Nach dem Start der Distribution als Live System führen wir GParted aus.</p>
+<p>Jetzt erstellen wir eine neue NTFS-Partition für Windows  und eine Extended 4-Partition für Linux (diese können wir später auch noch ändern). Ich habe für meine Windowsinstallation 220 GB und für Linux 80 GB veranschlagt, da ich ja auf die Windowspartition auch unter Linux zugreifen kann. Nun sollte eure Partitionierung etwa so aussehen:</p>
+<p><a href="http://www.adminswerk.de/wp-content/uploads/2012/06/2012-05-23-gparted-partitionen.jpg"><img class="alignnone size-medium wp-image-2018" style="margin: 10px;" title="2012-05-23-gparted-partitionen" src="assets/2012-05-23-gparted-partitionen-300x246.jpg" alt="" width="300" height="246" /></a></p>
+<p>Anschließend über <strong>Edit -&gt; Apply all Operations</strong> die Partitionierung vornehmen.</p>
+<p>&nbsp;</p>
+<h6></h6>
+<h6>Windowsinstallation</h6>
+<p><iframe style="width: 120px; height: 240px; float: right; margin: 10px;" src="http://rcm-de.amazon.de/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=admwer-21&amp;o=3&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=ss_til&amp;asins=B004Q6BE3Q" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" width="320" height="240"></iframe>Gehen wir nun zur Windowsinstallation über. Dadurch dass das E325 kein DVD-Laufwerk besitzt, müsst ihr Windows 7 mit Hilfe des <a href="http://emea.microsoftstore.com/DE/de-DE/Service-Center/Windows-7-USB-DVD-Download-Tool" target="_blank">Windows 7 USB/DVD Download Tools</a> oder des <a href="http://www.pendrivelinux.com/universal-usb-installer-easy-as-1-2-3/" target="_blank">Universal USB Installers</a> (meine Empfehlung, da wir dieses Tool auch noch für Linux Mint brauchen werden) auf einen USB-Stick packen. Dieser muss eine Kapazität von mindestens 4 GB aufweisen können.</p>
+<p>Während der Windows 7 Installation wollen wir die obligatorischen 100 MB für Bitlocker am Anfang der Partition nicht haben, nutzen wir doch True Crypt. Deswegen klicken wir bei der Frage, wohin wir Windows installieren wollen auf die <strong>Laufwerkoptionen (erweitert)</strong> und legen dort eine neue Partition an.</p>
+<p><a href="http://www.adminswerk.de/wp-content/uploads/2012/06/2012-05-23-windows-7-100-mb.jpg"><img class="alignnone size-medium wp-image-1990" style="margin: 10px;" title="2012-05-23-windows-7-100-mb" src="assets/2012-05-23-windows-7-100-mb-300x225.jpg" alt="" width="300" height="225" /></a></p>
+<p><strong>Löscht</strong> nun die <strong>Partition 2</strong> der Festplatte und <strong>erweitert</strong> dafür <strong>Partition 1</strong> (die 100 MB Partition) auf die von euch gewünschte Größe.</p>
+<p><a href="http://www.adminswerk.de/wp-content/uploads/2012/06/2012-05-23-windows-7-ohne-100-mb.jpg"><img class="alignnone size-medium wp-image-1991" style="margin: 10px;" title="2012-05-23-windows-7-ohne-100-mb" src="assets/2012-05-23-windows-7-ohne-100-mb-300x225.jpg" alt="" width="300" height="225" /></a></p>
+<p>In diese Partition installiert ihr nun Windows 7.</p>
+<p>Nach der normalen Installation stehen dann wie gehabt Treiberinstallationen und Updates an <em>(Notiz an mich</em>: <em>ThinkPad 1x1 11b/g/n Wireless LAN PCI Express Half Mini Card Adapter ist der richtige Treiber</em>). Außerdem könnt ihr schonmal TrueCrypt runterladen und installieren, <strong>aber noch nicht verschlüsseln</strong>.</p>
+<h6> Linux</h6>
+<p>Anschließend machen wir mit der Linux Installation weiter. Wie ich schon im ersten Absatz erwähnt hatte, habe ich mich für <a href="http://linuxmint.com/" target="_blank">Linux Mint</a> entschieden. Wir laden uns also die entsprechende ISO runter und packen diese mit dem <a href="http://www.pendrivelinux.com/universal-usb-installer-easy-as-1-2-3/" target="_blank">Universal USB Installer</a> auf einen entsprechend großen USB-Stick.</p>

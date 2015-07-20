@@ -1,0 +1,47 @@
+---
+layout: default
+title: 'Linux: Geschwindigkeit von Wechseldatenträgern testen'
+date: 2012-07-26 08:06:15.000000000 +02:00
+categories:
+- Linux
+tags:
+- bash
+- geschwindigkeit
+- Linux
+- sd-karte
+- test
+- usb-stick
+status: publish
+type: post
+published: true
+---
+<p>Eine schnelle Notiz für zwischendurch:</p>
+<p>Wenn ihr mal auf der Commandline die Lese- und/oder Schreibgeschwindigkeit von SD-Karten, USB-Sticks oder Festplatten messen wollt, gibt es da eine einfache Möglichkeit für.<br />
+Für <strong>Lesegeschwindigkeit</strong>:</p>
+
+{% highlight bash %}
+hdparm -tT /dev/sda
+{% endhighlight %}
+
+<p>Die Ausgabe sieht dann irgendwie so aus:</p>
+
+{% highlight bash %}
+ Timing cached reads:   290 MB in  2.01 seconds = 144.21 MB/sec
+ Timing buffered disk reads:  60 MB in  3.04 seconds =  19.72 MB/sec
+{% endhighlight %}
+
+<p>Für <strong>Schreibgeschwindigkeit</strong> nutzen wir dann einen simplen <strong>dd</strong>-Befehl:</p>
+
+{% highlight bash %}
+dd count=100 bs=1M if=/dev/urandom of=/media/usb/test
+{% endhighlight %}
+
+<p>Nach einiger Zeit sollte die Ausgabe dann erscheinen und etwa so aussehen:</p>
+
+{% highlight bash %}
+100+0 records in
+100+0 records out
+104857600 bytes (105 MB) copied, 115.832 s, 905 kB/s
+{% endhighlight %}
+
+<p>Wie ihr seht, sollte ich diesen lahmen USB-Stick nicht als temporäre Festplatte nutzen.</p>

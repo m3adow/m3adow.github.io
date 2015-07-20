@@ -1,0 +1,33 @@
+---
+layout: default
+title: Warum man immer ein Backup haben sollte...
+date: 2013-09-06 08:54:05.000000000 +02:00
+categories:
+- Linux
+tags:
+- katastrophe
+- netcup
+- vserver
+status: publish
+type: post
+published: true
+---
+<p>hat sich mir heute morgen schön gezeigt. Ich bekam folgende Mail von meinem vServer Provider Netcup:</p>
+<p style="margin-top: 20px;">
+<p><em>Guten Morgen Till Wiese,</p>
+<p>die Wartungsarbeiten am Wirtsystem Ihres vServers sind beendet. Leider haben diese deutlich länger gedauert als geplant. Der Grund hierfür ist ein Schaden am Festplattensystem auf dem Wirtsystem. <strong>Dieser Schaden hat dafür gesorgt, dass leider alle gespeicherten Daten auf dem Server unwiderruflich verloren gingen.</strong></p>
+<p>Leider ist es uns nicht gelungen, Ihre Daten zu rekonstruieren. <strong>Trotz RAID-Verbund, ist es zu einem totalen Datenverlust gekommen.</strong> Das so etwas passiert ist sehr unwahrscheinlich, aber leider, technisch nicht auszuschließen. Wir bedauern den Vorfall sehr und hoffen, dass Sie entsprechend §5.4 der vereinbarten AGB, regelmäßige Sicherungen Ihres<br />
+Systems vorgenommen haben.</p>
+<p>Wenn Sie die Datensicherung über die Snapshot Export Funktion des vServercontrolpanels vorgenommen haben, können Sie Ihre Datensicherungen über dieses direkt zurück spielen. Ihr vServer bootet anschließend mit dem von Ihnen ausgewählten Datenbestand neu.</p>
+<p>Haben Sie über unseren FTP-Backupspace oder über externen Backupspace Ihre Datensicherungen vorgenommen, müssen Sie zunächst ein Betriebssystem einspielen und dann Ihre Daten zurück kopieren.</p>
+<p>Uns fällt es nicht leicht, Ihnen diese schlechte Nachricht übermitteln zu müssen. Seit 2:30 Uhr morgens haben wir versucht die Daten zu retten. Insgesamt drei Techniker waren hierfür im Einsatz. Leider mussten wir dann feststellen, dass die Daten des Nodes nicht mehr zu reparieren waren. Wir haben nun einen komplett neuen Server bereit gestellt, um zukünftige Probleme am Festplattencontroller, so gut es geht, zu vermeiden. Für den Datenverlust bitten wir bei Ihnen um Entschuldigung.</p>
+<p>Sollten Sie Fragen haben oder Hilfe benötigen, stehen wir Ihnen gerne für ein offenes lösungsorientiertes Gespräch zur Verfügung.</p>
+<p>Mit freundlichen Grüßen</p>
+<p>Ihr netcup Team<br />
+</em></p>
+<p style="margin-top: 20px;">
+<a href="http://www.adminswerk.de/wp-content/uploads/2013/09/2013-09-06-kernel-panic.jpg"><img src="assets/2013-09-06-kernel-panic-300x199.jpg" alt="2013-09-06-kernel-panic" width="300" height="199" class="alignright size-medium wp-image-2954" /></a>Jep, ein "professioneller" Serveranbieter hat gestern nacht einen Haufen Server zerstört.<br />
+Dass man seine Backupscripte auch ab und an kontrollieren sollte, habe ich zusätzlich gelernt. Meines lief nämlich nicht richtig, weswegen meine Backups unbrauchbar sind. :-(<br />
+Jetzt geht es also an die Neuinstallation. Zur Abwechslung werde ich mal CentOS einsetzen. Für die Leser dieses Blogs dürfte das ein Vorteil sein, da damit vermutlich viele neue Einträge über die Installation von diversen Applikationen entstehen werden. Für mich ist es eine mittlere Katastrophe. Man darf gespannt abwarten, ob Netcup es bei dieser lapidaren E-Mail belässt oder noch andere Wiedergutmachungen anstossen wird.<br />
+Ich werde mir auf jeden Fall Gedanken machen, ob Netcup nach so einem GAU für mich noch länger in Frage kommt. Kann wer einen anderen guten vServer-Provider empfehlen, der richtige Virtualisierung über KVM o.ä. nutzt und iptables sowie TUN/TAP-Interfaces unterstützt?</p>
+<p style="margin-top:20px;"><em>Bild: <a href="http://en.wikipedia.org/wiki/File:Kernel-panic.jpg" target="_blank">Kevin Collins</a>, <a href="http://creativecommons.org/licenses/by/2.0/deed.en" target="_blank">CC BY 2.0</a></em></p>

@@ -1,0 +1,37 @@
+---
+layout: default
+title: 'Linux: Kurztipps für Rsyslog'
+date: 2013-09-16 08:55:46.000000000 +02:00
+categories:
+- Linux
+tags:
+- CentOS
+- Debian
+- Linux
+- rsyslog
+status: publish
+type: post
+published: true
+---
+<p>Hier zwei kleine Konfigurationseinstellungen für Rsyslog, die ich immer wieder vergesse und dann zeitaufwändig im Netz oder auf Referenzmaschinen suchen muss.</p>
+<p>Um in Debian/Raspbian sämtliche cron-Einträge aus dem syslog zu tilgen, folgendes in eine Datei eurer Wahl  (beispielsweise 00-cron) unter /etc/rsyslog.d/ schreiben:</p>
+
+{% highlight bash %}
+cron.none -/var/log/syslog
+:msg, contains, "/var/www/cron.php" ~
+{% endhighlight %}
+
+<p>Um in CentOS sämtliche Einträge des sshd bzw. spezifischer der Log Facility AUTH in die /var/log/auth.log umzuleiten, brauchen wir wieder eine Datei unter /etc/rsyslog.d/. Meine 00-sshd.conf enthält dann folgendes:</p>
+
+{% highlight bash %}
+auth.none       -/var/log/messages
+auth.* /var/log/auth.log
+{% endhighlight %}
+
+<p>Nach solchen Änderungen muss Rsyslog nochmals neu gestartet werden.</p>
+
+{% highlight bash %}
+service rsyslog restart
+{% endhighlight %}
+
+<p>Ich hoffe, dass ich das nächste Mal, wenn ich diese Tweaks brauche, mich auch an diesen Eintrag erinnere. :-D</p>

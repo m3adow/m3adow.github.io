@@ -1,0 +1,22 @@
+---
+layout: default
+title: 'Raspberry Pi: DNS, DHCP und NTP'
+date: 2012-08-23 06:47:20.000000000 +02:00
+categories: []
+tags: []
+status: draft
+type: post
+published: false
+---
+<p>Mein Raspberry Pi läuft nun schon eine geraume Zeit. Inzwischen habe ich eine neue SD-Karte gefunden und die ersten Dienste lauffähig eingerichtet. Die Einrichtung von DHCP, DNS und NTP will ich hier beschreiben. Da dies relativ simple Einrichtungen sind, werde ich allerdings nicht sehr in die Tiefe gehen. Wie immer bei Linuxdingen sei bei Fragen oder Problemen das Studium der Manpages empfohlen. Ihr könnt aber natürlich auch mich fragen. ;)<br />
+Da ich teilweise aus dem Gedächtnis schreibe, kann es durchaus sein, dass einige Schritte,etwa das Installieren des Programms, überflüssig sind.</p>
+<h6>DHCP</h6>
+<ul>
+<li>Erstmal installieren wir uns den DHCP-Server. Meine Wahl ist der wohl gängiste, der <i>isc-dhcp-server</i>.
+
+{% highlight bash %}
+apt-get install isc-dhcp-server
+{% endhighlight %}
+
+</li>
+</ul>

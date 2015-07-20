@@ -1,0 +1,59 @@
+---
+layout: default
+title: 'Wordpress: Plugins via Mysql deaktivieren'
+date: 2012-09-06 08:56:59.000000000 +02:00
+categories:
+- Software
+tags: []
+status: publish
+type: post
+published: true
+---
+<p>Im Zuge meiner Arbeit an Version 2 von Admins Werk hatte ich das Problem, dass bei der Aktivierung eines Plugins plötzlich weder die Seite, noch das Administrationsinterface erreichbar waren, sondern nur noch einen HTML-Statuscode 500: Internal Server Error. Da ich wie gesagt auch nicht mehr auf die Administrationsoberfläche zugreifen konnte, musste ich also das Plugin direkt in der MySQL-Tabelle abschalten.<br />
+Das lässt sich sowohl über PHPMyAdmin, als auch über die CommandLine machen.</p>
+<h6>CLI</h6>
+<p>Ich bin kein großer Fan von PHPMyAdmin oder anderen Webadministrationsoberflächen, deswegen habe ich es per MySQL-CLI gemacht. Folgende Schritte sind notwendig:</p>
+<ol>
+<li>Die CLI als ein Benutzer starten, der die Datenbank ändern darf, etwa der root-Benutzer.
+
+{% highlight bash %}
+mysql -u root -p
+{% endhighlight %}
+
+</li>
+<li>Die Wordpress-Datenbank auswählen, ich nenne sie mal <em>wordpressdb</em>
+
+{% highlight mysql %}
+use wordpressdb;
+{% endhighlight %}
+
+</li>
+<li>Mit dem Befehl
+
+{% highlight mysql %}
+ SELECT * FROM wp_options WHERE option_name = 'active_plugins';
+{% endhighlight %}
+
+<p>könnt ihr euch alle aktivierten Addons anschauen. Die Ausgabe könnte irgendwie so aussehen:<br />
+<a href="http://www.adminswerk.de/wp-content/uploads/2012/08/2012-08-13-wordpress-activated-plugins.png"><img class="alignnone size-medium wp-image-2431" style="margin: 5px;" title="2012-08-13-wordpress-activated-plugins" src="assets/2012-08-13-wordpress-activated-plugins-300x190.png" alt="" width="300" height="190" /></a></li>
+<li>Nun könnt ihr entweder alle Plugins deaktivieren oder den Versuch starten, einzelne Plugins zu abzuschalten. Um alle stillzulegen, führt diesen SQL-Befehl aus:
+
+{% highlight mysql %}
+UPDATE wp_options SET option_value = 'a:0:{}' WHERE option_name = 'active_plugins';
+{% endhighlight %}
+
+<p>Um nur einzelne Plugins zu deaktivieren, müsstet ihr den Plugineintrag in dem <em>option_value</em>-Wert von Semikolon zu Semikolon entfernen. Ich empfehle eine komplette Deaktivierung aller Plugins, da man dort weniger falsch machen kann und die Plugins später wieder im Adminmenü aktiviert werden können.</li>
+</ol>
+<h6>PHPMyAdmin</h6>
+<p>In PHPMyAdmin loggt ihr euch mit einem entsprechend berechtigtem Benutzer ein, wählt eure Wordpress-Datenbank und in dieser die Tabelle <em>wp_options</em> aus.<br />
+<a href="http://www.adminswerk.de/wp-content/uploads/2012/08/2012-08-13-phpmyadmin_1.png"><img class="alignnone size-medium wp-image-2436" title="2012-08-13-phpmyadmin_1" src="assets/2012-08-13-phpmyadmin_1-300x111.png" alt="" width="300" height="111" style="margin: 5px;" /></a><br />
+Nun sucht ihr entweder manuell oder über die Suche nach der Spalte mit dem Wert <em>active_plugins</em> in der Zeile <em>option_name</em> und bearbeitet diese.<br />
+<a href="http://www.adminswerk.de/wp-content/uploads/2012/08/2012-08-13-phpmyadmin_2.png"><img src="assets/2012-08-13-phpmyadmin_2-300x192.png" alt="" title="2012-08-13-phpmyadmin_2" width="300" height="192" class="alignnone size-medium wp-image-2438" style="margin: 5px;" /></a><br />
+Hier könnt ihr jetzt im <em>option_value</em>-Wert entweder alle Plugins deaktivieren oder einzelne. Um alle auszuschalten, ersetzt den in diesem Fenster stehenden Wert durch <em>a:0:{}</em>. Für das entfernen einzelner Plugins muss vermutlich der entsprechende Wert zwischen den Semikolons gelöscht werden, für den Wordpress Importer wäre das dann beispielsweise</p>
+
+{% highlight mysql %}
+i:13;s:41:"wordpress-importer/wordpress-importer.php";
+{% endhighlight %}
+
+<p>Das Deaktivieren einzelner Plugins habe ich allerdings nicht getestet.</p>
+<p style="margin-top:20px;">Jetzt sollte euer Blog oder eure Website wieder laufen und ihr solltet auch wieder ins Admin Interface kommen. Vergesst nicht, eure Plugins wieder einzuschalten, nachdem ihr das problematische Addon finden konntet.</p>

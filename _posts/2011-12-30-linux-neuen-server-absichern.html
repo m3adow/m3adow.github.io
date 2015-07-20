@@ -1,0 +1,85 @@
+---
+layout: default
+title: 'Linux: neuen Server absichern'
+date: 2011-12-30 15:31:31.000000000 +01:00
+categories:
+- Linux
+tags:
+- Linux
+- root
+- sicherheit
+- ssh
+- vserver
+status: publish
+type: post
+published: true
+---
+<p>Wenn man sich "mal eben" einen Server oder vServer gemietet hat, sollte man diesen erstmal "grundsichern". Diese Minimalsicherung besteht aus 3 Punkten. Ich gehe hier von Debian aus, da dieses meiner Erfahrung nach am Häufigsten verwendet wird und auch ich es nutze.</p>
+<h6>1. Update</h6>
+<p>Der logischste Punkt. Ein nicht geupdatetes System oder veraltete Dienste sind ein geöffnetes Scheunentor. Dies lässt sich mit</p>
+
+{% highlight bash %}
+apt-get update && apt-get upgrade && apt-get dist-upgrade
+{% endhighlight %}
+
+<p>aber auch direkt schmerzlos beheben.</p>
+<h6>2. Root per SSH verbieten</h6>
+<p>Der Root Account existiert auf jeder Linux Distribution. Deswegen ist dieser Account Teil einer jeden Bruteforcing Attacke. Wenn ihr dem Root Account den Login via SSH verbietet, muss der Angreifer neben eurem Passwort zusätzlich auch noch den Usernamen erraten.</p>
+<p>Legen wir also zuerst unseren neuen User an.</p>
+
+{% highlight bash %}
+adduser sshuser
+{% endhighlight %}
+
+<p>Natürlich solltet ihr keinen so einfallslosen Namen nehmen, sondern eben einen, der schwer zu erraten ist.<br />
+Im Prozess der Usergenerierung müsst ihr auch direkt das Passwort anlegen, welches natürlich ebenfalls schwer zu erraten sein sollte. Ichhabe vor einiger Zeit schonmal beschrieben, <a title="Sichere, merkbare Passwörter erstellen" href="http://www.adminswerk.de/sichere-merkbare-passworter-erstellen/">wie man komplexe und doch merkbare Passwörter erstellen kann</a>.</p>
+<p>Prüft unbedingt, ob ihr euch mit diesem User auch per SSH einloggen könnt, bevor ihr fortfahrt. Ist dies nämlich nicht der Fall, sperrt ihr euch selbst aus!</p>
+<p>Nun geht es ans editieren der <strong>sshd_config</strong>, die ihr im <strong>/etc/ssh</strong>-Verzeichnis findet. Ich nutze hierfür den vi, euch steht natürlich die Benutzung eines anderen Editors offen. Eine kurze Einführung in den vi findet ihr beispielsweise <a href="http://www.linux-fuer-alle.de/doc_show.php?docid=29&amp;catid=8" target="_blank">HIER</a>.</p>
+
+{% highlight bash %}
+vi /etc/ssh/sshd_config
+{% endhighlight %}
+
+<p>Sucht nach dem Eintrag</p>
+
+{% highlight bash %}
+PermitRootLogin yes
+{% endhighlight %}
+
+<p>und ändert ihn in</p>
+
+{% highlight bash %}
+PermitRootLogin no
+{% endhighlight %}
+
+<p>Zusätzlich könnt ihr bei Bedarf auch noch zwei neue Zeilen einfügen</p>
+
+{% highlight bash %}
+LoginGraceTime 2m
+MaxAuthTries 6
+{% endhighlight %}
+
+<p>Dadurch wird eine Bruteforcingattacke nach 6 Versuchen verhindert.<br />
+Außerdem solltet ihr präventiv den Login mit leerem Passwortverhindern, um den einen Testaccount, den ihr garantiert irgendwann mal vergesst nicht zum Problem werden zu lassen.</p>
+
+{% highlight bash %}
+PermitEmptyPasswords no
+{% endhighlight %}
+
+<p>Startet nun noch den SSH-Dienst neu</p>
+
+{% highlight bash %}
+/etc/init.d/ssh restart
+{% endhighlight %}
+
+<p>und ein SSH-Login als root ist unmöglich.</p>
+<h6>Ports schließen</h6>
+<p>Dies ist eine etwas größere Sache, weswegen ich sie nur generell anschneide. Mit dem Befehl</p>
+
+{% highlight bash %}
+netstat -tulpen | grep -v 127.0.0.1
+{% endhighlight %}
+
+<p>findet ihr alle Ports und Dienste raus, die auf eurem Server nach draußen herrschen und damit potentiell angreifbar sind. Deaktiviert hier alle Dienste, die ihr nicht zwingend braucht.</p>
+<p style="margin-top: 30px;">Damit ist der Server rudimentär gesichert. Natürlich gibt es noch weitere darüber hinausgehende Sicherungsmöglichkeiten, die ihr auch nutzen solltet, doch ein frischer Server ist nach diesen Maßnahmen vergleichsweise sicher.</p>
+<p>&nbsp;</p>

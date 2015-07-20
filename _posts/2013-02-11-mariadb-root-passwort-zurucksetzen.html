@@ -1,0 +1,71 @@
+---
+layout: default
+title: 'MariaDB: Root-Passwort zurücksetzen'
+date: 2013-02-11 13:18:45.000000000 +01:00
+categories:
+- Administration
+- Linux
+tags:
+- datenbank
+- mariadb
+- mysql
+- root
+status: publish
+type: post
+published: true
+---
+<p>Wenn man so wie ich einen Server installiert, die MySQL Alternative <a href="https://mariadb.org/" target="_blank">MariaDB</a> draufpackt und danach aufgrund familiärer Dringlichkeiten den Server runterfährt, kann es schonmal passieren, dass man vergisst, wie das eben gesetzte Root-Passwort denn lautet. Um es erneut zurückzusetzen, habe ich diesen Weg gewählt:</p>
+<ol>
+<ol>
+<li>In der <em>/etc/mysql/my.cnf</em> den Eintrag <em>skip-grant-tables = 1</em> hinzufügen.
+
+{% highlight bash %}
+sed -i '/^\[mysqld\]$/a skip-grant-tables = 1' /etc/mysql/my.cnf
+{% endhighlight %}
+
+</li>
+<li>Den MariaDB-Dienst neustarten, hier für Debian.
+
+{% highlight bash %}
+service mysql restart
+{% endhighlight %}
+
+</li>
+<li>Jetzt als root-User passwortlos in die MariaDB-Shell einloggen.
+
+{% highlight bash %}
+mysql -u root
+{% endhighlight %}
+
+</li>
+<li>Nun das Root-Passwort ändern.
+
+{% highlight mysql %}
+UPDATE mysql.user SET password = PASSWORD('hierneuespasswort') WHERE user = 'root';
+{% endhighlight %}
+
+</li>
+<li>Und nicht vergessen, das geänderte Passwort durch einen Flush auch zu aktivieren.
+
+{% highlight mysql %}
+FLUSH PRIVILEGES;
+{% endhighlight %}
+
+</li>
+<li>Anschließend die in Schritt 1 eingefügte Zeile wieder aus der <em>my.cnf</em> entfernen.
+
+{% highlight bash %}
+sed -i '/skip-grant-tables/d' /etc/mysql/my.cnf
+{% endhighlight %}
+
+</li>
+<li>Und den MariaDB-Dienst nochmals neustarten, fertig.
+
+{% highlight bash %}
+service mysql restart
+{% endhighlight %}
+
+</li>
+</ol>
+</ol>
+<p style="margin-top: 20px;">Ich weise darauf hin, dass dieser Weg ein ordentliches Sicherheitsrisiko birgt und nicht auf Produktivmaschinen benutzt werden sollte. Allerdings sollte man bei Produktivmaschinen auch nicht einfach das Rootpasswort der Datenbank vergessen. ;-)</p>

@@ -1,0 +1,79 @@
+---
+layout: default
+title: NTP-Client in Debian einrichten
+date: 2013-03-24 08:49:09.000000000 +01:00
+categories:
+- Linux
+tags:
+- iptables
+- ntp
+- server
+status: publish
+type: post
+published: true
+---
+<p>Eine der ersten Aktionen auf einem frisch installierten Linux Server ist sicherlich das Einrichten von NTP. Dass eine synchronisierte Systemzeit extrem wichtig ist, sollte den meisten Usern und Admins einleuchten. Jeder, der deswegen schonmal mit Datenbankinkonsistenzen zu kämpfen hatte, weiß wovon ich rede. Da ich die Schritte immer wieder vergesse, werde ich sie hier für die Nachwelt dokumentieren.</p>
+<ol>
+<li>Falls gewünscht sollte die Zeitzone eingestellt werden. Das geht auf zwei Arten. Mit manueller Eingabe:
+
+{% highlight bash %}
+dpkg-reconfigure tzdata
+{% endhighlight %}
+
+<p>oder indem man die entsprechende zonedate kopiert:</p>
+
+{% highlight bash %}
+cp /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+{% endhighlight %}
+
+<p><em>Europe</em> und <em>Berlin</em> solltet ihr dann natürlich durch eure entsprechenden Pendants ersetzen.</li>
+<li>Den ntp-Dienst installieren, falls noch nicht vorhanden.
+
+{% highlight bash %}
+aptitude -y install ntp
+{% endhighlight %}
+
+</li>
+<li>Anschließend ersetzen wir die Poolserver in der <strong>ntp.conf</strong> noch mit denen des <a href="http://www.pool.ntp.org/zone/@" target="_blank">jeweiligen regionalen ntp-Pools</a>.
+
+{% highlight bash %}
+sed -i 's/debian.pool.ntp.org/de.pool.ntp.org/g' /etc/ntp.conf
+{% endhighlight %}
+
+</li>
+<li>Dann noch den NTP-Dienst neustarten und alles ist fein.
+
+{% highlight bash %}
+service ntp restart
+{% endhighlight %}
+
+</li>
+</ol>
+<p>Ein Oneliner für Copy & Paste oder Skripte würde dann so aussehen:</p>
+
+{% highlight bash %}
+cp /usr/share/zoneinfo/Europe/Berlin /etc/localtime && aptitude -y install ntp && sed -i 's/debian.pool.ntp.org/de.pool.ntp.org/g' /etc/ntp.conf && service ntp restart
+{% endhighlight %}
+
+<p>Die ganze Chose kann man dann entweder testen, indem man mal ein</p>
+
+{% highlight bash %}
+ntpq -p
+{% endhighlight %}
+
+<p>eingibt, um die NTP-Server des Systems herauszubekommen oder - wenn man ein bisschen paranoid ist, so wie ich - indem man den NTP-Dienst beendet, die Zeit ändert und ihn dann mit dem <strong>-gq</strong> Parameter startet.</p>
+
+{% highlight bash %}
+service ntp stop && date -s 12:00 && ntpd -gq && service ntp start && date
+{% endhighlight %}
+
+<p>Wenn die Ausgabe dann etwa so aussieht:<br />
+<a href="http://www.adminswerk.de/wp-content/uploads/2013/03/2013-03-15-ntp-client.png"><img src="assets/2013-03-15-ntp-client.png" alt="2013-03-15-ntp-client" width="767" height="122" class="alignnone size-full wp-image-2813" /></a> und der Eintrag "<strong>ntpd: time set</strong>" erscheint, läuft alles korrekt.<br />
+Falls ihr auf eurem Server <strong>iptables</strong> einsetzt und standardmäßig alle ausgehenden Verbindungen dropt, solltet ihr noch zwei Regeln in euer iptables-Skript aufnehmen:</p>
+
+{% highlight bash %}
+iptables -A OUTPUT -p udp --dport 123 -j ACCEPT
+iptables -A INPUT -p udp --sport 123 -j ACCEPT
+{% endhighlight %}
+
+<p>Damit sollte dann wirklich alles laufen.</p>

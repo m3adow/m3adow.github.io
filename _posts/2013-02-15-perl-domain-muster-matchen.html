@@ -1,0 +1,28 @@
+---
+layout: default
+title: 'Perl: Domain-Muster matchen'
+date: 2013-02-15 12:47:15.000000000 +01:00
+categories:
+- Linux
+tags:
+- Domain
+- Perl
+status: publish
+type: post
+published: true
+---
+<p>Kleine Erinnerungsstütze an mich, da dank eigener Doofheit etwa zehn Minuten für dieses Match benötigt habe, um zukünftig meine Doofheit abzufangen. :-P<br />
+Will man in Perl eine Domain (keine URL) matchen, geht das so:</p>
+
+{% highlight perl %}
+#!/usr/bin/perl -w
+use strict;
+use warnings;
+
+chomp (my $domain= <>);
+$my_domain =~ /[-\w\.]+(\.[a-zA-Z]{1,4})/ or die "Keine gueltige Domain.\n";
+print "String \"$my_domain\" ist eine gueltige Domain.\n";
+{% endhighlight %}
+
+<p>Was machen wir in dem Match? Wir prüfen, ob er nur alphanumerische Zeichen, Punkte (für Subdomains) und Bindestriche enthält und schauen zusätzlich, ob nach dem letzten Punkt nur maximal 4 Buchstaben kommen.<br />
+Der letzte Abschnitt dürfte mit den neuen Top-Level Domains hinfällig sein, aber für meine Zwecke ist das Matching in dem Zustand ausreichend.</p>

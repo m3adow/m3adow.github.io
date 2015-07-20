@@ -1,0 +1,70 @@
+---
+layout: default
+title: OpenVPN Client auf dem Mac einrichten
+date: 2012-05-18 09:01:56.000000000 +02:00
+categories:
+- Administration
+- Software
+tags:
+- Mac
+- OpenVPN
+- OS X
+- tunnelblick
+status: publish
+type: post
+published: true
+---
+<p>Ich war wieder mal einem Problem ausgesetzt, zu dem ich überhaupt keine Verbindung hatte. Ich sollte einem Kollegen eine VPN-Verbindung ermöglichen - auf seinem Mac. Nun, ich bin nicht sehr firm mit Apple-Geräten, privat würde ich niemals ein OSX oder eines der i-Geräte nutzen, da Apple seine Diktatorenmentalität mitverkauft und ein Großteil der Apple-Käufer vor allem aus Prestige- und Imagegründen so ein Gerät kaufen. Mir als pragmatischem Nerd/Geek mißfällt beides.</p>
+<p>Aber Auftrag ist Auftrag, deswegen hier eine Anleitung für die geneigten Leser und für mich, falls ich das wieder mal bekomme.</p>
+<ol>
+<ol>
+<ol>
+<li>Ich nutze für die Verbindung <a href="http://code.google.com/p/tunnelblick/" target="_blank">Tunnelblick</a>, eine OpenSource Software, die eine OpenVPN Gui für Mac OSX bereitstellt. Diese laden wir uns <a href="http://code.google.com/p/tunnelblick/wiki/DownloadsEntry?tm=2" target="_blank">erstmal runter</a> und führen sie anschließend aus.<br />
+<a href="http://www.adminswerk.de/wp-content/uploads/2012/05/2012-05-10-tunnelblick1.png"><img class="alignnone size-medium wp-image-1950" style="margin-top: 10px; margin-bottom: 10px;" title="2012-05-10-tunnelblick1" src="assets/2012-05-10-tunnelblick1-300x255.png" alt="" width="300" height="255" /></a></li>
+<li>Der Anweisung im Fenster folgen wir und doppelklicken das Tunnelblick-Icon. Nun ist eine Passworteingabe erforderlich, um die Installation durchzuführen. Anschließend starten wir Tunnelblick.</li>
+<li>Nun scheiden sich die Wege, je nachdem ob ihr eine Konfigurationsdatei habt oder nicht. Ich hatte eine .ovpn-Datei und habe diese entsprechend ausgewählt. Ich empfehle, bei einer vorhandenen Datei eine Tunnelblick-Konfiguration anzulegen, da diese deutlich weniger Probleme bereitet, als eine normale OpenVPN Konfiguration. Speziell, wenn ihr mit Zertifikaten hantiert.</li>
+<li>Habt ihr also eine neue Tunnelblick-Konfiguration angelegt, öffnet sich ein Ordner, in den ihr eure OpenVPN-Konfigurationsdatei reinkopiert (bzw. in dem bereits eine Beispielkonfig liegt, wenn ihr keine Konfigurationsdatei habt).<br />
+<a href="http://www.adminswerk.de/wp-content/uploads/2012/05/2012-05-10-tunnelblick2.png"><img class="alignnone size-medium wp-image-1951" style="margin-top: 10px; margin-bottom: 10px;" title="2012-05-10-tunnelblick2" src="assets/2012-05-10-tunnelblick2-300x162.png" alt="" width="300" height="162" /></a></li>
+<li>Habt ihr noch Zertifikatdateien, die für die Verbindung notwendig sind, kopiert ihr diese am Besten auch in den Ordner und entfernt eventuell vorhandene Pfade zu diesen Dateien in der Konfigurationsdatei.</li>
+<li>Seid ihr fertig mit der Einrichtung, benennt ihr den Ordner nach eurem Wunsch um und hängt zusätzlich noch eine .tblk-Endung hinten dran.<br />
+<a href="http://www.adminswerk.de/wp-content/uploads/2012/05/2012-05-10-tunnelblick3.png"><img class="alignnone size-medium wp-image-1952" style="margin-top: 10px; margin-bottom: 10px;" title="2012-05-10-tunnelblick3" src="assets/2012-05-10-tunnelblick3-300x192.png" alt="" width="300" height="192" /></a></li>
+<li>Ein Doppelklick auf diesen Ordner importiert die Konfiguration nun in Tunnelblick. Entweder nur für euch oder für alle Benutzer. Auch hier wird wieder eine Passworteingabe benötigt.<br />
+<a href="http://www.adminswerk.de/wp-content/uploads/2012/05/2012-05-10-tunnelblick4.png"><img class="alignnone size-medium wp-image-1953" style="margin-top: 10px; margin-bottom: 10px;" title="2012-05-10-tunnelblick4" src="assets/2012-05-10-tunnelblick4-300x180.png" alt="" width="300" height="180" /></a></li>
+<li>Anschließend könnt ihr euch mit der eben importierten Konfiguration verbinden.<br />
+<a href="http://www.adminswerk.de/wp-content/uploads/2012/05/2012-05-10-tunnelblick5.png"><img class="alignnone size-medium wp-image-1954" style="margin-top: 10px; margin-bottom: 10px;" title="2012-05-10-tunnelblick5" src="assets/2012-05-10-tunnelblick5-300x214.png" alt="" width="300" height="214" /></a></li>
+</ol>
+</ol>
+</ol>
+<p>Hier auch nochmal die config.ovpn, die ich verwendet habe:</p>
+
+{% highlight text %}
+client
+dev tun
+tun-mtu  1500
+fragment 1300
+
+remote server.example.org 1194
+nobind
+
+persist-key
+persist-tun
+
+pkcs12   cert.p12
+tls-auth tls.key 1
+tls-remote   server_ssl
+ns-cert-type server
+tls-client
+
+comp-lzo
+verb 3
+
+mute 10
+persist-tun
+persist-key
+ping         20
+ping-restart 180
+inactive     14400
+
+{% endhighlight %}
+
+<p>Abschließend will ich Mac OSX auf jeden Fall noch für seine großartige Screenshotfunktionalität loben. Auch wenn die Tastenkombinationen dafür nicht eben die intuitivsten sind, die Funktionalität ist Windows um Längen überlegen.</p>

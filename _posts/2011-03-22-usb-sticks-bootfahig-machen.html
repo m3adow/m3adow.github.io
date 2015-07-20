@@ -1,0 +1,32 @@
+---
+layout: default
+title: USB-Sticks bootfähig machen
+date: 2011-03-22 10:09:33.000000000 +01:00
+categories:
+- Administration
+tags:
+- Boot
+- CMD
+- USB
+- Windows 7
+status: publish
+type: post
+published: true
+---
+<p>Ab und an muss oder will ich mal einen USB-Stick bootfähig machen, im aktuellen Fall, um ein Livesystem aufzuspielen, welches die Laptopfestplatte eines Mitarbeiters testen soll. Da ich immer wieder den großen Google Gott anrufen muss, um eine vernünftige Anleitung zu finden, schreibe ich hier selber eine. Als Betriebssystem nehme ich Windows 7.</p>
+<h5>Usb-Stick unter Windows 7 bootfähig machen</h5>
+<p style="padding-left: 30px;"><strong>DAU Warnung: Alle Daten auf dem Stick werden bei dem Vorgang gelöscht</strong>!</p>
+<ol>
+<li>Command Line öffnen (Start -&gt; Ausführen -&gt; "cmd" eingeben und bestätigen)</li>
+<li><code><strong>diskpart</strong></code> starten</li>
+<li>Mit dem Befehl <code><strong>list disk</strong></code> alle Laufwerke anzeigen lassen</li>
+<li><code><strong>select disk &lt;Laufwerknummer USB-Stick&gt;</strong></code>, um USB-Stick zu wählen (erkennbar z.B. über die Größe)</li>
+<li><code><strong>clean</strong></code> um den Stick richtig platt zu machen.</li>
+<li>Mit <code><strong>create partition primary</strong></code> eine primäre Partition erstellen</li>
+<li>Die eben erstellte Partition via <code><strong>select partition=1</strong></code> auswählen</li>
+<li>und sie mit <code><strong>active</strong></code> als aktive Partition definieren.</li>
+<li>Den USB-Stick mit <code><strong>format fs=fat32</strong></code> in FAT32 formatieren. Ich empfehle FAT32, da NTFS bei älteren Systemen oder Linux Distributionen Probleme machen könnte.</li>
+<li>Alternativ noch <code><strong>assign</strong></code> nutzen, um die Partition im Explorer anzeigen zu lassen.</li>
+</ol>
+<p style="padding-left: 30px;">&nbsp;</p>
+<p>Nun ist der USB-Stick bootfähig und bereit für die entsprechenden Daten.</p>

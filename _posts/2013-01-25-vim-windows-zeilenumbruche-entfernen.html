@@ -1,0 +1,23 @@
+---
+layout: default
+title: vim - Windows Zeilenumbrüche entfernen
+date: 2013-01-25 13:38:53.000000000 +01:00
+categories:
+- Linux
+tags:
+- Linux
+- vim
+- zeilenumbruch
+status: publish
+type: post
+published: true
+---
+<p>Kleiner Kurztipp am Rande:</p>
+<p>Wenn ihr das Problem habt, dass eine von Windows kopierte Datei nicht richtig gelesen werden kann und ihr vermutet, dass das mit den Zeilenumbrüchen zusammenhängt, versucht im vim folgenden Befehl:</p>
+
+{% highlight bash %}
+:set fileformat=unix
+{% endhighlight %}
+
+<p>Dann speichern und hoffentlich ist euer Problem behoben.<br />
+Bei mir trat das Ganze übrigens auf, als ich ein neues Default Colorscheme für Vim und meine .screenrc von Windows Copy & Pasted habe. Ärgerlich.</p>

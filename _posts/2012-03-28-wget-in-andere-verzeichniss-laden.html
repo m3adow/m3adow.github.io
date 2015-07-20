@@ -1,0 +1,31 @@
+---
+layout: default
+title: 'Wget: In andere Verzeichniss laden'
+date: 2012-03-28 09:00:31.000000000 +02:00
+categories:
+- Linux
+tags:
+- Download
+- Linux
+- wget
+status: publish
+type: post
+published: true
+---
+<p><em>Damit ich es mir endlich merken kann und nie wieder eine riesige VM ins Rootverzeichnis kopiere:</em></p>
+<p>Um eine <strong>einzelne</strong> Datei mit <strong>wget</strong> in ein anderes Verzeichnis zu laden nutzt man am Besten den <strong>-O</strong> Parameter.</p>
+
+{% highlight bash %}
+wget -O /gewunschter/dateipfad/und-name.tar.gz http://url-zur-datei.de/datei.tar.gz
+{% endhighlight %}
+
+<p>Um <strong>mehrere</strong> Dateien in ein bestimmtes Verzeichnis zu laden, sollte der <strong>--directory-prefix</strong> Parameter benutzt werden.</p>
+
+{% highlight bash %}
+wget --directory-prefix=/gewunschter/dateipfad/ ftp://user:passwort@ftp-server:/pfad/*
+{% endhighlight %}
+
+<p>Ich zitiere aus der wget Manpage:</p>
+<p style="padding-left: 60px;"><em>`--directory-prefix=prefix'<br />
+Set directory prefix to prefix. The directory prefix is the directory where all other files and subdirectories will be saved to, i.e. the top of the retrieval tree. The default is `.' (the current directory).</em></p>
+<p>&nbsp;</p>

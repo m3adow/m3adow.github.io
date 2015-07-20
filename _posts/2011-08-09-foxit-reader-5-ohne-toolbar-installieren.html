@@ -1,0 +1,27 @@
+---
+layout: default
+title: Foxit Reader 5 ohne Toolbar installieren
+date: 2011-08-09 14:32:57.000000000 +02:00
+categories:
+- Software
+tags:
+- Foxit
+- PDF
+- SumatraPDF
+- Werbung
+status: publish
+type: post
+published: true
+---
+<p>Als PDF-Reader nutze ich momentan den Foxit Reader. Dieser war damals als ich mich nach einer schlankeren Alternative zum Adobe Reader umgesehen habe die in meinen Augen beste Lösung. Nach dem Major Release Sprung auf die Version 5 installiert der Installer allerdings je nach Package zwingend eine Toolbar mit, ein Abwählen ist nicht möglich.</p>
+<p>Das ist kundenunfreundlich und nervig, aber gar nicht notwendig. Denn es gibt auch Versionen ohne diese Adware. Ladet euch den Foxit Reader 5 als MSI-Paket runter (z. B. bei <a href="http://www.softpedia.com/progDownload/Foxit-PDF-Reader-Download-16191.html" target="_blank">Softpedia</a>), der hat die Toolbar nichtmal integriert.</p>
+<p><a href="http://www.adminswerk.de/wp-content/uploads/2011/08/2011-08-09-foxit5.jpg"><img class="size-medium wp-image-725 alignnone" style="margin: 10px;" title="2011-08-09-foxit5" src="assets/2011-08-09-foxit5-300x159.jpg" alt="" width="300" height="159" /></a></p>
+<p>Wenn ihr jetzt noch die Werbung im Programm entfernen wollt, solltet ihr in der Registry folgenden Eintrag vornehmen:</p>
+
+{% highlight registry%}
+[HKEY_CURRENT_USER\Software\Foxit Software\Foxit Reader 5.0\StartPage\Advertisement]
+"bShowAdvertise"="0"
+{% endhighlight %}
+
+<p>&nbsp;</p>
+<p>Detail am Rande: Wegen dieser Toolbar und der Werbung werde ich wohl in Bälde testweise auf den Open Source Reader <a href="http://blog.kowalczyk.info/software/sumatrapdf/free-pdf-reader.html" target="_blank">SumatraPDF</a> umsteigen.</p>
