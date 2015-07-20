@@ -1,5 +1,6 @@
 body
     font-family: "Source Sans Pro", "Calibri", "Helvetica", sans-serif
+    //font-family: "Josefin Sans", "Calibri", "Helvetica", sans-serif
     font-weight: 300
     font-size: 1.4em
     font-size: calc(.6vw + .8em)
@@ -51,12 +52,27 @@ nav
     li
         display: inline-block
         margin-right: 10%
+    li #search
+        font-family: "Source Sans Pro", "Calibri", "Helvetica", sans-serif
+        // width: 100%
+        // max-width: 200px
+        // margin: 0px auto 0
+        // margin-left: -1px
 
 article
     border-top: 1px solid
     overflow-x: auto
     header
-        text-align: center
+        text-align: left
+        margin-bottom: 1em
+        div#post_header_info
+            margin: 2px
+            color: gray
+        h2
+            margin-bottom: 0px
+        a.header_comment
+            color: gray !important
+
     > div
         margin-bottom: 2em
     footer a
@@ -64,6 +80,9 @@ article
         border-radius: 3px
         padding: .3em .6em
         transition: background-color .2s ease-out
+    a#isso-brlink
+        font-size: .75em
+        margin-bottom: 0px
 
 body > header h1
     margin-top: .25em

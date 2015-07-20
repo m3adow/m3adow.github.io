@@ -11,7 +11,7 @@ $nav: {% if site.style.nav %}{{ site.style.nav }}{% else %}#181818{% endif %}
 $headline: {% if site.style.headline %}{{ site.style.headline }}{% else %}#06f{% endif %}
 $description: {% if site.style.description %}{{ site.style.description }}{% else %}white{% endif %}
 $odd: {% if site.style.article.odd %}{{ site.style.article.odd }}{% else %}white{% endif %}
-$even: {% if site.style.article.even %}{{ site.style.article.even }}{% else %}#222{% endif %}
+$even: {% if site.style.article.even %}{{ site.style.article.even }}{% else %}white{% endif %}
 
 body
     +body_background($body, $padding)
@@ -25,11 +25,12 @@ body
 body > header h1
     font-weight: bold
 
-h1, h2, h3, h4, h5, h6 
-    font-family: "Gentium Basic", serif
+h1, h2, h3, h4, h5, h6
+    font-family: 'Josefin Sans', sans-serif
+    //font-family: "Gentium Basic", serif
     letter-spacing: 2px
-    header &
-        text-transform: uppercase
+    //header &
+    //    text-transform: uppercase
 
 {% endif %}
 
@@ -53,3 +54,4 @@ article:nth-of-type(odd)
     +article_background($odd, $anchor)
 
 @import vendor
+//@import sticky_footer

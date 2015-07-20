@@ -1,0 +1,3 @@
+[submodule "jekyll-category-archive-plugin"]
+	path = jekyll-category-archive-plugin
+	url = https://github.com/shigeya/jekyll-category-archive-plugin.git

@@ -3,17 +3,39 @@ layout: blank
 ---
     <article>
       <header>
-        <h2><a href="{{ page.url | prepend: site.baseur }}">{{ page.title }}</a></h2>
-        <p>{% if page.author %}{{ page.author }} • {% endif %}{% if page.date %}<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>{% endif %}{% if page.categories %} • {{ page.categories | array_to_sentence_string }}{% endif %}</p>
+        <h2><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></h2>
+        <div id="post_header_info">{% if page.author %}{{ page.author }} • {% endif %}{% if page.date %}<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>{% endif %}{% if page.categories %} • {{ page.categories | array_to_sentence_string }} • {% endif %}<a href="{{ page.url | prepend: site.baseurl}}#isso-thread" class="header_comment">Comments</a>
+        <!-- {% unless page.title %}<a href="{{ page.url | prepend: site.baseurl}}/#isso-thread" class="header_comment">Comments</a>{% endunless %}</div> -->
       </header>
       <div>
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- id10t_top -->
+<ins class="adsbygoogle"
+   style="display:block"
+   data-ad-client="ca-pub-7586970907106458"
+   data-ad-slot="1161208442"
+   data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 {{ content }}
       </div>
       {% if site.comments.isso and page.comments %}
       <div id="isso-thread"></div>
+      <a href="http://posativ.org/isso/" id="isso-brlink">comments powered by <b>isso</b></a></div>
       {% endif %}
       {% if site.comments.disqus and page.comments %}
       <div id="disqus_thread"></div>
       <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
       {% endif %}
     </article>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- id10t_bottom -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7586970907106458"
+     data-ad-slot="8405273641"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>

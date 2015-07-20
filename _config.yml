@@ -1,34 +1,53 @@
-title: "blog title"
-author: "Blog Author"
-description: "Really cool blog about ... something"
-#subheading: "Really cool blog about ... something"
+title: "/dev/blog/ID10T"
+author: "m3adow"
+description: "Because /dev/random is too predictable."
+# subheading: "Because /dev/random is too predictable."
 more: "read more"
-url: "http://niklabs.me"
-baseurl: "/contrast" # comment out if in root directory
+url: "http://blog.till-wiese.de"
+# baseurl: "/contrast" # comment out if in root directory
+permalink: /:title/
 
 comments:
-    disqus: "niklasbuschmann"
-#    isso: "comments.mysite.org"
+    isso: "comments.tillwiese.de/blog.till-wiese.de.fcgi"
 
 style:
 #    body: "whitesmoke"
     padding: 33%
     anchor: "#46f"
-    serif-heading: true
+    serif-heading: false
     nav: "#181818"
 #    headline: "#06f"
     description: "white"
     article:
-        odd: "#ffffff"
-        even: "#222222"
+        odd: "#fff"
+        #even: "#fff"
+#       even: #222222
+
+paginate: 5
+paginate_path: "/older/page:num"
 
 links:
-  - github: "https://github.com/me/"
-  - twitter: "https://twitter.com/me/"
-  - google-plus: "https://plus.google.com/+me"
-  - reddit: "https://www.reddit.com/user/me/"
-  - youtube: "https://www.youtube.com/user/me"
-  - steam: "http://steamcommunity.com/id/me/"
+  - github: "https://github.com/m3adow/"
+  - xing: "https://www.xing.com/profile/Till_Wiese"
+  - linkedin: "https://www.linkedin.com/pub/till-wiese/46/403/7b4"
+#  - twitter: "https://twitter.com/me/"
+#  - google-plus: "https://plus.google.com/+me"
+#  - reddit: "https://www.reddit.com/user/me/"
+#  - youtube: "https://www.youtube.com/user/me"
+#  - steam: "http://steamcommunity.com/id/me/"
+
 
 excerpt_separator: "\n\n\n"
 defaults: [{scope: {path: ""}, values: {layout: "default"}}, {scope: {path: "", type: "posts"}, values: {comments: true}}]
+
+# Jekyll-press
+jekyll-press:
+    exclude: 'feed.xml'
+
+# sitemap generator
+sitemap:
+    file: "/sitemap.xml"
+    exclude:
+        - "/feed.xml"
+    include_posts:
+        - "/index.html"

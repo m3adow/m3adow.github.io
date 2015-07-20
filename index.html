@@ -1,17 +1,32 @@
 ---
 layout: blank
 ---
-    {% for page in site.posts %}
+    {% for page in paginator.posts %}
     <article>
       <header>
         <h2><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></h2>
-        <p>{% if page.author %}{{ page.author }} • {% endif %}{% if page.date %}<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>{% endif %}{% if page.categories %} • {{ page.categories | array_to_sentence_string }}{% endif %}</p>
+        <div id="post_header_info">{% if page.author %}{{ page.author }} • {% endif %}{% if page.date %}<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>{% endif %}{% if page.categories %} • {{ page.categories | array_to_sentence_string }} • {% endif %}
+        <a href="{{ page.url | prepend: site.baseurl}}#isso-thread" class="header_comment">Comments</a></div>
       </header>
       <div>
-{{ page.excerpt }}
+{{ page.excerpt}}
       </div>
       <footer>
         <p><a href="{{ page.url | prepend: site.baseurl }}">{{ site.more }} &raquo;</a></p>
       </footer>
     </article>
+    <!-- Pagination links -->
     {% endfor %}
+    <div class="pagination">
+      {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path }}" class="previous">Newer</a>
+      {% else %}
+        <span class="previous">Newer</span> •
+      {% endif %}
+      <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span> •
+      {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path }}" class="next">Older</a>
+      {% else %}
+        <span class="next ">Older</span>
+      {% endif %}
+    </div>
