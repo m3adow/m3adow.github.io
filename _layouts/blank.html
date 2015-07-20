@@ -16,14 +16,14 @@
     <title>{% if page.title %} {{ page.title }} › {% endif %}{{ site.title }}</title>
     <link rel="canonical" href="{{ page.url | prepend: site.baseurl | prepend: site.url}}">
     <link href="{{ "/main.css" | prepend: site.baseurl }}" rel="stylesheet" type="text/css">
-    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,200italic,300italic,400italic,600italic,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-    <!-- <link href='//fonts.googleapis.com/css?family=Gentium+Basic:400,700,400italic,700italic' rel='stylesheet' type='text/css'> -->
-    <!-- <link href='http://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'> -->
-    <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:400,300,300italic,400italic,600,600italic,700,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,200italic,300italic,400italic,600italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
     <link href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }} &raquo; Feed" href="{{ "/feed.xml" | prepend: site.baseurl }}">
-    {% if site.comments.disqus and page.comments %}<script src="//{{ site.comments.disqus }}.disqus.com/embed.js" async></script>{% endif %}
-    {% if site.comments.isso %}{% if page.comments %}<script data-isso="http://{{ site.comments.isso }}" src="//{{ site.comments.isso }}/js/embed.min.js"></script>{% endif %}{% unless page.title %}<script data-isso="http://{{ site.comments.isso }}" src="//{{ site.comments.isso }}/js/count.min.js"></script>{% endunless %}{% endif %}
+    {% if site.comments.isso %}
+      {% if page.comments %}<script data-isso="http://{{ site.comments.isso }}" src="//{{ site.comments.isso }}/js/embed.min.js"></script>
+      {% elsif page.title %}<script data-isso="http://{{ site.comments.isso }}" src="//{{ site.comments.isso }}/js/count.min.js"></script>{% endif %}
+    {% endif %}
   </head>
   <body>
     <header>
@@ -32,11 +32,11 @@
         <ul>
           <li><a href="{{ site.baseurl }}/">H0me</a></li>
           {% for node in site.pages %}{% if node.title and node.title != 'Impress' %}<li><a href="{{ node.url | prepend: site.baseurl }}"{% if page.url == node.url %} id="selected"{% endif %}>{{ node.title }}</a></li>{% endif %}{% endfor %}
-          <li><form method="get" id="search" action="http://duckduckgo.com/"><input type="hidden" name="sites" value="hardik.org"/>
+          <li><form method="get" id="search" action="http://duckduckgo.com/"><input type="hidden" name="sites" value="blog.till-wiese.de"/>
             <input type="hidden" name="kj" value="#3f3f3f"/><input type="hidden" name="kx" value="b">
             <input type="text" name="q" maxlength="200" placeholder="Search"/>
-            <input type="submit" value="DuckDuckGo Search" style="visibility: hidden;" />
-          </form></li>        
+            <input type="submit" value="DuckDuckGo Search" hidden />
+          </form></li>
         </ul>
       </nav>
     </header>
@@ -44,7 +44,6 @@
     {% if site.subheading %}<div>{{ site.subheading }}</div>{% endif %}
 {{ content }}
     <footer>
-      <!-- <span><a href="{{ site.url }}">{% if page.author %}{{ page.author }}{% else %}{{site.author}}{% endif %}</a></span> -->
       <span><a href="{{ site.url }}/impress/">Impress</a></span>
       <span>{% for link_hash in site.links %}{% for link in link_hash %}<a href="{{ link[1] }}"><i class="fa fa-{{ link[0] }}-square"></i></a>{% endfor %}{% endfor %}</span>
       <span><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a></span>

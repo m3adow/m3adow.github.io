@@ -44,10 +44,13 @@ defaults: [{scope: {path: ""}, values: {layout: "default"}}, {scope: {path: "", 
 jekyll-press:
     exclude: 'feed.xml'
 
-# sitemap generator
-sitemap:
-    file: "/sitemap.xml"
-    exclude:
-        - "/feed.xml"
-    include_posts:
-        - "/index.html"
+# sitemap generator for uberspace version
+#sitemap:
+#    file: "/sitemap.xml"
+#    exclude:
+#        - "/feed.xml"
+#    include_posts:
+#        - "/index.html"
+
+gems:
+    - jekyll-sitemap
