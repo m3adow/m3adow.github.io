@@ -1,3 +1,6 @@
 [submodule "jekyll-category-archive-plugin"]
 	path = jekyll-category-archive-plugin
 	url = https://github.com/shigeya/jekyll-category-archive-plugin.git
+[submodule "_scripts/dropboxfeed_autocommit"]
+	path = _scripts/dropboxfeed_autocommit
+	url = git@github.com:m3adow/dropboxfeed_autocommit.git
