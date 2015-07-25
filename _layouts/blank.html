@@ -21,8 +21,10 @@
     <link href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }} &raquo; Feed" href="{{ "/feed.xml" | prepend: site.baseurl }}">
     {% if site.comments.isso %}
-      {% if page.comments %}<script data-isso="http://{{ site.comments.isso }}" src="//{{ site.comments.isso }}/js/embed.min.js"></script>
-      {% elsif page.title %}<script data-isso="http://{{ site.comments.isso }}" src="//{{ site.comments.isso }}/js/count.min.js"></script>{% endif %}
+      {% if page.show_comments != false %}
+        {% if page.comments %}<script data-isso="http://{{ site.comments.isso }}" src="//{{ site.comments.isso }}/js/embed.min.js"></script>
+        {% elsif page.title %}<script data-isso="http://{{ site.comments.isso }}" src="//{{ site.comments.isso }}/js/count.min.js"></script>{% endif %}
+      {% endif %}
     {% endif %}
   </head>
   <body>
