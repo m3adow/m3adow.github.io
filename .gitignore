@@ -4,3 +4,5 @@ _site/
 .bundle/
 .dropboxattr
 /*/.dropboxattr
+.dropbox
+Gemfile.lock

@@ -1,6 +1,7 @@
 ---
 title: "Ab0ut"
 permalink: about/
+show_comments: false
 ---
 I'm merely an ordinary Systems Engineer fascinated by technology. I like playing
  around with new or old tech, solving problems which I didn't know even existed

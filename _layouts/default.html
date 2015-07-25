@@ -4,30 +4,12 @@ layout: blank
 <article>
       <header>
         <h2><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></h2>
-        <div id="post_header_info">{% if page.author %}{{ page.author }} • {% endif %}{% if page.date %}<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>{% endif %}{% if page.categories %} • {{ page.categories | array_to_sentence_string }} • {% endif %}<a href="{{ page.url | prepend: site.baseurl}}#isso-thread" class="header_comment">Comments</a>
+        <div id="post_header_info">{% if page.author %}{{ page.author }} • {% endif %}{% if page.date %}<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>{% endif %}{% if page.categories %} • {{ page.categories | array_to_sentence_string }} • {% endif %}{% if page.show_comments != false %}<a href="{{ page.url | prepend: site.baseurl}}#isso-thread" class="header_comment">Comments</a> {{ page.show_comments }}{% endif %}
       </header>
       <div>
-      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- id10t_top -->
-<ins class="adsbygoogle"
-   style="display:block"
-   data-ad-client="ca-pub-7586970907106458"
-   data-ad-slot="1161208442"
-   data-ad-format="auto"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>-->
-{{ content }}
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- id10t_bottom -->
-<ins class="adsbygoogle"
- style="display:block"
- data-ad-client="ca-pub-7586970907106458"
- data-ad-slot="8405273641"
- data-ad-format="auto"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+        {% include adsense_top.html %}
+        {{ content }}
+        {% include adsense_bottom.html %}
       </div>
       {% if site.comments.isso and page.comments %}
       <div id="isso-thread"></div>

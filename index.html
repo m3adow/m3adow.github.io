@@ -19,9 +19,9 @@ layout: blank
       </footer>
     </article>
     {% endfor %}
-    <article>
+    <div>
         {% include adsense_bottom.html %}
-    </article>
+    </div>
     <!-- Pagination links -->
     <div class="pagination">
       {% if paginator.previous_page %}
@@ -35,7 +35,4 @@ layout: blank
       {% else %}
         <span class="next ">Older</span>
       {% endif %}
-    </div>
-    <div>
-        {% include adsense_bottom.html %}
     </div>

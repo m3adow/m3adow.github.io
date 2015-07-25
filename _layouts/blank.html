@@ -42,7 +42,7 @@
     </header>
     {% if site.style.headline %}<div><h1><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1></div>{% endif %}
     {% if site.subheading %}<div>{{ site.subheading }}</div>{% endif %}
-{{ content }}
+    {{ content }}
     <footer>
       <span><a href="{{ site.url }}/impress/">Impress</a></span>
       <span>{% for link_hash in site.links %}{% for link in link_hash %}<a href="{{ link[1] }}"><i class="fa fa-{{ link[0] }}-square"></i></a>{% endfor %}{% endfor %}</span>
