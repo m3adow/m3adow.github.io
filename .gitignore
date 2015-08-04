@@ -3,6 +3,6 @@ _site/
 .jekyll-metadata
 .bundle/
 .dropboxattr
-/*/.dropboxattr
+/*/.dropbox.attr
 .dropbox
 Gemfile.lock

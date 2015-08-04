@@ -21,11 +21,20 @@
     <link href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }} &raquo; Feed" href="{{ "/feed.xml" | prepend: site.baseurl }}">
     {% if site.comments.isso %}
+      <!-- Comments powered by isso -->
       {% if page.show_comments != false %}
         {% if page.comments %}<script data-isso="http://{{ site.comments.isso }}" src="//{{ site.comments.isso }}/js/embed.min.js"></script>
-        {% elsif page.title %}<script data-isso="http://{{ site.comments.isso }}" src="//{{ site.comments.isso }}/js/count.min.js"></script>{% endif %}
+        {% else %}<script data-isso="http://{{ site.comments.isso }}" src="//{{ site.comments.isso }}/js/count.min.js"></script>{% endif %}
+      {% else %} <!-- '{{ page.show_comments }}' -->
       {% endif %}
+    {% else %}<!-- Problem with isso parsing -->
     {% endif %}
+    <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
+    <script type="text/javascript">
+        window.cookieconsent_options = {"message":"We may use cookies for one or more of the following features: To personalise content and ads, to provide social media features and to analyse our traffic. We also share information about your use of our site with our social media, advertising and analytics partners.","dismiss":"Okay","learnMore":"See details.","link":"http://blog.till-wiese.de/privacy-statement/","theme":"dark-bottom"};
+    </script>
+    <script type="text/javascript" src="//s3.amazonaws.com/cc.silktide.com/cookieconsent.latest.min.js"></script>
+    <!-- End Cookie Consent plugin -->
   </head>
   <body>
     <header>
@@ -33,7 +42,7 @@
       <nav>
         <ul>
           <li><a href="{{ site.baseurl }}/">H0me</a></li>
-      {% for node in site.pages %}{% if node.title and node.title != 'Impress' %}<li><a href="{{ node.url | prepend: site.baseurl }}"{% if page.url == node.url %} id="selected"{% endif %}>{{ node.title }}</a></li>{% endif %}{% endfor %}
+      {% for node in site.pages %}{% if node.title and node.title != 'Impress' and node.title != 'Privacy Statement' %}<li><a href="{{ node.url | prepend: site.baseurl }}"{% if page.url == node.url %} id="selected"{% endif %}>{{ node.title }}</a></li>{% endif %}{% endfor %}
           <li><form method="get" id="search" action="http://duckduckgo.com/"><input type="hidden" name="sites" value="blog.till-wiese.de"/>
             <input type="hidden" name="kj" value="#3f3f3f"/><input type="hidden" name="kx" value="b">
             <input type="text" name="q" maxlength="200" placeholder="Search"/>
@@ -46,7 +55,7 @@
     {% if site.subheading %}<div>{{ site.subheading }}</div>{% endif %}
     {{ content }}
     <footer>
-      <span><a href="{{ site.url }}/impress/">Impress</a></span>
+      <span><a href="{{ site.url }}/impress/">Impress</a> • <a href="{{ site.url }}/privacy-statement/">Privacy</a></span>
       <span>{% for link_hash in site.links %}{% for link in link_hash %}<a href="{{ link[1] }}"><i class="fa fa-{{ link[0] }}-square"></i></a>{% endfor %}{% endfor %}</span>
       <span><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a></span>
     </footer>
