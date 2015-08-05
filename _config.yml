@@ -36,8 +36,7 @@ links:
 #  - youtube: "https://www.youtube.com/user/me"
 #  - steam: "http://steamcommunity.com/id/me/"
 
-
-excerpt_separator: "\n"
+excerpt_separator: "\n\n"
 defaults: [{scope: {path: ""}, values: {layout: "default"}}, {scope: {path: "", type: "posts"}, values: {comments: true}}]
 
 # Jekyll-press
