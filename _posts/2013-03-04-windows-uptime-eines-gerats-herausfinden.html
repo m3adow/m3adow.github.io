@@ -17,9 +17,9 @@ published: true
 <p style="margin-top: 20px;">Dafür gibt es zwei Wege, der Königsweg ist meiner Meinung nach die Kombination aus beiden.</p>
 <ol>
 <li><strong>systeminfo</strong>: Mit dem Befehl <strong>systeminfo</strong> in der CMD kann man sich - wie der Name schon sagt, einen Haufen Informationen über sein System ausgeben lassen. Unter anderem gibt es dort einen Punkt, der sich auf Deutsch <em>Systembetriebszeit</em> nennt, der die bisherige Betriebsdauer angibt.<br />
-<a href="http://www.adminswerk.de/wp-content/uploads/2013/02/2013-02-12-systeminfo.png"><img class="alignnone size-medium wp-image-2737" style="margin: 10px;" alt="2013-02-12-systeminfo" src="assets/2013-02-12-systeminfo-300x142.png" width="300" height="142" /></a></li>
+<a href="../assets/2013-02-12-systeminfo.png"><img class="alignnone size-medium wp-image-2737" style="margin: 10px;" alt="2013-02-12-systeminfo" src="../assets/2013-02-12-systeminfo-300x142.png" width="300" height="142" /></a></li>
 <li><strong>net statistics server</strong>: Mit dem Befehl <strong>net statistics server</strong> werden Informationen zum Server-Dienst angezeigt. Für uns ist hier der Punkt "Statistik seit" wichtig. Dieser teilt uns den genauen Startzeitpunkt der Serverdienstes mit. Da dieser einer der ersten gestarteten Dienste überhaupt ist, entspricht dies dem Start des Betriebssystems selbst.<br />
-<a href="http://www.adminswerk.de/wp-content/uploads/2013/02/2013-02-12-net-statistics-server.png"><img class="alignnone size-medium wp-image-2738" style="margin: 10px;" alt="2013-02-12-net-statistics-server" src="assets/2013-02-12-net-statistics-server-300x142.png" width="300" height="142" /></a></li>
+<a href="../assets/2013-02-12-net-statistics-server.png"><img class="alignnone size-medium wp-image-2738" style="margin: 10px;" alt="2013-02-12-net-statistics-server" src="../assets/2013-02-12-net-statistics-server-300x142.png" width="300" height="142" /></a></li>
 <li><strong>Der Königsweg</strong>: Der Königsweg für die Uptime unter Windows ist in meinen Augen eine Kombination aus beiden Befehlen:
 
 {% highlight winbatch %}
@@ -27,7 +27,7 @@ net statistics server | find /i "Statistik seit" && systeminfo | find /i "System
 {% endhighlight %}
 
 <p>Die Ausgabe ist ähnlich übersichtlich wie bei Linux und gibt doch alle notwendigen Informationen wieder.<br />
-<a href="http://www.adminswerk.de/wp-content/uploads/2013/02/2013-02-12-uptime-windows.png"><img src="assets/2013-02-12-uptime-windows-300x142.png" style="margin: 10px;" alt="2013-02-12-uptime-windows" width="300" height="142" class="alignnone size-medium wp-image-2743" /></a><br />
+<a href="../assets/2013-02-12-uptime-windows.png"><img src="../assets/2013-02-12-uptime-windows-300x142.png" style="margin: 10px;" alt="2013-02-12-uptime-windows" width="300" height="142" class="alignnone size-medium wp-image-2743" /></a><br />
 Was genau machen wir hier? Eigentlich nichts anderes, als beide Befehle ausführen, nach der benötigten Zeile suchen und nur diese ausgeben lassen.</li>
 </ol>
 <p style="margin-top:20px">Dass man unter Windows XP überhaupt pipen kann, war mir bis dato nicht bewusst. Das hätte mir einige Batches sicherlich einfacher gemacht.</p>
