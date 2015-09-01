@@ -3,7 +3,7 @@ author: "m3adow"
 description: "Because /dev/random is too predictable."
 # subheading: "Because /dev/random is too predictable."
 more: "read more"
-url: "http://adminswerk.de"
+url: "https://adminswerk.de"
 # baseurl: "/contrast" # comment out if in root directory
 permalink: /:title/
 
