@@ -3,12 +3,12 @@ author: "m3adow"
 description: "Because /dev/random is too predictable."
 # subheading: "Because /dev/random is too predictable."
 more: "read more"
-url: "http://blog.till-wiese.de"
+url: "http://adminswerk.de"
 # baseurl: "/contrast" # comment out if in root directory
 permalink: /:title/
 
 comments:
-    isso: "comments.tillwiese.de/blog.till-wiese.de.fcgi"
+    isso: "comments.tillwiese.de/adminswerk.de.fcgi"
 
 style:
 #    body: "whitesmoke"
