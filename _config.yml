@@ -8,7 +8,7 @@ url: "https://adminswerk.de"
 permalink: /:title/
 
 comments:
-    isso: "comments.tillwiese.de/adminswerk.de.fcgi"
+    isso: "https://comments.tillwiese.de/adminswerk.de.fcgi"
 
 style:
 #    body: "whitesmoke"
