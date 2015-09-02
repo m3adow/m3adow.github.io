@@ -25,7 +25,7 @@
       <!-- Comments powered by isso -->
       {% if page.show_comments != false %}
         {% if page.comments %}<script data-isso="http://{{ site.comments.isso }}" src="//{{ site.comments.isso }}/js/embed.min.js"></script>
-        {% else %}<script data-isso="http://{{ site.comments.isso }}" src="//{{ site.comments.isso }}/js/count.min.js"></script>{% endif %}
+        {% else %}<script data-isso="https://{{ site.comments.isso }}" src="//{{ site.comments.isso }}/js/count.min.js"></script>{% endif %}
       {% else %} <!-- '{{ page.show_comments }}' -->
       {% endif %}
     {% else %}<!-- Problem with isso parsing -->
