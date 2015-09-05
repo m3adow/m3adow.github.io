@@ -16,7 +16,7 @@ published: true
 ---
 <p>Zur Sicherung unserer Windowsserver setzen wir unter anderem auch <a href="http://de.wikipedia.org/wiki/Rsync" target="_blank">rsync</a> ein, ein Programm, das aus der Linux Welt bekannt ist. Um dieses auf Windows laufen zu lassen ist etwas Arbeit nötig. Da ich letzte Woche feststellen musste, dass unsere bisher verwendete Version nicht auf 64-Bit Versionen von Windows läuft, habe ich hier eine Anleitung geschrieben, wie man ein aktuelles rsync-Paket bastelt und dieses dann auf dem Server als Dienst laufen lässt. Ganz unten habe ich das fertige Paket dann auch angehängt.</p>
 <p>Teile dieser Anleitung basieren auf der schon einige Jahre alten <a href="http://www.brentnorris.net/rsyncntdoc.html" target="_blank">Anleitung von Brent Norris</a>.</p>
-<h6>Voraussetzungen</h6>
+<h3>Voraussetzungen</h3>
 <p>Wir benötigen:</p>
 <ul>
 <li><a href="http://cygwin.com/install.html" target="_blank">Cygwin</a>, bzw. 4 Dateien aus der Cygwin-Installation:</li>
@@ -29,7 +29,7 @@ published: true
 </ul>
 <li>Die Dateien <strong>instserv.exe</strong> und <strong>srvany.exe</strong> aus dem <a href="http://www.microsoft.com/en-us/download/confirmation.aspx?id=17657" target="_blank">Windows 2003 Ressource Kit</a></li>
 </ul>
-<h6>Umsetzung</h6>
+<h3>Umsetzung</h3>
 <p>Nun geht's los.</p>
 <p><!--more--></p>
 <ol>
@@ -79,7 +79,7 @@ list = true
 <p>Ich denke, ein Großteil der Angaben ist selbsterklärend, ansonsten verweise ich auf die <a href="http://linux.die.net/man/5/rsyncd.conf" target="_blank">rsync.conf Manpage</a>.</li>
 <li>Jetzt ist der Dienst wirklich funktionsfähig. Je nach Berechtigungsverwaltung und Benutzer, unter dem ihr den Dienst ausführt, müsst ihr eventuell noch die Berechtigungen der <em>rsyncd.log</em> ändern, damit diese auch beschreibbar ist.</li>
 </ol>
-<h6>Funktionstest</h6>
+<h3>Funktionstest</h3>
 <p>Wenn rsync dann startet, sollte im Log etwa so etwas stehen:</p>
 
 {% highlight irc %}

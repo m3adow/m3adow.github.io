@@ -15,7 +15,7 @@ type: post
 published: true
 ---
 <p>Wenn man sich "mal eben" einen Server oder vServer gemietet hat, sollte man diesen erstmal "grundsichern". Diese Minimalsicherung besteht aus 3 Punkten. Ich gehe hier von Debian aus, da dieses meiner Erfahrung nach am Häufigsten verwendet wird und auch ich es nutze.</p>
-<h6>1. Update</h6>
+<h3>1. Update</h3>
 <p>Der logischste Punkt. Ein nicht geupdatetes System oder veraltete Dienste sind ein geöffnetes Scheunentor. Dies lässt sich mit</p>
 
 {% highlight bash %}
@@ -23,7 +23,7 @@ apt-get update && apt-get upgrade && apt-get dist-upgrade
 {% endhighlight %}
 
 <p>aber auch direkt schmerzlos beheben.</p>
-<h6>2. Root per SSH verbieten</h6>
+<h3>2. Root per SSH verbieten</h3>
 <p>Der Root Account existiert auf jeder Linux Distribution. Deswegen ist dieser Account Teil einer jeden Bruteforcing Attacke. Wenn ihr dem Root Account den Login via SSH verbietet, muss der Angreifer neben eurem Passwort zusätzlich auch noch den Usernamen erraten.</p>
 <p>Legen wir also zuerst unseren neuen User an.</p>
 
@@ -73,7 +73,7 @@ PermitEmptyPasswords no
 {% endhighlight %}
 
 <p>und ein SSH-Login als root ist unmöglich.</p>
-<h6>Ports schließen</h6>
+<h3>Ports schließen</h3>
 <p>Dies ist eine etwas größere Sache, weswegen ich sie nur generell anschneide. Mit dem Befehl</p>
 
 {% highlight bash %}

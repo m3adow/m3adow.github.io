@@ -22,7 +22,7 @@ Zusammengefasst sehen meine Anforderungen so aus:</p>
 </ul>
 <p>Fangen wir also an:<br />
 <!--more--></p>
-<h6>Repository hinzufügen und Software installieren</h6>
+<h3>Repository hinzufügen und Software installieren</h3>
 <p>Da das von mir verwendete CentOS 6.4 noch kein PHP 5.4 in seinen Repos beinhaltet, PHP-FPM aber erst seit PHP5.4 ein nicht experimentells core-Feature ist, werden wir uns dieses aus einem anderen Repo besorgen. Dafür gibt es einige Auswahlmöglichkeiten im Netz, ich habe mich für das Repo von <a href="http://www.webtatic.com/packages/php54/" target="_blank">webtatic</a> entschieden. Weil wir mit Custom Repos arbeiten, empfehle ich vorher die Installation von <strong>yum-plugin-priorities</strong>, um das versehentliche Überschreiben von Paketen aus den Standardrepos zu verhindern.</p>
 
 {% highlight bash %}
@@ -53,7 +53,7 @@ sed -i -e '/^\(\[webtatic-.*\]\)$/ a\priority=50' /etc/yum.repos.d/webtatic.repo
 yum install httpd mod_fastcgi php54-fpm php54-pecl-zendopcache
 {% endhighlight %}
 
-<h6>PHP-FPM Konfiguration</h6>
+<h3>PHP-FPM Konfiguration</h3>
 <p>Jetzt kommen wir zur Konfiguration der Dienste. Wir beginnen mit einem ersten Pooleintrag für PHP-FPM. Hierzu entfernen wir zuerst den störenden Standardeintrag </p>
 
 {% highlight bash %}
@@ -102,7 +102,7 @@ php_admin_value[upload_tmp_dir]=/var/www/example.org/tmp
 <li>Unter "Specific PHP-options..." kann man beliebige PHP-Optionen anlegen. So kann man für verschieden stark besuchte Seiten etwa ein unterschiedlich großes memory_limit anlegen oder individuellen Applikationen längere Skriptlaufzeiten oder den Upload größerer Dateien ermöglichen.</li>
 </ul>
 <p>Damit ist die Konfiguration von PHP-FPM abgeschlossen. Ihr könnt hier beliebig viele weitere Pools definieren.</p>
-<h6>Apache Konfiguration</h6>
+<h3>Apache Konfiguration</h3>
 <p>Fahren wir mit der Konfiguration des Indianers fort. Damit zukünftig das Worker-Modul des Apache gestartet wird, ändern wir die <strong>/etc/sysconfig/httpd</strong>.</p>
 
 {% highlight bash %}

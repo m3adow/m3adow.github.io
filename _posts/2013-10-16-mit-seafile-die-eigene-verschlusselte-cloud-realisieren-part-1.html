@@ -10,9 +10,9 @@ published: false
 ---
 <p>Durch Prism sind große Clouddienste wie Dropbox, Microsofts Sky Drive oder Googles Drive stark im Ansehen gesunken. Doch was sind die Alternativen? Für mich ist der eigene Service grundsätzlich immer der vertrauenswürdigste. Deswegen habe ich beschlossen, meine eigene Cloud aufzusetzen. Zwischenzeitlich hatte ich dies schonmal über meinen Raspberry Pi und Owncloud versucht ( dabei habe ich mich grob an <a href="http://www.dahlen.org/2013/02/die-eigene-cloud-1/" target="_blank">diese Anleitung</a> gehalten), war mit dem Ergebnis aber wenig zufrieden. Der Raspberry Pi ist nicht performant genug, um die Weboberfläche von Owncloud geschmeidig darzustellen.<br />
 Darum nutze ich für meinen nächsten Versuch meinen vServer. Bei der Software habe ich mich diesmal für <a href="http://seafile.com/en/download/" target="_blank">Seafile</a> entschieden. Dieses hat den Vorteil, dass sämtliche Daten von Client zu Client verschlüsselt werden und deswegen selbst bei einem eventuellen Einbruch in den Server sicher wären, da sie auch nur in verschlüsselter Form auf dem Server liegen.</p>
-<h6>Ziel</h6>
+<h3>Ziel</h3>
 <p>Mein Ziel ist eine Storage-as-a-Service Cloudlösung im Stile von Dropbox, die P2P verschlüsselt und damit auf dem Server keinerlei verwertbare Daten liegen hat. Diese Software sollte natürlich OpenSource Software sein, da ich "<a href="https://en.wikipedia.org/wiki/Security_through_obscurity" target="_blank">Security by obscurity</a>" für ein hanebüchenes Prinzip halte. Die Software soll sich sauber in meine bestehende Infrastruktur integrieren lassen, also MySQL und Apache2 nutzen. Ein Client für meine drei Betriebssysteme Linux, Windows und Android muss vorhanden sein. </p>
-<h6>Installation</h6>
+<h3>Installation</h3>
 <p>Fangen wir also an. Da auf meinem Server inzwischen CentOS läuft, werde ich die Installationsanleitung für CentOS 64 Bit schreiben. Es sollte aber ohne größere Probleme möglich sein, dies auf Debian und/oder 32 Bit umzumünzen. Für diese Anleitung nehmen wir an, dass Seafile unter <strong>/srv/seafile</strong> laufen soll und dass wir uns auch bereits in diesem Verzeichnis befinden.<br />
 Als erstes installieren wir benötigte Pakete. Das hängt natürlich davon ab, was ihr schon auf eurem Server installiert habt, bei mir war es</p>
 
