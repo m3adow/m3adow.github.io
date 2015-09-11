@@ -12,7 +12,9 @@ layout: blank
     <a href="{{ post.url | prepend: site.baseurl}}#isso-thread" class="header_comment">Comments</a></div>
   </header>
   <div>
-    {{ post.excerpt}}
+    {% if post.excerpt %}{{ post.excerpt}}
+    {% else %} {{post.content}}
+    {% endif %}
   </div>
   <footer>
     <p><a href="{{ post.url | prepend: site.baseurl }}">{{ site.more }} &raquo;</a></p>
