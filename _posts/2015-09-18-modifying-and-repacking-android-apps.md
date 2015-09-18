@@ -44,32 +44,42 @@ As this is a tutorial for advanced users, I assume you managed to install those.
 First, we need to fix the erroneous configuration setting which is located within the Apps **AndroidManifest.xml**.
 
 1. Unpack the APK:
-  {% highlight bat %}
-  apktool.bat d c:\home\tmp\SuperHexagon-release-v1.0.7-humblebundle.apk -o c:\home\tmp\superhexagon
-  {% endhighlight %}
-2. Edit the **AndroidManifest.xml** and change `android:installLocation="preferExternal"` to `android:installLocation="auto"`.
+
+    {% highlight bat %}
+    apktool.bat d c:\home\tmp\SuperHexagon-release-v1.0.7-humblebundle.apk -o c:\home\tmp\superhexagon
+    {% endhighlight %}
+
+2. Edit the **AndroidManifest.xml** and change *android:installLocation="preferExternal"* to *android:installLocation="auto"*.
 3. Repack the APK:
-  {% highlight bat %}
-  apktool.bat b c:\home\tmp\superhexagon -o c:\home\tmp\SuperHexagon-release-v1.0.7-humblebundle-fixed.apk
-  {% endhighlight %}
+
+    {% highlight bat %}
+    apktool.bat b c:\home\tmp\superhexagon -o c:\home\tmp\SuperHexagon-release-v1.0.7-humblebundle-fixed.apk
+    {% endhighlight %}
 
 Now we fixed the error. Sadly, our app will most likely not be able to install as it's not signed anymore. That's what we do now. The [Android developer documentation](https://developer.android.com/tools/publishing/app-signing.html#signing-manually) does a good job explaining it, so I make it short.
 
 1. Generate a private key for signing the application. You'll find the needed keytool.exe in the bin directory of the JDK.
+
     {% highlight bat %}
     c:\Program Files\Java\jdk1.8.0_60\bin\keytool.exe -genkey -v -keystore c:\home\tmp\signing.keystore -alias signkey -keyalg RSA -keysize 2048 -validity 10000
     {% endhighlight %}
+
     There's no real need entering any real data here, just press Enter and choose any password.
 
 2. Sign the fixed APK with your newly created key via `jarsigner.exe` which is also located in the JDKs bin directory.
+
     {% highlight bat %}
     c:\Program Files\Java\jdk1.8.0_60\bin\jarsigner.exe -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore c:\home\tmp\signing.keystore c:\home\tmp\SuperHexagon-release-v1.0.7-humblebundle-fixed.apk signkey
     {% endhighlight %}
+
 3. If you want, you can verify that the APK was signed correctly.
+
     {% highlight bat %}
     c:\Program Files\Java\jdk1.8.0_60\bin\jarsigner -verify -verbose -certs c:\home\tmp\signing.keystore c:\home\tmp\SuperHexagon-release-v1.0.7-humblebundle-fixed.apk
     {% endhighlight %}
+
 4. Afterwards zipalign the APK to ensure the best performance.
+
     {% highlight bat %}
     zipalign -v 4 c:\home\tmp\SuperHexagon-release-v1.0.7-humblebundle-fixed.apk c:\home\tmp\SuperHexagon-release-v1.0.7-humblebundle-fixed-aligned.apk
     {% endhighlight %}
