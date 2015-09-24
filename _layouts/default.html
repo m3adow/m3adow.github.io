@@ -10,6 +10,12 @@ layout: blank
         {% include adsense_top.html %}
         {{ content }}
         {% include adsense_bottom.html %}
+      <b>More posts</b>
+      <ul>
+        {% for post in site.related_posts limit:3 %}
+          <li><a href="{{post.url}}">{{post.title}}</a></li>
+        {% endfor %}
+      </ul>
       </div>
       {% if site.comments.isso and page.comments and page.show_comments != false %}
       <div id="isso-thread"></div>
