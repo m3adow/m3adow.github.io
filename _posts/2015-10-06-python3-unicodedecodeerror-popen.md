@@ -29,6 +29,8 @@ def openme(bin_args):
 
 After hours of investigation, I found my answer [at Stack Overflow](https://stackoverflow.com/questions/29546311/popen-communicate-throws-unicodedecodeerror).
 
+{% include adsense_manual.html %}
+
 The applications STDOUT includes a lot of Asian symbols which don't go well with the formatting Python wants to use when setting **universal_newlines=True**. When setting this attribute, text mode is enabled and Python tries to automatically decode the byte output of STDOUT to the systems locale. Windows uses a very limited encoding page which lacks the needed Asian symbols.
 
 To circumvent the problem, I wrote my own small decoder:
