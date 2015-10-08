@@ -26,7 +26,7 @@ Failure [INSTALL_FAILED_CONTAINER_ERROR]
 
 I did some research and finally found the problem. The HumbleBundle Android version of SuperHexagon hasn't aged well, the APK is configured to install on SD card. This simply doesn't work on my First Generation Moto G which doesn't even have a SD card slot. So I did some more reasearch and found the solution. Of course this will most likely work for other applications with the same error too.
 <!--more-->
-{% insert adsense_manual.html %}
+{% include adsense_manual.html %}
 # The solution
 
 ### Prerequisites
