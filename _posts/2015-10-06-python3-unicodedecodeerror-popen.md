@@ -26,7 +26,7 @@ def openme(bin_args):
         for line in iter(p.stdout.readline, ''):
           process_stdout(line)
 {% endhighlight %}
-
+<!--more-->
 After hours of investigation, I found my answer [at Stack Overflow](https://stackoverflow.com/questions/29546311/popen-communicate-throws-unicodedecodeerror).
 
 {% include adsense_manual.html %}
