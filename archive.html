@@ -16,6 +16,6 @@ show_comments: false
       {% endif %}
     {% endunless %}
 
-    <li>{{ post.date | date:"%B" }}: <a href="{{ post.url | prepend: "site.url }}">{{ post.title }}</a></li>
+    <li>{{ post.date | date:"%B" }}: <a href="{{ post.url | prepend: site.url }}">{{ post.title }}</a></li>
   {% endfor %}
 </ul>

@@ -15,12 +15,12 @@
     {% if page.author %}<meta name="author" content="{{ page.author }}">{% endif %}
     <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
     <title>{% if page.title %} {{ page.title }} › {% endif %}{{ site.title }}</title>
-    <link rel="canonical" href="{{ page.url | prepend: "site.url | prepend: site.url}}">
-    <link href="{{ "/main.css" | prepend: "site.url }}" rel="stylesheet" type="text/css">
+    <link rel="canonical" href="{{ page.url | prepend: site.url | prepend: site.url}}">
+    <link href="{{ "/main.css" | prepend: site.url }}" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,200italic,300italic,400italic,600italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
     <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
-    <link rel="alternate" type="application/rss+xml" title="{{ site.title }} &raquo; Feed" href="{{ "/feed.xml" | prepend: "site.url }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }} &raquo; Feed" href="{{ "/feed.xml" | prepend: site.url }}">
     {% if site.comments.isso %}
       <!-- Comments powered by isso -->
       {% if page.show_comments != false %}
@@ -54,11 +54,11 @@
   </head>
   <body>
     <header>
-      {% unless site.style.headline %}<h1><a href="{{ "site.url }}/">{{ site.title }}</a></h1>{% endunless %}
+      {% unless site.style.headline %}<h1><a href="{{ site.url }}/">{{ site.title }}</a></h1>{% endunless %}
       <nav>
         <ul>
-          <li><a href="{{ "site.url }}/">H0me</a></li>
-      {% for node in site.pages %}{% if node.title and node.title != 'Impress' and node.title != 'Privacy Statement' %}<li><a href="{{ node.url | prepend: "site.url }}"{% if page.url == node.url %} id="selected"{% endif %}>{{ node.title }}</a></li>{% endif %}{% endfor %}
+          <li><a href="{{ site.url }}/">H0me</a></li>
+      {% for node in site.pages %}{% if node.title and node.title != 'Impress' and node.title != 'Privacy Statement' %}<li><a href="{{ node.url | prepend: site.url }}"{% if page.url == node.url %} id="selected"{% endif %}>{{ node.title }}</a></li>{% endif %}{% endfor %}
           <li><form method="get" id="search" action="https://duckduckgo.com/"><input type="hidden" name="sites" value="adminswerk.de"/>
             <input type="hidden" name="kj" value="#3f3f3f"/><input type="hidden" name="kx" value="b">
             <input type="text" name="q" maxlength="200" placeholder="Search"/>
@@ -67,7 +67,7 @@
         </ul>
       </nav>
     </header>
-    {% if site.style.headline %}<div><h1><a href="{{ "site.url }}/">{{ site.title }}</a></h1></div>{% endif %}
+    {% if site.style.headline %}<div><h1><a href="{{ site.url }}/">{{ site.title }}</a></h1></div>{% endif %}
     {% if site.subheading %}<div>{{ site.subheading }}</div>{% endif %}
     {{ content }}
     <footer>
