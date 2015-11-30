@@ -26,3 +26,4 @@ nc -u host.tld $PORT_NUMBER
 {% endhighlight %}
 
 This is basically a telnet chat, so you can send strings which should then be received on the other side.
+If you want even more good uses for netcat, I recommend [this](https://www.g-loaded.eu/2006/11/06/netcat-a-couple-of-useful-examples/) blog post.
