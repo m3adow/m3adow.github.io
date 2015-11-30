@@ -23,13 +23,13 @@ mv /pfad/* .
 <p>machen. Allerdings werden versteckte Dateien - also Dateien, die mit einem Punkt beginnen, damit nicht mit verschoben, da die *-Wildcard für diese eben nicht gilt. Also bauen wir uns mithilfe von Regular Expressions ein paar mehr Wildcards.</p>
 
 {% highlight bash %}
-mv /pfad/* /pfad/.[^.]* /pfad/.??* .
+mv /pfad/* /pfad/.[!.]* /pfad/.??* .
 {% endhighlight %}
 
 <p>Was decken wir damit ab?</p>
 <ul>
 <li><strong>/pfad/* :</strong> Sämtliche normale Dateien</li>
-<li><strong>/pfad/.[^.]* :</strong> Versteckte Dateien, die mit einem Punkt beginnen und dann alphanumerische Zeichen nutzen</li>
+<li><strong>/pfad/.[!.]* :</strong> Versteckte Dateien, die mit einem Punkt beginnen und dann alphanumerische Zeichen nutzen</li>
 <li><strong>/pfad/.??* :</strong> Versteckte Dateien, die nach dem Punkt eventuell noch einen Punkt haben</li>
 </ul>
 <p><a href="../assets/2013-02-05-mv-hidden-files.png"><img class="wp-image-2724 alignleft" style="margin: 10px;" title="2013-02-05-mv-hidden-files" src="../assets/2013-02-05-mv-hidden-files-300x114.png" alt="" width="300" height="114" /></a><br />
