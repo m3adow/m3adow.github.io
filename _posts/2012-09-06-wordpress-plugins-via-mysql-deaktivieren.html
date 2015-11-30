@@ -35,7 +35,7 @@ use wordpressdb;
 {% endhighlight %}
 
 <p>könnt ihr euch alle aktivierten Addons anschauen. Die Ausgabe könnte irgendwie so aussehen:<br />
-<a href="../assets/2012-08-13-wordpress-activated-plugins.png"><img class="alignnone size-medium wp-image-2431" style="margin: 5px;" title="2012-08-13-wordpress-activated-plugins" src="../assets/2012-08-13-wordpress-activated-plugins-300x190.png" alt="" width="300" height="190" /></a></li>
+<a href="https://adminswerk.de/assets/2012-08-13-wordpress-activated-plugins.png"><img class="alignnone size-medium wp-image-2431" style="margin: 5px;" title="2012-08-13-wordpress-activated-plugins" src="https://adminswerk.de/assets/2012-08-13-wordpress-activated-plugins-300x190.png" alt="" width="300" height="190" /></a></li>
 <li>Nun könnt ihr entweder alle Plugins deaktivieren oder den Versuch starten, einzelne Plugins zu abzuschalten. Um alle stillzulegen, führt diesen SQL-Befehl aus:
 
 {% highlight mysql %}
@@ -46,9 +46,9 @@ UPDATE wp_options SET option_value = 'a:0:{}' WHERE option_name = 'active_plugin
 </ol>
 <h3>PHPMyAdmin</h3>
 <p>In PHPMyAdmin loggt ihr euch mit einem entsprechend berechtigtem Benutzer ein, wählt eure Wordpress-Datenbank und in dieser die Tabelle <em>wp_options</em> aus.<br />
-<a href="../assets/2012-08-13-phpmyadmin_1.png"><img class="alignnone size-medium wp-image-2436" title="2012-08-13-phpmyadmin_1" src="../assets/2012-08-13-phpmyadmin_1-300x111.png" alt="" width="300" height="111" style="margin: 5px;" /></a><br />
+<a href="https://adminswerk.de/assets/2012-08-13-phpmyadmin_1.png"><img class="alignnone size-medium wp-image-2436" title="2012-08-13-phpmyadmin_1" src="https://adminswerk.de/assets/2012-08-13-phpmyadmin_1-300x111.png" alt="" width="300" height="111" style="margin: 5px;" /></a><br />
 Nun sucht ihr entweder manuell oder über die Suche nach der Spalte mit dem Wert <em>active_plugins</em> in der Zeile <em>option_name</em> und bearbeitet diese.<br />
-<a href="../assets/2012-08-13-phpmyadmin_2.png"><img src="../assets/2012-08-13-phpmyadmin_2-300x192.png" alt="" title="2012-08-13-phpmyadmin_2" width="300" height="192" class="alignnone size-medium wp-image-2438" style="margin: 5px;" /></a><br />
+<a href="https://adminswerk.de/assets/2012-08-13-phpmyadmin_2.png"><img src="https://adminswerk.de/assets/2012-08-13-phpmyadmin_2-300x192.png" alt="" title="2012-08-13-phpmyadmin_2" width="300" height="192" class="alignnone size-medium wp-image-2438" style="margin: 5px;" /></a><br />
 Hier könnt ihr jetzt im <em>option_value</em>-Wert entweder alle Plugins deaktivieren oder einzelne. Um alle auszuschalten, ersetzt den in diesem Fenster stehenden Wert durch <em>a:0:{}</em>. Für das entfernen einzelner Plugins muss vermutlich der entsprechende Wert zwischen den Semikolons gelöscht werden, für den Wordpress Importer wäre das dann beispielsweise</p>
 
 {% highlight mysql %}
