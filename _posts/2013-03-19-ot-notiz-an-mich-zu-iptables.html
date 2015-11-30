@@ -15,7 +15,7 @@ published: true
 <p>Bevor du den Server rebootest, stelle sicher, dass alle iptables-Regeln auch in deiner Wiederherstellungsdatei gespeichert sind.</p>
 <p>Hintergrund:</p>
 <p>Ich habe gestern an einem meiner vServer gebastelt und die Maschine im Zuge dessen auch neugestartet. Alles lief hinterher wie gewollt, also beendete ich irgendwann meine Arbeiten daran und loggte mich aus. Heute morgen habe ich durch Zufall auf die Bewertungsskala meines seit Kurzem auf dieser Kiste laufenden NTP-Servers geschaut und war etwas überrascht.</p>
-<p><a href="../assets/2013-03-19-ntp-server.png"><img class="alignnone size-full wp-image-2820" alt="2013-03-19-ntp-server" src="../assets/2013-03-19-ntp-server.png" width="501" height="233" /></a></p>
+<p><a href="https://adminswerk.de/assets/2013-03-19-ntp-server.png"><img class="alignnone size-full wp-image-2820" alt="2013-03-19-ntp-server" src="https://adminswerk.de/assets/2013-03-19-ntp-server.png" width="501" height="233" /></a></p>
 <p>Verdammt, da hatte ich doch glatt vergessen die Regel, die einkommende NTP-Verbindungen erlaubt, in die Datei zu übernehmen, die nach Systemstart die iptables-Regeln wieder automatisch einrichtet. Das gefiel dem NTP-Pool natürlich gar nicht. Jetzt wird es sicherlich einige Zeit dauern, bis meine Maschine wieder Anfragen zugeteilt bekommt. :-?</p>
 <p>Ironie der Sache: Ich hatte den Server neugestartet, um die Funktion eines anderen Skripts nach dem Systemstart zu testen.</p>
 <p>PS: Zu NTP-Clients und Servern werde ich demnächst mal zwei Beiträge schreiben.</p>
