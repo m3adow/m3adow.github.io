@@ -8,7 +8,7 @@ While setting up a new server, I encountered a problem with [mosh](https://mosh.
 
 However, the problem I encountered was a simple one: Mosh didn't work. Despite opening (and testing) the needed UDP ports in IPtables the server didn't spawn properly. After a bit of debugging I found the error while running the mosh server in verbose mode:
 
-{% highligh bash %}
+{% highlight bash %}
 [m3adow@batman ~]$ mosh-server new -v
 
 MOSH CONNECT 60002 kEK45q7SdtGfP00Op+9Nmw
@@ -23,4 +23,8 @@ There is NO WARRANTY, to the extent permitted by law.
 [m3adow@batman ~]$ forkpty: Operation not permitted
 {% endhighlight %}
 
-The "**forkpty: Operation not permitted**" message is the problem indicator.
+The "**forkpty: Operation not permitted**" message is the problem indicator. I have yet to find why this happens, but the [solution is simple](http://www.sourcediver.org/blog/2013/12/28/fixing-mosh-on-arch-linux/). Just add the user on the server you want to use mosh with to the `tty` group, e.g. usermod:
+{% highlight bash %}
+usermod -aG tty my_mosh_user
+{% endhighlight %}
+Afterwards you should have no more issues `mosh`ing into the server.
