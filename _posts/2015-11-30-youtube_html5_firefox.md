@@ -20,7 +20,7 @@ media.fragmented-mp4.exposed
 media.fragmented-mp4.ffmpeg.enabled
 media.fragmented-mp4.gmp.enabled
 {% endhighlight %}
-
+<!--more-->
 {% include adsense_manual.html %}
 
 **Result:**
