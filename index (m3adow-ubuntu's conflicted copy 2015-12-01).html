@@ -1,0 +1,40 @@
+---
+layout: blank
+---
+<div>
+    {% include adsense_top.html %}
+</div>
+{% for post in paginator.posts %}
+<article>
+  <header>
+    <h2><a href="{{ post.url | prepend: site.url }}">{{ post.title }}</a></h2>
+    <div id="post_header_info">{% if post.author %}{{ post.author }} • {% endif %}{% if post.date %}<time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>{% endif %}{% if post.categories %} • {{ post.categories | array_to_sentence_string }} • {% endif %}
+    <a href="{{ post.url | prepend: site.url}}#isso-thread" class="header_comment">Comments</a></div>
+  </header>
+  <div>
+    {% if post.excerpt %}{{ post.excerpt}}
+    {% else %} {{post.content}}
+    {% endif %}
+  </div>
+  <footer>
+    <p><a href="{{ post.url | prepend: site.url }}">{{ site.more }} &raquo;</a></p>
+  </footer>
+</article>
+{% endfor %}
+<div>
+    {% include adsense_bottom.html %}
+</div>
+<!-- Pagination links -->
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path }}" class="previous">Newer</a>
+  {% else %}
+    <span class="previous">Newer</span> •
+  {% endif %}
+  <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span> •
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}" class="next">Older</a>
+  {% else %}
+    <span class="next ">Older</span>
+  {% endif %}
+</div>
