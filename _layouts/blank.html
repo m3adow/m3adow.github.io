@@ -14,7 +14,7 @@
     {% if page.author %}<meta name="author" content="{{ page.author }}">{% endif %}
     <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
     <title>{% if page.title %} {{ page.title }} › {% endif %}{{ site.title }}</title>
-    <link rel="canonical" href="{{ page.url | prepend: site.url | prepend: site.url}}">
+    <link rel="canonical" href="{{ page.url | prepend: site.url }}">
     <link href="{{ "/main.css" | prepend: site.url }}" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,200italic,300italic,400italic,600italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
