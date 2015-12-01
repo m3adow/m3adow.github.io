@@ -36,6 +36,8 @@ drwxrwxr-x.  3 root     root      4096 Nov 30 09:22 lib
 
 Notice how we got a lot of strange filenames here, including files beginning with dashes or double dots.
 
+{% include adsense_manual.html %}
+
 **Solution:**
 
 A combination of three Shell Wildcards solves our problem:

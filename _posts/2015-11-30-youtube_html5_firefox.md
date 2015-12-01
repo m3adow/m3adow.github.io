@@ -21,6 +21,8 @@ media.fragmented-mp4.ffmpeg.enabled
 media.fragmented-mp4.gmp.enabled
 {% endhighlight %}
 
+{% include adsense_manual.html %}
+
 **Result:**
 
 Youtube is satisfied:
