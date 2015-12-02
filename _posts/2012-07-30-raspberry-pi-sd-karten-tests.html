@@ -14,7 +14,7 @@ type: post
 published: true
 ---
 <p><strong>Update 17.08.2011:<br />
-<em>Für Leute, die es eilig haben hier die beiden besten Karten: <a href="http://www.amazon.de/gp/product/B001ECQVTM/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B001ECQVTM&linkCode=as2&tag=admwer-21">Transcend SDHC 16GB Class 6</a><img src="https://adminswerk.de/assets/ir?t=admwer-21&l=as2&o=3&a=B001ECQVTM" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />* und <a href="http://www.amazon.de/gp/product/B00812K4V4/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B00812K4V4&linkCode=as2&tag=admwer-21">SanDisk Class 10 Ultra SDHC 8GB</a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B00812K4V4" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*.</em></strong></p>
+<em>Für Leute, die es eilig haben hier die beiden besten Karten: <a href="https://www.amazon.de/gp/product/B001ECQVTM/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B001ECQVTM&linkCode=as2&tag=admwer-21">Transcend SDHC 16GB Class 6</a><img src="https://ir-de.amazon-adsystem.com/e/ir?t=admwer-21&l=as2&o=3&a=B001ECQVTM" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />* und <a href="https://www.amazon.de/gp/product/B00812K4V4/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B00812K4V4&linkCode=as2&tag=admwer-21">SanDisk Class 10 Ultra SDHC 8GB</a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B00812K4V4" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*.</em></strong></p>
 <p style="margin-top:20px;">
 Um eine gute Karte für meinen Raspberry Pi zu finden, habe ich mir bisher schon etwas Mühe gemacht. Denn nur weil <em>Class 10</em> auf der Karte drauf steht, heißt das noch lange nicht, dass sie für die Zugriffe, die ein Betriebssystem braucht, optimiert ist. Wen das genauer interessiert, dem empfehle ich die Studie <a href="http://www.raspberrypi.org/phpBB3/viewtopic.php?f=2&t=4076" target="_blank">dieses Threads im Raspberry Pi Forums</a> oder <a href="http://forum.xda-developers.com/showthread.php?t=1005633" target="_blank">dieses Threads im XDA-Developers Forum</a>.<br />
 Also habe ich mir zum Testen ein eigenes kleines Skript geschrieben, welches auf dem Raspberry Pi ausgeführt wird und sowohl die Schreibgeschwindigkeit von /dev/null als auch von /dev/random misst. Die Ergebnisse sind untereinander vergleichbar, nicht jedoch mit anderen Tests. Alle Tests wurden mit dem "alten" Debian Wheezy Image ausgeführt, welches noch nicht so gut optimiert ist.<br />
@@ -57,15 +57,15 @@ sync
 
 <p>Im Endeffekt macht es nichts anderes, als 1000 Mal 10 Blöcke mit jeweils 16k Blocksize in ein Verzeichnis zu schreiben, die Zeit zu stoppen und die Geschwindigkeit auszurechnen. Nach den Tests löscht es die entsprechenden Dateien (bzw. den Ordner) wieder.</p>
 <p>Da es sicherlich mehr Leute gibt, die eine schnelle SD-Karte für ihren Raspberry Pi haben wollen, werde ich hier meine Ergebnisse posten, bis ich eine Karte finde, die mir zusagt. Ich mache jeweils drei Durchgänge, um eventuelle Ausreißer zu erkennen. Ich gebe jeweils die Geschwindigkeiten der /dev/zero Schreibdurchgänge und darunter die Geschwindigkeiten der drei /dev/urandom Schreibdurchgänge an.<br />
-Hinweis: Ich hatte vor Beginn meiner Tests noch eine <a href="http://www.amazon.de/gp/product/B00569J5JC/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B00569J5JC&linkCode=as2&tag=admwer-21">Samsung MB-SPAGA/EU Class 10 16GB</a><img src="https://adminswerk.de/assets/ir?t=admwer-21&l=as2&o=3&a=B00569J5JC" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />* bestellt, doch diese war mir zu langsam.</p>
+Hinweis: Ich hatte vor Beginn meiner Tests noch eine <a href="https://www.amazon.de/gp/product/B00569J5JC/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B00569J5JC&linkCode=as2&tag=admwer-21">Samsung MB-SPAGA/EU Class 10 16GB</a><img src="https://ir-de.amazon-adsystem.com/e/ir?t=admwer-21&l=as2&o=3&a=B00569J5JC" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />* bestellt, doch diese war mir zu langsam.</p>
 <p style="margin-top:20px;">
 <table align="left" style="border:none !important;width:600px; border-style:none !important;float:none">
 <tbody>
 <tr>
-<td rowspan="5" style="border:none !important;border-style:none !important"><a href="http://www.amazon.de/gp/product/B00192S3XO/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B00192S3XO&linkCode=as2&tag=admwer-21"><img style="float: left; margin-right: 15px !important;" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B00192S3XO&Format=_SL110_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=admwer-21" alt="" border="0" /></a><img style="border: none !important; margin: 0px !important; float: left !important;" src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B00192S3XO" alt="" width="1" height="1" border="0" /></td>
+<td rowspan="5" style="border:none !important;border-style:none !important"><a href="https://www.amazon.de/gp/product/B00192S3XO/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B00192S3XO&linkCode=as2&tag=admwer-21"><img style="float: left; margin-right: 15px !important;" src="https://ws-eu.amazon.adsystem.com/widgets/q?_encoding=UTF8&ASIN=B00192S3XO&Format=_SL110_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=admwer-21" alt="" border="0" /></a><img style="border: none !important; margin: 0px !important; float: left !important;" src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B00192S3XO" alt="" width="1" height="1" border="0" /></td>
 </tr>
 <tr>
-<td colspan="2" style="border:none !important;border-style:none !important"><strong><a href="http://www.amazon.de/gp/product/B00192S3XO/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B00192S3XO&linkCode=as2&tag=admwer-21">Platinum 16 GB Class 6 SDHC</a>*<img src="https://adminswerk.de/assets/ir?t=admwer-21&l=as2&o=3&a=B00192S3XO" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
+<td colspan="2" style="border:none !important;border-style:none !important"><strong><a href="https://www.amazon.de/gp/product/B00192S3XO/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B00192S3XO&linkCode=as2&tag=admwer-21">Platinum 16 GB Class 6 SDHC</a>*<img src="https://ir-de.amazon-adsystem.com/e/ir?t=admwer-21&l=as2&o=3&a=B00192S3XO" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
 <p></strong></td>
 </tr>
 <tr>
@@ -85,11 +85,11 @@ Hinweis: Ich hatte vor Beginn meiner Tests noch eine <a href="http://www.amazon.
 <table align="left" style="border:none !important;width:600px; border-style:none !important;float:none">
 <tbody>
 <tr>
-<td rowspan="5" style="border:none !important;border-style:none !important"><a href="http://www.amazon.de/gp/product/B0042FZCFC/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B0042FZCFC&linkCode=as2&tag=admwer-21"><img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B0042FZCFC&Format=_SL110_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=admwer-21" /></a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B0042FZCFC" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+<td rowspan="5" style="border:none !important;border-style:none !important"><a href="https://www.amazon.de/gp/product/B0042FZCFC/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B0042FZCFC&linkCode=as2&tag=admwer-21"><img border="0" src="https://ws-eu.amazon.adsystem.com/widgets/q?_encoding=UTF8&ASIN=B0042FZCFC&Format=_SL110_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=admwer-21" /></a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B0042FZCFC" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 </td>
 </tr>
 <tr>
-<td colspan="2" style="border:none !important;border-style:none !important"><strong><a href="http://www.amazon.de/gp/product/B0042FZCFC/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B0042FZCFC&linkCode=as2&tag=admwer-21">Transcend SDHC 8GB Class 4</a>*<img src="https://adminswerk.de/assets/ir?t=admwer-21&l=as2&o=3&a=B0042FZCFC" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /><br />
+<td colspan="2" style="border:none !important;border-style:none !important"><strong><a href="https://www.amazon.de/gp/product/B0042FZCFC/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B0042FZCFC&linkCode=as2&tag=admwer-21">Transcend SDHC 8GB Class 4</a>*<img src="https://ir-de.amazon-adsystem.com/e/ir?t=admwer-21&l=as2&o=3&a=B0042FZCFC" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /><br />
 </strong></td>
 </tr>
 <tr>
@@ -134,11 +134,11 @@ Hinweis: Ich hatte vor Beginn meiner Tests noch eine <a href="http://www.amazon.
 <table align="left" style="border:none !important;width:600px; border-style:none !important;float:none">
 <tbody>
 <tr>
-<td rowspan="6" style="border:none !important;border-style:none !important"><a href="http://www.amazon.de/gp/product/B000QUUFRM/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B000QUUFRM&linkCode=as2&tag=admwer-21"><img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B000QUUFRM&Format=_SL110_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=admwer-21" /></a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B000QUUFRM" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+<td rowspan="6" style="border:none !important;border-style:none !important"><a href="https://www.amazon.de/gp/product/B000QUUFRM/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B000QUUFRM&linkCode=as2&tag=admwer-21"><img border="0" src="https://ws-eu.amazon.adsystem.com/widgets/q?_encoding=UTF8&ASIN=B000QUUFRM&Format=_SL110_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=admwer-21" /></a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B000QUUFRM" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 </td>
 </tr>
 <tr>
-<td colspan="2" style="border:none !important;border-style:none !important"><strong><a href="http://www.amazon.de/gp/product/B000QUUFRM/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B000QUUFRM&linkCode=as2&tag=admwer-21">SanDisk Ultra SDHC 8GB Class 4</a><img src="https://adminswerk.de/assets/ir?t=admwer-21&l=as2&o=3&a=B000QUUFRM" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*</p>
+<td colspan="2" style="border:none !important;border-style:none !important"><strong><a href="https://www.amazon.de/gp/product/B000QUUFRM/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B000QUUFRM&linkCode=as2&tag=admwer-21">SanDisk Ultra SDHC 8GB Class 4</a><img src="https://ir-de.amazon-adsystem.com/e/ir?t=admwer-21&l=as2&o=3&a=B000QUUFRM" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*</p>
 <p></strong></td>
 </tr>
 <tr>
@@ -163,11 +163,11 @@ Hinweis: Ich hatte vor Beginn meiner Tests noch eine <a href="http://www.amazon.
 <table align="left" style="border:none !important;width:600px; border-style:none !important;float:none">
 <tbody>
 <tr>
-<td rowspan="6" style="border:none !important;border-style:none !important"><a href="http://www.amazon.de/gp/product/B0014VY28A/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B0014VY28A&linkCode=as2&tag=admwer-21"><img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B0014VY28A&Format=_SL110_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=admwer-21" /></a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B0014VY28A" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+<td rowspan="6" style="border:none !important;border-style:none !important"><a href="https://www.amazon.de/gp/product/B0014VY28A/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B0014VY28A&linkCode=as2&tag=admwer-21"><img border="0" src="https://ws-eu.amazon.adsystem.com/widgets/q?_encoding=UTF8&ASIN=B0014VY28A&Format=_SL110_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=admwer-21" /></a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B0014VY28A" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 </td>
 </tr>
 <tr>
-<td colspan="2" style="border:none !important;border-style:none !important"><strong><a href="http://www.amazon.de/gp/product/B0014VY28A/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B0014VY28A&linkCode=as2&tag=admwer-21">SanDisk Ultra SDHC 16GB Class 4</a><img src="https://adminswerk.de/assets/ir?t=admwer-21&l=as2&o=3&a=B0014VY28A" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*</strong></td>
+<td colspan="2" style="border:none !important;border-style:none !important"><strong><a href="https://www.amazon.de/gp/product/B0014VY28A/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B0014VY28A&linkCode=as2&tag=admwer-21">SanDisk Ultra SDHC 16GB Class 4</a><img src="https://ir-de.amazon-adsystem.com/e/ir?t=admwer-21&l=as2&o=3&a=B0014VY28A" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*</strong></td>
 </tr>
 <tr>
 <td style="border:none !important;border-style:none !important">/dev/zero (1./2./3. Run) [MB/s]:</td>
@@ -192,11 +192,11 @@ Hinweis: Ich hatte vor Beginn meiner Tests noch eine <a href="http://www.amazon.
 <table align="left" style="border:none !important;width:600px; border-style:none !important;float:none">
 <tbody>
 <tr>
-<td rowspan="5" style="border:none !important;border-style:none !important"><a href="http://www.amazon.de/gp/product/B004TS1IFU/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B004TS1IFU&linkCode=as2&tag=admwer-21"><img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B004TS1IFU&Format=_SL110_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=admwer-21" /></a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B004TS1IFU" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+<td rowspan="5" style="border:none !important;border-style:none !important"><a href="https://www.amazon.de/gp/product/B004TS1IFU/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B004TS1IFU&linkCode=as2&tag=admwer-21"><img border="0" src="https://ws-eu.amazon.adsystem.com/widgets/q?_encoding=UTF8&ASIN=B004TS1IFU&Format=_SL110_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=admwer-21" /></a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B004TS1IFU" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 </td>
 </tr>
 <tr>
-<td colspan="2" style="border:none !important;border-style:none !important"><strong><a href="http://www.amazon.de/gp/product/B004TS1IFU/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B004TS1IFU&linkCode=as2&tag=admwer-21">Kingston Class 10 SDHC 8GB</a><img src="https://adminswerk.de/assets/ir?t=admwer-21&l=as2&o=3&a=B004TS1IFU" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*<br />
+<td colspan="2" style="border:none !important;border-style:none !important"><strong><a href="https://www.amazon.de/gp/product/B004TS1IFU/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B004TS1IFU&linkCode=as2&tag=admwer-21">Kingston Class 10 SDHC 8GB</a><img src="https://ir-de.amazon-adsystem.com/e/ir?t=admwer-21&l=as2&o=3&a=B004TS1IFU" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*<br />
 </strong></td>
 </tr>
 <tr>
@@ -216,11 +216,11 @@ Hinweis: Ich hatte vor Beginn meiner Tests noch eine <a href="http://www.amazon.
 <table align="left" style="border:none !important;width:600px; border-style:none !important;float:none">
 <tbody>
 <tr>
-<td rowspan="5" style="border:none !important;border-style:none !important"><a href="http://www.amazon.de/gp/product/B0013AV9TW/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B0013AV9TW&linkCode=as2&tag=admwer-21"><img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B0013AV9TW&Format=_SL110_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=admwer-21" /></a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B0013AV9TW" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+<td rowspan="5" style="border:none !important;border-style:none !important"><a href="https://www.amazon.de/gp/product/B0013AV9TW/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B0013AV9TW&linkCode=as2&tag=admwer-21"><img border="0" src="https://ws-eu.amazon.adsystem.com/widgets/q?_encoding=UTF8&ASIN=B0013AV9TW&Format=_SL110_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=admwer-21" /></a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B0013AV9TW" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 </td>
 </tr>
 <tr>
-<td colspan="2" style="border:none !important;border-style:none !important"><strong><a href="http://www.amazon.de/gp/product/B0013AV9TW/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B0013AV9TW&linkCode=as2&tag=admwer-21">Kingston SDHC Class 4 16 GB</a><img src="https://adminswerk.de/assets/ir?t=admwer-21&l=as2&o=3&a=B0013AV9TW" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*<br />
+<td colspan="2" style="border:none !important;border-style:none !important"><strong><a href="https://www.amazon.de/gp/product/B0013AV9TW/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B0013AV9TW&linkCode=as2&tag=admwer-21">Kingston SDHC Class 4 16 GB</a><img src="https://ir-de.amazon-adsystem.com/e/ir?t=admwer-21&l=as2&o=3&a=B0013AV9TW" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*<br />
 </strong></td>
 </tr>
 <tr>
@@ -240,11 +240,11 @@ Hinweis: Ich hatte vor Beginn meiner Tests noch eine <a href="http://www.amazon.
 <table align="left" style="border:none !important;width:600px; border-style:none !important;float:none">
 <tbody>
 <tr>
-<td rowspan="5" style="border:none !important;border-style:none !important"><a href="http://www.amazon.de/gp/product/B00812K4V4/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B00812K4V4&linkCode=as2&tag=admwer-21"><img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B00812K4V4&Format=_SL110_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=admwer-21" /></a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B00812K4V4" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+<td rowspan="5" style="border:none !important;border-style:none !important"><a href="https://www.amazon.de/gp/product/B00812K4V4/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B00812K4V4&linkCode=as2&tag=admwer-21"><img border="0" src="https://ws-eu.amazon.adsystem.com/widgets/q?_encoding=UTF8&ASIN=B00812K4V4&Format=_SL110_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=admwer-21" /></a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B00812K4V4" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 </td>
 </tr>
 <tr>
-<td colspan="2" style="border:none !important;border-style:none !important"><strong><a href="http://www.amazon.de/gp/product/B00812K4V4/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B00812K4V4&linkCode=as2&tag=admwer-21">SanDisk Class 10 Ultra SDHC 8GB</a><img src="https://adminswerk.de/assets/ir?t=admwer-21&l=as2&o=3&a=B00812K4V4" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*<br />
+<td colspan="2" style="border:none !important;border-style:none !important"><strong><a href="https://www.amazon.de/gp/product/B00812K4V4/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B00812K4V4&linkCode=as2&tag=admwer-21">SanDisk Class 10 Ultra SDHC 8GB</a><img src="https://ir-de.amazon-adsystem.com/e/ir?t=admwer-21&l=as2&o=3&a=B00812K4V4" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*<br />
 </strong></td>
 </tr>
 <tr>
@@ -264,11 +264,11 @@ Hinweis: Ich hatte vor Beginn meiner Tests noch eine <a href="http://www.amazon.
 <table align="left" style="border:none !important;width:600px; border-style:none !important;float:none">
 <tbody>
 <tr>
-<td rowspan="5" style="border:none !important;border-style:none !important"><a href="http://www.amazon.de/gp/product/B003PJ654S/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B003PJ654S&linkCode=as2&tag=admwer-21"><img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B003PJ654S&Format=_SL110_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=admwer-21" /></a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B003PJ654S" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+<td rowspan="5" style="border:none !important;border-style:none !important"><a href="https://www.amazon.de/gp/product/B003PJ654S/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B003PJ654S&linkCode=as2&tag=admwer-21"><img border="0" src="https://ws-eu.amazon.adsystem.com/widgets/q?_encoding=UTF8&ASIN=B003PJ654S&Format=_SL110_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=admwer-21" /></a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B003PJ654S" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 </td>
 </tr>
 <tr>
-<td colspan="2" style="border:none !important;border-style:none !important"><strong><a href="http://www.amazon.de/gp/product/B003PJ654S/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B003PJ654S&linkCode=as2&tag=admwer-21">Lexar 8GB Class 6</a><img src="https://adminswerk.de/assets/ir?t=admwer-21&l=as2&o=3&a=B003PJ654S" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*<br />
+<td colspan="2" style="border:none !important;border-style:none !important"><strong><a href="https://www.amazon.de/gp/product/B003PJ654S/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B003PJ654S&linkCode=as2&tag=admwer-21">Lexar 8GB Class 6</a><img src="https://ir-de.amazon-adsystem.com/e/ir?t=admwer-21&l=as2&o=3&a=B003PJ654S" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*<br />
 </strong></td>
 </tr>
 <tr>
@@ -288,11 +288,11 @@ Hinweis: Ich hatte vor Beginn meiner Tests noch eine <a href="http://www.amazon.
 <table align="left" style="border:none !important;width:600px; border-style:none !important;float:none">
 <tbody>
 <tr>
-<td rowspan="5" style="border:none !important;border-style:none !important"><a href="http://www.amazon.de/gp/product/B003PJ653Y/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B003PJ653Y&linkCode=as2&tag=admwer-21"><img border="0" src="https://adminswerk.de/assets/51yJTNiFc0L._SL110_.jpg" /></a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B003PJ653Y" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+<td rowspan="5" style="border:none !important;border-style:none !important"><a href="https://www.amazon.de/gp/product/B003PJ653Y/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B003PJ653Y&linkCode=as2&tag=admwer-21"><img border="0" src="https://adminswerk.de/assets/51yJTNiFc0L._SL110_.jpg" /></a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B003PJ653Y" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 </td>
 </tr>
 <tr>
-<td colspan="2" style="border:none !important;border-style:none !important"><strong><a href="http://www.amazon.de/gp/product/B003PJ653Y/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B003PJ653Y&linkCode=as2&tag=admwer-21">Lexar SDHC 4GB Class 6</a><img src="https://adminswerk.de/assets/ir?t=admwer-21&l=as2&o=3&a=B003PJ653Y" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*<br />
+<td colspan="2" style="border:none !important;border-style:none !important"><strong><a href="https://www.amazon.de/gp/product/B003PJ653Y/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B003PJ653Y&linkCode=as2&tag=admwer-21">Lexar SDHC 4GB Class 6</a><img src="https://ir-de.amazon-adsystem.com/e/ir?t=admwer-21&l=as2&o=3&a=B003PJ653Y" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*<br />
 </strong></td>
 </tr>
 <tr>
@@ -312,11 +312,11 @@ Hinweis: Ich hatte vor Beginn meiner Tests noch eine <a href="http://www.amazon.
 <table align="left" style="border:none !important;width:600px; border-style:none !important;float:none">
 <tbody>
 <tr>
-<td rowspan="5" style="border:none !important;border-style:none !important"><a href="http://www.amazon.de/gp/product/B001ECQVTM/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B001ECQVTM&linkCode=as2&tag=admwer-21"><img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B001ECQVTM&Format=_SL110_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=admwer-21" /></a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B001ECQVTM" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+<td rowspan="5" style="border:none !important;border-style:none !important"><a href="https://www.amazon.de/gp/product/B001ECQVTM/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B001ECQVTM&linkCode=as2&tag=admwer-21"><img border="0" src="https://ws-eu.amazon.adsystem.com/widgets/q?_encoding=UTF8&ASIN=B001ECQVTM&Format=_SL110_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=admwer-21" /></a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B001ECQVTM" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 </td>
 </tr>
 <tr>
-<td colspan="2" style="border:none !important;border-style:none !important"><strong><a href="http://www.amazon.de/gp/product/B001ECQVTM/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B001ECQVTM&linkCode=as2&tag=admwer-21">Transcend SDHC 16GB Class 6</a><img src="https://adminswerk.de/assets/ir?t=admwer-21&l=as2&o=3&a=B001ECQVTM" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*<br />
+<td colspan="2" style="border:none !important;border-style:none !important"><strong><a href="https://www.amazon.de/gp/product/B001ECQVTM/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B001ECQVTM&linkCode=as2&tag=admwer-21">Transcend SDHC 16GB Class 6</a><img src="https://ir-de.amazon-adsystem.com/e/ir?t=admwer-21&l=as2&o=3&a=B001ECQVTM" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*<br />
 </strong></td>
 </tr>
 <tr>
@@ -337,12 +337,12 @@ Hinweis: Ich hatte vor Beginn meiner Tests noch eine <a href="http://www.amazon.
 <tbody>
 <tr>
 <td rowspan="5" style="border:none !important;border-style:none !important">
-<a href="http://www.amazon.de/gp/product/B000P9ZBFA/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B000P9ZBFA&linkCode=as2&tag=admwer-21"><img border="0" src="http://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B000P9ZBFA&Format=_SL110_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=admwer-21" /></a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B000P9ZBFA" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+<a href="https://www.amazon.de/gp/product/B000P9ZBFA/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B000P9ZBFA&linkCode=as2&tag=admwer-21"><img border="0" src="https://ws-eu.amazon.adsystem.com/widgets/q?_encoding=UTF8&ASIN=B000P9ZBFA&Format=_SL110_&ID=AsinImage&MarketPlace=DE&ServiceVersion=20070822&WS=1&tag=admwer-21" /></a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B000P9ZBFA" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 </td>
 </tr>
 <tr>
 <td colspan="2" style="border:none !important;border-style:none !important"><strong><br />
-<a href="http://www.amazon.de/gp/product/B000P9ZBFA/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B000P9ZBFA&linkCode=as2&tag=admwer-21">Transcend SDHC 8GB Class 6</a><img src="https://adminswerk.de/assets/ir?t=admwer-21&l=as2&o=3&a=B000P9ZBFA" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*<br />
+<a href="https://www.amazon.de/gp/product/B000P9ZBFA/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B000P9ZBFA&linkCode=as2&tag=admwer-21">Transcend SDHC 8GB Class 6</a><img src="https://ir-de.amazon-adsystem.com/e/ir?t=admwer-21&l=as2&o=3&a=B000P9ZBFA" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*<br />
 </strong></td>
 </tr>
 <tr>
