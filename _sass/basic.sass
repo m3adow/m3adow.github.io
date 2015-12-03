@@ -92,8 +92,20 @@ body > footer
     display: flex
     justify-content: space-between
 
+//code:not([class^="language-"]) {
+//     background-color: #e6edf4;
+//     font-size: calc(0.6vw + 0.35em);
+//     padding-inline-end: 0.2em;
+//     padding-inline-start: 0.2em;
+//}
+
+code:not([class^="language-"])
+    background-color: #d5e0ec
+    font-size: calc(0.6vw + 0.35em)
+    padding-inline-end: 0.2em
+    padding-inline-start: 0.2em
+
+// Handle Pagination
 div.pagination
     span.next, span.previous
         text-decoration: line-through
-
-// Handle Pagination

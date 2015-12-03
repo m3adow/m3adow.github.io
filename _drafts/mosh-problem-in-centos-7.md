@@ -4,7 +4,7 @@ title: "Mosh problem in CentOS 7"
 categories:
 - linux
 ---
-While setting up a new server, I encountered a problem with [mosh](https://mosh.mit.edu/). If you don't know mosh, it's an extension to SSH which (among other features) enables instant reconnections after an internet shortage. This is especially useful if you're often connecting via mobile network and constantly lose your mobile Internet connection.
+While setting up a new server, I encountered a problem with [mosh](https://mosh.mit.edu/). If you don't know mosh, it's an extension to SSH which (among other features) enables instant reconnections after an internet shortage. This is especially useful if you're frequently connecting via mobile network and constantly lose your mobile Internet connection.
 
 However, the problem I encountered was a simple one: Mosh didn't work. Despite opening (and testing) the needed UDP ports in IPtables the server didn't spawn properly. After a bit of debugging I found the error while running the mosh server in verbose mode:
 
