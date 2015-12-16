@@ -28,6 +28,7 @@ paginate_path: "/older/page:num"
 
 links:
   - github: "https://github.com/m3adow/"
+  - bitbucket: "https://bitbucket.org/m3adow/"
   - xing: "https://www.xing.com/profile/Till_Wiese"
   - linkedin: "https://www.linkedin.com/pub/till-wiese/46/403/7b4"
 #  - twitter: "https://twitter.com/me/"

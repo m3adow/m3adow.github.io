@@ -10,7 +10,7 @@ layout: blank
         {% include adsense_top.html %}
         {{ content }}
         {% include adsense_bottom.html %}
-      {% if page.show_blog_additions %}
+      {% if page.show_blog_additions != false %}
         <b>More posts</b>
         <ul>
           {% for post in site.related_posts limit:3 %}
@@ -18,7 +18,7 @@ layout: blank
           {% endfor %}
         </ul>
         </div>
-        {% if site.comments.isso and page.comments %}
+        {% if site.comments.isso and page.comments != false %}
         <div id="isso-thread"></div>
         <a href="http://posativ.org/isso/" id="isso-brlink">comments powered by <b>isso</b></a></div>
         {% endif %}
