@@ -25,6 +25,7 @@ The downside however is slightly aged software. In this special case, I needed P
 {% endhighlight %}
 
 This will place this new Python installation into the directory tree of `/usr/local/`.
+<!--more-->
 {% include adsense_manual.html %}
 Afterwards you can simply call your script with the binary or point the shebang to it like that:
 
