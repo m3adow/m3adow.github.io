@@ -1,7 +1,7 @@
 ---
 title: "Privacy Statement"
 permalink: privacy-statement/
-show_comments: false
+show_blog_additions: false
 ---
 ## General
 Your personal data (e.g. title, name, house address, e-mail address, phone number, bank details, credit card number) are processed by us only in accordance with the provisions of German data privacy laws. The following provisions describe the type, scope and purpose of collecting, processing and utilizing personal data. This data privacy policy applies only to our web pages. If links on our pages route you to other pages, please inquire there about how your data are handled in such cases.
@@ -39,3 +39,6 @@ You can prevent storage of cookies by appropriately setting your browser softwar
 According to the Federal Data Protection Act, you have a right to free-of-charge information about your stored data, and possibly entitlement to correction, blocking or deletion of such data. Inquiries can be directed to the following e-mail address: <a href="mailto:mail-id10t@till-wiese.de">mail-id10t@till-wiese.de</a>
 
 *Source*: <a href="http://www.twigg.de/" target="_blank" rel="nofollow">http://www.twigg.de/</a>
+
+## Piwik Opt out
+ <iframe style="border: 0; height: 200px; width: 600px;" src="https://piwik.tillwiese.de/index.php?module=CoreAdminHome&action=optOut&language=en"></iframe>

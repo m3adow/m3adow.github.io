@@ -4,23 +4,28 @@ layout: blank
 <article>
       <header>
         <h2><a href="{{ page.url | prepend: site.url }}">{{ page.title }}</a></h2>
-        <div id="post_header_info">{% if page.author %}{{ page.author }} • {% endif %}{% if page.date %}<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>{% endif %}{% if page.categories %} • {{ page.categories | array_to_sentence_string }} • {% endif %}{% if page.show_comments != false %}<a href="{{ page.url | prepend: site.url}}#isso-thread" class="header_comment">Comments</a> {{ page.show_comments }}{% endif %}
+        <div id="post_header_info">{% if page.author %}{{ page.author }} • {% endif %}{% if page.date %}<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>{% endif %}{% if page.categories %} • {{ page.categories | array_to_sentence_string }} • {% endif %}{% if page.show_blog_additions != false %}<a href="{{ page.url | prepend: site.url}}#isso-thread" class="header_comment">Comments</a> {{ page.show_blog_additions }}{% endif %}
       </header>
       <div>
         {% include adsense_top.html %}
         {{ content }}
         {% include adsense_bottom.html %}
-      <b>More posts</b>
-      <ul>
-        {% for post in site.related_posts limit:3 %}
-          <li><a href="{{post.url | prepend: site.url}}">{{post.title}}</a></li>
-        {% endfor %}
-      </ul>
-      </div>
-      {% if site.comments.isso and page.comments and page.show_comments != false %}
-      <div id="isso-thread"></div>
-      <a href="http://posativ.org/isso/" id="isso-brlink">comments powered by <b>isso</b></a></div>
+      {% if page.show_blog_additions %}
+        <b>More posts</b>
+        <ul>
+          {% for post in site.related_posts limit:3 %}
+            <li><a href="{{post.url | prepend: site.url}}">{{post.title}}</a></li>
+          {% endfor %}
+        </ul>
+        </div>
+        {% if site.comments.isso and page.comments %}
+        <div id="isso-thread"></div>
+        <a href="http://posativ.org/isso/" id="isso-brlink">comments powered by <b>isso</b></a></div>
+        {% endif %}
+      {% else %}
+        </div>
       {% endif %}
+
     <p>
       {% include host1plus_banner.html %}
     </p>

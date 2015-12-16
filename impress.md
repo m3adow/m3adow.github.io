@@ -1,7 +1,7 @@
 ---
 title: "Impress"
 permalink: impress/
-show_comments: false
+show_blog_additions: false
 ---
 ### Legal Disclosure
 _Information in accordance with section 5 TMG_  
