@@ -15,11 +15,12 @@ set -e
 set -o pipefail
 
 cd ~/.local/share/Steam/ubuntu12_32/
-for INSTALLME in $(LD_LIBRARY_PATH=".:${LD_LIBRARY_PATH}" ldd $(file *|sed '/ELF/!d;s/:.*//g')| \
-grep 'not found'|sort|uniq|sed 's/^[ \t]*\([a-z0-9.-]*\).*/\1/'|apt-file search -f -| \
-head -1|cut -d ' ' -f1)
+for INSTALLME in $(LD_LIBRARY_PATH=".:${LD_LIBRARY_PATH}" \
+  ldd $(file *|sed '/ELF/!d;s/:.*//g')| grep 'not found'|sort| \
+  uniq|sed 's/^[ \t]*\([a-z0-9.-]*\).*/\1/'|apt-file search -f -| \
+  head -1|cut -d ' ' -f1)
 do
-ALLINSTALL="${ALLINSTALL} ${INSTALLME}i386"
+  ALLINSTALL="${ALLINSTALL} ${INSTALLME}i386"
 done
 sudo apt-get update
 sudo apt-get install ${ALLINSTALL}
