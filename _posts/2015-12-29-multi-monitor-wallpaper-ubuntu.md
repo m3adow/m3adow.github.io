@@ -32,7 +32,7 @@ There's no package in the Ubuntu repositories and no PPA of the developer either
 {% highlight bash %}
 sudo add-apt-repository ppa:nilarimogard/webupd8 \
   && sudo apt-get update \
-  && sudo apt-get install SyncWall
+  && sudo apt-get install syncwall
 {% endhighlight %}
 
 Keep in mind that - although unlikely - it's always possible that custom repositories might mess with your other packages. Additionally you should always be aware that there's little control over the packages content and you have to trust the PPA maintainer. If you don't want either of those, lets go way two.
