@@ -17,6 +17,7 @@ This blog consists of static pages created by [Jekyll](https://jekyllrb.com). It
 
 Here's some statistics data for interested people:
 
-<div id="widgetIframe"><iframe width="100%" height="100%" src="https://piwik.tillwiese.de/index.php?module=Widgetize&action=iframe&widget=1&moduleToWidgetize=VisitsSummary&actionToWidgetize=index&idSite=1&period=day&date=yesterday&disableLink=1&widget=1" scrolling="no" frameborder="0" marginheight="0" marginwidth="0"></iframe></div>
+<div id="widgetIframe"><iframe width="100%" height="940" src="https://piwik.tillwiese.de/index.php?module=Widgetize&action=iframe&widget=1&moduleToWidgetize=VisitsSummary&actionToWidgetize=index&idSite=1&period=day&date=yesterday&disableLink=1&widget=1" scrolling="no" frameborder="0" marginheight="0" marginwidth="0"></iframe></div>
 
 If you want to know anything else, shoot me an e-mail or send me a message via one of the different networks.
+<div id="widgetIframe"><iframe width="100%" height="350" src="https://piwik.tillwiese.de/index.php?module=Widgetize&action=iframe&widget=1&moduleToWidgetize=VisitsSummary&actionToWidgetize=index&idSite=1&period=day&date=yesterday&disableLink=1&widget=1" scrolling="no" frameborder="0" marginheight="0" marginwidth="0"></iframe></div>
