@@ -37,7 +37,7 @@ sudo add-apt-repository ppa:nilarimogard/webupd8 \
 
 Keep in mind that - although unlikely - it's always possible that custom repositories might mess with your other packages. Additionally you should always be aware that there's little control over the packages content and you have to trust the PPA maintainer. If you don't want either of those, lets go way two.
 
-### Have it your way: Compile from source
+#### Have it your way: Compile from source
 If you don't use an Ubuntu derivate or don't trust Launchpad PPAs, you can always compile SyncWall by yourself. Get the source on [Sourceforge](http://sourceforge.net/projects/syncwall/files/), install the dependencies and compile it. How to do this depends on your Linux distribution, so I'm not able to give you a step-by-step instruction. But I found the official *INSTALL.txt* to be very helpful. Using Ubuntu 15.10 here's what worked for me (assuming you already downloaded and unzipped the release and are in its source directory):
 
 {% highlight bash %}
