@@ -25,7 +25,7 @@ was man wissen sollte
 echo "Obendrueber steht ein Kommentar."
 {% endhighlight %}
 
-<p>Das ist der einfache Weg. Er funktioniert allerdings nur, wenn ihr keine einfachen Anführungszeichen im Kommentar habt. Das ist bei meistens immer der Fall. Wenn ihr diese einfachen Anführungszeichen aber in eurem Kommentar benötigt, dann nutzt Variante B:</p>
+<p>Das ist der einfache Weg. Er funktioniert allerdings nur, wenn ihr keine einfachen Anführungszeichen im Kommentar habt. Das ist bei mir meistens der Fall. Wenn ihr diese einfachen Anführungszeichen aber in eurem Kommentar benötigt, dann nutzt Variante B:</p>
 
 {% highlight bash %}
 echo "Auch hiernach ein Kommentar."
@@ -37,5 +37,5 @@ KOMMENTARIO
 echo "Obendrueber war ein Kommentar."
 {% endhighlight %}
 
-<p>Jetzt arbeiten wir also geschickt mit Sprungmarken. Das hat auch den Vorteil, dass man im vi oder dem entsprechenden Editor nach dem Name der jeweiligen Sprungmarke suchen kann. Achtet aber darauf, dass der Name eurer Sprungmarken eindeutig sein muss und nirgends sonst im Quellcode vorkommen darf.</p>
+<p>Jetzt arbeiten wir also geschickt mit Here documents. Das hat auch den Vorteil, dass man im vi oder dem entsprechenden Editor nach der EOF Terminierung suchen kann.</p>
 <p><em>Quelle:</em> Das empfehlenswerte <a href="http://www.unix.com/shell-programming-scripting/39478-block-comment-shell-script.html" target="_blank">unix.com-Forum</a></p>
