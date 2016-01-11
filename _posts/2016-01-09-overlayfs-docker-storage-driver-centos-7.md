@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Using OverlayFS as Docker storage driver in CentOS 7"
+title: "OverlayFS as Docker storage driver in CentOS 7"
 categories:
 - linux
 - CentOS
@@ -60,6 +60,8 @@ mount /dev/vg/var_lib_docker /mnt \
 # Add new mountpoint to fstab
 printf "/dev/vg/var_lib_docker\t/var/lib/docker\text4\tdefaults\t0\t0\n" >> /etc/fstab
 {% endhighlight %}
+
+{% include adsense_manual_link.html %}
 
 ## 4. Testing
 Now we can `reboot`. Afterwards check if everything is working as intended by using `docker info`:
