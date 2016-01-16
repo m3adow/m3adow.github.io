@@ -17,6 +17,8 @@ xrandr --newmode $(cvt ${XRES} ${YRES}|tail -1| perl -pe 's/^Modeline\ //') \
 {% endhighlight %}
 
 But making the change reboot persistent without using those commands in a startup script took me hours of searching the web several times as I have little knowledge with X11, [only](https://wiki.archlinux.org/index.php/Xrandr) [find](https://wiki.archlinux.org/index.php/Xorg) [parts](http://community.linuxmint.com/tutorial/view/877) of the solution and never documented the steps needed on my own... yet:
+<!--more-->
+{% include adsense_manual.html %}
 
 Lets roll it up from behind. Here's the end result:  
 `/usr/share/X11/xorg.conf.d/10-monitor.conf`
