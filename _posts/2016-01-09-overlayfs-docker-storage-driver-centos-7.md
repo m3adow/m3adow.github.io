@@ -50,7 +50,7 @@ If you're extensively testing Docker and `/var/lib/docker` is not on a dedicated
 
 {% highlight bash %}
 # Create new LV
-lvcreate -L 400M -n lvol0 vg0
+lvcreate -L 100G -n var_lib_docker vg
 # Make a new filesystem in the LV
 # Use -N <INODE_NUMBER> if you need to deviate from the default calculation
 mkfs.ext4 /dev/vg/var_lib_docker
