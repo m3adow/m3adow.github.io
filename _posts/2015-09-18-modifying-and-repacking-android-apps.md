@@ -76,6 +76,6 @@ zipalign -v 4 c:\home\tmp\SuperHexagon-release-v1.0.7-humblebundle-fixed.apk c:\
 </ol>
 That's it, you're done. You can now transfer this APK to your device and install it without hassle.
 
-<img src="https://adminswerk.de/assets/2015-09-18-superhexagon_android_lollipop.png" alt="SuperHexagon on my Lollipop Moto G" width="50%" height="50%">
+<img src="{{ site.url }}/assets/2015-09-18-superhexagon_android_lollipop.png" alt="SuperHexagon on my Lollipop Moto G" style= "width: 50%;">
 
 That was totally worth it!
