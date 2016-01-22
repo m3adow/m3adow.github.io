@@ -9,6 +9,6 @@ I'm using [Pocket](https://getpocket.com/) a lot. Sometimes I use it to save art
 
 Simply open it with Firefox, install the Addon and restart the Browser. Finally you can enjoy the much better version of the Pocket Addon again!
 
-<img src="{{site.url}}/assets/images/2016/2016-01-18-original-pocket-firefox-addon.png" alt="Original Pocket Firefox Addon" style="width: 60%;">
+<a href="{{site.url}}/assets/images/2016/2016-01-18-original-pocket-firefox-addon.png"><img src="{{site.url}}/assets/images/2016/2016-01-18-original-pocket-firefox-addon.png" alt="Original Pocket Firefox Addon" style="width: 60%;"></a>
 
 PS: I will probably replace Pocket with a self-hosted [wallabag](https://www.wallabag.org/) instance sooner or later. If you prefer self-hosted software and want to replace Pocket, have look into it.
