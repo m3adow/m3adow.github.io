@@ -11,4 +11,4 @@ Simply open it with Firefox, install the Addon and restart the Browser. Finally 
 
 <img src="{{site.url}}/assets/images/2016/2016-01-18-original-pocket-firefox-addon.png" alt="Original Pocket Firefox Addon" style="width: 60%;">
 
-PS: I will probably replace Pocket with a self-hosted [wallabag](https://www.wallabag.org/) instance sooner or later, just to be independent of a third party.
+PS: I will probably replace Pocket with a self-hosted [wallabag](https://www.wallabag.org/) instance sooner or later. If you prefer self-hosted software and want to replace Pocket, have look into it.
