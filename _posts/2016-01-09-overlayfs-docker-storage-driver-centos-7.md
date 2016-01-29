@@ -12,7 +12,8 @@ I decided to use **OverlayFS** for several reasons, integration in the Linux ker
 <!--more-->
 
 ## 1. Kernel upgrade
-*Although CentOS uses the "old" kernel 3.10, there are a lot of backports, including overlay. As overlay-support was lackluster on 7.1, I still opted to do a kernel upgrade even on CentOS 7.2. If you're running CentOS 7.2, you can try to skip this step. I'd really appreciate a confirmation afterwards*
+<s><i>Although CentOS uses the "old" kernel 3.10, there are a lot of backports, including overlay. As overlay-support was lackluster on 7.1, I still opted to do a kernel upgrade even on CentOS 7.2. If you're running CentOS 7.2, you can try to skip this step. I'd really appreciate a confirmation afterwards</i></s>  
+***Update 2016-01-29:** While testing overlay on kernel 3.10, I got errors while running `docker build`. Specifically I got errors when doing an `rm` on files of an underlying layer. Therefore I'd still recommend using a newer kernel.*
 
 We need to upgrade the kernel first. You can either compile it your own or use one from a custom repository. Both ways are described on [Linoxide](http://linoxide.com/linux-how-to/upgrade-linux-kernel-stable-3-18-4-centos/), so I don't need go into further detail here. I used the `kernel-ml` package from [ELRepo](https://elrepo.org/tiki/tiki-index.php):
 {% highlight bash %}

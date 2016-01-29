@@ -12,7 +12,7 @@ Changing the resolution temporary is easy with `cvt` and `xrandr`.
 {% highlight bash %}
 export XRES=1152 \
 && export YRES=864 \
-xrandr --newmode $(cvt ${XRES} ${YRES}|tail -1| perl -pe 's/^Modeline\ //') \
+&& xrandr --newmode $(cvt ${XRES} ${YRES}|tail -1| perl -pe 's/^Modeline\ //') \
 && xrandr --addmode $(cvt ${XRES} ${YRES}|tail -1| cut -d ' ' -f2)
 {% endhighlight %}
 
