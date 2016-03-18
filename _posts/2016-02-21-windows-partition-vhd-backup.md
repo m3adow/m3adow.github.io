@@ -23,28 +23,36 @@ I wanted to have a fresh start and didn't want to keep anything, but I still wan
 <ol>
 <li>
 unmount the partition you want to backup if it's mounted
-{% highlight bash %}
+
+```bash
 umount /dev/sda2
-{% endhighlight %}
+```
 </li>
 <li>
 use `ntfsclone` to create an image excluding unused partition space
-{% highlight bash %}
-ntfsclone -s -o /mnt/20160220-win_c_drive_ntfsclone.img /dev/sda2
-{% endhighlight %}
+
+```bash
+ntfsclone -o /mnt/20160220-win_c_drive_ntfsclone.img /dev/sda2
+```
+
+*Update 2016-03-18: I removed usage of the `-s` switch because it makes the resulting VHDs unreadable.*
 </li>
 <li>
 Install VirtualBox if not already installed, we need VBoxManage
-{% highlight bash %}
+
+```bash
 apt-get update && apt-get install --yes virtualbox
-{% endhighlight %}
+```
+
 </li>
 <li>
 Use VBoxManage to convert the ntfsclone image to a VHD
-{% highlight bash %}
+
+```bash
 VBoxManage convertfromraw /mnt/20160220-win_c_drive_ntfsclone.img \
   /mnt/20160220-win_c_drive_ntfsclone.vhd --format VHD
-{% endhighlight %}
+```
+
 </li>
 </ol>
 
