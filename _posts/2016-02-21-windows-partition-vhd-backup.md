@@ -29,7 +29,7 @@ umount /dev/sda2
 {% endhighlight %}
 </li>
 <li>
-use `ntfsclone` to create an image excluding unused partition space
+use <code>ntfsclone</code> to create an image excluding unused partition space
 
 {% highlight bash %}
 ntfsclone -o /mnt/20160220-win_c_drive_ntfsclone.img /dev/sda2
