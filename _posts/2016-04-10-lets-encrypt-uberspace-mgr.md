@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Simplyfying Let's Encrypt on Uberspace"
+title: "Simplifying Let's Encrypt on Uberspace"
 categories:
 - Uberspace
 ---
