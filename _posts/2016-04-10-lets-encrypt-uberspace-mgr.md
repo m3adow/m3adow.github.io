@@ -20,7 +20,7 @@ So I created a small script to allow the creation of Let's Encrypt certificates 
 
 # Using letsencrypt-uberspace-mgr
 
-## Setup
+### Setup
 
 If you haven't used Let's Encrypt on your Uberspace yet, I recommend reading their [Wiki entry][3] about it. At absolute minimum you need to run `uberspace-letsencrypt` to initialise Let's Encrypt. Don't mind the message about the included domains, **letsencrypt-uberspace-mgr** overrides those.
 
@@ -42,7 +42,7 @@ and you're done.
 
 I recommend adding `keep-until-expiring = True` to your `~/.config/letsencrypt/cli.ini` to avoid running into the [Rate Limits][5] Let's Encrypt enforces.
 
-## New certificates
+### New certificates
 I focussed **letsencrypt-uberspace-mgr** on easily keeping your Let's Encrypt certificates up to date as a simple "set and forget" maintenance script running via cron. Thus, creating new certs is still a little counter intuitive. There are actually two ways:  
 Either add the new domains into your `~/etc/letsencrypt_domains.conf` and run **letsencrypt-uberspace-mgr** or create a new file (e.g. `~/tmp/new_domains.conf`) and point the `DOMAINS_FILE` variable towards it before executing **letsencrypt-uberspace-mgr**:   
 `DOMAINS_FILE="~/tmp/new_domains.conf" bash -c "letsencrypt-uberspace-mgr"`.

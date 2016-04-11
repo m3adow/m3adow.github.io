@@ -41,17 +41,10 @@ links:
 excerpt_separator: "<!--more-->"
 defaults: [{scope: {path: ""}, values: {layout: "default"}}, {scope: {path: "", type: "posts"}, values: {comments: true}}]
 
-# Jekyll-press
-#jekyll-press:
-#    exclude: 'feed.xml'
-
-# sitemap generator for uberspace version
-#sitemap:
-#    file: "/sitemap.xml"
-#    exclude:
-#        - "/feed.xml"
-#    include_posts:
-#        - "/index.html"
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 
 gems:
     - jekyll-sitemap
