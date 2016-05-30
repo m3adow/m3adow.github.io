@@ -15,6 +15,7 @@ E-Mail: <a href="mailto:mail-id10t@till-wiese.de">mail-id10t@till-wiese.de</a>
 
 **I am not interested in any kind of blog partnership to boost your SEO and/or backlinks. E-mails in this regard will be ignored.**
 
+
 ### Disclaimer
 **Accountability for content**  
 The contents of our pages have been created with the utmost care. However, we cannot guarantee the contents' accuracy, completeness or topicality. According to statutory provisions, we are furthermore responsible for our own content on these web pages. In this context, please note that we are accordingly not obliged to monitor merely the transmitted or saved information of third parties, or investigate circumstances pointing to illegal activity. Our obligations to remove or block the use of information under generally applicable laws remain unaffected by this as per &sect;&sect; 8 to 10 of the Telemedia Act (TMG).
