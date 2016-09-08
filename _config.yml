@@ -7,7 +7,7 @@ url: "https://adminswerk.de"
 # baseurl: "/contrast" # comment out if in root directory
 permalink: /:title/
 
-future: true
+future: false
 comments:
     isso: "comments.tillwiese.de/adminswerk.de.fcgi"
 
