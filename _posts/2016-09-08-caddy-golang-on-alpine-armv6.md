@@ -56,7 +56,7 @@ _ "github.com/captncraig/caddy-realip"
 
 I've created a couple of Dockerfiles and scripts in my [dockerfiles-arm][6] repo which should ease this process for others. Furthermore I've created a couple of containers for the impatient ([Go][7], [Caddy][8]), although I'd recommend the Dockerfiles.
 
-For more info about configuration of Caddy, see the [documentation][97] and the [Github source][10]. I'll try to distribute an automatically compiled binary of Caddy for ARMv6, but I can't promise anything.
+For more info about configuration of Caddy, see the [documentation][9] and the [Github source][10]. I'll try to distribute an automatically compiled binary of Caddy for ARMv6, but I can't promise anything.
 
 
 [1]: https://caddyserver.com/
