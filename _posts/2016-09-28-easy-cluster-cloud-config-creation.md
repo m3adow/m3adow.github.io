@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Easing cloud-config creation for clusters"
+title: "Simplyfying cloud-config creation for clusters"
 categories:
 - coreos
 - cloud
