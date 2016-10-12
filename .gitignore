@@ -1,5 +1,7 @@
 _site/
 _drafts/*
+
+.vscode/
 .sass-cache/
 .jekyll-metadata
 .bundle/
