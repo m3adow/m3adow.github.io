@@ -12,7 +12,8 @@ Just a quick writeup from my notes so I know where to look it up if I ever searc
 
 There are two scenarios I normally encounter, either verify if the certificate chain is complete or find out where the certificate chain breaks.
 
-##Verifying the whole chain
+### Verifying the whole chain
+
 1. Concatenate the certificate chain including the root certificate in one file. From the top of my head I'm not quite certain if order is important, leaf to root worked for me.
 2. Do an `openssl verify` with `-CApath /dev/null` to prevent taking the systems trust stores into account:
 
@@ -21,11 +22,11 @@ openssl verify -verbose -CApath /dev/null -CAfile concatenated-chain-file.pem ss
 ```
 If the output of the command contains 'OK', the chain is complete.
 
-##Verifying the certificate chain partially
+### Verifying the certificate chain partially
 
 If the certificate chain is not complete, there are two ways to find out which part didn't fit. The easier one needs OpenSSL 1.0.2g or later which is not easily available for many systems still in use, like RHEL 6 or Ubuntu 14.04. As I haven't encountered this requirement too often, it's not very elaborate.
 
-###Via "openssl verify -partial_chain" (OpenSSL version >= 1.0.2g)
+#### Via "openssl verify -partial_chain" (OpenSSL version >= 1.0.2g)
 
 Do this for every part of the chain you want to test:
 
@@ -33,7 +34,7 @@ Do this for every part of the chain you want to test:
 openssl verify -CApath /dev/null -partial_chain -trusted addtrustexternalcaroot.crt comodorsaaddtrustca.crt
 ```
 
-###Manual
+#### Manual
 
 If OpenSSL 1.0.2g is not available or more output is required, you can do this, assuming you have all the certificate chain certs in one dir ending with `.crt`:
 
@@ -43,7 +44,7 @@ for FILE in $(ls *.crt); do openssl x509 -noout -text -in ${FILE} | grep "Key Id
 
 This will output the AKI and SKI of the cert. SKI of the Root CA needs to be identical to the AKI of the following Intermediate CA, etc.
 
-#Verify match of private key and certificate or CSR
+# Verify match of private key and certificate or CSR
 
 To verify the match of a private key, certificate or CSR, compare the modulus of the file.
 
@@ -68,7 +69,7 @@ MYDOM=ssl.example.org
 [[ "$(openssl x509 -noout -modulus -in ${MYDOM}.crt |openssl md5)" == "$(openssl rsa -noout -modulus -in ${MYDOM}.key | openssl md5)" ]] && echo "OK" || echo "NOT OK"
 ```
 
-#Using s_client
+# Using s_client
 
 The only real interesting thing about `openssl s_client` I can think of from the top of my head is the fact that feeding `/dev/null` as input eases piping.
 
