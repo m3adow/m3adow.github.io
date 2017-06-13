@@ -12,6 +12,10 @@ I've been playing with Kubernetes on CoreOS Container Linux for a couple of mont
 Therefore I settled with a Kubernetes installation residing on a single node. The clustering was a bit overkill for family applications anyways and this step just took to much time. For the Single Node installation I found a [blog entry][3] from Victor Palau who also created a GitHub repository for an automated Kubernetes installation to an existing Container Linux server. I tested his script on my server from [Chicago VPS][cvpsaffi] and although it largely worked, I was dissatisfied. As the script was initially intended to be run on Microsofts Azure, the requirements a bare metal installation has were not taken into account:  
 A couple of ports meant for internal use only were publicy accessible, insecure etcd2 being the worst one. Furthermore I didn't like the apiserver listening on port 443. While on Azure you'd normaly prepend a Load balancer in front of the Single node, this doesn't apply to a Bare Metal installation. Thusly HTTPS was effectively blocked on the node and there was no easy way for integrating a containerised load balancer like [Træfɪk][4]. Addtionally there were some smaller problems or additions I had in mind and wanted to integrate into the automation to ease installations for others and a possible reinstallation for myself.
 
+<!--more-->
+
+{% include adsense_manual.html %}
+
 So I took Victors script and expanded it to be more "Individual Production Ready" by:
 
 * changing the published port of the API server to 6443

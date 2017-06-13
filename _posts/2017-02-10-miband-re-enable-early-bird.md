@@ -10,6 +10,10 @@ I bought a [Xiaomi Mi Band 1S][mibandamazon] one year ago solely for the reason 
 **Prelude:**
 I'm not certain if every action is needed. I tried dry testing my changes but all changes failed the tests, including the (fully working) one I'm using now. So I advise on "live" testing every change for two or three nights if you don't want to pull completely through with everything. If you find out only parts of it are needed, I'd appreciate if you left a comment afterwards.
 
+<!--more-->
+
+{% include adsense_manual.html %}
+
 That said, here are all the steps I took to regain the Early Bird Alarm on my Mi Band:
 
 **1. Disable all Alarms in the Mi Fit App:**  This should be done before fiddling with other apps. Either disable the alarms in the Mi Fit App or straightforwardly delete all of them. Not doing this might result in failure of tests for all other steps.

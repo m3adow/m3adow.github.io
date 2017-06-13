@@ -29,9 +29,11 @@ published: true
 </ul>
 <li>Die Dateien <strong>instserv.exe</strong> und <strong>srvany.exe</strong> aus dem <a href="http://www.microsoft.com/en-us/download/confirmation.aspx?id=17657" target="_blank">Windows 2003 Ressource Kit</a></li>
 </ul>
+<p><!--more-->
+
+{% include adsense_manual.html %}</p>
 <h3>Umsetzung</h3>
 <p>Nun geht's los.</p>
-<p><!--more--></p>
 <ol>
 <li>Kopiert die oben genannten Dateien alle in den Ordner, von dem ihr den Dienst ausführen wollt, bei mir ist es das Verzeichnis <strong>C:\Program Files (x86)\rsyncd</strong>.</li>
 <li>Öffnet eine CMD und wechselt in euer gewünschtes Verzeichnis:
@@ -100,5 +102,7 @@ backup          Backup-Verzeichnis
 {% endhighlight %}
 
 <p>Damit ist euer rsync-Daemon für Windows fertig. Zum Aktualisieren der Versionen müssen lediglich die 4 Cygwin-Dateien durch neuere ersetzt und der Dienst neu gestartet werden.</p>
-<p style="margin-top: 20px;">Falls ihr an der Anleitung gescheitert oder einfach nur zu faul zum selbermachen seid, <a href="http://misc.adminswerk.de/rsyncd.zip" target="_blank"><strong>hier habe ich das"Rsync für Windows"-Paket</strong></a> zum Herunterladen bereitgestellt. Ihr müsst lediglich noch die gewünschten Pfade in der <strong><em>rsyncd.conf</em></strong> und der<strong><em> rsyncd.reg</em></strong> anpassen und die Reg-Datei danach ausführen. Wenn ihr rsync in <em>C:\\Program Files (x86)\\rsyncd</em> ausführen wollt, könnt ihr die Dateien so weitestgehend übernehmen.</p>
-<p><strong>Ich übernehme dafür keinerlei Haftung und empfehle jedem, die obige Anleitung zu befolgen, wenn er mir nicht hundertprozentig vertraut!</strong></p>
+<i>Update 2017-06-13: Das Paket ist nicht mehr verfügbar. Folgt der Anleitung.</i>
+<s><p style="margin-top: 20px;">Falls ihr an der Anleitung gescheitert oder einfach nur zu faul zum selbermachen seid, <a href="http://misc.adminswerk.de/rsyncd.zip" target="_blank"><strong>hier habe ich das"Rsync für Windows"-Paket</strong></a> zum Herunterladen bereitgestellt. Ihr müsst lediglich noch die gewünschten Pfade in der <strong><em>rsyncd.conf</em></strong> und der<strong><em> rsyncd.reg</em></strong> anpassen und die Reg-Datei danach ausführen. Wenn ihr rsync in <em>C:\\Program Files (x86)\\rsyncd</em> ausführen wollt, könnt ihr die Dateien so weitestgehend übernehmen.</p>
+<p><strong>Ich übernehme dafür keinerlei Haftung und empfehle jedem, die obige Anleitung zu befolgen, wenn er mir nicht hundertprozentig vertraut!</strong></p></s>  
+

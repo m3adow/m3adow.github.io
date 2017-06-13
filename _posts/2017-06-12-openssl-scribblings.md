@@ -22,6 +22,10 @@ openssl verify -verbose -CApath /dev/null -CAfile concatenated-chain-file.pem ss
 ```
 If the output of the command contains 'OK', the chain is complete.
 
+<!--more-->
+
+{% include adsense_manual.html %}
+
 ### Verifying the certificate chain partially
 
 If the certificate chain is not complete, there are two ways to find out which part didn't fit. The easier one needs OpenSSL 1.0.2g or later which is not easily available for many systems still in use, like RHEL 6 or Ubuntu 14.04. As I haven't encountered this requirement too often, it's not very elaborate.
