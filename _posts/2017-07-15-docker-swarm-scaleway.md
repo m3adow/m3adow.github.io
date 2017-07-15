@@ -22,7 +22,7 @@ Apr 14 20:41:17 <hostname> docker[15787]: time="2017-04-14T20:41:17.432762944Z" 
 
 As it turns out, the default boot script used for the Scaleway instances does not support IP_VS_NFCT. The [initial support][3] for it in the boot script was introduced some time in July 2016, but for some reason newer boot scripts do not support IP_VS_NFCT again. Without IP_VS_NFCT the overlay network of swarm mode doesn't work properly.
 
-Luckily I could also find a solution in the Github issues of Scaleway. The `x86_64 4.4.70 std #1` boot script has IP_VS_NFCT-support enabled and can therefore flawlessly operate Docker in swarm mode.
+Luckily I could also find a [solution][4] in the Github issues of Scaleway. The `x86_64 4.4.70 std #1` boot script has IP_VS_NFCT-support enabled and can therefore flawlessly operate Docker in swarm mode.
 
 If you don't know where to find the boot script setting, here it is:
 
