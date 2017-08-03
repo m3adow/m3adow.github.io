@@ -91,6 +91,6 @@ To my knowledge there's no proper way to add a renewed (same private key, differ
 
 In the end, I can recommend using [Keystore Explorer][1] for quick changes. The application visualizes keystores very well and has been in constant development (as of August 2017). It is a nice GUI tool for most keystore related tasks.
 
-<a href="{{site.url}}/assets/images/2017/2017-08-02-keystore-explorer.png"><img src="{{site.url}}/assets/images/2017-08-02-keystore-explorer.png" style="width: 30%; margin: 10px;" alt="Keystore Explorer"></a>
+<a href="{{site.url}}/assets/images/2017/2017-08-02-keystore-explorer.png"><img src="{{site.url}}/assets/images/2017/2017-08-02-keystore-explorer.png" style="width: 30%; margin: 10px;" alt="Keystore Explorer"></a>
 
 [1]: http://keystore-explorer.org/
