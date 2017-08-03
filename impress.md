@@ -7,7 +7,7 @@ show_blog_additions: false
 
 _Information in accordance with section 5 TMG_  
 Till Wiese  
-Schlesier Str. 17  
+Danziger Str. 1
 65582 Diez  
 
 **Contact**  
