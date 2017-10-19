@@ -5,6 +5,7 @@ layout: blank
       <header>
         <h2><a href="{{ page.url | prepend: site.url }}">{{ page.title }}</a></h2>
         <div id="post_header_info">{% if page.author %}{{ page.author }} • {% endif %}{% if page.date %}<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time>{% endif %}{% if page.categories %} • {{ page.categories | array_to_sentence_string }} • {% endif %}{% if page.show_blog_additions != false %}<a href="{{ page.url | prepend: site.url}}#isso-thread" class="header_comment">Comments</a> {{ page.show_blog_additions }}{% endif %}
+        </div>
       </header>
       <div>
         {% include adsense_top.html %}

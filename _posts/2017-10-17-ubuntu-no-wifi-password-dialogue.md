@@ -2,7 +2,7 @@
 layout: default
 title: "Ubuntu: How to fix the No Wi-Fi password dialogue error"
 categories:
-- linux
+- Linux
 - Ubuntu
 ---
 
