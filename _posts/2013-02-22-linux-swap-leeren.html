@@ -12,6 +12,8 @@ status: publish
 type: post
 published: true
 ---
+<em>This post is also available in english <a href="{% post_url 2017-11-08-linux-empty-swap-space %}">HERE</a>.</em>
+
 <p>Kurztipp: Wenn ihr unter Linux warum auch immer den Swapspeicher leeren wollt, ist das so möglich:</p>
 
 {% highlight bash %}
@@ -21,7 +23,7 @@ swapoff -a && swapon -a
 <p>Damit deaktivieren wir den Swap-Speicher erst komplett, wodurch dieser geleert wird, dann aktivieren wir ihn wieder. Bei größeren Swapauslastungen kann das durchaus ein paar Minuten dauern. Um den Fortschritt zu prüfen, könnt ihr in einem anderen Terminalfenster diesen Befehl ausführen:</p>
 
 {% highlight bash %}
-free -s 3 |grep Swap 
+free -s 3 |grep Swap
 {% endhighlight %}
 
 <p>Damit wird euch dann alle 3 Sekunden der Speicherstand des Swaps angezeigt. Dieser sollte sich dann natürlich kontinuierlich verringern und letzendlich auf null stehen.<br />
