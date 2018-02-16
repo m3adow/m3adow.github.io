@@ -13,3 +13,4 @@ Gemfile.lock
 .dropbox.attr
 _watch/d.BUILD
 _watch/d.DEPLOY
+.htaccess
