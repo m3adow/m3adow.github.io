@@ -8,11 +8,13 @@ layout: blank
         </div>
       </header>
       <div>
+        {% comment %}
         {% if page.lang == 'de_DE' %}
           {% include getmore1.html %}
         {% else %}
           {% include adsense_top.html %}
         {% endif %}
+        {% endcomment %}
         {{ content }}
         {% include adsense_bottom.html %}
       {% if page.show_blog_additions != false %}
