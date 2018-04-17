@@ -91,7 +91,7 @@ for ID in $(mysql -B --skip-column-names horde_db <<< "
   > 1 AND COUNT(event_start) > 1);" | tr ',' ' ' | tr '\n' ' ')
   do  
     echo "$ID"
-    mysql --skip-column-names -B imehl_horde <<< "
+    mysql --skip-column-names -B horde_db <<< "
     SET @@group_concat_max_len = 10000000;
     DELETE FROM horde_dav_objects WHERE id_external LIKE '${ID}.ics';
     DELETE FROM horde_histories WHERE object_uid LIKE '%${ID}%';
