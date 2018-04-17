@@ -8,7 +8,7 @@ categories:
 
 I recently encountered a problem with my [Horde][horde] installation. Due to an
 app misconfiguration, my wife created hundreds of calendar entries for the same
-event. It is tedious to delete every event by hand, so I wanted to drop the entries
+event [*Edit 2018-04-17: It turned out, she also created thousand of duplicate tasks. Yay!*]. It is tedious to delete every event by hand, so I wanted to drop the entries
 from the database. As this is something other people might profit from, I'm
 documenting it. Of course part of this procedure can be done with other MySQL
 databases as well.
