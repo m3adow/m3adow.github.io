@@ -261,7 +261,7 @@ line break handling, **stripping**, **clipping** and **keeping**. We've observed
 the differences between the block styles in combination with different block chomping
 methods.
 
-In Part II of this mini series we will examine the interaction between all those
+In [Part II]({% post_url 2018-04-16-multi-line-string-yaml-ansible-II %}) of this mini series we will examine the interaction between all those
 styles and methods in Ansible variables, loops and methods.
 
 
