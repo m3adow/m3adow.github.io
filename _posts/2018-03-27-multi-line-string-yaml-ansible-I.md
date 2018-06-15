@@ -210,7 +210,7 @@ all trailing line feeds have been removed.
 
 Last but not least the keeping method. First with literal style:
 ```yaml
-my_pattern: |-
+my_pattern: |+
   With his own sword,
 
 
@@ -235,7 +235,7 @@ ok: [localhost] => {
 
  No surprises with the folding style:
  ```yaml
- my_pattern: |-
+ my_pattern: |+
    With his own sword,
 
 
