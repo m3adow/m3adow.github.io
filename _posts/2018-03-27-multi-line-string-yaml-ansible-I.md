@@ -235,7 +235,7 @@ ok: [localhost] => {
 
  No surprises with the folding style:
  ```yaml
- my_pattern: |+
+ my_pattern: >+
    With his own sword,
 
 
