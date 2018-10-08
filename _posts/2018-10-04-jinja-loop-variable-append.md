@@ -2,10 +2,10 @@
 layout: default
 title: "Ansible: Extend variable values in Jinja 2 templates"
 categories:
-- dummy
+- ansible
 ---
 
-In a Jinja 2 Template for one of my Ansible playbooks I wanted to construct a string containing serveral potentially filled variables to eventually append it to a command execution.
+In a Jinja 2 Template for one of my Ansible playbooks I wanted to construct a string containing several potentially filled variables to eventually append it to a command execution.
 
 I tried this:
 {% raw %}
