@@ -6,7 +6,7 @@ categories:
 - Gaming
 ---
 
-I've been an avid gamer for ages. I've also been using two monitors for ages. And I've had my [fair share]({% post_url 2015-12-20-steam-in-ubuntu %}) of [problems]({% post_url 2015-12-29-multi-monitor-wallpaper-ubuntu %}) with this combination already.
+I've been an avid gamer for ages. I've also been using two monitors for ages. And I've had my [fair share]({% post_url 2015/2015-12-20-steam-in-ubuntu %}) of [problems]({% post_url 2015/2015-12-29-multi-monitor-wallpaper-ubuntu %}) with this combination already.
 
 Some time ago I broke my arm. Therefore my gaming life was handicapped severely and I was limited to mouse only games. No big deal, there are still a lot of games waiting to be played in my Steam and GoG libraries. As I'm German, I of course decided to start with some economy simulations. Anno 1404 and Tropico 4 were my first choice of games.
 

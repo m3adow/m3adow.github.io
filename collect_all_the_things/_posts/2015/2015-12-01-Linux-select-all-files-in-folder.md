@@ -5,7 +5,7 @@ categories:
 - Linux
 ---
 
-I wrote a [very similar post]({% post_url 2013-02-18-linux-mit-mv-alle-dateien-verschieben %}) nearly three years ago (in German) and still need this daily. As I'm currently writing a lot of Dockerfiles, I realised my post wasn't completely accurate. Although I redacted it, it's a good opportunity to port the original post to the english language.
+I wrote a [very similar post]({% post_url 2013/2013-02-18-linux-mit-mv-alle-dateien-verschieben %}) nearly three years ago (in German) and still need this daily. As I'm currently writing a lot of Dockerfiles, I realised my post wasn't completely accurate. Although I redacted it, it's a good opportunity to port the original post to the english language.
 
 **Requirement:**
 

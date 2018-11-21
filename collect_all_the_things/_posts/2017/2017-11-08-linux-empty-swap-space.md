@@ -5,7 +5,7 @@ categories:
 - linux
 ---
 
-*This is the translation of a [post]({% post_url 2013-02-22-linux-swap-leeren %}) I wrote four years ago. I needed an english version of it for a friend of mine.*
+*This is the translation of a [post]({% post_url 2013/2013-02-22-linux-swap-leeren %}) I wrote four years ago. I needed an english version of it for a friend of mine.*
 
 If you want to empty your swap space on Linux for whatever reason, so you can simply use these commands:
 

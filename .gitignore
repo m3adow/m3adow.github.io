@@ -1,7 +1,7 @@
 _site/
 _drafts/*
+collect_all_the_things/_drafts/*
 _workdir/
-
 .vscode/
 .sass-cache/
 .jekyll-metadata
@@ -14,3 +14,6 @@ Gemfile.lock
 _watch/d.BUILD
 _watch/d.DEPLOY
 .htaccess
+.stignore
+.stversions
+**.swp

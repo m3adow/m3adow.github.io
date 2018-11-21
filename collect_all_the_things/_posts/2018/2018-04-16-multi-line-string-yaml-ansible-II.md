@@ -476,7 +476,7 @@ course, feel also free to criticise this blog post in the comments.
 
 
 
-[part1]: {% post_url 2018-03-27-multi-line-string-yaml-ansible-I %}
+[part1]: {% post_url 2018/2018-03-27-multi-line-string-yaml-ansible-I %}
 [commandmodule]: https://docs.ansible.com/ansible/latest/shell_module.html
 [ansible-yaml]: https://docs.ansible.com/ansible/latest/YAMLSyntax.html#yaml-basics
 [lineinfile_source]: https://github.com/ansible/ansible-modules-core/blob/devel/files/lineinfile.py

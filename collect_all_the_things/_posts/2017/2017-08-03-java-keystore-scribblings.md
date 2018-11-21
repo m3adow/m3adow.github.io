@@ -5,7 +5,7 @@ categories:
 - Java
 ---
 
-Nearly two months ago I published my [OpenSSL scribblings]({% post_url 2017-06-12-openssl-scribblings %}) post. This one is the spiritual successor, addressing Java Keystore handling this time. There are already a lot of good web sites on how to handle the `keytool`, so I will limit myself to the issues I encounter from time to time which are more difficult to figure out. Similar to the last post I will use COMODO as CA and ssl.example.org as domain.
+Nearly two months ago I published my [OpenSSL scribblings]({% post_url 2017/2017-06-12-openssl-scribblings %}) post. This one is the spiritual successor, addressing Java Keystore handling this time. There are already a lot of good web sites on how to handle the `keytool`, so I will limit myself to the issues I encounter from time to time which are more difficult to figure out. Similar to the last post I will use COMODO as CA and ssl.example.org as domain.
 
 # Adding a new certificate to a keystore
 
