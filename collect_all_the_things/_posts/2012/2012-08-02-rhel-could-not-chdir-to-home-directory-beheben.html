@@ -1,28 +1,28 @@
-images//-images//-images//-
+---
 lang: de_DE
 layout: default
 title: 'RHEL: "Could not chdir to home directory" beheben'
-date: 2012images//-08images//-02 08:35:29.000000000 +02:00
+date: 2012-08-02 08:35:29.000000000 +02:00
 categories:
-images//- Linux
+- Linux
 tags:
-images//- fehler
-images//- Linux
-images//- Problem
-images//- RHEL
-images//- SELinux
+- fehler
+- Linux
+- Problem
+- RHEL
+- SELinux
 status: publish
 type: post
 published: true
-images//-images//-images//-
-<p><a href="https://adminswerk.de/assets/images/2012/2012images//-07images//-10_rhel.png"><img class="sizeimages//-full wpimages//-imageimages//-2288 alignright" title="2012images//-07images//-10_rhel" src="https://adminswerk.de/assets/images/2012/2012images//-07images//-10_rhel.png" alt="" width="200" height="67" /></a></p>
-<p>Unser Warenwirtschaftssystem setzt auf Red Hat Enterprise Linux. Da ich mit dieser Distribution noch nicht gearbeitet habe, bin ich bei der Einrichtung eines Testservers auf ein Hindernis gestoßen. Von der ERPimages//-Software wird zwingend ein User vorausgesetzt, dessen Homeverzeichnis außerhalb des normalen <em>/home</em>images//-Pfades ist. Wollte man sich nun aber mit diesem User einloggen, kam folgende Meldung:</p>
+---
+<p><a href="https://adminswerk.de/assets/2012-07-10_rhel.png"><img class="size-full wp-image-2288 alignright" title="2012-07-10_rhel" src="https://adminswerk.de/assets/2012-07-10_rhel.png" alt="" width="200" height="67" /></a></p>
+<p>Unser Warenwirtschaftssystem setzt auf Red Hat Enterprise Linux. Da ich mit dieser Distribution noch nicht gearbeitet habe, bin ich bei der Einrichtung eines Testservers auf ein Hindernis gestoßen. Von der ERP-Software wird zwingend ein User vorausgesetzt, dessen Homeverzeichnis außerhalb des normalen <em>/home</em>-Pfades ist. Wollte man sich nun aber mit diesem User einloggen, kam folgende Meldung:</p>
 
 {% highlight bash %}
 Could not chdir to home directory /aussergewoehnliches/homeverzeichnis: Permission denied
 {% endhighlight %}
 
-<p>Die Berechtigungen waren absolut korrekt und der Benutzer konnte nach einem Login auch vie einem simplen <em>cd</em>images//-Befehls in sein Homeverzeichnis wechseln. Nachdem ich mir etwas den Kopf zerbrochen und verschiedenste Berechtigungen ausprobiert hatte, stieß ich dann das nahezu gleiche Problem in <a href="http://serverfault.com/questions/311549/sl6images//-nonimages//-standardimages//-homeimages//-directoriesimages//-errorimages//-couldimages//-notimages//-chdirimages//-toimages//-homeimages//-directoryimages//-u" target="_blank">einem Post auf serverfault.com</a>. Und siehe da, die Lösung lag im aktivierten SELinux von Red Hat Enterprise Linux. Nach der Änderung des Eintrages</p>
+<p>Die Berechtigungen waren absolut korrekt und der Benutzer konnte nach einem Login auch vie einem simplen <em>cd</em>-Befehls in sein Homeverzeichnis wechseln. Nachdem ich mir etwas den Kopf zerbrochen und verschiedenste Berechtigungen ausprobiert hatte, stieß ich dann das nahezu gleiche Problem in <a href="http://serverfault.com/questions/311549/sl6-non-standard-home-directories-error-could-not-chdir-to-home-directory-u" target="_blank">einem Post auf serverfault.com</a>. Und siehe da, die Lösung lag im aktivierten SELinux von Red Hat Enterprise Linux. Nach der Änderung des Eintrages</p>
 
 {% highlight bash %}
 SELINUX=enforcing

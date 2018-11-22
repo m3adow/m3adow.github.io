@@ -1,9 +1,9 @@
-images//-images//-images//-
+---
 layout: default
 title: "Python3: UnicodeDecodeError when using subprocess.Popen"
 categories:
-images//- python
-images//-images//-images//-
+- python
+---
 
 While writing a Python script which handles an applications STDOUT on Windows, I encountered an error:
 {% highlight py3tb %}
@@ -26,8 +26,8 @@ def openme(bin_args):
         for line in iter(p.stdout.readline, ''):
           process_stdout(line)
 {% endhighlight %}
-<!images//-images//-moreimages//-images//->
-After hours of investigation, I found my answer [at Stack Overflow](https://stackoverflow.com/questions/29546311/popenimages//-communicateimages//-throwsimages//-unicodedecodeerror).
+<!--more-->
+After hours of investigation, I found my answer [at Stack Overflow](https://stackoverflow.com/questions/29546311/popen-communicate-throws-unicodedecodeerror).
 
 {% include adsense_manual.html %}
 

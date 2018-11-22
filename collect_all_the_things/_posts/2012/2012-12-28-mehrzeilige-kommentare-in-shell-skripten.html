@@ -1,20 +1,20 @@
-images//-images//-images//-
+---
 lang: de_DE
 layout: default
 title: Mehrzeilige Kommentare in Shell Skripten
-date: 2012images//-12images//-28 11:27:40.000000000 +01:00
+date: 2012-12-28 11:27:40.000000000 +01:00
 categories:
-images//- Linux
+- Linux
 tags:
-images//- bash
-images//- kommentare
-images//- scripting
-images//- Shell
+- bash
+- kommentare
+- scripting
+- Shell
 status: publish
 type: post
 published: true
-images//-images//-images//-
-<p>In den letzten Tage habe ich ziemlich viel Shell Skripte geschrieben. Immer wieder wollte ich ganze Teile des Skripts auskommentieren, um diese zu überspringen. Leider sind mehrzeilige Kommentare im Stile von HTML mit <strong>&lt;!images//-images//-</strong> und <strong>images//-images//-&gt;</strong> oder wie bei PHP mit <strong>/*</strong> und <strong>*/</strong> bei Shell Skripten nicht  vorgesehen. Doch es gibt zwei kleine Workarounds:</p>
+---
+<p>In den letzten Tage habe ich ziemlich viel Shell Skripte geschrieben. Immer wieder wollte ich ganze Teile des Skripts auskommentieren, um diese zu überspringen. Leider sind mehrzeilige Kommentare im Stile von HTML mit <strong>&lt;!--</strong> und <strong>--&gt;</strong> oder wie bei PHP mit <strong>/*</strong> und <strong>*/</strong> bei Shell Skripten nicht  vorgesehen. Doch es gibt zwei kleine Workarounds:</p>
 
 {% highlight bash %}
 echo "Hiernach sind Kommentare."
@@ -39,4 +39,4 @@ echo "Obendrueber war ein Kommentar."
 {% endhighlight %}
 
 <p>Jetzt arbeiten wir also geschickt mit Here documents. Das hat auch den Vorteil, dass man im vi oder dem entsprechenden Editor nach der EOF Terminierung suchen kann.</p>
-<p><em>Quelle:</em> Das empfehlenswerte <a href="http://www.unix.com/shellimages//-programmingimages//-scripting/39478images//-blockimages//-commentimages//-shellimages//-script.html" target="_blank">unix.comimages//-Forum</a></p>
+<p><em>Quelle:</em> Das empfehlenswerte <a href="http://www.unix.com/shell-programming-scripting/39478-block-comment-shell-script.html" target="_blank">unix.com-Forum</a></p>

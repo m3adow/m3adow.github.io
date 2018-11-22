@@ -1,14 +1,14 @@
-images//-images//-images//-
+---
 layout: default
 title: "Horde: Deleting Duplicates from MySQL Database"
 categories:
-images//- MySQL
-images//- Horde
-images//-images//-images//-
+- MySQL
+- Horde
+---
 
 I recently encountered a problem with my [Horde][horde] installation. Due to an
 app misconfiguration, my wife created hundreds of calendar entries for the same
-event [*Edit 2018images//-04images//-17: It turned out, she also created thousand of duplicate tasks. Yay!*]. It is tedious to delete every event by hand, so I wanted to drop the entries
+event [*Edit 2018-04-17: It turned out, she also created thousand of duplicate tasks. Yay!*]. It is tedious to delete every event by hand, so I wanted to drop the entries
 from the database. As this is something other people might profit from, I'm
 documenting it. Of course part of this procedure can be done with other MySQL
 databases as well.
@@ -22,11 +22,11 @@ databases as well.
    ```
 This is the result:
 
-<a href="{{site.url}}/assets/images/2018/2018images//-02images//-15images//-mysqlimages//-countimages//-duplicatesimages//-table.png"><img src="{{site.url}}/assets/images/2018/2018images//-02images//-15images//-mysqlimages//-countimages//-duplicatesimages//-table.png" style="width: 60%; margin: 10px;" alt="MySQL count duplicates table"></a>
+<a href="{{site.url}}/assets/images/2018/2018-02-15-mysql-count-duplicates-table.png"><img src="{{site.url}}/assets/images/2018/2018-02-15-mysql-count-duplicates-table.png" style="width: 60%; margin: 10px;" alt="MySQL count duplicates table"></a>
 
 Ouch! That are a lot of duplicate entries. Let's delete them!
 
-<!images//-images//-moreimages//-images//->
+<!--more-->
 
 {% include adsense_manual.html %}
 
@@ -46,12 +46,12 @@ good enough in MySQL to find that out in the CLI (if it is even possible).
 So I used bash:
 
 ```bash
-mysqldump images//-images//-extendedimages//-insert=FALSE horde_db > /tmp/horde_db.sql \
-  && for ID in $(mysql images//-B horde_db <<< "SELECT GROUP_CONCAT(event_uid) FROM kronolith_events
+mysqldump --extended-insert=FALSE horde_db > /tmp/horde_db.sql \
+  && for ID in $(mysql -B horde_db <<< "SELECT GROUP_CONCAT(event_uid) FROM kronolith_events
      GROUP by event_title, event_start HAVING (COUNT(event_title) > 1 AND COUNT(event_start) > 1);" \
   | tr ',' ' ' | tr '\n' ' '); \
-  do grep "${ID}" tmp/horde_db.sql| awk '{print $3}'| tr images//-d '`'; \
-  done | sort images//-u
+  do grep "${ID}" tmp/horde_db.sql| awk '{print $3}'| tr -d '`'; \
+  done | sort -u
 # OUTPUT
 horde_dav_objects
 horde_histories
@@ -67,31 +67,31 @@ the column names the uids are in. As I have not worked thoroughly with MySQL in
 ages, I couldn't find a quick way to get this, therefore I created a mapping
 manually. In my case it is this:
 
-* horde_dav_objects images//-> id_external (with .ics suffix)
-* horde_histories images//-> object_uid (this is a concatenated string)
-* kronolith_events images//-> event_uid
-* nag_tasks images//-> task_uid
-* rampage_objects images//-> object_name
+* horde_dav_objects -> id_external (with .ics suffix)
+* horde_histories -> object_uid (this is a concatenated string)
+* kronolith_events -> event_uid
+* nag_tasks -> task_uid
+* rampage_objects -> object_name
 
 ## Delete the rows
 
 Now I could have done some `JOIN`s to get all the entries into one row, but
 again, due to my rusted skills it was too complicated for me and I could not
-find a quick way. So I just wrote a small bash script. It is very inefficient images//- my
-run took around 90s images//- because it iterates over every ID, but it gets the job done:
+find a quick way. So I just wrote a small bash script. It is very inefficient - my
+run took around 90s - because it iterates over every ID, but it gets the job done:
 
 ```bash
 #!/bin/bash
-set images//-euo pipefail
-#set images//-x
+set -euo pipefail
+#set -x
 
-for ID in $(mysql images//-B images//-images//-skipimages//-columnimages//-names horde_db <<< "
+for ID in $(mysql -B --skip-column-names horde_db <<< "
   SET @@group_concat_max_len = 10000000;
   SELECT GROUP_CONCAT(event_uid) FROM kronolith_events GROUP by event_title, event_start HAVING (COUNT(event_title)
   > 1 AND COUNT(event_start) > 1);" | tr ',' ' ' | tr '\n' ' ')
   do  
     echo "$ID"
-    mysql images//-images//-skipimages//-columnimages//-names images//-B horde_db <<< "
+    mysql --skip-column-names -B horde_db <<< "
     SET @@group_concat_max_len = 10000000;
     DELETE FROM horde_dav_objects WHERE id_external LIKE '${ID}.ics';
     DELETE FROM horde_histories WHERE object_uid LIKE '%${ID}%';

@@ -1,30 +1,30 @@
-images//-images//-images//-
+---
 lang: de_DE
 layout: default
 title: 'Linux: Berechtigungen von Ordnern oder Dateien rekursiv ändern'
-date: 2012images//-05images//-02 09:10:01.000000000 +02:00
+date: 2012-05-02 09:10:01.000000000 +02:00
 categories:
-images//- Linux
+- Linux
 tags:
-images//- berechtigungen
-images//- find
-images//- Ordner
-images//- rekursiv
+- berechtigungen
+- find
+- Ordner
+- rekursiv
 status: publish
 type: post
 published: true
-images//-images//-images//-
+---
 <p>Etwas, was man bei der Arbeit mit der Shell immer wieder braucht, aber auch ähnlich oft wieder schnell vergisst (ich zumindest ;)).<br />
-Will man die Ordnerberechtigungen in einem Pfad rekursiv ändern, macht man das am Besten mit einem kurzen <em>find</em>images//-Befehl:</p>
+Will man die Ordnerberechtigungen in einem Pfad rekursiv ändern, macht man das am Besten mit einem kurzen <em>find</em>-Befehl:</p>
 
 {% highlight bash %}
-find /hier/pfad images//-type d images//-exec chmod 755 {} \;
+find /hier/pfad -type d -exec chmod 755 {} \;
 {% endhighlight %}
 
 <p>Und das gleiche bei Dateien, natürlich auch rekursiv:</p>
 
 {% highlight bash %}
-find /hier/pfad images//-type f images//-exec chmod 644 {} \;
+find /hier/pfad -type f -exec chmod 644 {} \;
 {% endhighlight %}
 
 <p>Das sollte einigen Leuten aus der Googlesuche helfen.</p>

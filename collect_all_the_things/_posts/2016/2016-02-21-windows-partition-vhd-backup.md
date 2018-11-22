@@ -1,21 +1,21 @@
-images//-images//-images//-
+---
 layout: default
 title: "Backup Windows partitions as virtual hard disk (VHD)"
 categories:
-images//- windows
-images//- virtualization
-images//-images//-images//-
+- windows
+- virtualization
+---
 
 Although I prefer Linux as Desktop OS, Gaming on it is still very hard to realize. That's why I need a Windows installation on my system. Said installation didn't age well, so I decided to rejuvenate my six year old Windows installation and install Windows 10.
 
-I wanted to have a fresh start and didn't want to keep anything, but I still wanted to retain my old system and data partition as backup. I decided to use a Virtual Hard Disk (VHD) file as backup format. The advantage of this is that I can easily boot up a VM to compare my old system with my new one. Additionally Windows 7 [natively supports mounting VHD][1], enabling easy access to the files. Thus, I created a stepimages//-byimages//-step instruction for later reference.
+I wanted to have a fresh start and didn't want to keep anything, but I still wanted to retain my old system and data partition as backup. I decided to use a Virtual Hard Disk (VHD) file as backup format. The advantage of this is that I can easily boot up a VM to compare my old system with my new one. Additionally Windows 7 [natively supports mounting VHD][1], enabling easy access to the files. Thus, I created a step-by-step instruction for later reference.
 
 ### Prerequisite
 
 * For this process you will need about twice the size of your partition as disk space. The resulting image will be roughly the same size as the original.  
 * Of course I used Linux to do all of those steps. If you don't have a Linux installation, use a Live USB stick with a distribution of your choice.
 
-<!images//-images//-moreimages//-images//->
+<!--more-->
 
 {% include adsense_manual.html %}
 ### Backup
@@ -29,22 +29,22 @@ umount /dev/sda2
 * use <code>ntfsclone</code> to create an image excluding unused partition space
 
 {% highlight bash %}
-ntfsclone images//-o /mnt/20160220images//-win_c_drive_ntfsclone.img /dev/sda2
+ntfsclone -o /mnt/20160220-win_c_drive_ntfsclone.img /dev/sda2
 {% endhighlight %}
 
-*Update 2016images//-03images//-18: I removed usage of the `images//-s` switch because it makes the resulting VHDs unreadable.*
+*Update 2016-03-18: I removed usage of the `-s` switch because it makes the resulting VHDs unreadable.*
 
 * Install VirtualBox if not already installed, we need VBoxManage
 
 {% highlight bash %}
-aptimages//-get update && aptimages//-get install images//-images//-yes virtualbox
+apt-get update && apt-get install --yes virtualbox
 {% endhighlight %}
 
 * Use VBoxManage to convert the ntfsclone image to a VHD
 
 {% highlight bash %}
-VBoxManage convertfromraw /mnt/20160220images//-win_c_drive_ntfsclone.img \
-  /mnt/20160220images//-win_c_drive_ntfsclone.vhd images//-images//-format VHD
+VBoxManage convertfromraw /mnt/20160220-win_c_drive_ntfsclone.img \
+  /mnt/20160220-win_c_drive_ntfsclone.vhd --format VHD
 {% endhighlight %}
 
 This process may take some time, but afterwards you have your VHD backup ready to go.

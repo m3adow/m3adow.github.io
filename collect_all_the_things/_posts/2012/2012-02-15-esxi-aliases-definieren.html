@@ -1,29 +1,29 @@
-images//-images//-images//-
+---
 lang: de_DE
 layout: default
 title: 'ESXi: Aliases definieren'
-date: 2012images//-02images//-15 15:18:15.000000000 +01:00
+date: 2012-02-15 15:18:15.000000000 +01:00
 categories:
-images//- Administration
+- Administration
 tags:
-images//- alias
-images//- esxi
-images//- vmware
+- alias
+- esxi
+- vmware
 status: publish
 type: post
 published: true
-images//-images//-images//-
+---
 <p>Unter Linux ist es normal, dass man sich seine eigenen Aliases definiert, um schneller arbeiten zu können. Meine Standardaliases sehen zumeist irgendwie so aus:</p>
 
 {% highlight bash %}
-alias ls='ls images//-l'
-alias la='ls images//-la'
+alias ls='ls -l'
+alias la='ls -la'
 alias ..='cd ..'
 alias ...='cd ../..'
 {% endhighlight %}
 
-<p>Je nach Distribution dann noch mit <em>images//-images//-color=auto</em> Zusatz. Um zu verhindern, dass die Aliases nach einem Neustart oder einem Logout verschwunden sind, schreibt man sie meist in die <em>~/bash.rc</em> Datei.</p>
-<p>Auf dem VMware ESXiimages//-Server gibt es diese Datei allerdings nicht. Zusätzlich werden viele Dateien nach einem Neustart wieder entfernt, bzw. gereinigt. Um im VMware ESXi Aliases anzulegen, müsst ihr diese in die Datei <em>/etc/profile</em> schreiben.</p>
+<p>Je nach Distribution dann noch mit <em>--color=auto</em> Zusatz. Um zu verhindern, dass die Aliases nach einem Neustart oder einem Logout verschwunden sind, schreibt man sie meist in die <em>~/bash.rc</em> Datei.</p>
+<p>Auf dem VMware ESXi-Server gibt es diese Datei allerdings nicht. Zusätzlich werden viele Dateien nach einem Neustart wieder entfernt, bzw. gereinigt. Um im VMware ESXi Aliases anzulegen, müsst ihr diese in die Datei <em>/etc/profile</em> schreiben.</p>
 
 {% highlight bash %}
 vi /etc/profile
@@ -36,9 +36,9 @@ vi /etc/profile
 
 export TERMINFO=/usr/share/terminfo
 export PYTHONHOME=/
-export PYTHONPATH=/lib/python2.5images//-visor:/lib/python2.5images//-visor/libimages//-dynload:/lib/pyt
+export PYTHONPATH=/lib/python2.5-visor:/lib/python2.5-visor/lib-dynload:/lib/pyt
 
-if [ `id images//-u` images//-eq 0 ]; then
+if [ `id -u` -eq 0 ]; then
    PATH=/bin:/sbin
    umask 0022
 else
@@ -47,8 +47,8 @@ else
 fi
 
 export PATH
-alias ls='ls images//-a'
-alias la='ls images//-la'
+alias ls='ls -a'
+alias la='ls -la'
 alias ..='cd ..'
 alias ...='cd ../..'
 {% endhighlight %}

@@ -1,29 +1,29 @@
-images//-images//-images//-
+---
 lang: de_DE
 layout: default
 title: Dateien von Sourceforge mit WGET runterladen
-date: 2012images//-02images//-24 09:02:23.000000000 +01:00
+date: 2012-02-24 09:02:23.000000000 +01:00
 categories:
-images//- Linux
+- Linux
 tags:
-images//- Download
-images//- sourceforge
-images//- wget
+- Download
+- sourceforge
+- wget
 status: publish
 type: post
 published: true
-images//-images//-images//-
-<p>Wenn man auf einem Linux Server arbeitet ist das meistens auf der Shell. Um hier schnell ein paar Dateien herunterzuladen, bietet sich dann meist der wgetimages//-Befehl an. Will man nun aber die Quellen einer Software von Sourceforge herunterladen, stellt man fest, dass sich das schwieriger als erwartet gestaltet. Es gibt ohne Weiteres keinen Direktlink, den man eingeben könnte. Geht wie folgt vor, um eure gewünschte Software mit WGET von Sourceforges Servern zu saugen, ich erkläre am Beispiel von APCupsd, was ich herunterladen wollte.</p>
+---
+<p>Wenn man auf einem Linux Server arbeitet ist das meistens auf der Shell. Um hier schnell ein paar Dateien herunterzuladen, bietet sich dann meist der wget-Befehl an. Will man nun aber die Quellen einer Software von Sourceforge herunterladen, stellt man fest, dass sich das schwieriger als erwartet gestaltet. Es gibt ohne Weiteres keinen Direktlink, den man eingeben könnte. Geht wie folgt vor, um eure gewünschte Software mit WGET von Sourceforges Servern zu saugen, ich erkläre am Beispiel von APCupsd, was ich herunterladen wollte.</p>
 <ol>
 <li>Navigiert mit einem anderen Gerät durch das Downloadangebot eures gewünschten Programms, bis ihr auf die Downloadseite eurer gewünschten Software kommt. Sieht etwa so aus:<br />
-<a href="https://adminswerk.de/assets/images/2012/2012images//-02images//-22images//-sourceforgeimages//-wgetimages//-download.jpg"><img class="alignnone  wpimages//-imageimages//-1760" style="marginimages//-top: 10px; marginimages//-bottom: 10px;" title="2012images//-02images//-22images//-sourceforgeimages//-wgetimages//-download" src="https://adminswerk.de/assets/images/2012/2012images//-02images//-22images//-sourceforgeimages//-wgetimages//-downloadimages//-300x163.jpg" alt="" width="300" height="163" /></a></li>
+<a href="https://adminswerk.de/assets/2012-02-22-sourceforge-wget-download.jpg"><img class="alignnone  wp-image-1760" style="margin-top: 10px; margin-bottom: 10px;" title="2012-02-22-sourceforge-wget-download" src="https://adminswerk.de/assets/2012-02-22-sourceforge-wget-download-300x163.jpg" alt="" width="300" height="163" /></a></li>
 <li>Die URL dieser Seite ist der Link, den wir benötigen (siehe Markierung im Bild). Den tippen wir jetzt auf der Linuxmaschine ab. Beachtet, dass Leerzeichen hierbei durch <em>%20</em> ersetzt werden.</li>
-<li>Damit könnte man sich schonmal die Datei runterladen. Damit diese aber auch vernünftig heißt, nutzen wir noch den <em>images//-O</em> Parameter, um den Namen anzupassen. So sah dann der komplette Link für mich so aus:
+<li>Damit könnte man sich schonmal die Datei runterladen. Damit diese aber auch vernünftig heißt, nutzen wir noch den <em>-O</em> Parameter, um den Namen anzupassen. So sah dann der komplette Link für mich so aus:
 
 {% highlight bash %}
-wget images//-O apcupsdimages//-3.14.10.tar.gz http://sourceforge.net/projects/apcupsd/files/apcupsd%20images//-%20Stable/3.14.10/apcupsdimages//-3.14.10.tar.gz/download
+wget -O apcupsd-3.14.10.tar.gz http://sourceforge.net/projects/apcupsd/files/apcupsd%20-%20Stable/3.14.10/apcupsd-3.14.10.tar.gz/download
 {% endhighlight %}
 
 </li>
 </ol>
-<p>Sourceforge erklärt das auf dem <a href="http://sourceforge.net/blog/downloadimages//-ninja/" target="_blank">Teamblog</a> auch nochmal.</p>
+<p>Sourceforge erklärt das auf dem <a href="http://sourceforge.net/blog/download-ninja/" target="_blank">Teamblog</a> auch nochmal.</p>

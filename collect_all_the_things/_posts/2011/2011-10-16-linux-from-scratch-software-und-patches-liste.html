@@ -1,29 +1,29 @@
-images//-images//-images//-
+---
 lang: de_DE
 layout: default
 title: 'Linux from Scratch: Software und Patches Liste'
-date: 2011images//-10images//-16 19:00:16.000000000 +02:00
+date: 2011-10-16 19:00:16.000000000 +02:00
 categories:
-images//- Linux
+- Linux
 tags:
-images//- lfs
-images//- Linux
-images//- Linux from scratch
+- lfs
+- Linux
+- Linux from scratch
 status: publish
 type: post
 published: true
-images//-images//-images//-
+---
 <p>Mit einem</p>
 
 {% highlight bash %}
-wget images//-i http://www.adminswerk.de/wpimages//-content/uploads/2011/lfs_software images//-P $LFS/sources
+wget -i http://www.adminswerk.de/wp-content/uploads/2011/lfs_software -P $LFS/sources
 {% endhighlight %}
 
-<p>könnt ihr direkt alle Sources in euer LFSimages//-Sources Verzeichnis saugen.</p>
-<p><strong>[Update 30.10.2011]</strong> Gestern ist die LFSimages//-Version 7.0 Final rausgekommen und während ich so im <a href="http://www.linuxfromscratch.org/lfs/downloads/7.0/" target="_blank">Stableimages//-Verzeichnis</a> stöberte, stieß ich auf die im Buch erwähnte <a href="http://www.linuxfromscratch.org/lfs/downloads/7.0/wgetimages//-list" target="_blank">wgetimages//-list</a>. Layer 8 Problem eben, hätte ich mal etwas besser gelesen und kapiert. Na ja, ihr könnt also die jeweils aktuellen Sources für jede LFSimages//-Version mit</p>
+<p>könnt ihr direkt alle Sources in euer LFS-Sources Verzeichnis saugen.</p>
+<p><strong>[Update 30.10.2011]</strong> Gestern ist die LFS-Version 7.0 Final rausgekommen und während ich so im <a href="http://www.linuxfromscratch.org/lfs/downloads/7.0/" target="_blank">Stable-Verzeichnis</a> stöberte, stieß ich auf die im Buch erwähnte <a href="http://www.linuxfromscratch.org/lfs/downloads/7.0/wget-list" target="_blank">wget-list</a>. Layer 8 Problem eben, hätte ich mal etwas besser gelesen und kapiert. Na ja, ihr könnt also die jeweils aktuellen Sources für jede LFS-Version mit</p>
 
 {% highlight bash %}
-wget images//-i http://www.linuxfromscratch.org/lfs/downloads/7.0/wgetimages//-list images//-P $LFS/sources
+wget -i http://www.linuxfromscratch.org/lfs/downloads/7.0/wget-list -P $LFS/sources
 {% endhighlight %}
 
 <p>erhalten, wobei ihr 7.0 eben durch die momentan aktuelle Release Version austauscht. <strong>[/Update]</strong></p>

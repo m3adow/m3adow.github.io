@@ -1,39 +1,39 @@
-images//-images//-images//-
+---
 lang: de_DE
 layout: default
 title: Selbst gehostete Google Reader Alternativen
-date: 2013images//-03images//-14 10:49:51.000000000 +01:00
+date: 2013-03-14 10:49:51.000000000 +01:00
 categories:
-images//- Online
+- Online
 tags:
-images//- Google Reader Alternative
-images//- RSS
-images//- selfimages//-hosting
+- Google Reader Alternative
+- RSS
+- self-hosting
 status: publish
 type: post
 published: true
-images//-images//-images//-
+---
 <p>Google hat gestern angekündigt, dass der Google Reader zum 1. Juli abgeschaltet werden soll. Das finde ich sehr schade, bisher war dieser Dienst einer der wenigen, die ich auch dauerhaft weiter bei Google belassen hätte. Während mein mittelfristiger Plan vorsieht, die meisten der jetzt genutzten Google Dienste wie GMail, GTasks, die Kontakte und noch ein paar weitere auf ein selbst gehostetes System umzuziehen, war das beim Google Reader eigentlich erst langfristig geplant. Nun bin ich aber alarmiert und mache mir entsprechende Gedanken. Deswegen habe ich mal angefangen eine Übersicht von RSS Readern zu erstellen, die man auf eigenem Webspace oder einem eigenen Server nutzen kann. Bisher habe ich noch keines dieser Angebote getestet, das wird sich aber mit Sicherheit in den nächsten Wochen ändern. <strong>Meine Anforderungen sind</strong>:</p>
 <ul>
 <li><strong>Selbst hostbar:</strong> Logisch, darum geht es in diesem Beitrag. Die Software sollte auf einem eigenen Server hostbar sein. Wenn "nur" ein Webhosting benötigt wird, umso besser.</li>
-<li><strong>LAMP:</strong> Die Anforderungen sollten möglichst mit einem typischen LAMPimages//-System (Linux, Apache, MySQL, Php) abgedeckt sein.</li>
+<li><strong>LAMP:</strong> Die Anforderungen sollten möglichst mit einem typischen LAMP-System (Linux, Apache, MySQL, Php) abgedeckt sein.</li>
 <li><strong>MultiUser</strong>: Da sowohl meine Spielerin #2 als auch ich darauf zugreifen werden, sollte irgendeine Art der Unterscheidung möglich sein. Ob es nun Ordner oder User sind, ist mir dabei gleich.</li>
-<li><strong>Androidimages//-App:</strong> Eine kompatible Androidimages//-App möglichst mit Offline caching und ein Webinterface sollten vorhanden sein.</li>
+<li><strong>Android-App:</strong> Eine kompatible Android-App möglichst mit Offline caching und ein Webinterface sollten vorhanden sein.</li>
 <li><strong>Aktiv:</strong> Es sollte sich möglichst um ein aktives Projekt handeln, das nicht das letzte Mal vor 4 Jahren aktualisiert wurde</li>
 <li><strong>OpenSource:</strong> OpenSource Software würde ich aus ideologischen Gründen bevorzugen. Ist allerdings nicht zwingend.</li>
 </ul>
 <p><strong>Weniger Wert lege ich auf</strong>:</p>
 <ul>
-<li><strong>Aussehen</strong>: Ich mag Apple unter anderem deswegen nicht, weil sie nach dem FFFimages//-Prinzip handeln ("function follows form"). Ich will Funktionalität, das Design ist für mich nicht mal zweitrangig.</li>
+<li><strong>Aussehen</strong>: Ich mag Apple unter anderem deswegen nicht, weil sie nach dem FFF-Prinzip handeln ("function follows form"). Ich will Funktionalität, das Design ist für mich nicht mal zweitrangig.</li>
 <li><strong>Einfache Installation:</strong> Beruflich bin ich in der IT zu Hause, deswegen sollte ich mit der Installation der meisten Applikationen klarkommen. Aber auf jeden Fall wichtiger, als das Aussehen.</li>
-<li><strong>iOSimages//-App:</strong> Appleimages//-Produkte sind mir zuwider, dementsprechend ist mir die Unterstützung dieses Systems total egal.</li>
-<li><strong>Windows/Linux/OSXimages//-Client:</strong> Das Webinterface reicht mir am PC aus.</li>
+<li><strong>iOS-App:</strong> Apple-Produkte sind mir zuwider, dementsprechend ist mir die Unterstützung dieses Systems total egal.</li>
+<li><strong>Windows/Linux/OSX-Client:</strong> Das Webinterface reicht mir am PC aus.</li>
 </ul>
 <p>Dann schauen wir mal, was ich bisher finden konnte:<br />
-<!images//-images//-moreimages//-images//-></p>
-<p style="marginimages//-top:20px;">
+<!--more--></p>
+<p style="margin-top:20px;">
 <h4><strong>Tiny Tiny Rss</strong></h4>
-<p><a href="https://adminswerk.de/assets/2013images//-03images//-14images//-tinyimages//-tinyimages//-rss.png"><img class="alignright sizeimages//-medium wpimages//-imageimages//-2789" style="margin: 10px;" alt="2013images//-03images//-14images//-tinyimages//-tinyimages//-rss" src="https://adminswerk.de/assets/2013images//-03images//-14images//-tinyimages//-tinyimages//-rssimages//-300x184.png" width="300" height="184" /></a><a href="http://ttimages//-rss.org/redmine/projects/ttimages//-rss/wiki" target="_blank">Tiny Tiny RSS</a> ist eine OpenSource Lösung, die auf <a href="http://www.simplepie.org/" target="_blank">SimplePie</a> aufsetzt. Tiny Tiny TSS unterstützt mehrere User, hat eine <a href="https://play.google.com/store/apps/details?id=org.fox.ttrss" target="_blank">Androidimages//-App</a>, die nach der Beschreibung auch Offlineimages//-Caching kann und braucht an installierten Voraussetzungen lediglich ein klassisches LAMPimages//-System. Anstelle von Apache kann auch ein Lighttpd benutzt werden, was in Verbindung mit kleineren Maschinen wie etwa einem Raspberry Pi ein angenehmes Feature sein dürfte. Das Projekt scheint sehr aktiv zu sein, auch die Androidimages//-App wird aktiv weiterentwickelt.</p>
+<p><a href="https://adminswerk.de/assets/2013-03-14-tiny-tiny-rss.png"><img class="alignright size-medium wp-image-2789" style="margin: 10px;" alt="2013-03-14-tiny-tiny-rss" src="https://adminswerk.de/assets/2013-03-14-tiny-tiny-rss-300x184.png" width="300" height="184" /></a><a href="http://tt-rss.org/redmine/projects/tt-rss/wiki" target="_blank">Tiny Tiny RSS</a> ist eine OpenSource Lösung, die auf <a href="http://www.simplepie.org/" target="_blank">SimplePie</a> aufsetzt. Tiny Tiny TSS unterstützt mehrere User, hat eine <a href="https://play.google.com/store/apps/details?id=org.fox.ttrss" target="_blank">Android-App</a>, die nach der Beschreibung auch Offline-Caching kann und braucht an installierten Voraussetzungen lediglich ein klassisches LAMP-System. Anstelle von Apache kann auch ein Lighttpd benutzt werden, was in Verbindung mit kleineren Maschinen wie etwa einem Raspberry Pi ein angenehmes Feature sein dürfte. Das Projekt scheint sehr aktiv zu sein, auch die Android-App wird aktiv weiterentwickelt.</p>
 <p><strong>Pro:</strong></p>
 <ul>
 <li>LAMP</li>
@@ -44,46 +44,46 @@ images//-images//-images//-
 </ul>
 <p><strong>Kontra:</strong></p>
 <ul>
-<li>images//-</li>
+<li>-</li>
 </ul>
 <p><strong>Fazit: </strong>Tiny Tiny RSS ist mein momentaner Favorit. Werde ich definitiv ausprobieren. Leider ist die Website momentan chronisch überlastet oder gar nicht erst erreichbar.</p>
-<p style="marginimages//-top:20px;">
+<p style="margin-top:20px;">
 <h4>Fever</h4>
-<p><a href="https://adminswerk.de/assets/2013images//-03images//-14images//-fever.png"><img class="alignright sizeimages//-medium wpimages//-imageimages//-2792" style="margin: 10px;" alt="2013images//-03images//-14images//-fever" src="https://adminswerk.de/assets/2013images//-03images//-14images//-feverimages//-300x258.png" width="300" height="258" /></a>Fever ist eine kommerzielle Software für eigene Server und eigenes Hosting. Der Preis beträgt moderate 30$ pro Major Release Version, allerdings gibt es leider keine Demo oder eine Testmöglichkeit. Fever unterstützt keine MultiUser, meine Anforderung ließe sich aber eventuell mit Ordnern lösen. Eine eigene Androidimages//-App gibt es nicht, allerdings wurde bei meiner Recherche immer wieder <a href="https://play.google.com/store/apps/details?id=net.phfactor.meltdown" target="_blank">Meltdown</a> als bester Feedreader für Fever genannt. Als Besonderheit bewertet Fever die eigenen Feeds mit Gradangaben, um so die vermeintlich interessantesten hervorzuheben.</p>
-<p>Fever gefiel mir auf den ersten Blick gut, bei näherem Hinschauen allerdings immer weniger. Die "Temperatur"images//-Bewertung der Feeds finde ich überflüssig, die fehlende MultiUserimages//-Unterstützung für ein bezahltes Produkt ziemlich ärmlich. Mir hat sich das Gefühl aufgedrängt, dass Fever dem "Function follows Form"images//-Prinzip zumindest nicht abgeneigt ist, während die Features eher mager sind. Zusätzlich zeigt sich an diversen Stellen (iOSimages//-App, OSimages//-X App über Fluid.app), dass Fever eher was für Appleimages//-Nutzer ist. Dass das Demovideo Quicktime nutzt, ist für mich ein klares Inkompetenzwarnsignal.</p>
+<p><a href="https://adminswerk.de/assets/2013-03-14-fever.png"><img class="alignright size-medium wp-image-2792" style="margin: 10px;" alt="2013-03-14-fever" src="https://adminswerk.de/assets/2013-03-14-fever-300x258.png" width="300" height="258" /></a>Fever ist eine kommerzielle Software für eigene Server und eigenes Hosting. Der Preis beträgt moderate 30$ pro Major Release Version, allerdings gibt es leider keine Demo oder eine Testmöglichkeit. Fever unterstützt keine MultiUser, meine Anforderung ließe sich aber eventuell mit Ordnern lösen. Eine eigene Android-App gibt es nicht, allerdings wurde bei meiner Recherche immer wieder <a href="https://play.google.com/store/apps/details?id=net.phfactor.meltdown" target="_blank">Meltdown</a> als bester Feedreader für Fever genannt. Als Besonderheit bewertet Fever die eigenen Feeds mit Gradangaben, um so die vermeintlich interessantesten hervorzuheben.</p>
+<p>Fever gefiel mir auf den ersten Blick gut, bei näherem Hinschauen allerdings immer weniger. Die "Temperatur"-Bewertung der Feeds finde ich überflüssig, die fehlende MultiUser-Unterstützung für ein bezahltes Produkt ziemlich ärmlich. Mir hat sich das Gefühl aufgedrängt, dass Fever dem "Function follows Form"-Prinzip zumindest nicht abgeneigt ist, während die Features eher mager sind. Zusätzlich zeigt sich an diversen Stellen (iOS-App, OS-X App über Fluid.app), dass Fever eher was für Apple-Nutzer ist. Dass das Demovideo Quicktime nutzt, ist für mich ein klares Inkompetenzwarnsignal.</p>
 <p><strong>Pro:</strong></p>
 <ul>
 <li>LAMP</li>
 <li>Ordnerstruktur</li>
-<li>Androidimages//-App (nicht vom Hersteller)</li>
+<li>Android-App (nicht vom Hersteller)</li>
 <li>Aktiv</li>
 </ul>
 <p><strong>Kontra:</strong></p>
 <ul>
-<li>Keine Multiuserimages//-Unterstützung</li>
+<li>Keine Multiuser-Unterstützung</li>
 <li>Major Releases kosten erneut</li>
 <li>Eher auf Apple ausgelegt</li>
 </ul>
 <p><strong>Fazit: </strong>Werde ich nur testen, wenn der Rest sich als nicht  brauchbar erweist.</p>
-<p style="marginimages//-top:20px;">
+<p style="margin-top:20px;">
 <h4>Owncloud RSS</h4>
-<p><a href="https://adminswerk.de/assets/2013images//-03images//-14images//-owncloudimages//-rss.jpeg"><img class="alignright sizeimages//-medium wpimages//-imageimages//-2795" style="margin: 10px;" alt="2013images//-03images//-14images//-owncloudimages//-rss" src="https://adminswerk.de/assets/2013images//-03images//-14images//-owncloudimages//-rssimages//-300x136.jpeg" width="300" height="136" /></a>Die Cloudsoftware <a href="https://owncloud.org/" target="_blank">Owncloud</a> beinhaltet unter anderem auch eine RSSimages//-Readerimages//-App. Leider konnte ich relativ wenig über diese herausfinden, sie wird aber noch aktiv weiterentwickelt. Alle meine Pros und Kontras sind Vermutungen.</p>
+<p><a href="https://adminswerk.de/assets/2013-03-14-owncloud-rss.jpeg"><img class="alignright size-medium wp-image-2795" style="margin: 10px;" alt="2013-03-14-owncloud-rss" src="https://adminswerk.de/assets/2013-03-14-owncloud-rss-300x136.jpeg" width="300" height="136" /></a>Die Cloudsoftware <a href="https://owncloud.org/" target="_blank">Owncloud</a> beinhaltet unter anderem auch eine RSS-Reader-App. Leider konnte ich relativ wenig über diese herausfinden, sie wird aber noch aktiv weiterentwickelt. Alle meine Pros und Kontras sind Vermutungen.</p>
 <p><strong>Pro:</strong></p>
 <ul>
-<li>LAMP images//- da Owncloud LAMPimages//-fähig ist, gehe ich davon aus, dass eine App dafür es auch ist.</li>
+<li>LAMP - da Owncloud LAMP-fähig ist, gehe ich davon aus, dass eine App dafür es auch ist.</li>
 <li>OpenSource</li>
 <li>Aktiv</li>
-<li>Multiuser images//- Owncloud ist für viele User ausgelegt, ich denke, dass das damit auch für die App gilt.</li>
+<li>Multiuser - Owncloud ist für viele User ausgelegt, ich denke, dass das damit auch für die App gilt.</li>
 </ul>
 <p><strong>Kontra:</strong></p>
 <ul>
 <li>Wenig Infos</li>
-<li>keine Androidimages//-App für Reader(?)</li>
+<li>keine Android-App für Reader(?)</li>
 </ul>
 <p><strong>Fazit:</strong> Da ich Owncloud sowieso schonmal ausprobieren wollte, wird dies damit einhergehen. Ich glaube allerdings nicht, dass diese Möglichkeit momentan meine Anforderungen abdeckt.</p>
-<p style="marginimages//-top:20px;">
+<p style="margin-top:20px;">
 <h4>selfoss</h4>
-<p><a href="https://adminswerk.de/assets/2013images//-03images//-14images//-selfoss.png"><img src="https://adminswerk.de/assets/2013images//-03images//-14images//-selfossimages//-300x144.png" alt="2013images//-03images//-14images//-selfoss" width="300" height="144" class="alignright sizeimages//-medium wpimages//-imageimages//-2806" style="margin: 10px;" /></a><a href="http://selfoss.aditu.de/" target="_blank">selfoss</a> wurde mir in den Kommentaren empfohlen. Im Endeffekt ist es ein webbasierter OpenSource RSSimages//-Reader, der auch eine mobile Oberfläche bietet. So wie es aussieht, kann selfoss sehr einfach installiert werden und ist insgesamt ziemlich schlank. MultiUserimages//-Unterstützung gibt es leider nicht, auch eine kompatible Androidimages//-App für Offlineimages//-Caching ist nicht in Sicht.<br />
+<p><a href="https://adminswerk.de/assets/2013-03-14-selfoss.png"><img src="https://adminswerk.de/assets/2013-03-14-selfoss-300x144.png" alt="2013-03-14-selfoss" width="300" height="144" class="alignright size-medium wp-image-2806" style="margin: 10px;" /></a><a href="http://selfoss.aditu.de/" target="_blank">selfoss</a> wurde mir in den Kommentaren empfohlen. Im Endeffekt ist es ein webbasierter OpenSource RSS-Reader, der auch eine mobile Oberfläche bietet. So wie es aussieht, kann selfoss sehr einfach installiert werden und ist insgesamt ziemlich schlank. MultiUser-Unterstützung gibt es leider nicht, auch eine kompatible Android-App für Offline-Caching ist nicht in Sicht.<br />
 <strong>Pro:</strong></p>
 <ul>
 <li>LAMP</li>
@@ -92,13 +92,13 @@ images//-images//-images//-
 </ul>
 <p><strong>Kontra:</strong></p>
 <ul>
-<li>Keine MultiUserimages//-Unterstützung</li>
-<li>Keine Androidimages//-App</li>
+<li>Keine MultiUser-Unterstützung</li>
+<li>Keine Android-App</li>
 </ul>
 <p><strong>Fazit:</strong> Selfoss gefällt mir prinzipiell gut. Wenn Tiny Tiny RSS und Owncloud sich als nicht brauchbar erweisen, werde ich wahrscheinlich hier weitermachen.</p>
-<p style="marginimages//-top:20px;">
+<p style="margin-top:20px;">
 <h4>Rnews</h4>
-<p><a href="https://adminswerk.de/assets/2013images//-03images//-14images//-rnews.png"><img class="alignright sizeimages//-medium wpimages//-imageimages//-2798" style="margin: 10px;" alt="2013images//-03images//-14images//-rnews" src="https://adminswerk.de/assets/2013images//-03images//-14images//-rnewsimages//-300x195.png" width="300" height="195" /></a>Rnews ist eine leider inaktive OpenSourceimages//-Lösung. Die Entwicklung scheint seit Juli 2009 nicht mehr fortgeführt worden zu sein. Rnews unterstützt mehrere User, die Installation scheint mir auch auf einem normalen Webhosting problemlos möglich zu sein. Wie auch bei Lilina konnte ich keine kompatible Androidimages//-App finden.</p>
+<p><a href="https://adminswerk.de/assets/2013-03-14-rnews.png"><img class="alignright size-medium wp-image-2798" style="margin: 10px;" alt="2013-03-14-rnews" src="https://adminswerk.de/assets/2013-03-14-rnews-300x195.png" width="300" height="195" /></a>Rnews ist eine leider inaktive OpenSource-Lösung. Die Entwicklung scheint seit Juli 2009 nicht mehr fortgeführt worden zu sein. Rnews unterstützt mehrere User, die Installation scheint mir auch auf einem normalen Webhosting problemlos möglich zu sein. Wie auch bei Lilina konnte ich keine kompatible Android-App finden.</p>
 <p><strong>Pro:</strong></p>
 <ul>
 <li>LAMP</li>
@@ -111,9 +111,9 @@ images//-images//-images//-
 <li>keine Android App</li>
 </ul>
 <p><strong>Fazit:</strong> Leider inaktiv, ansonsten sieht die Lösung grade noch akzeptabel aus. Werde ich testen, wenn Tiny Tiny RSS und Owncloud mir nicht zusagen.</p>
-<p style="marginimages//-top:20px;">
+<p style="margin-top:20px;">
 <h4>Lilina</h4>
-<p><a href="https://adminswerk.de/assets/2013images//-03images//-14images//-lilina.png"><img class="alignright" alt="2013images//-03images//-14images//-lilina" src="https://adminswerk.de/assets/2013images//-03images//-14images//-lilinaimages//-300x199.png" width="300" height="199" /></a>Lilina ist ein OpenSourceimages//-RSSimages//-Reader, der ebenfalls nicht mehr weiterentwickelt wird. Die letzte Aktivität war vor etwa einem Jahr. Lilina ist einfach auf ein LAMPimages//-System zu installieren, besonders hervorgehoben wird die einfache Bedienung. Die Software scheint sehr rudimentär zu sein, an MultiUserimages//-Unterstützung oder gar eine Androidimages//-App ist nicht zu denken.</p>
+<p><a href="https://adminswerk.de/assets/2013-03-14-lilina.png"><img class="alignright" alt="2013-03-14-lilina" src="https://adminswerk.de/assets/2013-03-14-lilina-300x199.png" width="300" height="199" /></a>Lilina ist ein OpenSource-RSS-Reader, der ebenfalls nicht mehr weiterentwickelt wird. Die letzte Aktivität war vor etwa einem Jahr. Lilina ist einfach auf ein LAMP-System zu installieren, besonders hervorgehoben wird die einfache Bedienung. Die Software scheint sehr rudimentär zu sein, an MultiUser-Unterstützung oder gar eine Android-App ist nicht zu denken.</p>
 <p><strong>Pro:</strong></p>
 <ul>
 <li>LAMP</li>
@@ -122,13 +122,13 @@ images//-images//-images//-
 <p><strong>Kontra:</strong></p>
 <ul>
 <li>Inaktiv seit  Anfang 2012</li>
-<li>keine MultiUserimages//-Möglichkeit</li>
-<li>keine Androidimages//-App</li>
+<li>keine MultiUser-Möglichkeit</li>
+<li>keine Android-App</li>
 </ul>
 <p><strong><strong>Fazit:</strong></strong> Inaktiv und nicht annährend meinen Anforderungen entsprechend. Werde ich nicht testen.</p>
-<p style="marginimages//-top:20px;">
+<p style="margin-top:20px;">
 <h4>rsslounge</h4>
-<p><a href="https://adminswerk.de/assets/2013images//-03images//-14images//-rsslounge.jpg"><img src="https://adminswerk.de/assets/2013images//-03images//-14images//-rssloungeimages//-300x173.jpg" alt="2013images//-03images//-14images//-rsslounge" width="300" height="173" class="alignright sizeimages//-medium wpimages//-imageimages//-2807" style="margin: 10px;" /></a>In den Kommentaren wurde auf <a href="http://rsslounge.aditu.de/" target="_blank">rsslounge</a> hingewiesen. Dies ist ein OpenSource RSSimages//-Reader. Das Projekt scheint mir seit 2009 inaktiv zu sein, ich vermute, dass der Autor sich dem weiter oben erwähnte selfoss gewidmet hat, das auch von ihm stammt und aktiv entwickelt wird.<br />
+<p><a href="https://adminswerk.de/assets/2013-03-14-rsslounge.jpg"><img src="https://adminswerk.de/assets/2013-03-14-rsslounge-300x173.jpg" alt="2013-03-14-rsslounge" width="300" height="173" class="alignright size-medium wp-image-2807" style="margin: 10px;" /></a>In den Kommentaren wurde auf <a href="http://rsslounge.aditu.de/" target="_blank">rsslounge</a> hingewiesen. Dies ist ein OpenSource RSS-Reader. Das Projekt scheint mir seit 2009 inaktiv zu sein, ich vermute, dass der Autor sich dem weiter oben erwähnte selfoss gewidmet hat, das auch von ihm stammt und aktiv entwickelt wird.<br />
 <strong>Pro:</strong></p>
 <ul>
 <li>LAMP</li>
@@ -137,13 +137,13 @@ images//-images//-images//-
 <p><strong>Kontra:</strong></p>
 <ul>
 <li>Inaktiv seit 2009</li>
-<li>Keine MultiUserimages//-Unterstützung</li>
-<li>Keine Androidimages//-App</li>
+<li>Keine MultiUser-Unterstützung</li>
+<li>Keine Android-App</li>
 </ul>
 <p><strong>Fazit:</strong> Wie gesagt ist selfoss vom gleichen Autor. Dieses würde ich rsslounge dann auch vorziehen.</p>
-<p style="marginimages//-top:20px;">
+<p style="margin-top:20px;">
 <h4>Gregarius</h4>
-<p><a href="http://sourceforge.net/projects/gregarius/" target="_blank">Gregarius</a> wurde mir in den Kommentaren auf <a href="http://stadtimages//-bremerhaven.de/googleimages//-stelltimages//-denimages//-googleimages//-readerimages//-undimages//-weitereimages//-diensteimages//-ein/" target="_blank">Caschys Blog</a> empfohlen. Auch diese OpenSourceimages//-Software scheint inaktiv zu sein, seit Januar 2011 gab es kein Update mehr, die Projektwebseite, auf die die Sourceforgeimages//-Seite verweist, existiert nicht. MultiUserimages//-Unterstützung und Androidimages//-App sind Wunschgedanken.</p>
+<p><a href="http://sourceforge.net/projects/gregarius/" target="_blank">Gregarius</a> wurde mir in den Kommentaren auf <a href="http://stadt-bremerhaven.de/google-stellt-den-google-reader-und-weitere-dienste-ein/" target="_blank">Caschys Blog</a> empfohlen. Auch diese OpenSource-Software scheint inaktiv zu sein, seit Januar 2011 gab es kein Update mehr, die Projektwebseite, auf die die Sourceforge-Seite verweist, existiert nicht. MultiUser-Unterstützung und Android-App sind Wunschgedanken.</p>
 <p><strong>Pro:</strong></p>
 <ul>
 <li>LAMP</li>
@@ -152,13 +152,13 @@ images//-images//-images//-
 <p><strong>Kontra:</strong></p>
 <ul>
 <li>Inaktiv seit Januar 2011</li>
-<li>keine Androidimages//-App</li>
-<li>keine MultiUserimages//-Unterstützung</li>
+<li>keine Android-App</li>
+<li>keine MultiUser-Unterstützung</li>
 </ul>
 <p><strong>Fazit: </strong>Wie auch bei Lilina: Inaktiv und nicht annährend meinen Anforderungen entsprechend. Werde ich nicht testen.</p>
-<p style="marginimages//-top:20px;">
+<p style="margin-top:20px;">
 <h4>NewsBlur</h4>
-<p><a href="https://github.com/samuelclay/NewsBlur" target="_blank" /><a href="https://adminswerk.de/assets/2013images//-03images//-14images//-NewsBlur.png"><img class="alignright sizeimages//-medium wpimages//-imageimages//-2799" style="margin: 10px;" alt="2013images//-03images//-14images//-NewsBlur" src="https://adminswerk.de/assets/2013images//-03images//-14images//-NewsBlurimages//-300x187.png" width="300" height="187" /></a>NewsBlur gibt es als <a href="http://www.newsblur.com/" target="_blank">eigenständigen Service</a> und als OpenSourceimages//-Lösung. Allerdings erscheint mir das ganze Konstrukt mit einem Serverimages//-Clientimages//-Modell etwas zu "oversized" für meine Bedürfnisse und ich kann auch nicht so ganz durchblicken, wie es funktioniert. Das System braucht neben dem normalen LAMPimages//-System noch einen Haufen anderer Software, etwa eine MongoDB und bringt dann viele Features mit, die ich überhaupt nicht benötige. Der Form halber führe ich es aber hier auf. Die NewsBlur Androidimages//-App ist leider nicht für selbst gehostete Systeme gedacht.</p>
+<p><a href="https://github.com/samuelclay/NewsBlur" target="_blank" /><a href="https://adminswerk.de/assets/2013-03-14-NewsBlur.png"><img class="alignright size-medium wp-image-2799" style="margin: 10px;" alt="2013-03-14-NewsBlur" src="https://adminswerk.de/assets/2013-03-14-NewsBlur-300x187.png" width="300" height="187" /></a>NewsBlur gibt es als <a href="http://www.newsblur.com/" target="_blank">eigenständigen Service</a> und als OpenSource-Lösung. Allerdings erscheint mir das ganze Konstrukt mit einem Server-Client-Modell etwas zu "oversized" für meine Bedürfnisse und ich kann auch nicht so ganz durchblicken, wie es funktioniert. Das System braucht neben dem normalen LAMP-System noch einen Haufen anderer Software, etwa eine MongoDB und bringt dann viele Features mit, die ich überhaupt nicht benötige. Der Form halber führe ich es aber hier auf. Die NewsBlur Android-App ist leider nicht für selbst gehostete Systeme gedacht.</p>
 <p><strong>Pro:</strong></p>
 <ul>
 <li>OpenSource</li>
@@ -169,9 +169,9 @@ images//-images//-images//-
 <ul>
 <li>Kein reines LAMP</li>
 <li>zu viele nicht benötigte Features</li>
-<li>keine Androidimages//-App</li>
+<li>keine Android-App</li>
 </ul>
 <p><strong>Fazit:</strong> Sieht mir zu groß und mühsam für meine Bedürfnisse aus, werde ich wahrscheinlich nicht testen.</p>
-<p style="marginimages//-top:20px;">
+<p style="margin-top:20px;">
 <p>&nbsp;</p>
-<p>Ich hoffe, mit dieser Liste konnte ich ein paar frustrierten Google Reader Benutzern weiterhelfen, die die Sache nun in die eigene Hand nehmen wollen. Falls ihr Erfahrungsberichte zu den genannten Lösungen habt oder vielleicht sogar noch weitere Vorschläge, schreibt einfach einen Kommentar. :images//-)</p>
+<p>Ich hoffe, mit dieser Liste konnte ich ein paar frustrierten Google Reader Benutzern weiterhelfen, die die Sache nun in die eigene Hand nehmen wollen. Falls ihr Erfahrungsberichte zu den genannten Lösungen habt oder vielleicht sogar noch weitere Vorschläge, schreibt einfach einen Kommentar. :-)</p>

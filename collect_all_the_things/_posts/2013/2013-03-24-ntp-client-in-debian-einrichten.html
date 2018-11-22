@@ -1,24 +1,24 @@
-images//-images//-images//-
+---
 lang: de_DE
 layout: default
-title: NTPimages//-Client in Debian einrichten
-date: 2013images//-03images//-24 08:49:09.000000000 +01:00
+title: NTP-Client in Debian einrichten
+date: 2013-03-24 08:49:09.000000000 +01:00
 categories:
-images//- Linux
+- Linux
 tags:
-images//- iptables
-images//- ntp
-images//- server
+- iptables
+- ntp
+- server
 status: publish
 type: post
 published: true
-images//-images//-images//-
+---
 <p>Eine der ersten Aktionen auf einem frisch installierten Linux Server ist sicherlich das Einrichten von NTP. Dass eine synchronisierte Systemzeit extrem wichtig ist, sollte den meisten Usern und Admins einleuchten. Jeder, der deswegen schonmal mit Datenbankinkonsistenzen zu kämpfen hatte, weiß wovon ich rede. Da ich die Schritte immer wieder vergesse, werde ich sie hier für die Nachwelt dokumentieren.</p>
 <ol>
 <li>Falls gewünscht sollte die Zeitzone eingestellt werden. Das geht auf zwei Arten. Mit manueller Eingabe:
 
 {% highlight bash %}
-dpkgimages//-reconfigure tzdata
+dpkg-reconfigure tzdata
 {% endhighlight %}
 
 <p>oder indem man die entsprechende zonedate kopiert:</p>
@@ -28,21 +28,21 @@ cp /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 {% endhighlight %}
 
 <p><em>Europe</em> und <em>Berlin</em> solltet ihr dann natürlich durch eure entsprechenden Pendants ersetzen.</li>
-<li>Den ntpimages//-Dienst installieren, falls noch nicht vorhanden.
+<li>Den ntp-Dienst installieren, falls noch nicht vorhanden.
 
 {% highlight bash %}
-aptitude images//-y install ntp
+aptitude -y install ntp
 {% endhighlight %}
 
 </li>
-<li>Anschließend ersetzen wir die Poolserver in der <strong>ntp.conf</strong> noch mit denen des <a href="http://www.pool.ntp.org/zone/@" target="_blank">jeweiligen regionalen ntpimages//-Pools</a>.
+<li>Anschließend ersetzen wir die Poolserver in der <strong>ntp.conf</strong> noch mit denen des <a href="http://www.pool.ntp.org/zone/@" target="_blank">jeweiligen regionalen ntp-Pools</a>.
 
 {% highlight bash %}
-sed images//-i 's/debian.pool.ntp.org/de.pool.ntp.org/g' /etc/ntp.conf
+sed -i 's/debian.pool.ntp.org/de.pool.ntp.org/g' /etc/ntp.conf
 {% endhighlight %}
 
 </li>
-<li>Dann noch den NTPimages//-Dienst neustarten und alles ist fein.
+<li>Dann noch den NTP-Dienst neustarten und alles ist fein.
 
 {% highlight bash %}
 service ntp restart
@@ -53,28 +53,28 @@ service ntp restart
 <p>Ein Oneliner für Copy & Paste oder Skripte würde dann so aussehen:</p>
 
 {% highlight bash %}
-cp /usr/share/zoneinfo/Europe/Berlin /etc/localtime && aptitude images//-y install ntp && sed images//-i 's/debian.pool.ntp.org/de.pool.ntp.org/g' /etc/ntp.conf && service ntp restart
+cp /usr/share/zoneinfo/Europe/Berlin /etc/localtime && aptitude -y install ntp && sed -i 's/debian.pool.ntp.org/de.pool.ntp.org/g' /etc/ntp.conf && service ntp restart
 {% endhighlight %}
 
 <p>Die ganze Chose kann man dann entweder testen, indem man mal ein</p>
 
 {% highlight bash %}
-ntpq images//-p
+ntpq -p
 {% endhighlight %}
 
-<p>eingibt, um die NTPimages//-Server des Systems herauszubekommen oder images//- wenn man ein bisschen paranoid ist, so wie ich images//- indem man den NTPimages//-Dienst beendet, die Zeit ändert und ihn dann mit dem <strong>images//-gq</strong> Parameter startet.</p>
+<p>eingibt, um die NTP-Server des Systems herauszubekommen oder - wenn man ein bisschen paranoid ist, so wie ich - indem man den NTP-Dienst beendet, die Zeit ändert und ihn dann mit dem <strong>-gq</strong> Parameter startet.</p>
 
 {% highlight bash %}
-service ntp stop && date images//-s 12:00 && ntpd images//-gq && service ntp start && date
+service ntp stop && date -s 12:00 && ntpd -gq && service ntp start && date
 {% endhighlight %}
 
 <p>Wenn die Ausgabe dann etwa so aussieht:<br />
-<a href="https://adminswerk.de/assets/2013images//-03images//-15images//-ntpimages//-client.png"><img src="https://adminswerk.de/assets/2013images//-03images//-15images//-ntpimages//-client.png" alt="2013images//-03images//-15images//-ntpimages//-client" width="767" height="122" class="alignnone sizeimages//-full wpimages//-imageimages//-2813" /></a> und der Eintrag "<strong>ntpd: time set</strong>" erscheint, läuft alles korrekt.<br />
-Falls ihr auf eurem Server <strong>iptables</strong> einsetzt und standardmäßig alle ausgehenden Verbindungen dropt, solltet ihr noch zwei Regeln in euer iptablesimages//-Skript aufnehmen:</p>
+<a href="https://adminswerk.de/assets/2013-03-15-ntp-client.png"><img src="https://adminswerk.de/assets/2013-03-15-ntp-client.png" alt="2013-03-15-ntp-client" width="767" height="122" class="alignnone size-full wp-image-2813" /></a> und der Eintrag "<strong>ntpd: time set</strong>" erscheint, läuft alles korrekt.<br />
+Falls ihr auf eurem Server <strong>iptables</strong> einsetzt und standardmäßig alle ausgehenden Verbindungen dropt, solltet ihr noch zwei Regeln in euer iptables-Skript aufnehmen:</p>
 
 {% highlight bash %}
-iptables images//-A OUTPUT images//-p udp images//-images//-dport 123 images//-j ACCEPT
-iptables images//-A INPUT images//-p udp images//-images//-sport 123 images//-j ACCEPT
+iptables -A OUTPUT -p udp --dport 123 -j ACCEPT
+iptables -A INPUT -p udp --sport 123 -j ACCEPT
 {% endhighlight %}
 
 <p>Damit sollte dann wirklich alles laufen.</p>

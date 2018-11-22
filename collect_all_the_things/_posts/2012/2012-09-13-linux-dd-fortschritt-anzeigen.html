@@ -1,36 +1,36 @@
-images//-images//-images//-
+---
 lang: de_DE
 layout: default
 title: 'Linux: dd Fortschritt anzeigen'
-date: 2012images//-09images//-13 09:01:27.000000000 +02:00
+date: 2012-09-13 09:01:27.000000000 +02:00
 categories:
-images//- Linux
+- Linux
 tags:
-images//- dd
-images//- Fortschritt
+- dd
+- Fortschritt
 status: publish
 type: post
 published: true
-images//-images//-images//-
+---
 <p><strong>Update (21.03.2012):</strong> Grade heute hatte ich wieder die Notwendigkeit, den Fortschritt von <strong>dd</strong> zu sehen. Dabei habe ich einen weiteren, einfacheren Weg auf <em>commandlinefu</em> gefunden, der alles in einem Fenster möglich macht.</p>
 
 {% highlight bash %}
-dd if=/dev/urandom of=file.img bs=4KB& sleep 1 && pid=`pidof dd`; while [[ images//-d /proc/$pid ]]; do kill images//-USR1 $pid && sleep 10 && clear; done
+dd if=/dev/urandom of=file.img bs=4KB& sleep 1 && pid=`pidof dd`; while [[ -d /proc/$pid ]]; do kill -USR1 $pid && sleep 10 && clear; done
 {% endhighlight %}
 
 <p>Das ist ab sofort mein persönlicher Favorit.</p>
-<p><strong>Ursprünglicher Beitrag:</strong> Wenn man mit Linux arbeitet, kommt man früher oder später mit dem mächtigen Werkzeug <strong>dd</strong> in Kontakt. Doch grade Einsteiger werden von der fehlenden Möglichkeit einer Überwachung irritiert. Man gibt den Befehl mit allen Parametern ein und wartet dann. Doch das muss nicht sein. Auf <a href="http://www.commandlinefu.com/commands/view/1868/watchimages//-theimages//-progressimages//-ofimages//-dd" target="_blank">commandlinefu</a> gibt es einige Vorschläge, wie man diesen Umstand umgehen kann. Ich will hier eine vorstellen.</p>
-<p style="marginimages//-top:20px">Wenn ihr euren ddimages//-Befehl starten wollt, hängt noch ein <em>& pid=$!</em> hinten dran. Würde dann beispielsweise so aussehen:</p>
+<p><strong>Ursprünglicher Beitrag:</strong> Wenn man mit Linux arbeitet, kommt man früher oder später mit dem mächtigen Werkzeug <strong>dd</strong> in Kontakt. Doch grade Einsteiger werden von der fehlenden Möglichkeit einer Überwachung irritiert. Man gibt den Befehl mit allen Parametern ein und wartet dann. Doch das muss nicht sein. Auf <a href="http://www.commandlinefu.com/commands/view/1868/watch-the-progress-of-dd" target="_blank">commandlinefu</a> gibt es einige Vorschläge, wie man diesen Umstand umgehen kann. Ich will hier eine vorstellen.</p>
+<p style="margin-top:20px">Wenn ihr euren dd-Befehl starten wollt, hängt noch ein <em>& pid=$!</em> hinten dran. Würde dann beispielsweise so aussehen:</p>
 
 {% highlight bash %}
 dd if=/dev/sdc of=~/sdc.img bs=1M& pid=$!
 {% endhighlight %}
 
-<p>Damit packt ihr den ddimages//-Befehl in den Hintergrund und weist der Variable <em>pid</em> gleichzeitig den Wert der ddimages//-Prozess ID zu.<br />
+<p>Damit packt ihr den dd-Befehl in den Hintergrund und weist der Variable <em>pid</em> gleichzeitig den Wert der dd-Prozess ID zu.<br />
 Nun könnt ihr mit</p>
 
 {% highlight bash %}
-while true; do kill images//-USR1 $pid && sleep 1 && clear; done
+while true; do kill -USR1 $pid && sleep 1 && clear; done
 {% endhighlight %}
 
 <p>Den Fortschritt von dd überwachen. Mit STR+C könnt ihr das ganze dann wieder abbrechen.</p>

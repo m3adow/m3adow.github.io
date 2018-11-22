@@ -1,29 +1,29 @@
-images//-images//-images//-
+---
 lang: de_DE
 layout: default
 title: 'ESXi: Ein paar Hilfsskripte und Komfortfunktionen'
-date: 2012images//-07images//-19 09:38:21.000000000 +02:00
+date: 2012-07-19 09:38:21.000000000 +02:00
 categories:
-images//- Administration
+- Administration
 tags:
-images//- Administration
-images//- esxi
-images//- root
-images//- Shell
-images//- vmware
+- Administration
+- esxi
+- root
+- Shell
+- vmware
 status: publish
 type: post
 published: true
-images//-images//-images//-
-<p>Der VMware ESXi ist in vielen Punkten deutlich abgespeckt. Dementsprechend fehlen auch viele Komfortfunktionen, die einem das Arbeiten auf der Kommandozeile erleichtern würden. Ich werde hier ein paar meiner Lösungen vorstellen. Dabei beziehe ich mich einzig auf den rootimages//-Benutzer, da der in der Regel die Arbeiten auf der Shell erledigt. Dazu eine kurze Erklärung der beiden am Meisten benutzten Dateien: Die Datei <strong><em>/etc/profiles</em></strong> ist die Datei, die bei jedem Login per SSH ausgeführt wird. Sie ist mit der deutlich bekannteren bash.rc vergleichbar. Die Datei <strong><em>/etc/rc.local</em></strong> wird bei jedem Systemstart einmalig ausgeführt und ist in der Funktionsweise mit der in vielen Linux Distributionen vorhandenen gleichnamigen Datei weitestgehend identisch. Diese beiden Dateien nutze ich hauptsächlich, um mir den Arbeitsalltag zu erleichtern.</p>
+---
+<p>Der VMware ESXi ist in vielen Punkten deutlich abgespeckt. Dementsprechend fehlen auch viele Komfortfunktionen, die einem das Arbeiten auf der Kommandozeile erleichtern würden. Ich werde hier ein paar meiner Lösungen vorstellen. Dabei beziehe ich mich einzig auf den root-Benutzer, da der in der Regel die Arbeiten auf der Shell erledigt. Dazu eine kurze Erklärung der beiden am Meisten benutzten Dateien: Die Datei <strong><em>/etc/profiles</em></strong> ist die Datei, die bei jedem Login per SSH ausgeführt wird. Sie ist mit der deutlich bekannteren bash.rc vergleichbar. Die Datei <strong><em>/etc/rc.local</em></strong> wird bei jedem Systemstart einmalig ausgeführt und ist in der Funktionsweise mit der in vielen Linux Distributionen vorhandenen gleichnamigen Datei weitestgehend identisch. Diese beiden Dateien nutze ich hauptsächlich, um mir den Arbeitsalltag zu erleichtern.</p>
 <h3>Shell Funktionen</h3>
-<p>Die ersten Anpassungen, die ich auf jedem Linuximages//-System vornehme, sind eigene Aliases und Anpassungen der Standardbefehle. Beim ESXi werden diese Aliases in die Datei <strong><em>/etc/profiles</em></strong> geschrieben, <a href="http://www.adminswerk.de/esxiimages//-aliasesimages//-definieren/" title="ESXi: Aliases definieren">wie ich schonmal beschrieben habe</a>. Meine Anpassungen hier sind zwar banal, mir aber sehr wichtig.</p>
+<p>Die ersten Anpassungen, die ich auf jedem Linux-System vornehme, sind eigene Aliases und Anpassungen der Standardbefehle. Beim ESXi werden diese Aliases in die Datei <strong><em>/etc/profiles</em></strong> geschrieben, <a href="http://www.adminswerk.de/esxi-aliases-definieren/" title="ESXi: Aliases definieren">wie ich schonmal beschrieben habe</a>. Meine Anpassungen hier sind zwar banal, mir aber sehr wichtig.</p>
 
 {% highlight bash %}
-alias ls='ls images//-A'
-alias la='ls images//-lA'
-alias ll='ls images//-l'
-alias l='ls images//-A'
+alias ls='ls -A'
+alias la='ls -lA'
+alias ll='ls -l'
+alias l='ls -A'
 alias ..='cd ..'
 alias ...='cd ../..'
 {% endhighlight %}
@@ -36,9 +36,9 @@ source /etc/profiles
 
 <p>und die Aliases funktionieren.</p>
 <h3>Pfad für Usercsripts</h3>
-<p><iframe style="width: 120px; height: 240px; margin: 10px; float: left;" src="https://rcmimages//-de.amazon.de/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=admwerimages//-21&o=3&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=3836216442" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" width="320" height="240"></iframe></p>
-<p>Außerdem brauche ich auch einige Zusatzbefehle in Form von eigenen Skripten auf der Shell und auch im System. Allerdings lassen sich Userscripts nicht einfach in einem der Verzeichnisse der PATHimages//-Variable images//- also <em>/bin</em> oder <em>/sbin</em> images//- ablegen, diese Verzeichnisse werden bei jedem Neustart vom ESXi zurückgesetzt. Auch gibt es kein Verzeichnis wie <em>/usr/local/sbin</em>, wie man es von diversen Linux Distributionen gewohnt ist. Deswegen lege ich meine Userscripts immer innerhalb des Datastores ab, etwa im Ordner <strong><em>/vmfs/volumes/datastore/administration/sbin</em></strong>. Um diese aber trotzdem ohne Pfadangabe ausführen zu können, gibt es zwei Stellen, an denen ihr den Pfad oder die Pfade zu euren eigenen Skripten angeben beziehungsweise ergänzen solltet.<br />
-Zuerst ist eine Anpassung der PATHimages//-Variable in der <strong><em>/etc/profiles</em></strong> nötig. Dazu einfach die gewünschten Pfade vor dem <strong><em>export PATH</em></strong>images//-Befehl zur PATHimages//-Variable hinzufügen.</p>
+<p><iframe style="width: 120px; height: 240px; margin: 10px; float: left;" src="https://rcm-de.amazon.de/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=admwer-21&o=3&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=3836216442" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" width="320" height="240"></iframe></p>
+<p>Außerdem brauche ich auch einige Zusatzbefehle in Form von eigenen Skripten auf der Shell und auch im System. Allerdings lassen sich Userscripts nicht einfach in einem der Verzeichnisse der PATH-Variable - also <em>/bin</em> oder <em>/sbin</em> - ablegen, diese Verzeichnisse werden bei jedem Neustart vom ESXi zurückgesetzt. Auch gibt es kein Verzeichnis wie <em>/usr/local/sbin</em>, wie man es von diversen Linux Distributionen gewohnt ist. Deswegen lege ich meine Userscripts immer innerhalb des Datastores ab, etwa im Ordner <strong><em>/vmfs/volumes/datastore/administration/sbin</em></strong>. Um diese aber trotzdem ohne Pfadangabe ausführen zu können, gibt es zwei Stellen, an denen ihr den Pfad oder die Pfade zu euren eigenen Skripten angeben beziehungsweise ergänzen solltet.<br />
+Zuerst ist eine Anpassung der PATH-Variable in der <strong><em>/etc/profiles</em></strong> nötig. Dazu einfach die gewünschten Pfade vor dem <strong><em>export PATH</em></strong>-Befehl zur PATH-Variable hinzufügen.</p>
 
 {% highlight bash %}
 PATH=$PATH:/vmfs/volumes/datastore/administration/sbin
@@ -66,12 +66,12 @@ source /etc/rc.local
 
 <p>und auch euer System kennt diese Pfade.</p>
 <h3>Symbolische Links und Cronjobs</h3>
-<p>Um mir die Navigation etwas zu erleichtern, lasse ich mir auch noch bei jedem Systemstart einige Symlinks erstellen. Diese kommen in die <strong><em>/etc/rc.local</em></strong>. Zusätzlich noch einen <em>backup</em>images//-Ordner, in dem die Backups abgelegt und weiterverarbeitet werden.</p>
+<p>Um mir die Navigation etwas zu erleichtern, lasse ich mir auch noch bei jedem Systemstart einige Symlinks erstellen. Diese kommen in die <strong><em>/etc/rc.local</em></strong>. Zusätzlich noch einen <em>backup</em>-Ordner, in dem die Backups abgelegt und weiterverarbeitet werden.</p>
 
 {% highlight bash %}
-ln images//-s /vmfs/volumes/datastore/ /datastore
-ln images//-s /vmfs/volumes/datastore/administration/sbin/ /userscripts
-ln images//-s /vmfs/datastore/BACKUP /BACKUP
+ln -s /vmfs/volumes/datastore/ /datastore
+ln -s /vmfs/volumes/datastore/administration/sbin/ /userscripts
+ln -s /vmfs/datastore/BACKUP /BACKUP
 mkdir /backup
 {% endhighlight %}
 
@@ -79,11 +79,11 @@ mkdir /backup
 
 {% highlight bash %}
 /bin/kill $(cat /var/run/crond.pid)
-/bin/echo "00 12 * * 6 /vmfs/volumes/datastore/administration/vmimages//-backup.sh > /var/log/backup.log" >> /var/spool/cron/crontabs/root
+/bin/echo "00 12 * * 6 /vmfs/volumes/datastore/administration/vm-backup.sh > /var/log/backup.log" >> /var/spool/cron/crontabs/root
 /bin/busybox crond
 {% endhighlight %}
 
-<p>Erst beende ich die aktuelle Cronjobimages//-Instanz, dann werden alle Cronjobs per echoimages//-Befehl an die Datei angehängt. Anschließend wird der Cron Daemon neu gestartet.</p>
+<p>Erst beende ich die aktuelle Cronjob-Instanz, dann werden alle Cronjobs per echo-Befehl an die Datei angehängt. Anschließend wird der Cron Daemon neu gestartet.</p>
 <h3>Nützliche Skripte</h3>
 <p>Abschließend will ich noch zwei Skripte vorstellen, die vom Funktionsablauf identisch sind, mir aber immer wieder helfen. Die Skripte starten den Cron Daemon beziehungsweise den Inet Daemon neu. Ich lasse sie unkommentiert und jeder kann selbst entscheiden, ob sie nützlich sind oder nicht. Mir haben sie grade bei der Einrichtung von Backup und Rsync geholfen.<br />
 Für den Crond sieht das so aus:</p>

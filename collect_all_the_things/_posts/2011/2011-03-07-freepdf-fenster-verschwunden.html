@@ -1,25 +1,25 @@
-images//-images//-images//-
+---
 lang: de_DE
 layout: default
 title: FreePDF Fenster verschwunden
-date: 2011images//-03images//-07 09:27:02.000000000 +01:00
+date: 2011-03-07 09:27:02.000000000 +01:00
 categories:
-images//- Software
+- Software
 tags:
-images//- Autostart
-images//- FreePDF
-images//- Problem
+- Autostart
+- FreePDF
+- Problem
 status: publish
 type: post
 published: true
-images//-images//-images//-
+---
 <p>Hier direkt eine kurze Fehlerlösung, eigentlich sehr einfach, aber man muss eben drauf kommen.<br />
 Ein Außendienstmitarbeiter berichtete mir, dass sein FreePDF Dialog nach der Druckauswahl nicht mehr auftauchen würde, FreePDF also de facto nutzlos sei.<br />
 Lösung:<br />
 FreePDF startet beim Systemstart eine Datei "fpassist.exe" mit. Wird diese bei irgendwelchen Säuberungsaktionen aus dem Autostart genommen, klappt FreePDF erst wieder nach manueller Ausführung dieser Datei.<br />
 Es ist empfehlenswert, die Datei wieder in den Autostart zu packen, da der Speicherverbrauch nicht nennenswert ist. Dafür gibt es zwei Möglichkeiten:<br />
 Entweder den vermutlich entfernten Haken in der MSCONFIG wieder einsetzen<br />
-<a href="https://adminswerk.de/assets/fpassist1.jpg"><img class="alignnone sizeimages//-medium wpimages//-imageimages//-37" title="fpassist" src="https://adminswerk.de/assets/fpassist1images//-300x197.jpg" alt="" width="300" height="197" /></a></p>
+<a href="https://adminswerk.de/assets/fpassist1.jpg"><img class="alignnone size-medium wp-image-37" title="fpassist" src="https://adminswerk.de/assets/fpassist1-300x197.jpg" alt="" width="300" height="197" /></a></p>
 <p>oder einen Regschlüssel mit folgendem Inhalt anlegen und ausführen:</p>
 <blockquote>
 

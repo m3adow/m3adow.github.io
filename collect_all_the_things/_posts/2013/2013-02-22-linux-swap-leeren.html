@@ -1,29 +1,29 @@
-images//-images//-images//-
+---
 lang: de_DE
 layout: default
 title: 'Linux: Swap leeren'
-date: 2013images//-02images//-22 08:47:43.000000000 +01:00
+date: 2013-02-22 08:47:43.000000000 +01:00
 categories:
-images//- Linux
+- Linux
 tags:
-images//- Linux
-images//- swap
+- Linux
+- swap
 status: publish
 type: post
 published: true
-images//-images//-images//-
-<em>This post is also available in english <a href="{% post_url 2017/2017images//-11images//-08images//-linuximages//-emptyimages//-swapimages//-space %}">HERE</a>.</em>
+---
+<em>This post is also available in english <a href="{% post_url 2017/2017-11-08-linux-empty-swap-space %}">HERE</a>.</em>
 
 <p>Kurztipp: Wenn ihr unter Linux warum auch immer den Swapspeicher leeren wollt, ist das so möglich:</p>
 
 {% highlight bash %}
-swapoff images//-a && swapon images//-a
+swapoff -a && swapon -a
 {% endhighlight %}
 
-<p>Damit deaktivieren wir den Swapimages//-Speicher erst komplett, wodurch dieser geleert wird, dann aktivieren wir ihn wieder. Bei größeren Swapauslastungen kann das durchaus ein paar Minuten dauern. Um den Fortschritt zu prüfen, könnt ihr in einem anderen Terminalfenster diesen Befehl ausführen:</p>
+<p>Damit deaktivieren wir den Swap-Speicher erst komplett, wodurch dieser geleert wird, dann aktivieren wir ihn wieder. Bei größeren Swapauslastungen kann das durchaus ein paar Minuten dauern. Um den Fortschritt zu prüfen, könnt ihr in einem anderen Terminalfenster diesen Befehl ausführen:</p>
 
 {% highlight bash %}
-free images//-s 3 |grep Swap
+free -s 3 |grep Swap
 {% endhighlight %}
 
 <p>Damit wird euch dann alle 3 Sekunden der Speicherstand des Swaps angezeigt. Dieser sollte sich dann natürlich kontinuierlich verringern und letzendlich auf null stehen.<br />

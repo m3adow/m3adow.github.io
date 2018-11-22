@@ -1,10 +1,10 @@
-images//-images//-images//-
+---
 layout: default
-title: "Understanding multi line strings in YAML and Ansible (Part I images//- YAML)"
+title: "Understanding multi line strings in YAML and Ansible (Part I - YAML)"
 categories:
-images//- YAML
-images//- Ansible
-images//-images//-images//-
+- YAML
+- Ansible
+---
 
 I had a strange problem with variables spanning multiple lines in Ansible. During
 the process of debugging it, I learned a bit about multi line strings which are
@@ -13,11 +13,11 @@ we'll examine the different YAML block styles and block chomping methods.
 In Part II we will then learn the use cases and quirks of each style when
 used in Ansible.
 
-We'll run this base playbook for each style via `ansibleimages//-playbook images//-v playbook.yml`
+We'll run this base playbook for each style via `ansible-playbook -v playbook.yml`
 and will only replace the variable with the corresponding style.
 ```yaml
-images//-images//-images//-
-images//- hosts: localhost
+---
+- hosts: localhost
   connection: local
   vars:
     my_pattern: |
@@ -25,7 +25,7 @@ images//- hosts: localhost
       Which he did wave against my throat, I have ta’en
       His head from him.
   tasks:
-    images//- debug:
+    - debug:
         var: my_pattern
 ```
 # Styles
@@ -48,7 +48,7 @@ ok: [localhost] => {
 }
 ```
 
-<!images//-images//-moreimages//-images//->
+<!--more-->
 
 {% include adsense_manual.html %}
 
@@ -96,10 +96,10 @@ The YAML specification describes the folded style as "*similar to the literal
 style; however, folded scalars are subject to line folding*". Okay, but what is
 this supposed to mean? This is also answered by the YAML specification: "*Folding
 allows long lines to be broken anywhere a single space character separates two
-nonimages//-space characters.*"
+non-space characters.*"
 
 Lets examine our example. The folded style is denoted by
-the greaterimages//-than sign (yes, [that's its name][greaterthan]), `>`:
+the greater-than sign (yes, [that's its name][greaterthan]), `>`:
 ```yaml
 my_pattern: >
   With his own sword,
@@ -148,7 +148,7 @@ Directly from the YAML specification:
 and trailing empty lines are interpreted. YAML provides three chomping methods:
 >
 >**Strip**  
-    Stripping is specified by the “images//-” chomping indicator. In this case, the final line break and any trailing empty lines are excluded from the scalar’s content.   
+    Stripping is specified by the “-” chomping indicator. In this case, the final line break and any trailing empty lines are excluded from the scalar’s content.   
 >**Clip**  
     Clipping is the default behavior used if no explicit chomping indicator is specified. In this case, the final line break character is preserved in the scalar’s content. However, any trailing empty lines are excluded from the scalar’s content.  
 > **Keep**  
@@ -166,7 +166,7 @@ and a couple of additional line breaks.
 We are already advanced YAML block style users, so we don't delay ourselves with
 basic functionality.
 ```yaml
-my_pattern: |images//-
+my_pattern: |-
   With his own sword,
 
 
@@ -187,7 +187,7 @@ line breaks were removed.
 
 Very similar in **folded style**:
 ```yaml
-my_pattern: >images//-
+my_pattern: >-
   With his own sword,
 
 
@@ -261,11 +261,11 @@ line break handling, **stripping**, **clipping** and **keeping**. We've observed
 the differences between the block styles in combination with different block chomping
 methods.
 
-In [Part II]({% post_url 2018/2018images//-04images//-16images//-multiimages//-lineimages//-stringimages//-yamlimages//-ansibleimages//-II %}) of this mini series we will examine the interaction between all those
+In [Part II]({% post_url 2018/2018-04-16-multi-line-string-yaml-ansible-II %}) of this mini series we will examine the interaction between all those
 styles and methods in Ansible variables, loops and methods.
 
 
 
 [yamldoc]: http://www.yaml.org/spec/1.2/spec.html#Block
 [blockchomping]: http://www.yaml.org/spec/1.2/spec.html#id2794534
-[greaterthan]: https://en.wikipedia.org/wiki/Greaterimages//-than_sign
+[greaterthan]: https://en.wikipedia.org/wiki/Greater-than_sign

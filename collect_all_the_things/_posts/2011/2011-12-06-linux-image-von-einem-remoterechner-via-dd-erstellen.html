@@ -1,19 +1,19 @@
-images//-images//-images//-
+---
 lang: de_DE
 layout: default
 title: 'Linux: Image von einem Remoterechner via DD erstellen'
-date: 2011images//-12images//-06 08:55:15.000000000 +01:00
+date: 2011-12-06 08:55:15.000000000 +01:00
 categories:
-images//- Administration
-images//- Linux
+- Administration
+- Linux
 tags:
-images//- dd
-images//- Linux
-images//- ssh
+- dd
+- Linux
+- ssh
 status: publish
 type: post
 published: true
-images//-images//-images//-
+---
 <p>Ein kleines aber feines Problem: Die Platte eines Remoterechners soll mithilfe von DD als Image gesichert werden. Das ganze via SSH von einem anderen Rechner aus. Das klang erstmal ziemlich einfach, aber ich bekam es mit dem Pipen nicht ohne weiteres hin. Deswegen hier der Syntax:</p>
 
 {% highlight bash %}
@@ -21,5 +21,5 @@ ssh server.domaene.de "dd if=/dev/sdx" | dd of=/tmp/sicherungsordner bs=512 conv
 {% endhighlight %}
 
 <p>Wie immer bei DD ist kein Fortschrittsbalken zu sehen, aber das interessiert bei Cronjobs ja sowieso nicht.</p>
-<p>Einen tollen weiterführenden (englischsprachigen) Forenbeitrag über DD findet ihr übrigen <a href="http://www.linuxquestions.org/questions/linuximages//-newbieimages//-8/learnimages//-theimages//-ddimages//-commandimages//-362506/" target="_blank">HIER.</a></p>
-<p><a href="https://adminswerk.de/assets/images/2011/2011images//-12images//-06images//-ddimages//-viaimages//-ssh.jpg"><img class="alignnone sizeimages//-medium wpimages//-imageimages//-1222" style="margin: 10px;" title="2011images//-12images//-06images//-ddimages//-viaimages//-ssh" src="https://adminswerk.de/assets/images/2011/2011images//-12images//-06images//-ddimages//-viaimages//-sshimages//-300x84.jpg" alt="" width="300" height="84" /></a></p>
+<p>Einen tollen weiterführenden (englischsprachigen) Forenbeitrag über DD findet ihr übrigen <a href="http://www.linuxquestions.org/questions/linux-newbie-8/learn-the-dd-command-362506/" target="_blank">HIER.</a></p>
+<p><a href="https://adminswerk.de/assets/2011-12-06-dd-via-ssh.jpg"><img class="alignnone size-medium wp-image-1222" style="margin: 10px;" title="2011-12-06-dd-via-ssh" src="https://adminswerk.de/assets/2011-12-06-dd-via-ssh-300x84.jpg" alt="" width="300" height="84" /></a></p>

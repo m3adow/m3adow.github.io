@@ -1,10 +1,10 @@
-images//-images//-images//-
+---
 layout: default
 title: "Fixing HTTP 405 errors with httpd 2.4 WebDAV"
 categories:
- images//- httpd
- images//- webdav
-images//-images//-images//-
+ - httpd
+ - webdav
+---
 
 While updating an Apache httpd from 2.2 to 2.4 we encountered a strange problem. The web server is used as a reverse proxy for a WebDAV application.
 Therefore the original httpd 2.2 directive allowed a couple of WebDAV methods. It looked similarly to this:
@@ -30,8 +30,8 @@ Adapting this to httpd 2.4 was not a big deal:
 But this didn't work as expected. While `OPTIONS` did work, `PROPFIND`, `PROPPATCH`, etc. were not. My tests with curl always returned HTTP 405.
 
 ```bash
-curl images//-X PROPFIND https://example.org/dav
-<!DOCTYPE HTML PUBLIC "images//-//IETF//DTD HTML 2.0//EN">
+curl -X PROPFIND https://example.org/dav
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
 <html><head>
 <title>405 Method Not Allowed</title>
 </head><body>

@@ -1,23 +1,23 @@
-images//-images//-images//-
+---
 lang: de_DE
 layout: default
 title: 'ESXi: SSH Authentication per Public Key'
-date: 2012images//-06images//-18 07:25:57.000000000 +02:00
+date: 2012-06-18 07:25:57.000000000 +02:00
 categories:
-images//- Administration
-images//- Linux
+- Administration
+- Linux
 tags:
-images//- esxi
-images//- public key
-images//- shh
-images//- vmware
+- esxi
+- public key
+- shh
+- vmware
 status: publish
 type: post
 published: true
-images//-images//-images//-
-<p>SSH auf einem VMware ESXiimages//-Server zu aktivieren ist inzwischen sehr einfach. Leider kommt man damit alleine noch nicht sonderlich weit, da eine Authentisierung per Public Key im abgespeckten ESXi nicht ohne einige kleinere Konfigurationen funktioniert. Um also eine Public Key Authentication auf einem ESXi zu aktivieren, geht wie folgt vor:</p>
+---
+<p>SSH auf einem VMware ESXi-Server zu aktivieren ist inzwischen sehr einfach. Leider kommt man damit alleine noch nicht sonderlich weit, da eine Authentisierung per Public Key im abgespeckten ESXi nicht ohne einige kleinere Konfigurationen funktioniert. Um also eine Public Key Authentication auf einem ESXi zu aktivieren, geht wie folgt vor:</p>
 <ol>
-<li>Erstellt einen <em>.ssh</em>images//-Ordner im Root Verzeichnis
+<li>Erstellt einen <em>.ssh</em>-Ordner im Root Verzeichnis
 
 {% highlight bash %}
 mkdir /.ssh 
@@ -33,14 +33,14 @@ touch /.ssh/authorized_keys && chmod 600 /.ssh/authorized_keys
 </li>
 <li>In der eben erstellten <em>authorized_keys</em> könnt ihr nun eure Public Keys einfügen.</li>
 </ol>
-<p style="marginimages//-top: 20px;">
+<p style="margin-top: 20px;">
 Damit wäre ein SSH mit Pubkey Authentication grundsätzlich schon lauffähig, allerdings würde diese Konfiguration einen Neustart nicht überleben, da der ESXi das System beim Neustart auf einen ihn bekanntem Status zurücksetzt.<br />
 Um dies zu verhindern, müssen wir den eben angelegten Ordner und die darin befindliche Datei in diesen Status integrieren.</p>
 <ol>
-<li>Dazu komprimieren wir den .sshimages//-Ordner und seinen Inhalt zu einem tgz und packen es in den <em>/bootbank</em>images//-Ordner, aus dem der ESXi seine Einstellungen zurückspielt.
+<li>Dazu komprimieren wir den .ssh-Ordner und seinen Inhalt zu einem tgz und packen es in den <em>/bootbank</em>-Ordner, aus dem der ESXi seine Einstellungen zurückspielt.
 
 {% highlight bash %}
-tar images//-C / images//-czf "/bootbank/ssh.tgz" /.ssh
+tar -C / -czf "/bootbank/ssh.tgz" /.ssh
 {% endhighlight %}
 
 </li>
@@ -56,13 +56,13 @@ vi /bootbank/boot.cfg
 {% highlight bash %}
 kernel=b.z
 kernelopt=
-modules=k.z images//-images//-images//- s.z images//-images//-images//- c.z images//-images//-images//- oem.tgz images//-images//-images//- license.tgz images//-images//-images//- m.z images//-images//-images//- state.tgz images//-images//-images//- rsync.tgz images//-images//-images//- ssh.tgz
-build=4.1.0images//-348481
+modules=k.z --- s.z --- c.z --- oem.tgz --- license.tgz --- m.z --- state.tgz --- rsync.tgz --- ssh.tgz
+build=4.1.0-348481
 updated=1
 bootstate=0
 {% endhighlight %}
 
 <p>Ich habe zusätzlich noch eine rsync.tgz eingebunden.</p>
-<p style="marginimages//-top: 20px;">Jetzt funktioniert eine Pubkey Authentisierung auch nach dem Neustart noch. Allerdings müsst ihr jedes Mal, wenn ihr die <em>authorized_keys</em>images//-Datei verändert images//- etwa um einen neuen Schlüssel hinzuzufügen oder einen alten zu entfernen, die ssh.tgz neu erstellen, da die Änderungen sonst nach einem Neustart verloren gehen.</p>
+<p style="margin-top: 20px;">Jetzt funktioniert eine Pubkey Authentisierung auch nach dem Neustart noch. Allerdings müsst ihr jedes Mal, wenn ihr die <em>authorized_keys</em>-Datei verändert - etwa um einen neuen Schlüssel hinzuzufügen oder einen alten zu entfernen, die ssh.tgz neu erstellen, da die Änderungen sonst nach einem Neustart verloren gehen.</p>
 </li>
 </ol>

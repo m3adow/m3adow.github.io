@@ -1,9 +1,9 @@
-images//-images//-images//-
+---
 layout: default
 title: "How I miraculously fixed my Windows 10 startup DNS problems"
 categories:
-images//- windows
-images//-images//-images//-
+- windows
+---
 
 I once again had a great experience with Windows 10. For some reason my DNS resolution stopped working for roughly two minutes
 after every startup. Of course there was neither an update around that time, nor were there any unusual messages in the Event Viewer.
@@ -12,7 +12,7 @@ and of course doing the classic `ipconfig /flushdns` and `ipconfig /registerdns`
 startup. The DNS issues even occured in the first two minutes of Safe Boot Mode.  
 So, how did I fix it?
 
-<!images//-images//-moreimages//-images//->
+<!--more-->
 
 {% include adsense_manual.html %}
 
@@ -25,7 +25,7 @@ I still wanted to check for any malicious software. So I started the download an
 download was ongoing, I decided to also try a Windows Defender scan. The integrated Windows scanner has it's own "Live CD mode" 
 as well since some time, called "Offline scan". I wasn't very optimistic of it's capabilites, but it was worth a try.
 
-<a href="{{site.url}}/assets/images/2018/2018images//-09images//-07images//-windowsimages//-defender_1.png"><img src="{{site.url}}/assets/images/2018/2018images//-09images//-07images//-windowsimages//-defender_1.png" style="width: 60%; margin: 10px;" alt="Windows Defender Security Center"></a>
+<a href="{{site.url}}/assets/images/2018/2018-09-07-windows-defender_1.png"><img src="{{site.url}}/assets/images/2018/2018-09-07-windows-defender_1.png" style="width: 60%; margin: 10px;" alt="Windows Defender Security Center"></a>
 
 You can reach the "Windows Defender Offline scan" mode via the "Advanced scan" option in the Windows Defender Security Center.
 The description states
@@ -34,7 +34,7 @@ The description states
 
 which was a vast overestimation in my case.
 
-<a href="{{site.url}}/assets/images/2018/2018images//-09images//-07images//-windowsimages//-defender_2.png"><img src="{{site.url}}/assets/images/2018/2018images//-09images//-07images//-windowsimages//-defender_2.png" style="width: 60%; margin: 10px;" alt="Windows Defender Offline scan"></a>
+<a href="{{site.url}}/assets/images/2018/2018-09-07-windows-defender_2.png"><img src="{{site.url}}/assets/images/2018/2018-09-07-windows-defender_2.png" style="width: 60%; margin: 10px;" alt="Windows Defender Offline scan"></a>
 
 I clicked "Scan now", the PC rebooted, I saw an interface resembling some kind of scanner for around 10 seconds, the PC rebooted again 
 and my DNS problems were gone! The Windows Defender did not find any malicious software. I even doubt it did a whole lot of scanning.

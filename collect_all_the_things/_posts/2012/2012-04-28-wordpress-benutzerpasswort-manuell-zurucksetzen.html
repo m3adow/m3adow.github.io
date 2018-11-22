@@ -1,31 +1,31 @@
-images//-images//-images//-
+---
 lang: de_DE
 layout: default
 title: 'Wordpress: Benutzerpasswort manuell zurücksetzen'
-date: 2012images//-04images//-28 13:49:19.000000000 +02:00
+date: 2012-04-28 13:49:19.000000000 +02:00
 categories:
-images//- Blogging
-images//- Online
+- Blogging
+- Online
 tags:
-images//- mysql
-images//- passwort
-images//- WordPress
+- mysql
+- passwort
+- WordPress
 status: publish
 type: post
 published: true
-images//-images//-images//-
+---
 <p><em>Mal wieder ein Beitrag für mich, der sicherlich auch für den ein oder anderen nützlich sein wird.</em></p>
-<p><em></em>Wenn ihr das Passwort eines Users einer eurer Wordpress Installationen verlegt habt und keine korrekte Eimages//-Mail Adresse angegeben habt (etwa weil es eine Testinstallation ist), dann könnt ihr das Passwort dieses Users recht leicht manuell in MySQL zurücksetzen:</p>
+<p><em></em>Wenn ihr das Passwort eines Users einer eurer Wordpress Installationen verlegt habt und keine korrekte E-Mail Adresse angegeben habt (etwa weil es eine Testinstallation ist), dann könnt ihr das Passwort dieses Users recht leicht manuell in MySQL zurücksetzen:</p>
 <ol>
-<li>Generiert den MD5images//-Hash eures gewünschten neuen Passworts, etwa über <em>md5sum</em> unter Linux oder über einen Online <a href="http://www.md5hashgenerator.com/" target="_blank">MD5Hashgenerator</a></li>
+<li>Generiert den MD5-Hash eures gewünschten neuen Passworts, etwa über <em>md5sum</em> unter Linux oder über einen Online <a href="http://www.md5hashgenerator.com/" target="_blank">MD5Hashgenerator</a></li>
 <li>Loggt euch in MySQL ein
 
 {% highlight bash %}
-mysql images//-u root images//-p
+mysql -u root -p
 {% endhighlight %}
 
 </li>
-<li>Wählt die Datenbank eurer Wordpressimages//-Installation aus
+<li>Wählt die Datenbank eurer Wordpress-Installation aus
 
 {% highlight mysql %}
 use datenbankname;
@@ -41,4 +41,4 @@ UPDATE wp_users SET user_pass="(MD5HASH)" WHERE user_login='username';
 </li>
 </ol>
 <p>Nun könnt ihr euch mit eurem gewählten Passwort wieder ganz normal einloggen.</p>
-<p><a href="https://adminswerk.de/assets/images/2012/2012images//-04images//-28images//-wordpressimages//-userpassimages//-mysql.png"><img class="alignnone sizeimages//-medium wpimages//-imageimages//-1901" title="2012images//-04images//-28images//-wordpressimages//-userpassimages//-mysql" src="https://adminswerk.de/assets/images/2012/2012images//-04images//-28images//-wordpressimages//-userpassimages//-mysqlimages//-300x251.png" alt="" width="300" height="251" /></a></p>
+<p><a href="https://adminswerk.de/assets/2012-04-28-wordpress-userpass-mysql.png"><img class="alignnone size-medium wp-image-1901" title="2012-04-28-wordpress-userpass-mysql" src="https://adminswerk.de/assets/2012-04-28-wordpress-userpass-mysql-300x251.png" alt="" width="300" height="251" /></a></p>

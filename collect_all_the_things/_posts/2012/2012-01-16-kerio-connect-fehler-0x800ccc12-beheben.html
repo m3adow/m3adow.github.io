@@ -1,30 +1,30 @@
-images//-images//-images//-
+---
 lang: de_DE
 layout: default
 title: 'Kerio Connect: Fehler 0X800ccc12 beheben'
-date: 2012images//-01images//-16 08:45:49.000000000 +01:00
+date: 2012-01-16 08:45:49.000000000 +01:00
 categories:
-images//- Administration
-images//- Software
+- Administration
+- Software
 tags:
-images//- Kerio Connect
-images//- Outlook
-images//- Problem
+- Kerio Connect
+- Outlook
+- Problem
 status: publish
 type: post
 published: true
-images//-images//-images//-
+---
 <p>Wenn bei euch in der Firma seit kurzer Zeit der Kerio Outlook Connector nicht mehr funktioniert und ihr eines der folgendne Symptome habt, kann man euch helfen. Symptome wären:</p>
 <ul>
-<li><strong>Fehler 0X800ccc12</strong> bei der Überträgung, Eimages//-Mails können empfangen, aber nicht gesendet werden</li>
+<li><strong>Fehler 0X800ccc12</strong> bei der Überträgung, E-Mails können empfangen, aber nicht gesendet werden</li>
 <li>Der Kerio Outlook Connector ist dauerhaft im Offlinemodus</li>
 <li>Benutzerauthentifizierung beim Outlook Start schlägt fehl</li>
 <li>Neue Kerio Outlook Connector Accounts können nicht angelegt werden, es wird der <strong>Fehler 0x80042004</strong> ausgegeben</li>
 <li>Euer Outlook wirft beim Start die Fehlermeldung <strong><em>0x8004010f MAPI_E_NOT_FOUND</em></strong> aus</li>
 </ul>
-<p>Das Problem haben wir Microsoft zu verdanken, die mit einem Patch am 10. Januar eine Bibliothek verändert haben, die der Kerio Outlook Connector nutzt. Kerio berichtet von davon in <a href="https://adminswerk.de/assets/images/2012/2012images//-01images//-16images//-kerioimages//-connectimages//-problem.jpg"><img class="alignright sizeimages//-medium wpimages//-imageimages//-1532" style="margin: 10px;" title="2012images//-01images//-16images//-kerioimages//-connectimages//-problem" src="https://adminswerk.de/assets/images/2012/2012images//-01images//-16images//-kerioimages//-connectimages//-problemimages//-300x152.jpg" alt="" width="300" height="152" /></a></p>
+<p>Das Problem haben wir Microsoft zu verdanken, die mit einem Patch am 10. Januar eine Bibliothek verändert haben, die der Kerio Outlook Connector nutzt. Kerio berichtet von davon in <a href="https://adminswerk.de/assets/2012-01-16-kerio-connect-problem.jpg"><img class="alignright size-medium wp-image-1532" style="margin: 10px;" title="2012-01-16-kerio-connect-problem" src="https://adminswerk.de/assets/2012-01-16-kerio-connect-problem-300x152.jpg" alt="" width="300" height="152" /></a></p>
 <ol>
-<li>Unter <strong>Extras</strong> images//-&gt; <strong>Eimages//-Mail Konten</strong> das <strong>Kerio Connect Konto</strong> auswählen und <strong>Ändern</strong>.</li>
+<li>Unter <strong>Extras</strong> -&gt; <strong>E-Mail Konten</strong> das <strong>Kerio Connect Konto</strong> auswählen und <strong>Ändern</strong>.</li>
 <li>Im Reiter "<strong>Serverdetails</strong>" den Haken bei "<strong>Verwende Datenkomprimierung</strong>" entfernen.</li>
 <li>Outlook neustarten</li>
 </ol>

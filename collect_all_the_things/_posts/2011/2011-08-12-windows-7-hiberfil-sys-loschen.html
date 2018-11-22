@@ -1,29 +1,29 @@
-images//-images//-images//-
+---
 lang: de_DE
 layout: default
 title: 'Windows 7: Hiberfil.sys löschen'
-date: 2011images//-08images//-12 14:20:36.000000000 +02:00
+date: 2011-08-12 14:20:36.000000000 +02:00
 categories:
-images//- Administration
+- Administration
 tags:
-images//- hiberfil.sys
-images//- Ruhezustand
-images//- Windows 7
+- hiberfil.sys
+- Ruhezustand
+- Windows 7
 status: publish
 type: post
 published: true
-images//-images//-images//-
-<p><a href="https://adminswerk.de/assets/images/2011/2011images//-08images//-12images//-hiberfil.sys.jpg"><img style="margin: 10px; float: left" title="2011images//-08images//-12images//-hiberfil.sys" src="https://adminswerk.de/assets/images/2011/2011images//-08images//-12images//-hiberfil.sys_images//-300x240.jpg" alt="" width="300" height="240"/></a>Unter Windows 7 und vermutlich auch unter Windows Vista gibt es auf der Windowspartition standardmäßig zwei große Dateien. Die erste ist die <em>pagefile.sys</em>, auch Auslagerungsdatei genannt, die zumindest für PCs mit geringer bis mittlerer Menge an Arbeitsspeicher sinnvoll ist<em>.</em> Die zweite schimpft sich <em>hiberfil.sys</em>. Mit relativ wenig Recherche lässt sich herausfinden, dass diese Datei für den Ruhezustand des PCs zuständig ist.</p>
+---
+<p><a href="https://adminswerk.de/assets/2011-08-12-hiberfil.sys.jpg"><img style="margin: 10px; float: left" title="2011-08-12-hiberfil.sys" src="https://adminswerk.de/assets/2011-08-12-hiberfil.sys_-300x240.jpg" alt="" width="300" height="240"/></a>Unter Windows 7 und vermutlich auch unter Windows Vista gibt es auf der Windowspartition standardmäßig zwei große Dateien. Die erste ist die <em>pagefile.sys</em>, auch Auslagerungsdatei genannt, die zumindest für PCs mit geringer bis mittlerer Menge an Arbeitsspeicher sinnvoll ist<em>.</em> Die zweite schimpft sich <em>hiberfil.sys</em>. Mit relativ wenig Recherche lässt sich herausfinden, dass diese Datei für den Ruhezustand des PCs zuständig ist.</p>
 <p>Wenn ihr den Ruhezustand allerdings nicht nutzt und/oder etwas mehr Festplattenspeicher benötigt, solltet ihr den Ruhezustand deaktivieren und damit diese Datei, die bei mir immerhin über 12GB groß ist, löschen. Dies macht ihr über die CMD mit folgendem Befehl:</p>
 
 {% highlight batch %}
-powercfg images//-h off
+powercfg -h off
 {% endhighlight %}
 
 <p>Wenn ihr den Ruhezustand dann wieder anschalten wollt, könnt ihr dementsprechend</p>
 
 {% highlight batch %}
-powercfg images//-h on
+powercfg -h on
 {% endhighlight %}
 
 <p>in euere CMD einhacken. :)</p>

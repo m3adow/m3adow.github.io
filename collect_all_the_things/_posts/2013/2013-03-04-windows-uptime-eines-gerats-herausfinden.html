@@ -1,26 +1,26 @@
-images//-images//-images//-
+---
 lang: de_DE
 layout: default
 title: 'Windows: Uptime eines Geräts herausfinden'
-date: 2013images//-03images//-04 07:16:36.000000000 +01:00
+date: 2013-03-04 07:16:36.000000000 +01:00
 categories:
-images//- Windows
+- Windows
 tags:
-images//- CMD
-images//- uptime
-images//- Windows
+- CMD
+- uptime
+- Windows
 status: publish
 type: post
 published: true
-images//-images//-images//-
-<p>Als Linuxuser ist man im Bezug auf Serveruptime ja ziemlich verwöhnt. Updates brauchen in der Regel keine Neustarts sodass Server locker auf eine Uptime jenseits der 200 Tage kommen könnten. Das ist sicherlich einer der Gründe, warum die Uptime grade in Linuxkreisen oftmals eine nahezu religiöse Bedeutung hat. ;images//-)</p>
-<p>In Linux bekommt man die Zeit, die ein Server nicht mehr neugestartet oder heruntergefahren wurde mit dem simplen <strong>uptime</strong>images//-Befehl angezeigt. Doch wie ist das bei Windows?</p>
-<p style="marginimages//-top: 20px;">Dafür gibt es zwei Wege, der Königsweg ist meiner Meinung nach die Kombination aus beiden.</p>
+---
+<p>Als Linuxuser ist man im Bezug auf Serveruptime ja ziemlich verwöhnt. Updates brauchen in der Regel keine Neustarts sodass Server locker auf eine Uptime jenseits der 200 Tage kommen könnten. Das ist sicherlich einer der Gründe, warum die Uptime grade in Linuxkreisen oftmals eine nahezu religiöse Bedeutung hat. ;-)</p>
+<p>In Linux bekommt man die Zeit, die ein Server nicht mehr neugestartet oder heruntergefahren wurde mit dem simplen <strong>uptime</strong>-Befehl angezeigt. Doch wie ist das bei Windows?</p>
+<p style="margin-top: 20px;">Dafür gibt es zwei Wege, der Königsweg ist meiner Meinung nach die Kombination aus beiden.</p>
 <ol>
-<li><strong>systeminfo</strong>: Mit dem Befehl <strong>systeminfo</strong> in der CMD kann man sich images//- wie der Name schon sagt, einen Haufen Informationen über sein System ausgeben lassen. Unter anderem gibt es dort einen Punkt, der sich auf Deutsch <em>Systembetriebszeit</em> nennt, der die bisherige Betriebsdauer angibt.<br />
-<a href="https://adminswerk.de/assets/2013images//-02images//-12images//-systeminfo.png"><img class="alignnone sizeimages//-medium wpimages//-imageimages//-2737" style="margin: 10px;" alt="2013images//-02images//-12images//-systeminfo" src="https://adminswerk.de/assets/2013images//-02images//-12images//-systeminfoimages//-300x142.png" width="300" height="142" /></a></li>
-<li><strong>net statistics server</strong>: Mit dem Befehl <strong>net statistics server</strong> werden Informationen zum Serverimages//-Dienst angezeigt. Für uns ist hier der Punkt "Statistik seit" wichtig. Dieser teilt uns den genauen Startzeitpunkt der Serverdienstes mit. Da dieser einer der ersten gestarteten Dienste überhaupt ist, entspricht dies dem Start des Betriebssystems selbst.<br />
-<a href="https://adminswerk.de/assets/2013images//-02images//-12images//-netimages//-statisticsimages//-server.png"><img class="alignnone sizeimages//-medium wpimages//-imageimages//-2738" style="margin: 10px;" alt="2013images//-02images//-12images//-netimages//-statisticsimages//-server" src="https://adminswerk.de/assets/2013images//-02images//-12images//-netimages//-statisticsimages//-serverimages//-300x142.png" width="300" height="142" /></a></li>
+<li><strong>systeminfo</strong>: Mit dem Befehl <strong>systeminfo</strong> in der CMD kann man sich - wie der Name schon sagt, einen Haufen Informationen über sein System ausgeben lassen. Unter anderem gibt es dort einen Punkt, der sich auf Deutsch <em>Systembetriebszeit</em> nennt, der die bisherige Betriebsdauer angibt.<br />
+<a href="https://adminswerk.de/assets/2013-02-12-systeminfo.png"><img class="alignnone size-medium wp-image-2737" style="margin: 10px;" alt="2013-02-12-systeminfo" src="https://adminswerk.de/assets/2013-02-12-systeminfo-300x142.png" width="300" height="142" /></a></li>
+<li><strong>net statistics server</strong>: Mit dem Befehl <strong>net statistics server</strong> werden Informationen zum Server-Dienst angezeigt. Für uns ist hier der Punkt "Statistik seit" wichtig. Dieser teilt uns den genauen Startzeitpunkt der Serverdienstes mit. Da dieser einer der ersten gestarteten Dienste überhaupt ist, entspricht dies dem Start des Betriebssystems selbst.<br />
+<a href="https://adminswerk.de/assets/2013-02-12-net-statistics-server.png"><img class="alignnone size-medium wp-image-2738" style="margin: 10px;" alt="2013-02-12-net-statistics-server" src="https://adminswerk.de/assets/2013-02-12-net-statistics-server-300x142.png" width="300" height="142" /></a></li>
 <li><strong>Der Königsweg</strong>: Der Königsweg für die Uptime unter Windows ist in meinen Augen eine Kombination aus beiden Befehlen:
 
 {% highlight winbatch %}
@@ -28,7 +28,7 @@ net statistics server | find /i "Statistik seit" && systeminfo | find /i "System
 {% endhighlight %}
 
 <p>Die Ausgabe ist ähnlich übersichtlich wie bei Linux und gibt doch alle notwendigen Informationen wieder.<br />
-<a href="https://adminswerk.de/assets/2013images//-02images//-12images//-uptimeimages//-windows.png"><img src="https://adminswerk.de/assets/2013images//-02images//-12images//-uptimeimages//-windowsimages//-300x142.png" style="margin: 10px;" alt="2013images//-02images//-12images//-uptimeimages//-windows" width="300" height="142" class="alignnone sizeimages//-medium wpimages//-imageimages//-2743" /></a><br />
+<a href="https://adminswerk.de/assets/2013-02-12-uptime-windows.png"><img src="https://adminswerk.de/assets/2013-02-12-uptime-windows-300x142.png" style="margin: 10px;" alt="2013-02-12-uptime-windows" width="300" height="142" class="alignnone size-medium wp-image-2743" /></a><br />
 Was genau machen wir hier? Eigentlich nichts anderes, als beide Befehle ausführen, nach der benötigten Zeile suchen und nur diese ausgeben lassen.</li>
 </ol>
-<p style="marginimages//-top:20px">Dass man unter Windows XP überhaupt pipen kann, war mir bis dato nicht bewusst. Das hätte mir einige Batches sicherlich einfacher gemacht.</p>
+<p style="margin-top:20px">Dass man unter Windows XP überhaupt pipen kann, war mir bis dato nicht bewusst. Das hätte mir einige Batches sicherlich einfacher gemacht.</p>

@@ -1,29 +1,29 @@
-images//-images//-images//-
+---
 lang: de_DE
 layout: default
 title: 'VMware: vMA Tastaturlayout ändern'
-date: 2011images//-10images//-20 16:30:21.000000000 +02:00
+date: 2011-10-20 16:30:21.000000000 +02:00
 categories:
-images//- Administration
+- Administration
 tags:
-images//- esxi
-images//- vmware
+- esxi
+- vmware
 status: publish
 type: post
 published: true
-images//-images//-images//-
-<p>Nachdem ich vor Kurzem den vSphere Management Assistant (vMA) installiert und die <a title="VMware: vMA Passwortkomplexität ändern" href="http://www.adminswerk.de/vmwareimages//-vmaimages//-passwortkomplexitatimages//-andern/">Passwortrichtlinie modifizert</a> habe, werde ich nun noch kurz beschreiben, wie man das Keyboard Layout ändern kann. Der vMA kommt standardmäßig mit dem amerikanischem Keyboardlayout, was sicherlich einige Admins, die es nicht gewohnt sind, verwirren wird. Die Änderung ist eigentlich ziemlich einfach. Im Endeffekt muss man nur in der Datei <strong>/etc/sysconfig/keyboard</strong> die Zeile <strong>KEYTABLE="us.map.gz"</strong> in <strong>KEYTABLE="deimages//-latin1"</strong> geändert werden. Für die Leute, die sich mit Linux und besonders mit dem Albtraum für Linuxlaien, dem Texteditor vi, nicht auskennen, erläutere ich das etwas genauer:</p>
+---
+<p>Nachdem ich vor Kurzem den vSphere Management Assistant (vMA) installiert und die <a title="VMware: vMA Passwortkomplexität ändern" href="http://www.adminswerk.de/vmware-vma-passwortkomplexitat-andern/">Passwortrichtlinie modifizert</a> habe, werde ich nun noch kurz beschreiben, wie man das Keyboard Layout ändern kann. Der vMA kommt standardmäßig mit dem amerikanischem Keyboardlayout, was sicherlich einige Admins, die es nicht gewohnt sind, verwirren wird. Die Änderung ist eigentlich ziemlich einfach. Im Endeffekt muss man nur in der Datei <strong>/etc/sysconfig/keyboard</strong> die Zeile <strong>KEYTABLE="us.map.gz"</strong> in <strong>KEYTABLE="de-latin1"</strong> geändert werden. Für die Leute, die sich mit Linux und besonders mit dem Albtraum für Linuxlaien, dem Texteditor vi, nicht auskennen, erläutere ich das etwas genauer:</p>
 <ol>
-<li>In der vMAimages//-Shell die oben genannte Datei mit vi als sudo öffnen
+<li>In der vMA-Shell die oben genannte Datei mit vi als sudo öffnen
 
 {% highlight bash %}
 sudo vi /etc/sysconfig/keyboard
 {% endhighlight %}
 
-<p><a href="https://adminswerk.de/assets/images/2011/2011images//-10images//-20images//-vMA_keyboardlayout.jpg"><img class="alignright sizeimages//-medium wpimages//-imageimages//-930" style="margin: 10px;" title="2011images//-10images//-20images//-vMA_keyboardlayout" src="https://adminswerk.de/assets/images/2011/2011images//-10images//-20images//-vMA_keyboardlayoutimages//-300x210.jpg" alt="" width="300" height="210" /></a></li>
-<li>In den INSERTimages//-Modus durch Drücken <em></em>der Einfügenimages//-Taste wechseln (sichtbar durch die "images//-images//- INSERT images//-images//-" Anzeige am unteren Bildrand)</li>
-<li>Die Zeile <strong>KEYTABLE="us.map.gz"</strong> suchen und durch <strong>KEYTABLE="deimages//-latin1"</strong> ersetzen (der Bindestrich ist beim amerikanischen Layout die ßimages//-Taste).</li>
-<li>Durch Druck auf die Escapeimages//-Taste in den Befehlsmodus wechseln</li>
+<p><a href="https://adminswerk.de/assets/2011-10-20-vMA_keyboardlayout.jpg"><img class="alignright size-medium wp-image-930" style="margin: 10px;" title="2011-10-20-vMA_keyboardlayout" src="https://adminswerk.de/assets/2011-10-20-vMA_keyboardlayout-300x210.jpg" alt="" width="300" height="210" /></a></li>
+<li>In den INSERT-Modus durch Drücken <em></em>der Einfügen-Taste wechseln (sichtbar durch die "-- INSERT --" Anzeige am unteren Bildrand)</li>
+<li>Die Zeile <strong>KEYTABLE="us.map.gz"</strong> suchen und durch <strong>KEYTABLE="de-latin1"</strong> ersetzen (der Bindestrich ist beim amerikanischen Layout die ß-Taste).</li>
+<li>Durch Druck auf die Escape-Taste in den Befehlsmodus wechseln</li>
 <li>
 
 {% highlight registry%}
@@ -34,12 +34,12 @@ Die Änderung mit Eingabe von <strong>:wq</strong> und Druck auf Enter speichern
 <li>Den vMA neu starten, etwa mit
 
 {% highlight bash %}
-sudo shutdown images//-r now
+sudo shutdown -r now
 {% endhighlight %}
 
 </li>
 </ol>
 <p>Schon habt ihr ein deutsches Tastaturlayout. Bedenkt dies auch bei euren Passwörtern mit eventuellen Sonderzeichen.</p>
 <p>&nbsp;</p>
-<p>(<a href="http://www.virture.de/keyboardimages//-layoutimages//-vsphereimages//-vmaimages//-aendern/" target="_blank">via</a>)</p>
+<p>(<a href="http://www.virture.de/keyboard-layout-vsphere-vma-aendern/" target="_blank">via</a>)</p>
 <p>&nbsp;</p>

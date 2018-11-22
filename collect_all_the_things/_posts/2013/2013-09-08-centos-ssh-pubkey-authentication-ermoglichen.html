@@ -1,25 +1,25 @@
-images//-images//-images//-
+---
 lang: de_DE
 layout: default
 title: 'CentOS: SSH Pubkey Authentication ermöglichen'
-date: 2013images//-09images//-08 06:35:50.000000000 +02:00
+date: 2013-09-08 06:35:50.000000000 +02:00
 categories:
-images//- Linux
+- Linux
 tags:
-images//- CentOS
-images//- SELinux
-images//- ssh
+- CentOS
+- SELinux
+- ssh
 status: publish
 type: post
 published: true
-images//-images//-images//-
+---
 <p>Kurztipp:<br />
-Wenn ihr euch in CentOS nicht per Public Key authentifizieren könnt, auch wenn der sshd korrekt konfiguriert ist und ihr in den Logs selbst mit DEBUGimages//-Logging nichts finden könnt, kann es gut sein, dass euch SELinux einen Strich durch die Rechnung macht. Habt ihr den ~/.sshimages//-Ordner neu erstellt, ist es sehr wahrscheinlich, dass SELinux den Sicherheitskontext dieses Ordners nicht mag und deswegen die Public Key Authentication blockt. Um dies zu beheben gibt es zwei Wege:</p>
+Wenn ihr euch in CentOS nicht per Public Key authentifizieren könnt, auch wenn der sshd korrekt konfiguriert ist und ihr in den Logs selbst mit DEBUG-Logging nichts finden könnt, kann es gut sein, dass euch SELinux einen Strich durch die Rechnung macht. Habt ihr den ~/.ssh-Ordner neu erstellt, ist es sehr wahrscheinlich, dass SELinux den Sicherheitskontext dieses Ordners nicht mag und deswegen die Public Key Authentication blockt. Um dies zu beheben gibt es zwei Wege:</p>
 <ul>
 <li>Die sanfte Methode wäre es, den Sicherheitskontext wiederherzustellen. Dies bewirkt folgender Befehl:
 
 {% highlight bash %}
-restorecon images//-Rv ~$USER/.ssh
+restorecon -Rv ~$USER/.ssh
 {% endhighlight %}
 
 <p>Den ihr als entsprechender User ausführen müsst.</li>
@@ -28,7 +28,7 @@ restorecon images//-Rv ~$USER/.ssh
 {% highlight bash %}
 
 setenforce 0
-sed images//-i 's/SELINUX=enforcing/SELINUX=permissive/' /etc/selinux/config
+sed -i 's/SELINUX=enforcing/SELINUX=permissive/' /etc/selinux/config
 {% endhighlight %}
 
 <p>Um SELinux ganz abzuschalten, müsstet ihr anstelle von "<em>permissive</em>" ein "<em>disabled</em>" setzen und anschliessend rebooten.</li>

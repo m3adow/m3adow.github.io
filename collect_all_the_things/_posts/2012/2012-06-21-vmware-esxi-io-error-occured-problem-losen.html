@@ -1,25 +1,25 @@
-images//-images//-images//-
+---
 lang: de_DE
 layout: default
-title: 'VMware ESXi: "I/O error occured"images//-Problem lösen'
-date: 2012images//-06images//-21 10:27:35.000000000 +02:00
+title: 'VMware ESXi: "I/O error occured"-Problem lösen'
+date: 2012-06-21 10:27:35.000000000 +02:00
 categories:
-images//- Administration
+- Administration
 tags:
-images//- error
-images//- esxi
-images//- fehler
-images//- vmware
+- error
+- esxi
+- fehler
+- vmware
 status: publish
 type: post
 published: true
-images//-images//-images//-
-<p>Wenn ihr beim Upload einer Datei in den Datastore eines ESXiimages//-Servers mit dem vSphereimages//-Client habt und vom Datastore Browser die Fehlermeldung "<em>I/O error occured</em>" bekommt, könnte dies hier eventuell euer Problem lösen:</p>
+---
+<p>Wenn ihr beim Upload einer Datei in den Datastore eines ESXi-Servers mit dem vSphere-Client habt und vom Datastore Browser die Fehlermeldung "<em>I/O error occured</em>" bekommt, könnte dies hier eventuell euer Problem lösen:</p>
 <ol>
-<li>Navigiert in den Einstellungen des betreffenden ESXiimages//-Servers im vSphereimages//-Client zu <strong>Configuration images//-&gt; Networking</strong>.<br />
-<a href="https://adminswerk.de/assets/images/2012/2012images//-06images//-05images//-esxiimages//-ioimages//-error.png"><img class="alignnone sizeimages//-medium wpimages//-imageimages//-2104" style="margin: 10px;" title="2012images//-06images//-05images//-esxiimages//-ioimages//-error" src="https://adminswerk.de/assets/images/2012/2012images//-06images//-05images//-esxiimages//-ioimages//-errorimages//-300x130.png" alt="" width="300" height="130" /></a></li>
-<li>Nun geht es über <strong>Properties</strong> in die Eigenschaften eures virtuellen Switches. Dort brauchen wir den Reiter <strong>Network Adapters</strong>. Ändert hier den Eintrag <strong>Configured Speed, Duplex</strong> auf <strong>Auto Negotiate</strong> über den <strong>Edit</strong>images//-Button.<br />
-<a href="https://adminswerk.de/assets/images/2012/2012images//-06images//-05images//-esxiimages//-ioimages//-error2.png"><img class="alignnone sizeimages//-medium wpimages//-imageimages//-2105" style="margin: 10px;" title="2012images//-06images//-05images//-esxiimages//-ioimages//-error2" src="https://adminswerk.de/assets/images/2012/2012images//-06images//-05images//-esxiimages//-ioimages//-error2images//-300x195.png" alt="" width="300" height="195" /></a></li>
+<li>Navigiert in den Einstellungen des betreffenden ESXi-Servers im vSphere-Client zu <strong>Configuration -&gt; Networking</strong>.<br />
+<a href="https://adminswerk.de/assets/2012-06-05-esxi-io-error.png"><img class="alignnone size-medium wp-image-2104" style="margin: 10px;" title="2012-06-05-esxi-io-error" src="https://adminswerk.de/assets/2012-06-05-esxi-io-error-300x130.png" alt="" width="300" height="130" /></a></li>
+<li>Nun geht es über <strong>Properties</strong> in die Eigenschaften eures virtuellen Switches. Dort brauchen wir den Reiter <strong>Network Adapters</strong>. Ändert hier den Eintrag <strong>Configured Speed, Duplex</strong> auf <strong>Auto Negotiate</strong> über den <strong>Edit</strong>-Button.<br />
+<a href="https://adminswerk.de/assets/2012-06-05-esxi-io-error2.png"><img class="alignnone size-medium wp-image-2105" style="margin: 10px;" title="2012-06-05-esxi-io-error2" src="https://adminswerk.de/assets/2012-06-05-esxi-io-error2-300x195.png" alt="" width="300" height="195" /></a></li>
 <li>Ab jetzt sollte der Upload wie gewohnt funktionieren.</li>
 </ol>
 <p>Dies ist nach meinen Recherchen ein schon länger bekannter Bug, der aber zumindest bis zum ESXi 4.1 noch nicht gefixt wurde.</p>

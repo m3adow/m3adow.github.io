@@ -1,23 +1,23 @@
-images//-images//-images//-
+---
 lang: de_DE
 layout: default
-title: 'Raspberry Pi: SDimages//-Karten Tests'
-date: 2012images//-07images//-30 08:59:10.000000000 +02:00
+title: 'Raspberry Pi: SD-Karten Tests'
+date: 2012-07-30 08:59:10.000000000 +02:00
 categories:
-images//- Hardware
-images//- Linux
+- Hardware
+- Linux
 tags:
-images//- geschwindigkeit
-images//- Raspberry Pi
-images//- sdimages//-karte
+- geschwindigkeit
+- Raspberry Pi
+- sd-karte
 status: publish
 type: post
 published: true
-images//-images//-images//-
+---
 <p><strong>Update 17.08.2011:<br />
-<em>Für Leute, die es eilig haben hier die beiden besten Karten: <a href="https://www.amazon.de/gp/product/B001ECQVTM/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B001ECQVTM&linkCode=as2&tag=admwerimages//-21">Transcend SDHC 16GB Class 6</a><img src="https://irimages//-de.amazonimages//-adsystem.com/e/ir?t=admwerimages//-21&l=as2&o=3&a=B001ECQVTM" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />* und <a href="https://www.amazon.de/gp/product/B00812K4V4/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B00812K4V4&linkCode=as2&tag=admwerimages//-21">SanDisk Class 10 Ultra SDHC 8GB</a><img src="https://irimages//-de.amazonimages//-adsystem.com/e//ir?t=admwerimages//-21&l=as2&o=3&a=B00812K4V4" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*.</em></strong></p>
-<p style="marginimages//-top:20px;">
-Um eine gute Karte für meinen Raspberry Pi zu finden, habe ich mir bisher schon etwas Mühe gemacht. Denn nur weil <em>Class 10</em> auf der Karte drauf steht, heißt das noch lange nicht, dass sie für die Zugriffe, die ein Betriebssystem braucht, optimiert ist. Wen das genauer interessiert, dem empfehle ich die Studie <a href="http://www.raspberrypi.org/phpBB3/viewtopic.php?f=2&t=4076" target="_blank">dieses Threads im Raspberry Pi Forums</a> oder <a href="http://forum.xdaimages//-developers.com/showthread.php?t=1005633" target="_blank">dieses Threads im XDAimages//-Developers Forum</a>.<br />
+<em>Für Leute, die es eilig haben hier die beiden besten Karten: <a href="https://www.amazon.de/gp/product/B001ECQVTM/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B001ECQVTM&linkCode=as2&tag=admwer-21">Transcend SDHC 16GB Class 6</a><img src="https://ir-de.amazon-adsystem.com/e/ir?t=admwer-21&l=as2&o=3&a=B001ECQVTM" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />* und <a href="https://www.amazon.de/gp/product/B00812K4V4/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B00812K4V4&linkCode=as2&tag=admwer-21">SanDisk Class 10 Ultra SDHC 8GB</a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B00812K4V4" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*.</em></strong></p>
+<p style="margin-top:20px;">
+Um eine gute Karte für meinen Raspberry Pi zu finden, habe ich mir bisher schon etwas Mühe gemacht. Denn nur weil <em>Class 10</em> auf der Karte drauf steht, heißt das noch lange nicht, dass sie für die Zugriffe, die ein Betriebssystem braucht, optimiert ist. Wen das genauer interessiert, dem empfehle ich die Studie <a href="http://www.raspberrypi.org/phpBB3/viewtopic.php?f=2&t=4076" target="_blank">dieses Threads im Raspberry Pi Forums</a> oder <a href="http://forum.xda-developers.com/showthread.php?t=1005633" target="_blank">dieses Threads im XDA-Developers Forum</a>.<br />
 Also habe ich mir zum Testen ein eigenes kleines Skript geschrieben, welches auf dem Raspberry Pi ausgeführt wird und sowohl die Schreibgeschwindigkeit von /dev/null als auch von /dev/random misst. Die Ergebnisse sind untereinander vergleichbar, nicht jedoch mit anderen Tests. Alle Tests wurden mit dem "alten" Debian Wheezy Image ausgeführt, welches noch nicht so gut optimiert ist.<br />
 Das Skript sieht so aus:</p>
 
@@ -31,335 +31,335 @@ Das Skript sieht so aus:</p>
 
 sync
 mkdir sdperf
-echo images//-e "\n=== Testing /dev/zero Performance ==="
+echo -e "\n=== Testing /dev/zero Performance ==="
 TZ="$(date +%s%N)"
 time ( for item in `seq 1 1000`; do dd if=/dev/zero of=sdperf/zerotest.$item bs=16k count=10 >& /dev/null; done;)
-TZ="$(($(date +%s%N) images//-TZ))"
+TZ="$(($(date +%s%N) -TZ))"
 
-rm images//-rf sdperf/
+rm -rf sdperf/
 mkdir sdperf/
 
-echo images//-e "\n=== Testing /dev/urandom Performance ==="
+echo -e "\n=== Testing /dev/urandom Performance ==="
 TR="$(date +%s%N)"
 time (for item in `seq 1 1000`; do dd if=/dev/urandom of=sdperf/randtest.$item bs=16k count=10 >& /dev/null; done)
-TR="$(($(date +%s%N) images//-TR))"
+TR="$(($(date +%s%N) -TR))"
 TRS="$((TR/1000000000))"
 
-rm images//-rf sdperf/
+rm -rf sdperf/
 
-echo images//-e "\n $TZ ns"
-echo images//-e "\n==== Summary ====\n"
-echo images//-e "\n Sequential Write (MB/s): \c"
-echo images//-n $TZ  |awk '{OFMT="%.2f";print 160000000000/$0}'
-echo images//-e "\n Random Write (MB/s): \c"
-echo images//-n $TR  |awk '{OFMT="%.2f";print 160000000000/$0}'
+echo -e "\n $TZ ns"
+echo -e "\n==== Summary ====\n"
+echo -e "\n Sequential Write (MB/s): \c"
+echo -n $TZ  |awk '{OFMT="%.2f";print 160000000000/$0}'
+echo -e "\n Random Write (MB/s): \c"
+echo -n $TR  |awk '{OFMT="%.2f";print 160000000000/$0}'
 sync
 {% endhighlight %}
 
 <p>Im Endeffekt macht es nichts anderes, als 1000 Mal 10 Blöcke mit jeweils 16k Blocksize in ein Verzeichnis zu schreiben, die Zeit zu stoppen und die Geschwindigkeit auszurechnen. Nach den Tests löscht es die entsprechenden Dateien (bzw. den Ordner) wieder.</p>
-<p>Da es sicherlich mehr Leute gibt, die eine schnelle SDimages//-Karte für ihren Raspberry Pi haben wollen, werde ich hier meine Ergebnisse posten, bis ich eine Karte finde, die mir zusagt. Ich mache jeweils drei Durchgänge, um eventuelle Ausreißer zu erkennen. Ich gebe jeweils die Geschwindigkeiten der /dev/zero Schreibdurchgänge und darunter die Geschwindigkeiten der drei /dev/urandom Schreibdurchgänge an.<br />
-Hinweis: Ich hatte vor Beginn meiner Tests noch eine <a href="https://www.amazon.de/gp/product/B00569J5JC/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B00569J5JC&linkCode=as2&tag=admwerimages//-21">Samsung MBimages//-SPAGA/EU Class 10 16GB</a><img src="https://irimages//-de.amazonimages//-adsystem.com/e/ir?t=admwerimages//-21&l=as2&o=3&a=B00569J5JC" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />* bestellt, doch diese war mir zu langsam.</p>
-<p style="marginimages//-top:20px;">
-<table align="left" style="border:none !important;width:600px; borderimages//-style:none !important;float:none">
+<p>Da es sicherlich mehr Leute gibt, die eine schnelle SD-Karte für ihren Raspberry Pi haben wollen, werde ich hier meine Ergebnisse posten, bis ich eine Karte finde, die mir zusagt. Ich mache jeweils drei Durchgänge, um eventuelle Ausreißer zu erkennen. Ich gebe jeweils die Geschwindigkeiten der /dev/zero Schreibdurchgänge und darunter die Geschwindigkeiten der drei /dev/urandom Schreibdurchgänge an.<br />
+Hinweis: Ich hatte vor Beginn meiner Tests noch eine <a href="https://www.amazon.de/gp/product/B00569J5JC/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B00569J5JC&linkCode=as2&tag=admwer-21">Samsung MB-SPAGA/EU Class 10 16GB</a><img src="https://ir-de.amazon-adsystem.com/e/ir?t=admwer-21&l=as2&o=3&a=B00569J5JC" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />* bestellt, doch diese war mir zu langsam.</p>
+<p style="margin-top:20px;">
+<table align="left" style="border:none !important;width:600px; border-style:none !important;float:none">
 <tbody>
 <tr>
-<td rowspan="5" style="border:none !important;borderimages//-style:none !important"><a href="https://www.amazon.de/gp/product/B00192S3XO/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B00192S3XO&linkCode=as2&tag=admwerimages//-21"><img style="float: left; marginimages//-right: 15px !important;" src="https://imagesimages//-eu.sslimages//-imagesimages//-amazon.com/images/I/51DyV7%2BEGML._SL160_.jpg" alt="" border="0" /></a><img style="border: none !important; margin: 0px !important; float: left !important;" src="https://irimages//-de.amazonimages//-adsystem.com/e//ir?t=admwerimages//-21&l=as2&o=3&a=B00192S3XO" alt="" width="1" height="1" border="0" /></td>
+<td rowspan="5" style="border:none !important;border-style:none !important"><a href="https://www.amazon.de/gp/product/B00192S3XO/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B00192S3XO&linkCode=as2&tag=admwer-21"><img style="float: left; margin-right: 15px !important;" src="https://images-eu.ssl-images-amazon.com/images/I/51DyV7%2BEGML._SL160_.jpg" alt="" border="0" /></a><img style="border: none !important; margin: 0px !important; float: left !important;" src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B00192S3XO" alt="" width="1" height="1" border="0" /></td>
 </tr>
 <tr>
-<td colspan="2" style="border:none !important;borderimages//-style:none !important"><strong><a href="https://www.amazon.de/gp/product/B00192S3XO/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B00192S3XO&linkCode=as2&tag=admwerimages//-21">Platinum 16 GB Class 6 SDHC</a>*<img src="https://irimages//-de.amazonimages//-adsystem.com/e/ir?t=admwerimages//-21&l=as2&o=3&a=B00192S3XO" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
+<td colspan="2" style="border:none !important;border-style:none !important"><strong><a href="https://www.amazon.de/gp/product/B00192S3XO/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B00192S3XO&linkCode=as2&tag=admwer-21">Platinum 16 GB Class 6 SDHC</a>*<img src="https://ir-de.amazon-adsystem.com/e/ir?t=admwer-21&l=as2&o=3&a=B00192S3XO" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
 <p></strong></td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">/dev/zero (1./2./3. Run) [MB/s]:</td>
-<td style="border:none !important;borderimages//-style:none !important">0.97/1.37/1.09</td>
+<td style="border:none !important;border-style:none !important">/dev/zero (1./2./3. Run) [MB/s]:</td>
+<td style="border:none !important;border-style:none !important">0.97/1.37/1.09</td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">/dev/urandom (1./2./3. Run) [MB/s]:</td>
-<td style="border:none !important;borderimages//-style:none !important">0.5/0.51/0.48</td>
+<td style="border:none !important;border-style:none !important">/dev/urandom (1./2./3. Run) [MB/s]:</td>
+<td style="border:none !important;border-style:none !important">0.5/0.51/0.48</td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">Fazit:</td>
-<td style="border:none !important;borderimages//-style:none !important"><strong>Zu langsam</strong></td>
-</tr>
-</tbody>
-</table>
-<table align="left" style="border:none !important;width:600px; borderimages//-style:none !important;float:none">
-<tbody>
-<tr>
-<td rowspan="5" style="border:none !important;borderimages//-style:none !important"><a href="https://www.amazon.de/gp/product/B0042FZCFC/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B0042FZCFC&linkCode=as2&tag=admwerimages//-21"><img border="0" src="https://imagesimages//-eu.sslimages//-imagesimages//-amazon.com/images/I/41Mimages//-c9i5YnL._SL160_.jpg" /></a><img src="https://irimages//-de.amazonimages//-adsystem.com/e//ir?t=admwerimages//-21&l=as2&o=3&a=B0042FZCFC" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
-</td>
-</tr>
-<tr>
-<td colspan="2" style="border:none !important;borderimages//-style:none !important"><strong><a href="https://www.amazon.de/gp/product/B0042FZCFC/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B0042FZCFC&linkCode=as2&tag=admwerimages//-21">Transcend SDHC 8GB Class 4</a>*<img src="https://irimages//-de.amazonimages//-adsystem.com/e/ir?t=admwerimages//-21&l=as2&o=3&a=B0042FZCFC" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /><br />
-</strong></td>
-</tr>
-<tr>
-<td style="border:none !important;borderimages//-style:none !important">/dev/zero (1./2./3. Run) [MB/s]:</td>
-<td style="border:none !important;borderimages//-style:none !important">1.08/1.16/1.35</td>
-</tr>
-<tr>
-<td style="border:none !important;borderimages//-style:none !important">/dev/urandom (1./2./3. Run) [MB/s]:</td>
-<td style="border:none !important;borderimages//-style:none !important">0.51/0.52/0.51</td>
-</tr>
-<tr>
-<td style="border:none !important;borderimages//-style:none !important">Fazit:</td>
-<td style="border:none !important;borderimages//-style:none !important"><strong>Zu langsam</strong></td>
+<td style="border:none !important;border-style:none !important">Fazit:</td>
+<td style="border:none !important;border-style:none !important"><strong>Zu langsam</strong></td>
 </tr>
 </tbody>
 </table>
-<table align="left" style="border:none !important;width:600px; borderimages//-style:none !important;float:none">
+<table align="left" style="border:none !important;width:600px; border-style:none !important;float:none">
 <tbody>
 <tr>
-<td rowspan="5" style="border:none !important;borderimages//-style:none !important"><img src="https://adminswerk.de/assets/194084.jpg" style="width:80px;height:100px;" />
+<td rowspan="5" style="border:none !important;border-style:none !important"><a href="https://www.amazon.de/gp/product/B0042FZCFC/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B0042FZCFC&linkCode=as2&tag=admwer-21"><img border="0" src="https://images-eu.ssl-images-amazon.com/images/I/41M-c9i5YnL._SL160_.jpg" /></a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B0042FZCFC" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 </td>
 </tr>
 <tr>
-<td colspan="2" style="border:none !important;borderimages//-style:none !important"><strong>SanDisk Extreme III 2GB Class 6<br />
+<td colspan="2" style="border:none !important;border-style:none !important"><strong><a href="https://www.amazon.de/gp/product/B0042FZCFC/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B0042FZCFC&linkCode=as2&tag=admwer-21">Transcend SDHC 8GB Class 4</a>*<img src="https://ir-de.amazon-adsystem.com/e/ir?t=admwer-21&l=as2&o=3&a=B0042FZCFC" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /><br />
 </strong></td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">/dev/zero (1./2./3. Run) [MB/s]:</td>
-<td style="border:none !important;borderimages//-style:none !important">4.78/4.58/4.64</td>
+<td style="border:none !important;border-style:none !important">/dev/zero (1./2./3. Run) [MB/s]:</td>
+<td style="border:none !important;border-style:none !important">1.08/1.16/1.35</td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">/dev/urandom (1./2./3. Run) [MB/s]:</td>
-<td style="border:none !important;borderimages//-style:none !important">0.78/0.79/0.78</td>
+<td style="border:none !important;border-style:none !important">/dev/urandom (1./2./3. Run) [MB/s]:</td>
+<td style="border:none !important;border-style:none !important">0.51/0.52/0.51</td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">Fazit:</td>
-<td style="border:none !important;borderimages//-style:none !important"><strong>Meine alte Karte, gute Geschwindigkeit</strong></td>
+<td style="border:none !important;border-style:none !important">Fazit:</td>
+<td style="border:none !important;border-style:none !important"><strong>Zu langsam</strong></td>
+</tr>
+</tbody>
+</table>
+<table align="left" style="border:none !important;width:600px; border-style:none !important;float:none">
+<tbody>
+<tr>
+<td rowspan="5" style="border:none !important;border-style:none !important"><img src="https://adminswerk.de/assets/194084.jpg" style="width:80px;height:100px;" />
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border:none !important;border-style:none !important"><strong>SanDisk Extreme III 2GB Class 6<br />
+</strong></td>
+</tr>
+<tr>
+<td style="border:none !important;border-style:none !important">/dev/zero (1./2./3. Run) [MB/s]:</td>
+<td style="border:none !important;border-style:none !important">4.78/4.58/4.64</td>
+</tr>
+<tr>
+<td style="border:none !important;border-style:none !important">/dev/urandom (1./2./3. Run) [MB/s]:</td>
+<td style="border:none !important;border-style:none !important">0.78/0.79/0.78</td>
+</tr>
+<tr>
+<td style="border:none !important;border-style:none !important">Fazit:</td>
+<td style="border:none !important;border-style:none !important"><strong>Meine alte Karte, gute Geschwindigkeit</strong></td>
 </tr>
 </tbody>
 </table>
 <p><strong>Update 06.08.2012:</strong></p>
-<table align="left" style="border:none !important;width:600px; borderimages//-style:none !important;float:none">
+<table align="left" style="border:none !important;width:600px; border-style:none !important;float:none">
 <tbody>
 <tr>
-<td rowspan="6" style="border:none !important;borderimages//-style:none !important"><a href="https://www.amazon.de/gp/product/B000QUUFRM/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B000QUUFRM&linkCode=as2&tag=admwerimages//-21"><img border="0" src="https://imagesimages//-eu.sslimages//-imagesimages//-amazon.com/images/I/51mHPzwNthL._SL160_.jpg" /></a><img src="https://irimages//-de.amazonimages//-adsystem.com/e//ir?t=admwerimages//-21&l=as2&o=3&a=B000QUUFRM" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+<td rowspan="6" style="border:none !important;border-style:none !important"><a href="https://www.amazon.de/gp/product/B000QUUFRM/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B000QUUFRM&linkCode=as2&tag=admwer-21"><img border="0" src="https://images-eu.ssl-images-amazon.com/images/I/51mHPzwNthL._SL160_.jpg" /></a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B000QUUFRM" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 </td>
 </tr>
 <tr>
-<td colspan="2" style="border:none !important;borderimages//-style:none !important"><strong><a href="https://www.amazon.de/gp/product/B000QUUFRM/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B000QUUFRM&linkCode=as2&tag=admwerimages//-21">SanDisk Ultra SDHC 8GB Class 4</a><img src="https://irimages//-de.amazonimages//-adsystem.com/e/ir?t=admwerimages//-21&l=as2&o=3&a=B000QUUFRM" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*</p>
+<td colspan="2" style="border:none !important;border-style:none !important"><strong><a href="https://www.amazon.de/gp/product/B000QUUFRM/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B000QUUFRM&linkCode=as2&tag=admwer-21">SanDisk Ultra SDHC 8GB Class 4</a><img src="https://ir-de.amazon-adsystem.com/e/ir?t=admwer-21&l=as2&o=3&a=B000QUUFRM" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*</p>
 <p></strong></td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">/dev/zero (1./2./3. Run) [MB/s]:</td>
-<td style="border:none !important;borderimages//-style:none !important">1.44/1.50/1.7</td>
+<td style="border:none !important;border-style:none !important">/dev/zero (1./2./3. Run) [MB/s]:</td>
+<td style="border:none !important;border-style:none !important">1.44/1.50/1.7</td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">/dev/urandom (1./2./3. Run) [MB/s]:</td>
-<td style="border:none !important;borderimages//-style:none !important">0.57/0.57/0.6</td>
+<td style="border:none !important;border-style:none !important">/dev/urandom (1./2./3. Run) [MB/s]:</td>
+<td style="border:none !important;border-style:none !important">0.57/0.57/0.6</td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">Anmerkung:</td>
-<td style="border:none !important;borderimages//-style:none !important">Ich habe diese Karte bestellt, aber eine SanDisk Ultra 8GB Class 6 Karte bekommen. Diese habe ich getestet.</td>
+<td style="border:none !important;border-style:none !important">Anmerkung:</td>
+<td style="border:none !important;border-style:none !important">Ich habe diese Karte bestellt, aber eine SanDisk Ultra 8GB Class 6 Karte bekommen. Diese habe ich getestet.</td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">Fazit:</td>
-<td style="border:none !important;borderimages//-style:none !important"><strong>Zu langsam</strong>
+<td style="border:none !important;border-style:none !important">Fazit:</td>
+<td style="border:none !important;border-style:none !important"><strong>Zu langsam</strong>
 </td>
 </tr>
 </tbody>
 </table>
-<table align="left" style="border:none !important;width:600px; borderimages//-style:none !important;float:none">
+<table align="left" style="border:none !important;width:600px; border-style:none !important;float:none">
 <tbody>
 <tr>
-<td rowspan="6" style="border:none !important;borderimages//-style:none !important"><a href="https://www.amazon.de/gp/product/B0014VY28A/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B0014VY28A&linkCode=as2&tag=admwerimages//-21"><img border="0" src="https://imagesimages//-eu.sslimages//-imagesimages//-amazon.com/images/I/51GViZX09gL._SL160_.jpg" /></a><img src="https://irimages//-de.amazonimages//-adsystem.com/e//ir?t=admwerimages//-21&l=as2&o=3&a=B0014VY28A" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+<td rowspan="6" style="border:none !important;border-style:none !important"><a href="https://www.amazon.de/gp/product/B0014VY28A/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B0014VY28A&linkCode=as2&tag=admwer-21"><img border="0" src="https://images-eu.ssl-images-amazon.com/images/I/51GViZX09gL._SL160_.jpg" /></a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B0014VY28A" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 </td>
 </tr>
 <tr>
-<td colspan="2" style="border:none !important;borderimages//-style:none !important"><strong><a href="https://www.amazon.de/gp/product/B0014VY28A/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B0014VY28A&linkCode=as2&tag=admwerimages//-21">SanDisk Ultra SDHC 16GB Class 4</a><img src="https://irimages//-de.amazonimages//-adsystem.com/e/ir?t=admwerimages//-21&l=as2&o=3&a=B0014VY28A" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*</strong></td>
+<td colspan="2" style="border:none !important;border-style:none !important"><strong><a href="https://www.amazon.de/gp/product/B0014VY28A/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B0014VY28A&linkCode=as2&tag=admwer-21">SanDisk Ultra SDHC 16GB Class 4</a><img src="https://ir-de.amazon-adsystem.com/e/ir?t=admwer-21&l=as2&o=3&a=B0014VY28A" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*</strong></td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">/dev/zero (1./2./3. Run) [MB/s]:</td>
-<td style="border:none !important;borderimages//-style:none !important">3.56/3.47/3.57</td>
+<td style="border:none !important;border-style:none !important">/dev/zero (1./2./3. Run) [MB/s]:</td>
+<td style="border:none !important;border-style:none !important">3.56/3.47/3.57</td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">/dev/urandom (1./2./3. Run) [MB/s]:</td>
-<td style="border:none !important;borderimages//-style:none !important">0.73/0.73/0.74</td>
+<td style="border:none !important;border-style:none !important">/dev/urandom (1./2./3. Run) [MB/s]:</td>
+<td style="border:none !important;border-style:none !important">0.73/0.73/0.74</td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">Anmerkung:</td>
-<td style="border:none !important;borderimages//-style:none !important">Ich habe diese Karte bestellt, aber eine SanDisk Ultra 16GB Class 10 Karte bekommen. Diese habe ich getestet.</td>
+<td style="border:none !important;border-style:none !important">Anmerkung:</td>
+<td style="border:none !important;border-style:none !important">Ich habe diese Karte bestellt, aber eine SanDisk Ultra 16GB Class 10 Karte bekommen. Diese habe ich getestet.</td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">Fazit:</td>
-<td style="border:none !important;borderimages//-style:none !important"><strong>Zu langsam</strong>
+<td style="border:none !important;border-style:none !important">Fazit:</td>
+<td style="border:none !important;border-style:none !important"><strong>Zu langsam</strong>
 </td>
 </tr>
 </tbody>
 </table>
 <p><strong>Update 17.08.2012:</strong></p>
-<table align="left" style="border:none !important;width:600px; borderimages//-style:none !important;float:none">
+<table align="left" style="border:none !important;width:600px; border-style:none !important;float:none">
 <tbody>
 <tr>
-<td rowspan="5" style="border:none !important;borderimages//-style:none !important"><a href="https://www.amazon.de/gp/product/B004TS1IFU/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B004TS1IFU&linkCode=as2&tag=admwerimages//-21"><img border="0" src="https://imagesimages//-eu.sslimages//-imagesimages//-amazon.com/images/I/31BMEsRwlvL._SL160_.jpg" /></a><img src="https://irimages//-de.amazonimages//-adsystem.com/e//ir?t=admwerimages//-21&l=as2&o=3&a=B004TS1IFU" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+<td rowspan="5" style="border:none !important;border-style:none !important"><a href="https://www.amazon.de/gp/product/B004TS1IFU/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B004TS1IFU&linkCode=as2&tag=admwer-21"><img border="0" src="https://images-eu.ssl-images-amazon.com/images/I/31BMEsRwlvL._SL160_.jpg" /></a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B004TS1IFU" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 </td>
 </tr>
 <tr>
-<td colspan="2" style="border:none !important;borderimages//-style:none !important"><strong><a href="https://www.amazon.de/gp/product/B004TS1IFU/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B004TS1IFU&linkCode=as2&tag=admwerimages//-21">Kingston Class 10 SDHC 8GB</a><img src="https://irimages//-de.amazonimages//-adsystem.com/e/ir?t=admwerimages//-21&l=as2&o=3&a=B004TS1IFU" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*<br />
+<td colspan="2" style="border:none !important;border-style:none !important"><strong><a href="https://www.amazon.de/gp/product/B004TS1IFU/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B004TS1IFU&linkCode=as2&tag=admwer-21">Kingston Class 10 SDHC 8GB</a><img src="https://ir-de.amazon-adsystem.com/e/ir?t=admwer-21&l=as2&o=3&a=B004TS1IFU" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*<br />
 </strong></td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">/dev/zero (1./2./3. Run) [MB/s]:</td>
-<td style="border:none !important;borderimages//-style:none !important">1.80/1.68/1.62</td>
+<td style="border:none !important;border-style:none !important">/dev/zero (1./2./3. Run) [MB/s]:</td>
+<td style="border:none !important;border-style:none !important">1.80/1.68/1.62</td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">/dev/urandom (1./2./3. Run) [MB/s]:</td>
-<td style="border:none !important;borderimages//-style:none !important">0.57/0.60/0.56</td>
+<td style="border:none !important;border-style:none !important">/dev/urandom (1./2./3. Run) [MB/s]:</td>
+<td style="border:none !important;border-style:none !important">0.57/0.60/0.56</td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">Fazit:</td>
-<td style="border:none !important;borderimages//-style:none !important"><strong>Zu langsam</strong></td>
+<td style="border:none !important;border-style:none !important">Fazit:</td>
+<td style="border:none !important;border-style:none !important"><strong>Zu langsam</strong></td>
 </tr>
 </tbody>
 </table>
-<table align="left" style="border:none !important;width:600px; borderimages//-style:none !important;float:none">
+<table align="left" style="border:none !important;width:600px; border-style:none !important;float:none">
 <tbody>
 <tr>
-<td rowspan="5" style="border:none !important;borderimages//-style:none !important"><a href="https://www.amazon.de/gp/product/B0013AV9TW/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B0013AV9TW&linkCode=as2&tag=admwerimages//-21"><img border="0" src="https://imagesimages//-eu.sslimages//-imagesimages//-amazon.com/images/I/51nWL1bmu7L._SL160_.jpg" /></a><img src="https://irimages//-de.amazonimages//-adsystem.com/e//ir?t=admwerimages//-21&l=as2&o=3&a=B0013AV9TW" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+<td rowspan="5" style="border:none !important;border-style:none !important"><a href="https://www.amazon.de/gp/product/B0013AV9TW/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B0013AV9TW&linkCode=as2&tag=admwer-21"><img border="0" src="https://images-eu.ssl-images-amazon.com/images/I/51nWL1bmu7L._SL160_.jpg" /></a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B0013AV9TW" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 </td>
 </tr>
 <tr>
-<td colspan="2" style="border:none !important;borderimages//-style:none !important"><strong><a href="https://www.amazon.de/gp/product/B0013AV9TW/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B0013AV9TW&linkCode=as2&tag=admwerimages//-21">Kingston SDHC Class 4 16 GB</a><img src="https://irimages//-de.amazonimages//-adsystem.com/e/ir?t=admwerimages//-21&l=as2&o=3&a=B0013AV9TW" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*<br />
+<td colspan="2" style="border:none !important;border-style:none !important"><strong><a href="https://www.amazon.de/gp/product/B0013AV9TW/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B0013AV9TW&linkCode=as2&tag=admwer-21">Kingston SDHC Class 4 16 GB</a><img src="https://ir-de.amazon-adsystem.com/e/ir?t=admwer-21&l=as2&o=3&a=B0013AV9TW" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*<br />
 </strong></td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">/dev/zero (1./2./3. Run) [MB/s]:</td>
-<td style="border:none !important;borderimages//-style:none !important">0.75/1.02/1.07</td>
+<td style="border:none !important;border-style:none !important">/dev/zero (1./2./3. Run) [MB/s]:</td>
+<td style="border:none !important;border-style:none !important">0.75/1.02/1.07</td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">/dev/urandom (1./2./3. Run) [MB/s]:</td>
-<td style="border:none !important;borderimages//-style:none !important">0.43/0.41/0.38</td>
+<td style="border:none !important;border-style:none !important">/dev/urandom (1./2./3. Run) [MB/s]:</td>
+<td style="border:none !important;border-style:none !important">0.43/0.41/0.38</td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">Fazit:</td>
-<td style="border:none !important;borderimages//-style:none !important"><strong>Zu langsam</strong></td>
+<td style="border:none !important;border-style:none !important">Fazit:</td>
+<td style="border:none !important;border-style:none !important"><strong>Zu langsam</strong></td>
 </tr>
 </tbody>
 </table>
-<table align="left" style="border:none !important;width:600px; borderimages//-style:none !important;float:none">
+<table align="left" style="border:none !important;width:600px; border-style:none !important;float:none">
 <tbody>
 <tr>
-<td rowspan="5" style="border:none !important;borderimages//-style:none !important"><a href="https://www.amazon.de/gp/product/B00812K4V4/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B00812K4V4&linkCode=as2&tag=admwerimages//-21"><img border="0" src="https://imagesimages//-eu.sslimages//-imagesimages//-amazon.com/images/I/41OFENyKxzL._SL110_.jpg" /></a><img src="https://irimages//-de.amazonimages//-adsystem.com/e//ir?t=admwerimages//-21&l=as2&o=3&a=B00812K4V4" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+<td rowspan="5" style="border:none !important;border-style:none !important"><a href="https://www.amazon.de/gp/product/B00812K4V4/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B00812K4V4&linkCode=as2&tag=admwer-21"><img border="0" src="https://images-eu.ssl-images-amazon.com/images/I/41OFENyKxzL._SL110_.jpg" /></a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B00812K4V4" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 </td>
 </tr>
 <tr>
-<td colspan="2" style="border:none !important;borderimages//-style:none !important"><strong><a href="https://www.amazon.de/gp/product/B00812K4V4/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B00812K4V4&linkCode=as2&tag=admwerimages//-21">SanDisk Class 10 Ultra SDHC 8GB</a><img src="https://irimages//-de.amazonimages//-adsystem.com/e/ir?t=admwerimages//-21&l=as2&o=3&a=B00812K4V4" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*<br />
+<td colspan="2" style="border:none !important;border-style:none !important"><strong><a href="https://www.amazon.de/gp/product/B00812K4V4/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B00812K4V4&linkCode=as2&tag=admwer-21">SanDisk Class 10 Ultra SDHC 8GB</a><img src="https://ir-de.amazon-adsystem.com/e/ir?t=admwer-21&l=as2&o=3&a=B00812K4V4" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*<br />
 </strong></td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">/dev/zero (1./2./3. Run) [MB/s]:</td>
-<td style="border:none !important;borderimages//-style:none !important">3.29/3.42/3.25</td>
+<td style="border:none !important;border-style:none !important">/dev/zero (1./2./3. Run) [MB/s]:</td>
+<td style="border:none !important;border-style:none !important">3.29/3.42/3.25</td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">/dev/urandom (1./2./3. Run) [MB/s]:</td>
-<td style="border:none !important;borderimages//-style:none !important">0.75/0.73/0.73</td>
+<td style="border:none !important;border-style:none !important">/dev/urandom (1./2./3. Run) [MB/s]:</td>
+<td style="border:none !important;border-style:none !important">0.75/0.73/0.73</td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">Fazit:</td>
-<td style="border:none !important;borderimages//-style:none !important"><strong>Gute Geschwindigkeit, beste 8GBimages//-Karte</strong></td>
+<td style="border:none !important;border-style:none !important">Fazit:</td>
+<td style="border:none !important;border-style:none !important"><strong>Gute Geschwindigkeit, beste 8GB-Karte</strong></td>
 </tr>
 </tbody>
 </table>
-<table align="left" style="border:none !important;width:600px; borderimages//-style:none !important;float:none">
+<table align="left" style="border:none !important;width:600px; border-style:none !important;float:none">
 <tbody>
 <tr>
-<td rowspan="5" style="border:none !important;borderimages//-style:none !important"><a href="https://www.amazon.de/gp/product/B003PJ654S/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B003PJ654S&linkCode=as2&tag=admwerimages//-21"><img border="0" src="https://adminswerk.de/assets/51yJTNiFc0L._SL110_.jpg" /></a><img src="https://irimages//-de.amazonimages//-adsystem.com/e//ir?t=admwerimages//-21&l=as2&o=3&a=B003PJ654S" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+<td rowspan="5" style="border:none !important;border-style:none !important"><a href="https://www.amazon.de/gp/product/B003PJ654S/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B003PJ654S&linkCode=as2&tag=admwer-21"><img border="0" src="https://adminswerk.de/assets/51yJTNiFc0L._SL110_.jpg" /></a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B003PJ654S" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 </td>
 </tr>
 <tr>
-<td colspan="2" style="border:none !important;borderimages//-style:none !important"><strong><a href="https://www.amazon.de/gp/product/B003PJ654S/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B003PJ654S&linkCode=as2&tag=admwerimages//-21">Lexar 8GB Class 6</a><img src="https://irimages//-de.amazonimages//-adsystem.com/e/ir?t=admwerimages//-21&l=as2&o=3&a=B003PJ654S" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*<br />
+<td colspan="2" style="border:none !important;border-style:none !important"><strong><a href="https://www.amazon.de/gp/product/B003PJ654S/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B003PJ654S&linkCode=as2&tag=admwer-21">Lexar 8GB Class 6</a><img src="https://ir-de.amazon-adsystem.com/e/ir?t=admwer-21&l=as2&o=3&a=B003PJ654S" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*<br />
 </strong></td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">/dev/zero (1./2./3. Run) [MB/s]:</td>
-<td style="border:none !important;borderimages//-style:none !important">1.06/0.99/1.07</td>
+<td style="border:none !important;border-style:none !important">/dev/zero (1./2./3. Run) [MB/s]:</td>
+<td style="border:none !important;border-style:none !important">1.06/0.99/1.07</td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">/dev/urandom (1./2./3. Run) [MB/s]:</td>
-<td style="border:none !important;borderimages//-style:none !important">0.47/0.49/0.45</td>
+<td style="border:none !important;border-style:none !important">/dev/urandom (1./2./3. Run) [MB/s]:</td>
+<td style="border:none !important;border-style:none !important">0.47/0.49/0.45</td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">Fazit:</td>
-<td style="border:none !important;borderimages//-style:none !important"><strong>Zu langsam</strong></td>
+<td style="border:none !important;border-style:none !important">Fazit:</td>
+<td style="border:none !important;border-style:none !important"><strong>Zu langsam</strong></td>
 </tr>
 </tbody>
 </table>
-<table align="left" style="border:none !important;width:600px; borderimages//-style:none !important;float:none">
+<table align="left" style="border:none !important;width:600px; border-style:none !important;float:none">
 <tbody>
 <tr>
-<td rowspan="5" style="border:none !important;borderimages//-style:none !important"><a href="https://www.amazon.de/gp/product/B003PJ653Y/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B003PJ653Y&linkCode=as2&tag=admwerimages//-21"><img border="0" src="https://adminswerk.de/assets/51yJTNiFc0L._SL110_.jpg" /></a><img src="https://irimages//-de.amazonimages//-adsystem.com/e//ir?t=admwerimages//-21&l=as2&o=3&a=B003PJ653Y" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+<td rowspan="5" style="border:none !important;border-style:none !important"><a href="https://www.amazon.de/gp/product/B003PJ653Y/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B003PJ653Y&linkCode=as2&tag=admwer-21"><img border="0" src="https://adminswerk.de/assets/51yJTNiFc0L._SL110_.jpg" /></a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B003PJ653Y" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 </td>
 </tr>
 <tr>
-<td colspan="2" style="border:none !important;borderimages//-style:none !important"><strong><a href="https://www.amazon.de/gp/product/B003PJ653Y/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B003PJ653Y&linkCode=as2&tag=admwerimages//-21">Lexar SDHC 4GB Class 6</a><img src="https://irimages//-de.amazonimages//-adsystem.com/e/ir?t=admwerimages//-21&l=as2&o=3&a=B003PJ653Y" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*<br />
+<td colspan="2" style="border:none !important;border-style:none !important"><strong><a href="https://www.amazon.de/gp/product/B003PJ653Y/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B003PJ653Y&linkCode=as2&tag=admwer-21">Lexar SDHC 4GB Class 6</a><img src="https://ir-de.amazon-adsystem.com/e/ir?t=admwer-21&l=as2&o=3&a=B003PJ653Y" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*<br />
 </strong></td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">/dev/zero (1./2./3. Run) [MB/s]:</td>
-<td style="border:none !important;borderimages//-style:none !important">1.33/1.77/1.38</td>
+<td style="border:none !important;border-style:none !important">/dev/zero (1./2./3. Run) [MB/s]:</td>
+<td style="border:none !important;border-style:none !important">1.33/1.77/1.38</td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">/dev/urandom (1./2./3. Run) [MB/s]:</td>
-<td style="border:none !important;borderimages//-style:none !important">0.52/0.54/0.53</td>
+<td style="border:none !important;border-style:none !important">/dev/urandom (1./2./3. Run) [MB/s]:</td>
+<td style="border:none !important;border-style:none !important">0.52/0.54/0.53</td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">Fazit:</td>
-<td style="border:none !important;borderimages//-style:none !important"><strong>Zu langsam</strong></td>
+<td style="border:none !important;border-style:none !important">Fazit:</td>
+<td style="border:none !important;border-style:none !important"><strong>Zu langsam</strong></td>
 </tr>
 </tbody>
 </table>
-<table align="left" style="border:none !important;width:600px; borderimages//-style:none !important;float:none">
+<table align="left" style="border:none !important;width:600px; border-style:none !important;float:none">
 <tbody>
 <tr>
-<td rowspan="5" style="border:none !important;borderimages//-style:none !important"><a href="https://www.amazon.de/gp/product/B001ECQVTM/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B001ECQVTM&linkCode=as2&tag=admwerimages//-21"><img border="0" src="https://imagesimages//-eu.sslimages//-imagesimages//-amazon.com/images/I/51lQpCHSZ9L._SL110_.jpg" /></a><img src="https://irimages//-de.amazonimages//-adsystem.com/e//ir?t=admwerimages//-21&l=as2&o=3&a=B001ECQVTM" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+<td rowspan="5" style="border:none !important;border-style:none !important"><a href="https://www.amazon.de/gp/product/B001ECQVTM/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B001ECQVTM&linkCode=as2&tag=admwer-21"><img border="0" src="https://images-eu.ssl-images-amazon.com/images/I/51lQpCHSZ9L._SL110_.jpg" /></a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B001ECQVTM" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 </td>
 </tr>
 <tr>
-<td colspan="2" style="border:none !important;borderimages//-style:none !important"><strong><a href="https://www.amazon.de/gp/product/B001ECQVTM/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B001ECQVTM&linkCode=as2&tag=admwerimages//-21">Transcend SDHC 16GB Class 6</a><img src="https://irimages//-de.amazonimages//-adsystem.com/e/ir?t=admwerimages//-21&l=as2&o=3&a=B001ECQVTM" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*<br />
+<td colspan="2" style="border:none !important;border-style:none !important"><strong><a href="https://www.amazon.de/gp/product/B001ECQVTM/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B001ECQVTM&linkCode=as2&tag=admwer-21">Transcend SDHC 16GB Class 6</a><img src="https://ir-de.amazon-adsystem.com/e/ir?t=admwer-21&l=as2&o=3&a=B001ECQVTM" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*<br />
 </strong></td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">/dev/zero (1./2./3. Run) [MB/s]:</td>
-<td style="border:none !important;borderimages//-style:none !important">3.93/3.43/3.25</td>
+<td style="border:none !important;border-style:none !important">/dev/zero (1./2./3. Run) [MB/s]:</td>
+<td style="border:none !important;border-style:none !important">3.93/3.43/3.25</td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">/dev/urandom (1./2./3. Run) [MB/s]:</td>
-<td style="border:none !important;borderimages//-style:none !important">0.75/0.73/0.73</td>
+<td style="border:none !important;border-style:none !important">/dev/urandom (1./2./3. Run) [MB/s]:</td>
+<td style="border:none !important;border-style:none !important">0.75/0.73/0.73</td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">Fazit:</td>
-<td style="border:none !important;borderimages//-style:none !important"><strong>Gute Geschwindigkeit, beste 16GBimages//-Karte</strong></td>
+<td style="border:none !important;border-style:none !important">Fazit:</td>
+<td style="border:none !important;border-style:none !important"><strong>Gute Geschwindigkeit, beste 16GB-Karte</strong></td>
 </tr>
 </tbody>
 </table>
-<table align="left" style="border:none !important;width:600px; borderimages//-style:none !important;float:none">
+<table align="left" style="border:none !important;width:600px; border-style:none !important;float:none">
 <tbody>
 <tr>
-<td rowspan="5" style="border:none !important;borderimages//-style:none !important">
-<a href="https://www.amazon.de/gp/product/B000P9ZBFA/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B000P9ZBFA&linkCode=as2&tag=admwerimages//-21"><img border="0" src="https://imagesimages//-eu.sslimages//-imagesimages//-amazon.com/images/I/51ES1zXTDQL._SL110_.jpg" /></a><img src="https://irimages//-de.amazonimages//-adsystem.com/e//ir?t=admwerimages//-21&l=as2&o=3&a=B000P9ZBFA" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+<td rowspan="5" style="border:none !important;border-style:none !important">
+<a href="https://www.amazon.de/gp/product/B000P9ZBFA/ref=as_li_ss_il?ie=UTF8&camp=1638&creative=19454&creativeASIN=B000P9ZBFA&linkCode=as2&tag=admwer-21"><img border="0" src="https://images-eu.ssl-images-amazon.com/images/I/51ES1zXTDQL._SL110_.jpg" /></a><img src="https://ir-de.amazon-adsystem.com/e//ir?t=admwer-21&l=as2&o=3&a=B000P9ZBFA" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 </td>
 </tr>
 <tr>
-<td colspan="2" style="border:none !important;borderimages//-style:none !important"><strong><br />
-<a href="https://www.amazon.de/gp/product/B000P9ZBFA/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B000P9ZBFA&linkCode=as2&tag=admwerimages//-21">Transcend SDHC 8GB Class 6</a><img src="https://irimages//-de.amazonimages//-adsystem.com/e/ir?t=admwerimages//-21&l=as2&o=3&a=B000P9ZBFA" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*<br />
+<td colspan="2" style="border:none !important;border-style:none !important"><strong><br />
+<a href="https://www.amazon.de/gp/product/B000P9ZBFA/ref=as_li_ss_tl?ie=UTF8&camp=1638&creative=19454&creativeASIN=B000P9ZBFA&linkCode=as2&tag=admwer-21">Transcend SDHC 8GB Class 6</a><img src="https://ir-de.amazon-adsystem.com/e/ir?t=admwer-21&l=as2&o=3&a=B000P9ZBFA" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />*<br />
 </strong></td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">/dev/zero (1./2./3. Run) [MB/s]:</td>
-<td style="border:none !important;borderimages//-style:none !important">1.68/2.13/1.61</td>
+<td style="border:none !important;border-style:none !important">/dev/zero (1./2./3. Run) [MB/s]:</td>
+<td style="border:none !important;border-style:none !important">1.68/2.13/1.61</td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">/dev/urandom (1./2./3. Run) [MB/s]:</td>
-<td style="border:none !important;borderimages//-style:none !important">0.59/0.55/0.57</td>
+<td style="border:none !important;border-style:none !important">/dev/urandom (1./2./3. Run) [MB/s]:</td>
+<td style="border:none !important;border-style:none !important">0.59/0.55/0.57</td>
 </tr>
 <tr>
-<td style="border:none !important;borderimages//-style:none !important">Fazit:</td>
-<td style="border:none !important;borderimages//-style:none !important"><strong>Zu langsam</strong></td>
+<td style="border:none !important;border-style:none !important">Fazit:</td>
+<td style="border:none !important;border-style:none !important"><strong>Zu langsam</strong></td>
 </tr>
 </tbody>
 </table>
-<p>Falls Ihr Erfahrungen mit SDimages//-Karten gemacht habt, teilt sie hier gerne, ich habe mir die Transcend 16 GB behalten.</p>
-<p style="marginimages//-top:20px;">
+<p>Falls Ihr Erfahrungen mit SD-Karten gemacht habt, teilt sie hier gerne, ich habe mir die Transcend 16 GB behalten.</p>
+<p style="margin-top:20px;">
 <em>*=Affiliatelink</em></p>

@@ -1,10 +1,10 @@
-images//-images//-images//-
+---
 layout: default
-title: "Understanding multi line strings in YAML and Ansible (Part II images//- Ansible)"
+title: "Understanding multi line strings in YAML and Ansible (Part II - Ansible)"
 categories:
-images//- YAML
-images//- Ansible
-images//-images//-images//-
+- YAML
+- Ansible
+---
 
 In [Part I][part1] of this series we examined the two block styles
 of YAML, literal and folded, as well as the three block chomping methods, strip,
@@ -16,7 +16,7 @@ The classic usage of a multi line string in Ansible is in the `command` or `shel
 module. This example is directly taken from the [Ansible docs][commandmodule]:
 ```yaml
 # You can use shell to run other executables to perform actions inline
-images//- name: Run expect to wait for a successful PXE boot via outimages//-ofimages//-band CIMC
+- name: Run expect to wait for a successful PXE boot via out-of-band CIMC
   shell: |
     set timeout 300
     spawn ssh admin@{{ cimc_host }}
@@ -40,18 +40,18 @@ A literal style block with clip chomping is used to send several commands.
 Folded style would not make any sense here, except if you wanted to either pipe
 the commands or chain them with `&&` or `||`.
 
-<!images//-images//-moreimages//-images//->
+<!--more-->
 
 {% include adsense_manual.html %}
 
 One task I use in one of my server playbooks:
 ```yaml
-images//- name: Get public IP
+- name: Get public IP
   shell: >
-    bash images//-c "set images//-eo pipefail;
-      [ images//-z "${PUBLIC_IP}" ]
-      && curl images//-s https://ipv4.wtfismyip.com/text
-      | tr images//-d '\n'"
+    bash -c "set -eo pipefail;
+      [ -z "${PUBLIC_IP}" ]
+      && curl -s https://ipv4.wtfismyip.com/text
+      | tr -d '\n'"
   register: node_public_ip
   changed_when: false
   failed_when: node_public_ip.rc > 0
@@ -62,7 +62,7 @@ whenever I want without using \"\\\".
 
 A similar approach for the `blockinfile` module:
 ```yaml
-images//- name: insert/update eth0 configuration stanza in /etc/network/interfaces
+- name: insert/update eth0 configuration stanza in /etc/network/interfaces
         (it might be better to copy files into /etc/network/interfaces.d/)
   blockinfile:
     path: /etc/network/interfaces
@@ -89,7 +89,7 @@ vars:
     This package is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-  folded_strip: >images//-
+  folded_strip: >-
     This package is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
@@ -102,15 +102,15 @@ Now let's put these variable in a simple looped `shell` task. Just disregard the
 you would probably never use this in a real playbook.
 
 ```yaml
-images//- name: Ensure the file does not exist first
+- name: Ensure the file does not exist first
   file:
     path: /tmp/mytemp
     state: absent
-images//- shell: "/bin/echo images//-en '## BEGIN ##\n>>{{ item }}<<\n## END ##\n' >> /tmp/mytemp"
+- shell: "/bin/echo -en '## BEGIN ##\n>>{{ item }}<<\n## END ##\n' >> /tmp/mytemp"
   with_items:
-    images//- "{{ literal }}"
-    images//- "{{ folded }}"
-    images//- "{{ folded_strip }}"
+    - "{{ literal }}"
+    - "{{ folded }}"
+    - "{{ folded_strip }}"
 ```
 Note that we use markers around each string, to ease the detection of the block
 end. If we now manually output the file, we can clearly see the differences:
@@ -139,19 +139,19 @@ also applies to the blocks when looped.
 Now, let's use `blockinfile` with these vars:
 
 ```yaml
-images//- name: Ensure the file does not exist first
+- name: Ensure the file does not exist first
   file:
     path: /tmp/mytemp
     state: absent
-images//- blockinfile:
+- blockinfile:
     path: /tmp/mytemp
     block: ">>{{ item.content }}<<"
     create: yes
     marker: "## {mark} {{ item.marker }}"
   with_items:
-    images//- {"content": "{{ literal }}", "marker": 1}
-    images//- {"content": "{{ folded }}", "marker": 2}
-    images//- {"content": "{{ folded_strip }}", "marker": 3}
+    - {"content": "{{ literal }}", "marker": 1}
+    - {"content": "{{ folded }}", "marker": 2}
+    - {"content": "{{ folded_strip }}", "marker": 3}
 ```
 The content is as expected:
 
@@ -178,7 +178,7 @@ No problems here, block styles as well as block chomping methods are respected.
 ## lineinfile
 So far, so good! Now let's get to the hairy stuff. `lineinfile` for starters.
 While it's not intuitive to use blocks in combination with `lineinfile` (that's what
-`blockinfile` is for, duh!), [Ansible's documentation][ansibleimages//-yaml] implies that
+`blockinfile` is for, duh!), [Ansible's documentation][ansible-yaml] implies that
 the folded style can be used to break long lines:
 > Values can span multiple lines using `|` or `>`. Spanning multiple lines using
 a `|` will include the newlines. Using a `>` will ignore newlines; **it’s used to
@@ -187,7 +187,7 @@ case the indentation will be ignored.
 
 Okay, let's see! Here is our playbook:
 ```yaml
-images//- hosts: localhost
+- hosts: localhost
   gather_facts: no
   connection: local
   vars:
@@ -195,17 +195,17 @@ images//- hosts: localhost
       I am a literal line                         
     folded_line: >                                
       I am a folded line                          
-    folded_strip_line: >images//-                         
+    folded_strip_line: >-                         
       I am a folded stripped line                 
 tasks:                     
-images//- lineinfile:
+- lineinfile:
     path: /tmp/mylinetemp                        
     line: "{{ item }}"                        
     create: yes                               
   with_items:                                 
-    images//- "{{literal_line}}"                      
-    images//- "{{folded_line}}"                       
-    images//- "{{folded_strip_line}}"
+    - "{{literal_line}}"                      
+    - "{{folded_line}}"                       
+    - "{{folded_strip_line}}"
 ```
 And here is the content of `mylinetemp` after the first run:
 ```bash
@@ -247,8 +247,8 @@ for. If I am not mistaken, this poses a problem, as the line break is not part o
 
 ## user
 That's already annoying at best, problematic at worst. But let's not stop here. What about
-modules which "build" one line from various parameters, like `cron`, `mount` or images//-
-even more important images//- `user` or `group`?
+modules which "build" one line from various parameters, like `cron`, `mount` or -
+even more important - `user` or `group`?
 
 It's...unintuitive. We'll only use folded style here, as it's safe to use
 according to the Ansible documentation. Literal style could expectedly break
@@ -257,17 +257,17 @@ stuff.
 First of all the good news, my tests with the `user` module were unsuccessful.
 I always got an error:
 ```yaml
-images//- hosts: localhost
+- hosts: localhost
   connection: local
   vars:
     users:                                        
-      images//- name: user1                               
+      - name: user1                               
         comment: >                                
           A very long comment, just because the user is so very important                            
-      images//- name: user2                               
+      - name: user2                               
         comment: A moderately long comment     
     tasks:              
-      images//- user:
+      - user:
           name: "{{ item.name }}"
           comment: "{{ item.comment }}"
           createhome: no
@@ -292,20 +292,20 @@ a block with a line feed at the end.
 The `cron` module is where the problems start:
 
 ```yaml
-images//- hosts: localhost
+- hosts: localhost
   connection: local
   vars:
    cronjobs:                                     
-     images//- command: >                                
+     - command: >                                
          /bin/echo "Will all of this long stuff
          be on one line? Hm... I wonder."
        name: >
          A long line job with a very long line description.
          It is very important to document your cron jobs.
-     images//- command: /bin/echo "This is on one line 4 sure"                                              
+     - command: /bin/echo "This is on one line 4 sure"                                              
        name: A short line job                     
   tasks:
-    images//- cron:                                       
+    - cron:                                       
         name: "{{ item.name }}"                   
         cron_file: /tmp/mytempcron                
         job: "{{ item.command }}"                 
@@ -343,23 +343,23 @@ perhaps a small problem but nothing more.
 
 Talking about functional errors, let's look into the `mount` module of Ansible:
 ```yaml
-images//- hosts: localhost
+- hosts: localhost
   connection: local
   vars:
     mounts:
-      images//- src: m3adow@sshfs_server:/home/m3adow/
+      - src: m3adow@sshfs_server:/home/m3adow/
         path: /tmp/tempmnt1
         fstype: fuse.sshfs
         mount_options: >
-          noauto,ximages//-systemd.automount,ximages//-systemd.idleimages//-timeout=60,_netdev,users,
+          noauto,x-systemd.automount,x-systemd.idle-timeout=60,_netdev,users,
           idmap=user,transform_symlinks,follow_symlinks,default_permissions,
           allow_root,IdentityFile=/root/.ssh/ssh_key,reconnect,gid=0
-      images//- src: /dev/sda1
+      - src: /dev/sda1
         path: /tmp/tempmnt2
         fstype: ext4
         mount_options: defaults
   tasks:
-    images//- mount:
+    - mount:
         fstab: /tmp/mytempfstab
         src: "{{ item.src }}"
         path: "{{ item.path }}"
@@ -372,7 +372,7 @@ And here is the content of the `/tmp/mytempfstab`:
 
 ```bash
 $ cat /tmp/mytempfstab
-m3adow@sshfs_server:/home/m3adow/ /tmp/tempmnt1 fuse.sshfs noauto,ximages//-systemd.automount,ximages//-systemd.idleimages//-timeout=60,_netdev,users,\040idmap=user,transform_symlinks,follow_symlinks,default_permissions,\040allow_root,IdentityFile=/root/.ssh/ssh_key,reconnect,gid=0
+m3adow@sshfs_server:/home/m3adow/ /tmp/tempmnt1 fuse.sshfs noauto,x-systemd.automount,x-systemd.idle-timeout=60,_netdev,users,\040idmap=user,transform_symlinks,follow_symlinks,default_permissions,\040allow_root,IdentityFile=/root/.ssh/ssh_key,reconnect,gid=0
  0 0
 /dev/sda1 /tmp/tempmnt2 ext4 defaults 0 0
 ```
@@ -386,10 +386,10 @@ the block were rendering.
 Rerunning the playbook has similar effects to `cron`:
 ```bash
 $ cat /tmp/mytempfstab
-m3adow@sshfs_server:/home/m3adow/ /tmp/tempmnt1 fuse.sshfs noauto,ximages//-systemd.automount,ximages//-systemd.idleimages//-timeout=60,_netdev,users,\040idmap=user,transform_symlinks,follow_symlinks,default_permissions,\040allow_root,IdentityFile=/root/.ssh/ssh_key,reconnect,gid=0
+m3adow@sshfs_server:/home/m3adow/ /tmp/tempmnt1 fuse.sshfs noauto,x-systemd.automount,x-systemd.idle-timeout=60,_netdev,users,\040idmap=user,transform_symlinks,follow_symlinks,default_permissions,\040allow_root,IdentityFile=/root/.ssh/ssh_key,reconnect,gid=0
  0 0
 /dev/sda1 /tmp/tempmnt2 ext4 defaults 0 0
-m3adow@sshfs_server:/home/m3adow/ /tmp/tempmnt1 fuse.sshfs noauto,ximages//-systemd.automount,ximages//-systemd.idleimages//-timeout=60,_netdev,users,\040idmap=user,transform_symlinks,follow_symlinks,default_permissions,\040allow_root,IdentityFile=/root/.ssh/ssh_key,reconnect,gid=0
+m3adow@sshfs_server:/home/m3adow/ /tmp/tempmnt1 fuse.sshfs noauto,x-systemd.automount,x-systemd.idle-timeout=60,_netdev,users,\040idmap=user,transform_symlinks,follow_symlinks,default_permissions,\040allow_root,IdentityFile=/root/.ssh/ssh_key,reconnect,gid=0
  0 0
 ```
 
@@ -411,7 +411,7 @@ filter. This would solve our problem with the `cron` module in the playbook abov
 {% raw %}
 ```yaml
 tasks:
-  images//- cron:                                       
+  - cron:                                       
       name: "{{ item.name | trim()}}"                   
       cron_file: /tmp/mytempcron                
       job: "{{ item.command | trim() }}"                 
@@ -439,7 +439,7 @@ could find is the Jinja2 `regex_replace` filter available since Ansible 2.2.
 {% raw %}
 ```yaml
 tasks:
-  images//- mount:
+  - mount:
       fstab: /tmp/mytempfstab
       src: "{{ item.src }}"
       path: "{{ item.path }}"
@@ -452,7 +452,7 @@ tasks:
 This does the job:
 ```bash
 $ cat /tmp/mytempfstab
-m3adow@sshfs_server:/home/m3adow/ /tmp/tempmnt1 fuse.sshfs noauto,ximages//-systemd.automount,ximages//-systemd.idleimages//-timeout=60,_netdev,users,idmap=user,transform_symlinks,follow_symlinks,default_permissions,allow_root,IdentityFile=/root/.ssh/ssh_key,reconnect,gid=0 0 0
+m3adow@sshfs_server:/home/m3adow/ /tmp/tempmnt1 fuse.sshfs noauto,x-systemd.automount,x-systemd.idle-timeout=60,_netdev,users,idmap=user,transform_symlinks,follow_symlinks,default_permissions,allow_root,IdentityFile=/root/.ssh/ssh_key,reconnect,gid=0 0 0
 /dev/sda1 /tmp/tempmnt2 ext4 defaults 0 0
 ```
 No line feed before the setting, no `\040` within the mount options. Future
@@ -462,7 +462,7 @@ Mission accomplished! It is not very intuitive, but it gets the job done.
 # Summary
 
 In this post we have learned about the behavior of blocks when used in modules
-and images//- more importantly images//- when used in variables. We have seen that the Ansible
+and - more importantly - when used in variables. We have seen that the Ansible
 documentation is misleading at best, plainly wrong at worst. We have also learned
 that using blocks in variables doesn't play nicely with some modules, `cron`, `lineinfile`
 and especially `mount` in our case studies here. I also presented two solutions
@@ -476,7 +476,7 @@ course, feel also free to criticise this blog post in the comments.
 
 
 
-[part1]: {% post_url 2018/2018images//-03images//-27images//-multiimages//-lineimages//-stringimages//-yamlimages//-ansibleimages//-I %}
+[part1]: {% post_url 2018/2018-03-27-multi-line-string-yaml-ansible-I %}
 [commandmodule]: https://docs.ansible.com/ansible/latest/shell_module.html
-[ansibleimages//-yaml]: https://docs.ansible.com/ansible/latest/YAMLSyntax.html#yamlimages//-basics
-[lineinfile_source]: https://github.com/ansible/ansibleimages//-modulesimages//-core/blob/devel/files/lineinfile.py
+[ansible-yaml]: https://docs.ansible.com/ansible/latest/YAMLSyntax.html#yaml-basics
+[lineinfile_source]: https://github.com/ansible/ansible-modules-core/blob/devel/files/lineinfile.py

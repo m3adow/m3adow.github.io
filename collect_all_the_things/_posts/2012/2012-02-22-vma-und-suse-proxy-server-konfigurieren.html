@@ -1,27 +1,27 @@
-images//-images//-images//-
+---
 lang: de_DE
 layout: default
-title: 'vMA und SUSE: Proxyimages//-Server konfigurieren.'
-date: 2012images//-02images//-22 11:05:51.000000000 +01:00
+title: 'vMA und SUSE: Proxy-Server konfigurieren.'
+date: 2012-02-22 11:05:51.000000000 +01:00
 categories:
-images//- Administration
-images//- Linux
+- Administration
+- Linux
 tags:
-images//- Linux
-images//- proxy
-images//- vma
-images//- vmware
+- Linux
+- proxy
+- vma
+- vmware
 status: publish
 type: post
 published: true
-images//-images//-images//-
-<p>Eigentlich wird bei der Ersteinrichtung des vSphere Management Assistent auch ein Proxyimages//-Server abgefragt. Doch offensichtlich klappt diese Einrichtung nicht. Um also auf dem vMA, der bekanntlich auf SUSE basiert, einen Proxy manuell einzurichten, müsst ihr die Datei <strong>/etc/sysconfig/proxy</strong> bearbeiten. Dies funktioniert so natürlich auch bei normalen SUSE Produkten und eventuell auch bei anderen Distributionen.</p>
+---
+<p>Eigentlich wird bei der Ersteinrichtung des vSphere Management Assistent auch ein Proxy-Server abgefragt. Doch offensichtlich klappt diese Einrichtung nicht. Um also auf dem vMA, der bekanntlich auf SUSE basiert, einen Proxy manuell einzurichten, müsst ihr die Datei <strong>/etc/sysconfig/proxy</strong> bearbeiten. Dies funktioniert so natürlich auch bei normalen SUSE Produkten und eventuell auch bei anderen Distributionen.</p>
 
 {% highlight bash %}
 vi /etc/sysconfig/proxy
 {% endhighlight %}
 
-<p>Wie immer, wenn ich einen Beitrag mit vi schreibe, verweise ich auf <a href="http://www.linuximages//-fuerimages//-alle.de/doc_show.php?docid=29&catid=8" target="_blank">eine Anleitung</a> zur Bedienung desselbigen.<br />
+<p>Wie immer, wenn ich einen Beitrag mit vi schreibe, verweise ich auf <a href="http://www.linux-fuer-alle.de/doc_show.php?docid=29&catid=8" target="_blank">eine Anleitung</a> zur Bedienung desselbigen.<br />
 Beim vMA und auch bei SUSE sollte diese Datei schon vorkonfiguriert sein. Das sieht dann etwa so aus:</p>
 
 {% highlight bash %}
@@ -42,7 +42,7 @@ PROXY_ENABLED="no"
 #
 # Some programs (e.g. lynx, arena and wget) support proxies, if set in
 # the environment.  SuSEconfig can add these environment variables to
-# /etc/SuSEconfig/* (sourced by /etc/profile etc.) images//-
+# /etc/SuSEconfig/* (sourced by /etc/profile etc.) -
 # See http://portal.suse.com/sdb/en/1998/01/lynx_proxy.html for more details.
 # Example: HTTP_PROXY="http://proxy.provider.de:3128/"
 HTTP_PROXY="http://proxy.provider.de/"
@@ -52,7 +52,7 @@ HTTP_PROXY="http://proxy.provider.de/"
 #
 # Some programs (e.g. lynx, arena and wget) support proxies, if set in
 # the environment.  SuSEconfig can add these environment variables to
-# /etc/SuSEconfig/* (sourced by /etc/profile etc.) images//-
+# /etc/SuSEconfig/* (sourced by /etc/profile etc.) -
 # this setting is for https connections
 HTTPS_PROXY="http://proxy.provider.de/"
 

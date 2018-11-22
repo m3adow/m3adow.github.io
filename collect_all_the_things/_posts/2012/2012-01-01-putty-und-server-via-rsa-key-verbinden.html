@@ -1,28 +1,28 @@
-images//-images//-images//-
+---
 lang: de_DE
 layout: default
-title: Putty und Server via RSAimages//-Key verbinden
-date: 2012images//-01images//-01 09:32:13.000000000 +01:00
+title: Putty und Server via RSA-Key verbinden
+date: 2012-01-01 09:32:13.000000000 +01:00
 categories:
-images//- Linux
+- Linux
 tags:
-images//- Linux
-images//- putty
-images//- ssh
-images//- vserver
+- Linux
+- putty
+- ssh
+- vserver
 status: publish
 type: post
 published: true
-images//-images//-images//-
+---
 <p>Vor Kurzem habe ich berichtet, wie man einen neuen Server oder vServer absichert. Unter anderem habe ich dort empfohlen, einen neuen Nutzer zu erstellen, über den man sich via SSH einwählen kann, um anschließend den Root Login via SSH zu verbieten.<br />
 Es geht allerdings noch eine Stufe sicherer, mithilfe von Schlüsselauthentifizierung. Das funktioniert im Endeffekt so, dass ihr einen Schlüssel habt und der Server ein "Schloss", in den dieser Schlüssel passt. Passt er nicht, kommt man nicbtmal bis zum Loginscreen. Das beugt Bruteforceattacken natürlich noch effizienter vor und ist dadurch natürlich auch noch ein Stückchen sicherer. Doch wie macht man dies?</p>
-<p>Der meiner Meiner nach einfachste Weg fängt bei Putty an. Bei dem Programm PUTTYGEN um genau zu sein. Dieses bekommt ihr wie alle anderen Puttyimages//-Werkzeuge auf der <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">Putty Website</a>.</p>
+<p>Der meiner Meiner nach einfachste Weg fängt bei Putty an. Bei dem Programm PUTTYGEN um genau zu sein. Dieses bekommt ihr wie alle anderen Putty-Werkzeuge auf der <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">Putty Website</a>.</p>
 <ol>
 <li>Klickt nach dem Start von Puttygen auf <strong>Generate</strong> und bewegt eure Maus den Anweisungen entsprechend möglichst zufällig auf der angezeigten Fläche.<br />
-<a href="https://adminswerk.de/assets/images/2011/2011images//-12images//-28images//-puttygenimages//-1.png"><img class="wpimages//-imageimages//-1420 alignnone" style="margin: 5px;" title="2011images//-12images//-28images//-puttygenimages//-1" alt="" src="https://adminswerk.de/assets/images/2011/2011images//-12images//-28images//-puttygenimages//-1images//-150x144.png" width="150" height="144" /></a></li>
-<li>Nachdem der Schlüssel erzeugt wurde, wollen wir ihn noch mit einem Passwort sichern. Dazu gebt ihr euer <a title="Sichere, merkbare Passwörter erstellen" href="http://www.adminswerk.de/sichereimages//-merkbareimages//-passworterimages//-erstellen/">sicheres Passwort</a> in die beiden <strong>Passphrase</strong>images//-Felder ein.<br />
-<a href="https://adminswerk.de/assets/images/2011/2011images//-12images//-28images//-puttygenimages//-2.png"><img class="sizeimages//-thumbnail wpimages//-imageimages//-1421 alignnone" style="margin: 5px;" title="2011images//-12images//-28images//-puttygenimages//-2" alt="" src="https://adminswerk.de/assets/images/2011/2011images//-12images//-28images//-puttygenimages//-2images//-150x144.png" width="150" height="144" /></a></li>
-<li>Anschließend sichern wir sowohl Privateimages//- als auch Publicimages//-Key irgenwohin, wo wir sie wiederfinden.</li>
+<a href="https://adminswerk.de/assets/2011-12-28-puttygen-1.png"><img class="wp-image-1420 alignnone" style="margin: 5px;" title="2011-12-28-puttygen-1" alt="" src="https://adminswerk.de/assets/2011-12-28-puttygen-1-150x144.png" width="150" height="144" /></a></li>
+<li>Nachdem der Schlüssel erzeugt wurde, wollen wir ihn noch mit einem Passwort sichern. Dazu gebt ihr euer <a title="Sichere, merkbare Passwörter erstellen" href="http://www.adminswerk.de/sichere-merkbare-passworter-erstellen/">sicheres Passwort</a> in die beiden <strong>Passphrase</strong>-Felder ein.<br />
+<a href="https://adminswerk.de/assets/2011-12-28-puttygen-2.png"><img class="size-thumbnail wp-image-1421 alignnone" style="margin: 5px;" title="2011-12-28-puttygen-2" alt="" src="https://adminswerk.de/assets/2011-12-28-puttygen-2-150x144.png" width="150" height="144" /></a></li>
+<li>Anschließend sichern wir sowohl Private- als auch Public-Key irgenwohin, wo wir sie wiederfinden.</li>
 <li>Jetzt wird es interessant. Verbindet euch auf  eure Linuxkiste und loggt euch als der Benutzer ein, mit dem ihr euch auch mittelds Schlüsselauthentifizierung verbinden wollt. Bleiben wir beim Beispiel meiner letzten Anleitung und nennen ihn <em>sshuser</em>.</li>
 <li>Nun brauchen wir einen Ordner <strong>.ssh</strong> im Benutzerverzeichnis und in diesem eine Datei <strong>authorized_keys</strong>, in der dann die akzeptierten Schlüssel hinterlegt werden. Ordner und Datei bekommen anschließend noch korrekte Berechtigungen gesetzt.
 
@@ -34,24 +34,24 @@ chmod 600 ~/.ssh/authorized_keys
 {% endhighlight %}
 
 </li>
-<li>Kopiert euch anschließend den Schlüssel, der in der oberen Hälfte des PUTTYGENimages//-Fensters unterhalb von <strong>Public key for pasting into OpenSSH authorized_keys file</strong> steht in die Zwischenablage und fügt ihn in den nächsten Befehl ein. Hierbei will ich präventiv auf  meine Erläuterung zu <a title="Putty: Copy and Paste" href="http://www.adminswerk.de/puttyimages//-copyimages//-andimages//-paste/">Copy und Paste bei Putty</a> verweisen.
+<li>Kopiert euch anschließend den Schlüssel, der in der oberen Hälfte des PUTTYGEN-Fensters unterhalb von <strong>Public key for pasting into OpenSSH authorized_keys file</strong> steht in die Zwischenablage und fügt ihn in den nächsten Befehl ein. Hierbei will ich präventiv auf  meine Erläuterung zu <a title="Putty: Copy and Paste" href="http://www.adminswerk.de/putty-copy-and-paste/">Copy und Paste bei Putty</a> verweisen.
 
 {% highlight bash %}
 echo [HIER DEN KOPIERTEN KEY EINFÜGEN] > ~/.ssh/authorized_keys
 {% endhighlight %}
 
 </li>
-<li>Jetzt müssen wir  noch Putty einrichten. Unter den Menüpunkten <strong>Connection images//-&gt; SSH images//-&gt; Auth</strong> finden wir den Punkt <strong>Private Key file for authentication</strong>. Dort geben wir den Pfad zu unserem in Schritt 3 gespeicherten Private (!) Key an. Danach stellen wir aus Bequemlichkeitsgründen noch unter <strong>Connection images//-&gt; Data</strong> als <strong>autoimages//-login username</strong> den Namen unseres SSHimages//-Benutzers ein.<br />
-<a href="https://adminswerk.de/assets/images/2011/2011images//-12images//-28images//-puttyimages//-sshimages//-key.png"><img class="wpimages//-imageimages//-1424 alignnone" title="2011images//-12images//-28images//-puttyimages//-sshimages//-key" alt="" src="https://adminswerk.de/assets/images/2011/2011images//-12images//-28images//-puttyimages//-sshimages//-keyimages//-150x143.png" width="150" height="143" /></a></li>
+<li>Jetzt müssen wir  noch Putty einrichten. Unter den Menüpunkten <strong>Connection -&gt; SSH -&gt; Auth</strong> finden wir den Punkt <strong>Private Key file for authentication</strong>. Dort geben wir den Pfad zu unserem in Schritt 3 gespeicherten Private (!) Key an. Danach stellen wir aus Bequemlichkeitsgründen noch unter <strong>Connection -&gt; Data</strong> als <strong>auto-login username</strong> den Namen unseres SSH-Benutzers ein.<br />
+<a href="https://adminswerk.de/assets/2011-12-28-putty-ssh-key.png"><img class="wp-image-1424 alignnone" title="2011-12-28-putty-ssh-key" alt="" src="https://adminswerk.de/assets/2011-12-28-putty-ssh-key-150x143.png" width="150" height="143" /></a></li>
 <li>Dann testen wir die Verbindung mit den oben vorgenommenen Änderungen. Nur wenn die Anmeldung problemlos und ohne Fehlermeldung (!) klappt, solltet ihr fortfahren. Sonst besteht die Gefahr, dass ihr euch selber aussperrt.</li>
 <li>Hat alles geklappt, editieren wir die sshd_config. Dafür müssen wir dann aber root werden.
 
 {% highlight bash %}
-su images//-
+su -
 vi /etc/ssh/sshd_config
 {% endhighlight %}
 
-<p>Hier ändern wir einige Einstellung oder fügen diese hinzu, falls es si noch nicht gibt. Wie in jedem Beitrag mit vi weise ich auch hier auf  <a href="http://www.linuximages//-fuerimages//-alle.de/doc_show.php?docid=29&catid=8" target="_blank">DIESE</a> kurze Anleitung hin.</p>
+<p>Hier ändern wir einige Einstellung oder fügen diese hinzu, falls es si noch nicht gibt. Wie in jedem Beitrag mit vi weise ich auch hier auf  <a href="http://www.linux-fuer-alle.de/doc_show.php?docid=29&catid=8" target="_blank">DIESE</a> kurze Anleitung hin.</p>
 
 {% highlight bash %}
 PasswordAuthentication noPasswordAuthentication no #Passwortauthentifizierung abschalten
@@ -59,7 +59,7 @@ PubkeyAuthentication yes # Dafuer Publikkey Authenfizierung aktivieren
 {% endhighlight %}
 
 </li>
-<li>Ein Anschließender Neustart des SSHimages//-Dienstes versteht sich quasi von selbst.
+<li>Ein Anschließender Neustart des SSH-Dienstes versteht sich quasi von selbst.
 
 {% highlight bash %}
 /etc/init.d/ssh restart
@@ -68,4 +68,4 @@ PubkeyAuthentication yes # Dafuer Publikkey Authenfizierung aktivieren
 </li>
 </ol>
 <p>Wenn alles geklappt hat, sieht die Authentifizierung bei einem neuen Fenster etwa so aus. Viel Spaß damit!</p>
-<p><a href="https://adminswerk.de/assets/images/2011/2011images//-12images//-28images//-puttyimages//-sshimages//-keyimages//-2.png"><img class="alignnone sizeimages//-thumbnail wpimages//-imageimages//-1425" title="2011images//-12images//-28images//-puttyimages//-sshimages//-keyimages//-2" alt="" src="https://adminswerk.de/assets/images/2011/2011images//-12images//-28images//-puttyimages//-sshimages//-keyimages//-2images//-150x93.png" width="150" height="93" /></a></p>
+<p><a href="https://adminswerk.de/assets/2011-12-28-putty-ssh-key-2.png"><img class="alignnone size-thumbnail wp-image-1425" title="2011-12-28-putty-ssh-key-2" alt="" src="https://adminswerk.de/assets/2011-12-28-putty-ssh-key-2-150x93.png" width="150" height="93" /></a></p>

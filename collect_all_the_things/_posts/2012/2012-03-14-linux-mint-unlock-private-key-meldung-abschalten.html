@@ -1,27 +1,27 @@
-images//-images//-images//-
+---
 lang: de_DE
 layout: default
-title: 'Linux Mint: "Unlock Private Key"images//-Meldung abschalten'
-date: 2012images//-03images//-14 10:07:27.000000000 +01:00
+title: 'Linux Mint: "Unlock Private Key"-Meldung abschalten'
+date: 2012-03-14 10:07:27.000000000 +01:00
 categories:
-images//- Linux
+- Linux
 tags:
-images//- Gnome
-images//- Linux
-images//- Mint
-images//- passwort
-images//- SSH. Fehler
+- Gnome
+- Linux
+- Mint
+- passwort
+- SSH. Fehler
 status: publish
 type: post
 published: true
-images//-images//-images//-
-<p>Ich gebe zu, an diesem Problem bin ich etwas verzweifelt. Nachdem ich einen SSHimages//-Key auf meinem normalen Rechner mit <em>sshimages//-keygen</em> erzeugt hatte, und diesen mit <em>sshimages//-copyimages//-id</em> auf meinen Testserver kopiert hatte, kam beim Versuch des Logins immer diese seltsame Meldung</p>
-<p><a href="https://adminswerk.de/assets/images/2012/2012images//-02images//-29images//-gnomeimages//-keyringimages//-1.png"><img class="alignnone sizeimages//-medium wpimages//-imageimages//-1847" title="2012images//-02images//-29images//-gnomeimages//-keyringimages//-1" src="https://adminswerk.de/assets/images/2012/2012images//-02images//-29images//-gnomeimages//-keyringimages//-1images//-300x119.png" alt="" width="300" height="119" /></a></p>
-<p>Ich bin die Linux Desktops nicht gewohnt, ich arbeite in der Regel auf der Shell. Was zur Hölle war das? <em>Enter Password to unlock the private key</em>? Da der Key nur in meinem Heimnetzwerk benutzt wird, hatte der verständlicherweise kein Passwort. Egal was ich in diesem Dialog eingab images//- ob nichts, mein Passwort, mein Rootimages//-Passwort, nichts wurde angenommen. Im Internet wurde ich nur teilweise fündig, eine Lösung konnte ich nicht finden.</p>
-<p><a href="https://adminswerk.de/assets/images/2012/2012images//-02images//-29images//-gnomeimages//-keyringimages//-2.png"><img class="sizeimages//-thumbnail wpimages//-imageimages//-1848 alignright" style="margin: 5px;" title="2012images//-02images//-29images//-gnomeimages//-keyringimages//-2" src="https://adminswerk.de/assets/images/2012/2012images//-02images//-29images//-gnomeimages//-keyringimages//-2images//-150x123.png" alt="" width="150" height="123" /></a>Offenbar hängt diese Meldung mit dem <strong>Gnomeimages//-Keyring</strong> zusammen. Der speichert und sichert (?) Passwörter und private Keys. Vielleicht eine gute Idee, für micht ist das Konzept aber nicht gewinnbringend. Deswegen ist mein Lösungsvorschlag für dieses Problem auch trivial: Den Gnomeimages//-Keyring deinstallieren. Entweder über den Software Manager oder über die Shell mithilfe von aptimages//-get.</p>
+---
+<p>Ich gebe zu, an diesem Problem bin ich etwas verzweifelt. Nachdem ich einen SSH-Key auf meinem normalen Rechner mit <em>ssh-keygen</em> erzeugt hatte, und diesen mit <em>ssh-copy-id</em> auf meinen Testserver kopiert hatte, kam beim Versuch des Logins immer diese seltsame Meldung</p>
+<p><a href="https://adminswerk.de/assets/2012-02-29-gnome-keyring-1.png"><img class="alignnone size-medium wp-image-1847" title="2012-02-29-gnome-keyring-1" src="https://adminswerk.de/assets/2012-02-29-gnome-keyring-1-300x119.png" alt="" width="300" height="119" /></a></p>
+<p>Ich bin die Linux Desktops nicht gewohnt, ich arbeite in der Regel auf der Shell. Was zur Hölle war das? <em>Enter Password to unlock the private key</em>? Da der Key nur in meinem Heimnetzwerk benutzt wird, hatte der verständlicherweise kein Passwort. Egal was ich in diesem Dialog eingab - ob nichts, mein Passwort, mein Root-Passwort, nichts wurde angenommen. Im Internet wurde ich nur teilweise fündig, eine Lösung konnte ich nicht finden.</p>
+<p><a href="https://adminswerk.de/assets/2012-02-29-gnome-keyring-2.png"><img class="size-thumbnail wp-image-1848 alignright" style="margin: 5px;" title="2012-02-29-gnome-keyring-2" src="https://adminswerk.de/assets/2012-02-29-gnome-keyring-2-150x123.png" alt="" width="150" height="123" /></a>Offenbar hängt diese Meldung mit dem <strong>Gnome-Keyring</strong> zusammen. Der speichert und sichert (?) Passwörter und private Keys. Vielleicht eine gute Idee, für micht ist das Konzept aber nicht gewinnbringend. Deswegen ist mein Lösungsvorschlag für dieses Problem auch trivial: Den Gnome-Keyring deinstallieren. Entweder über den Software Manager oder über die Shell mithilfe von apt-get.</p>
 
 {% highlight bash %}
-sudo aptimages//-get remove gnomeimages//-keyring
+sudo apt-get remove gnome-keyring
 {% endhighlight %}
 
 <p>Danach konnte ich mich endlich ungestört in den Server einloggen.</p>

@@ -1,31 +1,31 @@
-images//-images//-images//-
+---
 lang: de_DE
 layout: default
-title: 'Firefox: Zurückimages//-Funktion mit Backspace deaktiveren'
-date: 2012images//-07images//-09 09:07:21.000000000 +02:00
+title: 'Firefox: Zurück-Funktion mit Backspace deaktiveren'
+date: 2012-07-09 09:07:21.000000000 +02:00
 categories:
-images//- Software
-images//- Windows
+- Software
+- Windows
 tags:
-images//- Backspace
-images//- Firefox
-images//- Problem
+- Backspace
+- Firefox
+- Problem
 status: publish
 type: post
 published: true
-images//-images//-images//-
+---
 <p>Da ich mich für einen Außendienstkollegen grade damit beschäftigt habe:</p>
-<p>Im Firefox für Windows ist es standardmäßig so, dass man mit der Backspaceimages//-Taste eine Seite zurückspringt. Dies kann besonders dann nervig sein, wenn man Listen oder ähnliches per Webinterface pflegt oder eingibt und einmal aus Versehen außerhalb eines Feldes Backspace drückt.</p>
+<p>Im Firefox für Windows ist es standardmäßig so, dass man mit der Backspace-Taste eine Seite zurückspringt. Dies kann besonders dann nervig sein, wenn man Listen oder ähnliches per Webinterface pflegt oder eingibt und einmal aus Versehen außerhalb eines Feldes Backspace drückt.</p>
 <p>Das Deaktivieren dieser Funktion ist allerdings nicht sonderlich schwierig:</p>
 <ol>
 <li><strong>about:config</strong> in ein neues Fenster im Firefox eingeben und bestätigen, dass man vorsichtig sein wird.</li>
 <li>Nach dem Wert <strong>browser.backspace_action</strong> suchen</li>
 <li>Hier gibt es nun drei Werte, die die Funktion der Backspacetaste variieren:</li>
 <ul>
-<li><strong>Wert 0:</strong> Beim Druck der Backspaceimages//-Taste wird eine Seite zurückgesprungen. Dies ist in Windows der Standardwert.</li>
-<li><strong>Wert 1: </strong>Mit Druck der Backspaceimages//-Taste wird an den Seitenanfang gesprungen. Mit SHIFT und Backspace kommt man dann an das Seitenende.</li>
-<li><strong>andere Werte:</strong> Jeder andere Wert deaktiviert jegliche Navigationsfunktionen der Backspaceimages//-Taste.</li>
+<li><strong>Wert 0:</strong> Beim Druck der Backspace-Taste wird eine Seite zurückgesprungen. Dies ist in Windows der Standardwert.</li>
+<li><strong>Wert 1: </strong>Mit Druck der Backspace-Taste wird an den Seitenanfang gesprungen. Mit SHIFT und Backspace kommt man dann an das Seitenende.</li>
+<li><strong>andere Werte:</strong> Jeder andere Wert deaktiviert jegliche Navigationsfunktionen der Backspace-Taste.</li>
 </ul>
 </ol>
-<p><a href="https://adminswerk.de/assets/images/2012/2012images//-06images//-13images//-firefoximages//-backspace.png"><img class="alignnone sizeimages//-large wpimages//-imageimages//-2216" title="2012images//-06images//-13images//-firefoximages//-backspace" src="https://adminswerk.de/assets/images/2012/2012images//-06images//-13images//-firefoximages//-backspaceimages//-1024x246.png" alt="" width="1024" height="246" /></a></p>
-<p>Mit einer Änderung des Werts von <strong>0</strong> auf <strong>2 </strong>hatte ich das Problem behoben. Der Wert <strong>0</strong> ist offenbar auch bei einigen Linuximages//-Distributionen Standard, jedoch nicht bei allen.</p>
+<p><a href="https://adminswerk.de/assets/2012-06-13-firefox-backspace.png"><img class="alignnone size-large wp-image-2216" title="2012-06-13-firefox-backspace" src="https://adminswerk.de/assets/2012-06-13-firefox-backspace-1024x246.png" alt="" width="1024" height="246" /></a></p>
+<p>Mit einer Änderung des Werts von <strong>0</strong> auf <strong>2 </strong>hatte ich das Problem behoben. Der Wert <strong>0</strong> ist offenbar auch bei einigen Linux-Distributionen Standard, jedoch nicht bei allen.</p>

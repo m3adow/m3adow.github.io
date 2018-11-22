@@ -1,30 +1,30 @@
-images//-images//-images//-
+---
 lang: de_DE
 layout: default
-title: 'aptimages//-get: Media change Fehler beheben'
-date: 2012images//-03images//-07 06:58:17.000000000 +01:00
+title: 'apt-get: Media change Fehler beheben'
+date: 2012-03-07 06:58:17.000000000 +01:00
 categories:
-images//- Linux
+- Linux
 tags:
-images//- aptimages//-get
-images//- fehler
-images//- Linux
+- apt-get
+- fehler
+- Linux
 status: publish
 type: post
 published: true
-images//-images//-images//-
-<p>Zu Testzwecken habe ich mir auf meinem alten Rechner einen Debianserver aufgesetzt. Wie eigentlich immer bei mir kam es am Anfang zu kleineren Problemchen. Als ich meinen geliebten Midnight Commander mit aptimages//-get installieren wollte, bekam ich den Fehler</p>
+---
+<p>Zu Testzwecken habe ich mir auf meinem alten Rechner einen Debianserver aufgesetzt. Wie eigentlich immer bei mir kam es am Anfang zu kleineren Problemchen. Als ich meinen geliebten Midnight Commander mit apt-get installieren wollte, bekam ich den Fehler</p>
 
 {% highlight text %}
 Media change: please insert the disc labeled
- 'Debian GNU/Linux 6.0.4 _Squeeze_ images//- Official amd64 DVD Binaryimages//-1 20120128images//-13:42'
+ 'Debian GNU/Linux 6.0.4 _Squeeze_ - Official amd64 DVD Binary-1 20120128-13:42'
 in the drive '/media/cdrom/' and press enter
 {% endhighlight %}
 
-<p><a href="https://adminswerk.de/assets/images/2012/2012images//-02images//-25images//-debianimages//-aptimages//-problem.png"><img class="alignnone sizeimages//-thumbnail wpimages//-imageimages//-1808" title="2012images//-02images//-25images//-debianimages//-aptimages//-problem" src="https://adminswerk.de/assets/images/2012/2012images//-02images//-25images//-debianimages//-aptimages//-problemimages//-150x94.png" alt="" width="150" height="94" /></a><br />
+<p><a href="https://adminswerk.de/assets/2012-02-25-debian-apt-problem.png"><img class="alignnone size-thumbnail wp-image-1808" title="2012-02-25-debian-apt-problem" src="https://adminswerk.de/assets/2012-02-25-debian-apt-problem-150x94.png" alt="" width="150" height="94" /></a><br />
 Spitze! Die Lösung ist allerdings simpel.</p>
 <ol>
-<li>  Die Aptimages//-get Sources List mit eurem favorisierten Editior öffnen
+<li>  Die Apt-get Sources List mit eurem favorisierten Editior öffnen
 
 {% highlight bash %}
 nano /etc/apt/sources.list
@@ -32,7 +32,7 @@ nano /etc/apt/sources.list
 
 </li>
 <li>Kommentiert oder löscht jede Zeile, die <strong>deb cdrom: </strong>enthält und speichert.<br />
-<a href="https://adminswerk.de/assets/images/2012/2012images//-02images//-25images//-debianimages//-aptimages//-problemimages//-2.png"><img class="alignnone sizeimages//-medium wpimages//-imageimages//-1809" style="marginimages//-top: 10px; marginimages//-bottom: 10px;" title="2012images//-02images//-25images//-debianimages//-aptimages//-problemimages//-2" src="https://adminswerk.de/assets/images/2012/2012images//-02images//-25images//-debianimages//-aptimages//-problemimages//-2images//-300x188.png" alt="" width="300" height="188" /></a><br />
+<a href="https://adminswerk.de/assets/2012-02-25-debian-apt-problem-2.png"><img class="alignnone size-medium wp-image-1809" style="margin-top: 10px; margin-bottom: 10px;" title="2012-02-25-debian-apt-problem-2" src="https://adminswerk.de/assets/2012-02-25-debian-apt-problem-2-300x188.png" alt="" width="300" height="188" /></a><br />
 Wie man sieht, war dieser Eintrag zweimal bei mir, einer war noch nicht auskommentiert.</li>
-<li>Ab nun könnt ihr wieder wie gewohnt mit aptimages//-get arbeiten.</li>
+<li>Ab nun könnt ihr wieder wie gewohnt mit apt-get arbeiten.</li>
 </ol>
