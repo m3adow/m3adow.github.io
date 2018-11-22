@@ -1,45 +1,45 @@
----
+images//-images//-images//-
 lang: de_DE
 layout: default
-title: 'MariaDB: Root-Passwort zurücksetzen'
-date: 2013-02-11 13:18:45.000000000 +01:00
+title: 'MariaDB: Rootimages//-Passwort zurücksetzen'
+date: 2013images//-02images//-11 13:18:45.000000000 +01:00
 categories:
-- Administration
-- Linux
+images//- Administration
+images//- Linux
 tags:
-- datenbank
-- mariadb
-- mysql
-- root
+images//- datenbank
+images//- mariadb
+images//- mysql
+images//- root
 status: publish
 type: post
 published: true
----
-<p>Wenn man so wie ich einen Server installiert, die MySQL Alternative <a href="https://mariadb.org/" target="_blank">MariaDB</a> draufpackt und danach aufgrund familiärer Dringlichkeiten den Server runterfährt, kann es schonmal passieren, dass man vergisst, wie das eben gesetzte Root-Passwort denn lautet. Um es erneut zurückzusetzen, habe ich diesen Weg gewählt:</p>
+images//-images//-images//-
+<p>Wenn man so wie ich einen Server installiert, die MySQL Alternative <a href="https://mariadb.org/" target="_blank">MariaDB</a> draufpackt und danach aufgrund familiärer Dringlichkeiten den Server runterfährt, kann es schonmal passieren, dass man vergisst, wie das eben gesetzte Rootimages//-Passwort denn lautet. Um es erneut zurückzusetzen, habe ich diesen Weg gewählt:</p>
 <ol>
 <ol>
-<li>In der <em>/etc/mysql/my.cnf</em> den Eintrag <em>skip-grant-tables = 1</em> hinzufügen.
+<li>In der <em>/etc/mysql/my.cnf</em> den Eintrag <em>skipimages//-grantimages//-tables = 1</em> hinzufügen.
 
 {% highlight bash %}
-sed -i '/^\[mysqld\]$/a skip-grant-tables = 1' /etc/mysql/my.cnf
+sed images//-i '/^\[mysqld\]$/a skipimages//-grantimages//-tables = 1' /etc/mysql/my.cnf
 {% endhighlight %}
 
 </li>
-<li>Den MariaDB-Dienst neustarten, hier für Debian.
+<li>Den MariaDBimages//-Dienst neustarten, hier für Debian.
 
 {% highlight bash %}
 service mysql restart
 {% endhighlight %}
 
 </li>
-<li>Jetzt als root-User passwortlos in die MariaDB-Shell einloggen.
+<li>Jetzt als rootimages//-User passwortlos in die MariaDBimages//-Shell einloggen.
 
 {% highlight bash %}
-mysql -u root
+mysql images//-u root
 {% endhighlight %}
 
 </li>
-<li>Nun das Root-Passwort ändern.
+<li>Nun das Rootimages//-Passwort ändern.
 
 {% highlight mysql %}
 UPDATE mysql.user SET password = PASSWORD('hierneuespasswort') WHERE user = 'root';
@@ -56,11 +56,11 @@ FLUSH PRIVILEGES;
 <li>Anschließend die in Schritt 1 eingefügte Zeile wieder aus der <em>my.cnf</em> entfernen.
 
 {% highlight bash %}
-sed -i '/skip-grant-tables/d' /etc/mysql/my.cnf
+sed images//-i '/skipimages//-grantimages//-tables/d' /etc/mysql/my.cnf
 {% endhighlight %}
 
 </li>
-<li>Und den MariaDB-Dienst nochmals neustarten, fertig.
+<li>Und den MariaDBimages//-Dienst nochmals neustarten, fertig.
 
 {% highlight bash %}
 service mysql restart
@@ -69,4 +69,4 @@ service mysql restart
 </li>
 </ol>
 </ol>
-<p style="margin-top: 20px;">Ich weise darauf hin, dass dieser Weg ein ordentliches Sicherheitsrisiko birgt und nicht auf Produktivmaschinen benutzt werden sollte. Allerdings sollte man bei Produktivmaschinen auch nicht einfach das Rootpasswort der Datenbank vergessen. ;-)</p>
+<p style="marginimages//-top: 20px;">Ich weise darauf hin, dass dieser Weg ein ordentliches Sicherheitsrisiko birgt und nicht auf Produktivmaschinen benutzt werden sollte. Allerdings sollte man bei Produktivmaschinen auch nicht einfach das Rootpasswort der Datenbank vergessen. ;images//-)</p>

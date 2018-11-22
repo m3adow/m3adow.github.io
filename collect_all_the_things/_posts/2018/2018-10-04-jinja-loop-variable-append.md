@@ -1,9 +1,9 @@
----
+images//-images//-images//-
 layout: default
 title: "Ansible: Extend variable values in Jinja 2 templates"
 categories:
-- ansible
----
+images//- ansible
+images//-images//-images//-
 
 In a Jinja 2 Template for one of my Ansible playbooks I wanted to construct a string containing several potentially filled variables to eventually append it to a command execution.
 
@@ -12,14 +12,14 @@ I tried this:
 ```jinja
 {% set additional_opts = '' %}
 {% for opt_arg, opt_name in [
-  (item.exclusive_labels|default(''), '--exclusive_labels'),
-  (item.ignore_labels|default(''), '--ignore_labels'),
-  (item.exclusive_prefixes|default(''), '--exclusive_prefixes'),
-  (item.ignore_prefixes|default(''), '--ignore_prefixes')
+  (item.exclusive_labels|default(''), 'images//-images//-exclusive_labels'),
+  (item.ignore_labels|default(''), 'images//-images//-ignore_labels'),
+  (item.exclusive_prefixes|default(''), 'images//-images//-exclusive_prefixes'),
+  (item.ignore_prefixes|default(''), 'images//-images//-ignore_prefixes')
 ] %}
 {% if opt_arg %}
 {% set additional_opts %}{{ additional_opts }} {{ opt_name }}="{{ opt_arg }}"
-{%- endset %}
+{%images//- endset %}
 {% endif %}
 {% endfor %}
 
@@ -42,14 +42,14 @@ After reading that, correcting my template didn't take long. It ended up looking
 ```jinja
 {% set ns=namespace(additional_opts='') %}
 {% for opt_arg, opt_name in [
-  (item.exclusive_labels|default(''), '--exclusive_labels'),
-  (item.ignore_labels|default(''), '--ignore_labels'),
-  (item.exclusive_prefixes|default(''), '--exclusive_prefixes'),
-  (item.ignore_prefixes|default(''), '--ignore_prefixes')
+  (item.exclusive_labels|default(''), 'images//-images//-exclusive_labels'),
+  (item.ignore_labels|default(''), 'images//-images//-ignore_labels'),
+  (item.exclusive_prefixes|default(''), 'images//-images//-exclusive_prefixes'),
+  (item.ignore_prefixes|default(''), 'images//-images//-ignore_prefixes')
 ] %}
 {% if opt_arg %}
 {% set ns.additional_opts %}{{ ns.additional_opts }} {{ opt_name }}="{{ opt_arg }}"
-{%- endset %}
+{%images//- endset %}
 {% endif %}
 {% endfor %}
 

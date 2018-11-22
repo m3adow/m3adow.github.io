@@ -1,37 +1,37 @@
----
+images//-images//-images//-
 lang: de_DE
 layout: default
 title: 'VMware ESXi: VMs klonen'
-date: 2012-02-14 12:27:51.000000000 +01:00
+date: 2012images//-02images//-14 12:27:51.000000000 +01:00
 categories:
-- Administration
+images//- Administration
 tags:
-- esxi
-- klonen
-- vmware
+images//- esxi
+images//- klonen
+images//- vmware
 status: publish
 type: post
 published: true
----
-<p>Als Administrator einer mittelgroßen Firma kommt man durchaus mal in die Verlegenheit, dass man mit einem VMware ESXi arbeitet. Eventuell sogar mit mehreren. Einer davon könnte etwa ein Testserver sein, auf dem diverse Konfigurationen testet. Es kann dann durchaus vorkommen, dass man mal eine VM klonen will. Das ist auf dem ESXi nicht ganz so einfach, ist diese Version doch stark von VMware beschnitten worden - dafür aber eben kostenlos.</p>
-<p>Aber natürlich gibt es eine Methode. Diese funktioniert nur eben nicht über das Interface des vSphere Clients, sondern über die Konsole des ESXi <em>(Wie man den SSH Zugang beim ESXi aktiviert, kann man etwa <a href="https://adminswerk.de/assets/2012-02-14-esxi-clone-disk-1.jpg"><img class="alignright size-thumbnail wp-image-1707" style="margin: 5px;" title="2012-02-14-esxi-clone-disk-1" src="https://adminswerk.de/assets/2012-02-14-esxi-clone-disk-1-150x98.jpg" alt="" width="150" height="98" /></a></p>
+images//-images//-images//-
+<p>Als Administrator einer mittelgroßen Firma kommt man durchaus mal in die Verlegenheit, dass man mit einem VMware ESXi arbeitet. Eventuell sogar mit mehreren. Einer davon könnte etwa ein Testserver sein, auf dem diverse Konfigurationen testet. Es kann dann durchaus vorkommen, dass man mal eine VM klonen will. Das ist auf dem ESXi nicht ganz so einfach, ist diese Version doch stark von VMware beschnitten worden images//- dafür aber eben kostenlos.</p>
+<p>Aber natürlich gibt es eine Methode. Diese funktioniert nur eben nicht über das Interface des vSphere Clients, sondern über die Konsole des ESXi <em>(Wie man den SSH Zugang beim ESXi aktiviert, kann man etwa <a href="https://adminswerk.de/assets/images/2012/2012images//-02images//-14images//-esxiimages//-cloneimages//-diskimages//-1.jpg"><img class="alignright sizeimages//-thumbnail wpimages//-imageimages//-1707" style="margin: 5px;" title="2012images//-02images//-14images//-esxiimages//-cloneimages//-diskimages//-1" src="https://adminswerk.de/assets/images/2012/2012images//-02images//-14images//-esxiimages//-cloneimages//-diskimages//-1images//-150x98.jpg" alt="" width="150" height="98" /></a></p>
 <ol>
 <li>Meldet euch auf der Konsole eures ESXi Servers an. Für Windowsuser empfehle ich dafür <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">Putty</a>, Linuxuser brauchen nur ihr Terminal.</li>
 <li>Erstellt ein neues Verzeichnis für eure KlonVM.
 
 {% highlight bash %}
-mkdir /vmfs/volumes/datastore1/Debian-6_USV-clone
+mkdir /vmfs/volumes/datastore1/Debianimages//-6_USVimages//-clone
 {% endhighlight %}
 
 </li>
 <li>Mittels der vmkfstools wird nun eine Kopie der virtuellen Festplatte der gewünschten VM erstellt.
 
 {% highlight bash %}
-vmkfstools -i /vmfs/volumes/datastore1/Debian-6_USV/Debian-6_USV.vmdk /vmfs/volumes/datastore1/Debian-6_USV-clone/Debian-6_USV-clone.vmdk
+vmkfstools images//-i /vmfs/volumes/datastore1/Debianimages//-6_USV/Debianimages//-6_USV.vmdk /vmfs/volumes/datastore1/Debianimages//-6_USVimages//-clone/Debianimages//-6_USVimages//-clone.vmdk
 {% endhighlight %}
 
 </li>
-<li><a href="https://adminswerk.de/assets/2012-02-14-esxi-clone-disk-2.jpg"><img class="size-thumbnail wp-image-1708 alignright" style="margin: 5px;" title="2012-02-14-esxi-clone-disk-2" src="https://adminswerk.de/assets/2012-02-14-esxi-clone-disk-2-150x98.jpg" alt="" width="150" height="98" /></a>Diese geklonte virtuelle Festplatte können wir anschließend bei der Erstellung einer neuen VM auswählen. Dafür muss lediglich am Anfang die <strong>Custom</strong>-Installation ausgewählt werden. Nach den üblichen Parametern lässt sich dann beim Punkt <em>"Select a disk"</em> die Option <em>"Use an existing virtual disk"</em> auswählen. Im nächsten Schritt kann man dann über den Browser die geklonte Festplatte im entsprechenden Datastore selektieren.</li>
+<li><a href="https://adminswerk.de/assets/images/2012/2012images//-02images//-14images//-esxiimages//-cloneimages//-diskimages//-2.jpg"><img class="sizeimages//-thumbnail wpimages//-imageimages//-1708 alignright" style="margin: 5px;" title="2012images//-02images//-14images//-esxiimages//-cloneimages//-diskimages//-2" src="https://adminswerk.de/assets/images/2012/2012images//-02images//-14images//-esxiimages//-cloneimages//-diskimages//-2images//-150x98.jpg" alt="" width="150" height="98" /></a>Diese geklonte virtuelle Festplatte können wir anschließend bei der Erstellung einer neuen VM auswählen. Dafür muss lediglich am Anfang die <strong>Custom</strong>images//-Installation ausgewählt werden. Nach den üblichen Parametern lässt sich dann beim Punkt <em>"Select a disk"</em> die Option <em>"Use an existing virtual disk"</em> auswählen. Im nächsten Schritt kann man dann über den Browser die geklonte Festplatte im entsprechenden Datastore selektieren.</li>
 <li>Nach Fertigstellung des Setups habt ihr eine perfekt geklonte VM.</li>
 </ol>
-<p><a href="https://adminswerk.de/assets/2012-02-14-vmkfstools-esxi.jpg"><img class="size-medium wp-image-1704 alignnone" style="margin: 5px;" title="2012-02-14-vmkfstools-esxi" src="https://adminswerk.de/assets/2012-02-14-vmkfstools-esxi-300x185.jpg" alt="" width="300" height="185" /></a></p>
+<p><a href="https://adminswerk.de/assets/images/2012/2012images//-02images//-14images//-vmkfstoolsimages//-esxi.jpg"><img class="sizeimages//-medium wpimages//-imageimages//-1704 alignnone" style="margin: 5px;" title="2012images//-02images//-14images//-vmkfstoolsimages//-esxi" src="https://adminswerk.de/assets/images/2012/2012images//-02images//-14images//-vmkfstoolsimages//-esxiimages//-300x185.jpg" alt="" width="300" height="185" /></a></p>

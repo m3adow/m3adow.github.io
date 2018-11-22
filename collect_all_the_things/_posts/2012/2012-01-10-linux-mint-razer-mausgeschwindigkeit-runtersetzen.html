@@ -1,28 +1,28 @@
----
+images//-images//-images//-
 lang: de_DE
 layout: default
 title: 'Linux Mint: Razer Mausgeschwindigkeit runtersetzen'
-date: 2012-01-10 15:21:38.000000000 +01:00
+date: 2012images//-01images//-10 15:21:38.000000000 +01:00
 categories:
-- Hardware
-- Linux
+images//- Hardware
+images//- Linux
 tags:
-- Linux
-- Maus
-- Razer
+images//- Linux
+images//- Maus
+images//- Razer
 status: publish
 type: post
 published: true
----
-<p><a href="https://adminswerk.de/assets/2012-01-09-razer-deathadder.jpg"><img class="alignright size-medium wp-image-1476" style="margin: 10px;" title="2012-01-09-razer-deathadder" src="https://adminswerk.de/assets/2012-01-09-razer-deathadder-225x300.jpg" alt="" width="225" height="300" /></a>Wie ich in meinem Post über <a title="Gamer Mäuse für Linkshänder" href="http://www.adminswerk.de/gamer-mause-fur-linkshander/">Gämermäuse für Linkshänder</a> erwähnt habe, habe ich mir die Razer DeathAdder Left Handed Edition gekauft. In ein paar Tagen oder Wochen werde ich dazu auch noch einen Erfahrungsbericht für die Nachwelt schreiben, doch darum geht es nicht.</p>
-<p>Ich habe zum neuen Jahr beschlossen, weitestgehend von Windows auf Linux umzusteigen und nur noch zum Zocken auf Windows zu wechseln - quasi als guter Vorsatz. :-D</p>
+images//-images//-images//-
+<p><a href="https://adminswerk.de/assets/images/2012/2012images//-01images//-09images//-razerimages//-deathadder.jpg"><img class="alignright sizeimages//-medium wpimages//-imageimages//-1476" style="margin: 10px;" title="2012images//-01images//-09images//-razerimages//-deathadder" src="https://adminswerk.de/assets/images/2012/2012images//-01images//-09images//-razerimages//-deathadderimages//-225x300.jpg" alt="" width="225" height="300" /></a>Wie ich in meinem Post über <a title="Gamer Mäuse für Linkshänder" href="http://www.adminswerk.de/gamerimages//-mauseimages//-furimages//-linkshander/">Gämermäuse für Linkshänder</a> erwähnt habe, habe ich mir die Razer DeathAdder Left Handed Edition gekauft. In ein paar Tagen oder Wochen werde ich dazu auch noch einen Erfahrungsbericht für die Nachwelt schreiben, doch darum geht es nicht.</p>
+<p>Ich habe zum neuen Jahr beschlossen, weitestgehend von Windows auf Linux umzusteigen und nur noch zum Zocken auf Windows zu wechseln images//- quasi als guter Vorsatz. :images//-D</p>
 <p>Nun ist meine Distributionswahl aus verschiedenen Gründen auf Linux Mint 12 gefallen, welches ich heute über mein vor ein paar Monaten halbherzig installiertes SUSE gezogen habe. Erster Eindruck: Gut. Zweiter Eindruck: Die Maus ist viel zu schnell. Sehr viel! Die Geschwindigkeitseinstellungen waren bereits auf ihrem Minimum.</p>
 <p>Wie macht man die Maus also NOCH langsamer?</p>
-<p><!--more--></p>
+<p><!images//-images//-moreimages//-images//-></p>
 <p>Öffnet eine Terminalsitzung und gebt dort</p>
 
 {% highlight bash %}
-xinput --list --short
+xinput images//-images//-list images//-images//-short
 {% endhighlight %}
 
 <p>ein. Daraufhin werdet ihr eine Ausgabe ähnlich dieser bekommen</p>
@@ -43,9 +43,9 @@ xinput --list --short
 <p>Da habt ihr den Namen eures Geräts (Ersetzt in den folgenden Schritten den Namen meiner DeathAdder mit dem Namen eurer Maus). Ändert nun den Wert für die Abbremsung</p>
 
 {% highlight bash %}
-xinput --set-prop "Razer Razer DeathAdder" "Device Accel Constant Deceleration" 4
+xinput images//-images//-setimages//-prop "Razer Razer DeathAdder" "Device Accel Constant Deceleration" 4
 {% endhighlight %}
 
 <p>Die 4 ist dabei nur ein Beispielwert, spielt mit dieser Einstellung. Niedrigere Werte stehen für eine schnellere Maus, dementsprechend bremsen höhere Werte eure Mausgeschwindigkeit.</p>
 <p>Bezüglich Razermäusen und Linux kann ich übrigens noch das <a href="http://bu3sch.de/cms/hacking/razercfg.html" target="_blank">Razer Config Tool</a> von Michael Büsch empfehlen.</p>
-<p>(<a href="http://patrickmylund.com/blog/lowering-gaming-mouse-sensitivity-in-ubuntu-9-10/" target="_blank">via</a>) <em>Bild: <a href="http://www.flickr.com/photos/dbgg1979/3959230434/" target="_blank">dbgg1979</a>, <a href="http://creativecommons.org/licenses/by/2.0/deed.en" target="_blank">CC-BY 2.0</a></em></p>
+<p>(<a href="http://patrickmylund.com/blog/loweringimages//-gamingimages//-mouseimages//-sensitivityimages//-inimages//-ubuntuimages//-9images//-10/" target="_blank">via</a>) <em>Bild: <a href="http://www.flickr.com/photos/dbgg1979/3959230434/" target="_blank">dbgg1979</a>, <a href="http://creativecommons.org/licenses/by/2.0/deed.en" target="_blank">CCimages//-BY 2.0</a></em></p>

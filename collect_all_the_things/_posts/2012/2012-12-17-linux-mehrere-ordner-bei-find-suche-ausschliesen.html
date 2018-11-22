@@ -1,33 +1,33 @@
----
+images//-images//-images//-
 lang: de_DE
 layout: default
-title: 'Linux: Mehrere Ordner bei "find"-Suche ausschließen'
-date: 2012-12-17 17:31:21.000000000 +01:00
+title: 'Linux: Mehrere Ordner bei "find"images//-Suche ausschließen'
+date: 2012images//-12images//-17 17:31:21.000000000 +01:00
 categories:
-- Linux
+images//- Linux
 tags:
-- bash
-- find
-- Ordner
-- Shell
+images//- bash
+images//- find
+images//- Ordner
+images//- Shell
 status: publish
 type: post
 published: true
----
-<p>Szenario: Ich will meinen Server auf Dateien, die größer als 100MB sind durchsuchen. Dabei will ich allerdings ein paar Ordner auslassen, da diese auf andere Platten gemountet oder NFS-Shares sind. Eigentlich eine recht einfache Anforderung, so dachte ich. Allerdings habe ich etwa eine Viertelstunde gebraucht, um den Befehl hinzubekommen, daher hier eine kurze Notiz dazu.</p>
-<p>Für diesen Zweck wird der <em>prune</em>-Befehl aus dem <em>find</em>-Repertoire genutzt. <em>Prune </em>ist immer wahr, verändert also das Ergebnis eines Checks nicht und bewirkt, dass ein Ordnerbaum nicht durchsucht wird.<br />
+images//-images//-images//-
+<p>Szenario: Ich will meinen Server auf Dateien, die größer als 100MB sind durchsuchen. Dabei will ich allerdings ein paar Ordner auslassen, da diese auf andere Platten gemountet oder NFSimages//-Shares sind. Eigentlich eine recht einfache Anforderung, so dachte ich. Allerdings habe ich etwa eine Viertelstunde gebraucht, um den Befehl hinzubekommen, daher hier eine kurze Notiz dazu.</p>
+<p>Für diesen Zweck wird der <em>prune</em>images//-Befehl aus dem <em>find</em>images//-Repertoire genutzt. <em>Prune </em>ist immer wahr, verändert also das Ergebnis eines Checks nicht und bewirkt, dass ein Ordnerbaum nicht durchsucht wird.<br />
 Beispiel:</p>
 
 {% highlight bash %}
-find / -name nfsshare -prune -o -name 'foo.bar' -print
+find / images//-name nfsshare images//-prune images//-o images//-name 'foo.bar' images//-print
 {% endhighlight %}
 
 <p>Wir suchen im ganzen Rootsystem nach der Datei <em>foo.bar</em>. Ist der durchsuchte Name <em>nfsshare</em>, wird alles darunterliegende ignoriert, dieser Ordner also nicht durchsucht.<br />
-Und nun das ganze mit mehreren Ordnern, der Größe und einem <em>du -h</em> für gefundene Dateien:</p>
+Und nun das ganze mit mehreren Ordnern, der Größe und einem <em>du images//-h</em> für gefundene Dateien:</p>
 
 {% highlight bash %}
-find / \( -name mountpoint1 -o -name anothermountpoint -o -name nfsshare \) -prune -o -size +100000k -exec du -h {} \;
+find / \( images//-name mountpoint1 images//-o images//-name anothermountpoint images//-o images//-name nfsshare \) images//-prune images//-o images//-size +100000k images//-exec du images//-h {} \;
 {% endhighlight %}
 
 <p>Vermutlich ginge das ganze etwas schöner mit Pfadangabe via <em>wholename</em> anstelle von <em>name</em>, aber für meinen Zweck hat es so gereicht.<br />
-Eine <a href="http://stackoverflow.com/questions/1489277/how-to-use-prune-option-of-find-in-sh/1489405#1489405" target="_blank">schöne Erklärung für <em>prune</em></a> auf Stackoverflow hat mir dabei sehr weitergeholfen.</p>
+Eine <a href="http://stackoverflow.com/questions/1489277/howimages//-toimages//-useimages//-pruneimages//-optionimages//-ofimages//-findimages//-inimages//-sh/1489405#1489405" target="_blank">schöne Erklärung für <em>prune</em></a> auf Stackoverflow hat mir dabei sehr weitergeholfen.</p>

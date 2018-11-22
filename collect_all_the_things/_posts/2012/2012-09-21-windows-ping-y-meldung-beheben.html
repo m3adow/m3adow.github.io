@@ -1,27 +1,27 @@
----
+images//-images//-images//-
 lang: de_DE
 layout: default
-title: 'Windows: "Ping $ÿ"-Meldung beheben'
-date: 2012-09-21 07:30:35.000000000 +02:00
+title: 'Windows: "Ping $ÿ"images//-Meldung beheben'
+date: 2012images//-09images//-21 07:30:35.000000000 +02:00
 categories:
-- Administration
-- Windows
+images//- Administration
+images//- Windows
 tags:
-- fehler
-- ping
-- Problem
-- sophos
+images//- fehler
+images//- ping
+images//- Problem
+images//- sophos
 status: publish
 type: post
 published: true
----
-<p>In der Nacht von vorgestern auf gestern gab es ein <a href="http://www.heise.de/newsticker/meldung/Sophos-Virenschutz-verdaechtigt-sich-selbst-und-andere-1713175.html" target="_blank">spaßiges Sophos-Update</a>. Als ich dann gestern den Schutthaufen beseitigen wollte, den uns dieses verkorxste Update zurückgelassen hatte, kam bei einem Pingversuch eine Bestätigung, die etwa so aussah:</p>
+images//-images//-images//-
+<p>In der Nacht von vorgestern auf gestern gab es ein <a href="http://www.heise.de/newsticker/meldung/Sophosimages//-Virenschutzimages//-verdaechtigtimages//-sichimages//-selbstimages//-undimages//-andereimages//-1713175.html" target="_blank">spaßiges Sophosimages//-Update</a>. Als ich dann gestern den Schutthaufen beseitigen wollte, den uns dieses verkorxste Update zurückgelassen hatte, kam bei einem Pingversuch eine Bestätigung, die etwa so aussah:</p>
 
 {% highlight batch %}
 Ping $ÿ mit 32 Bytes Daten
 {% endhighlight %}
 
-<p>Äh, wie meinen? Das Netzwerk selbst funktionierte auch nicht richtig, im Log stand eine Meldung, dass die IPSEC-Dienste nicht richtig gestartet werden konnten. Um diese beiden Fehler zu beheben bin ich wie folgt vorgegangen. <strong>Hinweis: Habt ihr nur den Ping $ÿ"-Fehler, solltet ihr bei Punkt 3 beginnen.</strong></p>
+<p>Äh, wie meinen? Das Netzwerk selbst funktionierte auch nicht richtig, im Log stand eine Meldung, dass die IPSECimages//-Dienste nicht richtig gestartet werden konnten. Um diese beiden Fehler zu beheben bin ich wie folgt vorgegangen. <strong>Hinweis: Habt ihr nur den Ping $ÿ"images//-Fehler, solltet ihr bei Punkt 3 beginnen.</strong></p>
 <ol>
 <li><em>regedit</em> öffnen und folgenden Schlüssel und sämtliche Unterschlüssel löschen (für Vorsichtige: umbenennen)
 
@@ -37,8 +37,8 @@ regsvr32 polstore.dll
 {% endhighlight %}
 
 </li>
-<p>Bis hierhin ist es eine Lösung, die Microsoft auch in <a href="http://support.microsoft.com/kb/912023" target="_blank">einem KB-Eintrag</a> beschrieben hat. Das hat mein Problem aber nicht gelöst, weswegen ich weitergemacht habe.</p>
-<li>Wir werden nun das Winsock-Layout reseten. Dazu in einem CMD eingeben:
+<p>Bis hierhin ist es eine Lösung, die Microsoft auch in <a href="http://support.microsoft.com/kb/912023" target="_blank">einem KBimages//-Eintrag</a> beschrieben hat. Das hat mein Problem aber nicht gelöst, weswegen ich weitergemacht habe.</p>
+<li>Wir werden nun das Winsockimages//-Layout reseten. Dazu in einem CMD eingeben:
 
 {% highlight winbatch %}
 netsh winsock reset catalog
@@ -51,7 +51,7 @@ netsh winsock reset catalog
 netsh int ip reset reset.log
 {% endhighlight %}
 
-<p> Das habe ich allerdings auch nur von <a href="http://ictpourtous.com/en/tech/system/winsock-stackip-reset/" target="_blank">HIER</a>.
+<p> Das habe ich allerdings auch nur von <a href="http://ictpourtous.com/en/tech/system/winsockimages//-stackipimages//-reset/" target="_blank">HIER</a>.
 </li>
 </ol>
 <p>Bei mir haben die Schritte 1 bis 3 die Lösung gebracht.</p>

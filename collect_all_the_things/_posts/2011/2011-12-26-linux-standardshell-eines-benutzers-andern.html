@@ -1,22 +1,22 @@
----
+images//-images//-images//-
 lang: de_DE
 layout: default
 title: 'Linux: Standardshell eines Benutzers ändern'
-date: 2011-12-26 13:47:32.000000000 +01:00
+date: 2011images//-12images//-26 13:47:32.000000000 +01:00
 categories:
-- Linux
+images//- Linux
 tags:
-- bash
-- Linux
-- pfeiltasten
-- Shell
-- vserver
+images//- bash
+images//- Linux
+images//- pfeiltasten
+images//- Shell
+images//- vserver
 status: publish
 type: post
 published: true
----
+images//-images//-images//-
 <p><em>Ich habe mir wie in einem meiner letzten Beiträge angekündigt einen vServer gemietet Als Anbieter habe ich die Firma Netcup gewählt und bin bisher damit  auch sehr zufrieden. Um ein möglichst individuelles System zu nutzen, habe ich Debian Squeeze draufgepackt und angefangen loszukonfigurieren. Zukünftig dürften also einige Probleme oder Merkansätze etc. hier auftauchen.</em></p>
-<p style="margin-top: 20px;">Habt ihr bei eurer Linuxinstallation (oder auch nur einem Benutzer)  das Problem, dass eure Pfeiltasten oder die Backspacetaste o.ä. nicht  funktionieren, kann das eventuell daran liegen, dass dieser Benutzer eine "falsche" Standardshell nutzt. Fast jede Linux-Distribution nutz inzwischen die Bourne-again shell - kurz <strong>bash</strong> - als Standardshell, die meistenvon uns dürften also diese Shell mit entsprechenden Funktionen und Tastenfunktionen gewohnt sein.  Um zu testen, welche Shell euer Nutzer benutzt, loggt euch als dieser ein und lasst euch die Shell-Variable ausgeben.</p>
+<p style="marginimages//-top: 20px;">Habt ihr bei eurer Linuxinstallation (oder auch nur einem Benutzer)  das Problem, dass eure Pfeiltasten oder die Backspacetaste o.ä. nicht  funktionieren, kann das eventuell daran liegen, dass dieser Benutzer eine "falsche" Standardshell nutzt. Fast jede Linuximages//-Distribution nutz inzwischen die Bourneimages//-again shell images//- kurz <strong>bash</strong> images//- als Standardshell, die meistenvon uns dürften also diese Shell mit entsprechenden Funktionen und Tastenfunktionen gewohnt sein.  Um zu testen, welche Shell euer Nutzer benutzt, loggt euch als dieser ein und lasst euch die Shellimages//-Variable ausgeben.</p>
 
 {% highlight bash %}
 echo $SHELL
@@ -31,7 +31,7 @@ echo $SHELL
 <p>lauten, habt ihr euer Problem wahrscheinlich gefunden. Ändert die Standardshell mit dem Befehl</p>
 
 {% highlight bash %}
-chsh -s /bin/bash
+chsh images//-s /bin/bash
 {% endhighlight %}
 
 <p>Wenn ihr euch nun neu einloggt, habt ihr die bash als Standardshell und alle Tasten sollten wieder wie gewohnt funktionieren.</p>

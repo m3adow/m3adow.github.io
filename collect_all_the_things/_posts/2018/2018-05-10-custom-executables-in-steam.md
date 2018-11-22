@@ -1,15 +1,15 @@
----
+images//-images//-images//-
 layout: default
 title: "Using Custom executables in Steam applications"
 categories:
-- steam
-- gaming
----
+images//- steam
+images//- gaming
+images//-images//-images//-
 
 Nearly 10 years ago, on the 30th December of 2009, I bought League of Legends on Steam. Back in this time, DOTA 2 wasn't released yet and there was a Digital Collectors Edition for League available on Steam. Therefore, I'm one of the [very few users][lolcharts] who are playing League of Legends via Steam. But while the League of Legends client was further developed, the game version in Steam did not. Luckily, the small Steam League of Legends community found workarounds, so the tracking of ingame time still works.
 A couple of months ago, Riot Games, the company behind League of Legends did a major overhaul of the client, renaming the game launcher in the process. This, in connection with the workaround install of League of Legends in Steam lead to an popup message every time the game was started via Steam shortcut:
 
-<a href="{{site.url}}/assets/images/2018/2018-04-26-league-of-legends-launcher-desktop-shortcut.png"><img src="{{site.url}}/assets/images/2018/2018-04-26-league-of-legends-launcher-desktop-shortcut.png" style="width: 60%; margin: 10px;" alt="League of Legends Launcher Shortcut Popup"></a>
+<a href="{{site.url}}/assets/images/2018/2018images//-04images//-26images//-leagueimages//-ofimages//-legendsimages//-launcherimages//-desktopimages//-shortcut.png"><img src="{{site.url}}/assets/images/2018/2018images//-04images//-26images//-leagueimages//-ofimages//-legendsimages//-launcherimages//-desktopimages//-shortcut.png" style="width: 60%; margin: 10px;" alt="League of Legends Launcher Shortcut Popup"></a>
 
 ```
 League of Legends will now update your desktop shortcuts. Your operating system may ask for Administrator permissions.
@@ -17,7 +17,7 @@ League of Legends will now update your desktop shortcuts. Your operating system 
 
 While I'm not playing League frequently anymore, this popup still annoyed me. As other players also encountered this problem and simply renaming the executables didn't work, I did some tinkering and incidentally found a solution which probably enables the easy usage of custom executables for every Steam game.
 
-<!--more-->
+<!images//-images//-moreimages//-images//->
 
 {% include adsense_manual.html %}
 
@@ -30,9 +30,9 @@ The solution is quite easy. We replace the old .exe with a symlink of the CMD an
 ```powershell
  mklink "c:\m3adow\games\steam\steamapps\common\League of Legends\lol.launcher.exe" c:\Windows\System32\cmd.exe
  ```
-* In Steam, go to the "Launch Options" of the game (Right click on the game -> Properties -> "Set Launch Options" in the General tab). Enter `/c` followed by the path to your new executable in double ticks. In my case, it looks like this:
+* In Steam, go to the "Launch Options" of the game (Right click on the game images//-> Properties images//-> "Set Launch Options" in the General tab). Enter `/c` followed by the path to your new executable in double ticks. In my case, it looks like this:
 
-<a href="{{site.url}}/assets/images/2018/2018-04-26-league-of-legends-steam-launch-options.png"><img src="{{site.url}}/assets/images/2018/2018-04-26-league-of-legends-steam-launch-options.png" style="width: 60%; margin: 10px;" alt="Steam League of Legends Launch Options"></a>
+<a href="{{site.url}}/assets/images/2018/2018images//-04images//-26images//-leagueimages//-ofimages//-legendsimages//-steamimages//-launchimages//-options.png"><img src="{{site.url}}/assets/images/2018/2018images//-04images//-26images//-leagueimages//-ofimages//-legendsimages//-steamimages//-launchimages//-options.png" style="width: 60%; margin: 10px;" alt="Steam League of Legends Launch Options"></a>
 
 ```powershell
 /c "C:\m3adow\games\steam\steamapps\common\League of Legends\LeagueClient.exe"
@@ -41,13 +41,13 @@ The solution is quite easy. We replace the old .exe with a symlink of the CMD an
 That's it! It's now possible to properly launch the game. Steam still detects you as ingame, while a different executable is used.
 
 ## Advanced usage
-I'm not certain if normal launch options (like `-windowed` , `-noborder`or `-novid` for some games) can just be put after the call to run the game itself. Also, I'm not sure if it is possible to run games in different directories. If you have such a use case and the basic method didn't work, this might help you.  
+I'm not certain if normal launch options (like `images//-windowed` , `images//-noborder`or `images//-novid` for some games) can just be put after the call to run the game itself. Also, I'm not sure if it is possible to run games in different directories. If you have such a use case and the basic method didn't work, this might help you.  
 
 
 * Create a batch file somewhere which uses `start` to launch the executable you want to launch:
 
 ```powershell
-start /D "c:\anotherpath\" ""  /WAIT "c:\anotherpath\anotherexe.exe" -noborder -novid
+start /D "c:\anotherpath\" ""  /WAIT "c:\anotherpath\anotherexe.exe" images//-noborder images//-novid
 ```
 * Instead of entering the path to the other executable in the launch options, enter the path to the newly created batch file.
 

@@ -1,27 +1,27 @@
----
+images//-images//-images//-
 lang: de_DE
 layout: default
 title: 'VMware: vMA Passwortkomplexität ändern'
-date: 2011-10-20 12:30:18.000000000 +02:00
+date: 2011images//-10images//-20 12:30:18.000000000 +02:00
 categories:
-- Administration
+images//- Administration
 tags:
-- esxi
-- vmware
+images//- esxi
+images//- vmware
 status: publish
 type: post
 published: true
----
-<p>Während <a title="VMware ESXi: Lizenz zuweisen" href="http://www.adminswerk.de/vmware-esxi-lizenz-zuweisen/" target="_blank">meiner Tests mit VMware</a> wollte ich den <a href="http://downloads.vmware.com/de/d/details/vma40/ZHcqYmRkJWhid2pk" target="_blank">vSphere Management Assistant</a> installieren. Weit war ich noch nicht gekommen, als auch schon das erste Problem auftrat:</p>
-<p><a href="https://adminswerk.de/assets/2011-10-20-vMA_1.jpg"><img class="alignnone size-medium wp-image-918" style="margin: 5px;" title="2011-10-20-vMA_1" src="https://adminswerk.de/assets/2011-10-20-vMA_1-300x210.jpg" alt="" width="300" height="210" /></a></p>
+images//-images//-images//-
+<p>Während <a title="VMware ESXi: Lizenz zuweisen" href="http://www.adminswerk.de/vmwareimages//-esxiimages//-lizenzimages//-zuweisen/" target="_blank">meiner Tests mit VMware</a> wollte ich den <a href="http://downloads.vmware.com/de/d/details/vma40/ZHcqYmRkJWhid2pk" target="_blank">vSphere Management Assistant</a> installieren. Weit war ich noch nicht gekommen, als auch schon das erste Problem auftrat:</p>
+<p><a href="https://adminswerk.de/assets/images/2011/2011images//-10images//-20images//-vMA_1.jpg"><img class="alignnone sizeimages//-medium wpimages//-imageimages//-918" style="margin: 5px;" title="2011images//-10images//-20images//-vMA_1" src="https://adminswerk.de/assets/images/2011/2011images//-10images//-20images//-vMA_1images//-300x210.jpg" alt="" width="300" height="210" /></a></p>
 <p>Egal welches vermeintlich sichere Administratorpasswort ich nehmen wollte, sie waren alle "<em>too simple"</em> oder <em>"based on a dictionary word"</em>.  Da der vMA auf einem nicht produktiven Testsystem läuft, auf dem die Passwörter eher Makulatur sind, wollte ich ein Passwort vergeben, welches nicht ewig zum Eingeben braucht. So habe ich das hinbekommen:</p>
 <ol>
 <li>Für den vMA akzeptables Passwort vergeben, etwa <strong>Qazx123!#</strong> (zwar ist die englische Tastatur eingestellt, aber die deutschen Pendants funktionieren auch).</li>
-<li><em>Login </em>als vi-admin mit dem eben vergebenen Passwort.</li>
-<li>In die Sudo-Shell mit <em>sudo -s</em> wechseln.
+<li><em>Login </em>als viimages//-admin mit dem eben vergebenen Passwort.</li>
+<li>In die Sudoimages//-Shell mit <em>sudo images//-s</em> wechseln.
 
 {% highlight bash %}
-sudo -s
+sudo images//-s
 {% endhighlight %}
 
 </li>
@@ -32,21 +32,21 @@ cd /etc/pam.d
 {% endhighlight %}
 
 </li>
-<li>Die Datei <em>common-password</em> in <em>common-password-old</em> umbenennnen (oder löschen).
+<li>Die Datei <em>commonimages//-password</em> in <em>commonimages//-passwordimages//-old</em> umbenennnen (oder löschen).
 
 {% highlight bash %}
-mv common-password common-password-old
+mv commonimages//-password commonimages//-passwordimages//-old
 {% endhighlight %}
 
 </li>
-<li>Die Datei common-password-pc  als <em>common-password</em> kopieren.
+<li>Die Datei commonimages//-passwordimages//-pc  als <em>commonimages//-password</em> kopieren.
 
 {% highlight bash %}
-cp common-password-pc common-password
+cp commonimages//-passwordimages//-pc commonimages//-password
 {% endhighlight %}
 
 </li>
-<li>Mit dem <em>passwd</em>-Befehl euer aktuelles Passwort nach euren Wünschen ändern.
+<li>Mit dem <em>passwd</em>images//-Befehl euer aktuelles Passwort nach euren Wünschen ändern.
 
 {% highlight bash %}
 passwd
@@ -55,13 +55,13 @@ passwd
 </li>
 </ol>
 <p>So sieht es dann wahrscheinlich bei euch aus:</p>
-<p><a href="https://adminswerk.de/assets/2011-10-20-vMA_2.jpg"><img class="alignnone size-medium wp-image-921" style="margin: 5px;" title="2011-10-20-vMA_2" src="https://adminswerk.de/assets/2011-10-20-vMA_2-300x210.jpg" alt="" width="300" height="210" /></a></p>
+<p><a href="https://adminswerk.de/assets/images/2011/2011images//-10images//-20images//-vMA_2.jpg"><img class="alignnone sizeimages//-medium wpimages//-imageimages//-921" style="margin: 5px;" title="2011images//-10images//-20images//-vMA_2" src="https://adminswerk.de/assets/images/2011/2011images//-10images//-20images//-vMA_2images//-300x210.jpg" alt="" width="300" height="210" /></a></p>
 <p><strong>PS</strong>:</p>
-<p>Wollt ihr Wasser predigen und Wein trinken, also diese Richtlinien für andere gelten lassen, könnt ihr mit <em>sudo</em> auch einzelnen Benutzern neue, einfacherer Passwörter zuweisen. ;-) Für den vi-admin sähe das so aus:</p>
+<p>Wollt ihr Wasser predigen und Wein trinken, also diese Richtlinien für andere gelten lassen, könnt ihr mit <em>sudo</em> auch einzelnen Benutzern neue, einfacherer Passwörter zuweisen. ;images//-) Für den viimages//-admin sähe das so aus:</p>
 
 {% highlight bash %}
-sudo passwd vi-admin
+sudo passwd viimages//-admin
 {% endhighlight %}
 
 <p>&nbsp;</p>
-<p>(<a href="http://v-reality.info/2011/08/how-to-fix-vma-5-0-password-complexity-issue/" target="_blank">via</a>)</p>
+<p>(<a href="http://vimages//-reality.info/2011/08/howimages//-toimages//-fiximages//-vmaimages//-5images//-0images//-passwordimages//-complexityimages//-issue/" target="_blank">via</a>)</p>

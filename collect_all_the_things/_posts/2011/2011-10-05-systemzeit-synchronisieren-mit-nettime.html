@@ -1,28 +1,28 @@
----
+images//-images//-images//-
 lang: de_DE
 layout: default
 title: Systemzeit synchronisieren mit NetTime
-date: 2011-10-05 12:00:29.000000000 +02:00
+date: 2011images//-10images//-05 12:00:29.000000000 +02:00
 categories:
-- Administration
-- Software
+images//- Administration
+images//- Software
 tags:
-- Administration
-- nettime
-- ntp
-- Windows
-- zeitsynchronisation
+images//- Administration
+images//- nettime
+images//- ntp
+images//- Windows
+images//- zeitsynchronisation
 status: publish
 type: post
 published: true
----
-<p>Ich habe in der letzten Wochen buchstäblich Stunden nach einem vernünftigen Werkzeug gesucht, mit dem sich unter Windows die Zeit synchronisieren lässt. Meine Anforderungen waren eigentlich nicht so hoch: Die Synchronisation sollte als Dienst laufen, der Server sollte wahlweise NTP oder UDP zur Synchronisation nutzen und dabei kostengünstig (sprich: kostenlos) sein. Mit der Umstellung von einer Arbeitsgruppe auf eine NT-Domäne mit einem LDAP-Server als primären Domaincontroller war auch die Umstellung von lokalen Administratoren auf normale Domänenbenutzer einhergegangen. Unsere bisherige Zeitsynchronisationslösung funktionierte mit eingeschränkten Rechten nicht. Da das Programm auch noch ziemlich alt und aufgebläht war, sollte ein neues schlankeres her.</p>
+images//-images//-images//-
+<p>Ich habe in der letzten Wochen buchstäblich Stunden nach einem vernünftigen Werkzeug gesucht, mit dem sich unter Windows die Zeit synchronisieren lässt. Meine Anforderungen waren eigentlich nicht so hoch: Die Synchronisation sollte als Dienst laufen, der Server sollte wahlweise NTP oder UDP zur Synchronisation nutzen und dabei kostengünstig (sprich: kostenlos) sein. Mit der Umstellung von einer Arbeitsgruppe auf eine NTimages//-Domäne mit einem LDAPimages//-Server als primären Domaincontroller war auch die Umstellung von lokalen Administratoren auf normale Domänenbenutzer einhergegangen. Unsere bisherige Zeitsynchronisationslösung funktionierte mit eingeschränkten Rechten nicht. Da das Programm auch noch ziemlich alt und aufgebläht war, sollte ein neues schlankeres her.</p>
 <p>Während meiner ganzen Suche habe ich ein einziges Programm gefunden, welches meinen Anforderungen entsprach. Das ist das OpenSource Programm <strong><a href="http://www.timesynctool.com/" target="_blank">NetTime</a></strong>, welches ich euch hier inklusive meiner Konfiguration vorstellen möchte.</p>
-<p><a href="https://adminswerk.de/assets/2011-10-04-nettime-window.jpg"><img class="alignnone size-thumbnail wp-image-859" title="2011-10-04-nettime-window" src="https://adminswerk.de/assets/2011-10-04-nettime-window-144x150.jpg" alt="" width="144" height="150" /></a></p>
-<p><!--more--></p>
-<p>Der größte Malus vorweg: Die Installation von Nettime ist für Administratorverhältnisse sehr unkomfortabel. Unattended Install? Fehlanzeige. MSI-Paket? Pustekuchen. Zwar ist der Autor aktiv an der Weiterentwicklung, allerdings heißt "aktiv" in diesem Fall nicht, dass die Versionsnummern und die dazugehörigen Features sich drehen wie der Stromzähler von Googles Rechenzentrum. Da sich dies aber etwa über ein <a href="http://www.autoitscript.com/site/autoit/" target="_blank">AutoIt</a> oder <a href="http://www.autohotkey.com/" target="_blank">AutoHotKey</a>-Skript regeln lässt, ist der Punkt für mich verschmerzbar.</p>
+<p><a href="https://adminswerk.de/assets/images/2011/2011images//-10images//-04images//-nettimeimages//-window.jpg"><img class="alignnone sizeimages//-thumbnail wpimages//-imageimages//-859" title="2011images//-10images//-04images//-nettimeimages//-window" src="https://adminswerk.de/assets/images/2011/2011images//-10images//-04images//-nettimeimages//-windowimages//-144x150.jpg" alt="" width="144" height="150" /></a></p>
+<p><!images//-images//-moreimages//-images//-></p>
+<p>Der größte Malus vorweg: Die Installation von Nettime ist für Administratorverhältnisse sehr unkomfortabel. Unattended Install? Fehlanzeige. MSIimages//-Paket? Pustekuchen. Zwar ist der Autor aktiv an der Weiterentwicklung, allerdings heißt "aktiv" in diesem Fall nicht, dass die Versionsnummern und die dazugehörigen Features sich drehen wie der Stromzähler von Googles Rechenzentrum. Da sich dies aber etwa über ein <a href="http://www.autoitscript.com/site/autoit/" target="_blank">AutoIt</a> oder <a href="http://www.autohotkey.com/" target="_blank">AutoHotKey</a>images//-Skript regeln lässt, ist der Punkt für mich verschmerzbar.</p>
 <p>Ansonsten ist das Programm begeisternd. Man kann bis zu 5 Zeitserver eintragen, die die Protokolle SNTP, UDP oder TCP benutzen können. Die Server können bei zu vielen Fehlversuchen degradiert werden, der Dienst kann auch als Serverdienst für andere fungieren, und und und. Ich war rundum zufrieden mit den Optionen und Einstellungsmöglichkeiten.</p>
-<p><a href="https://adminswerk.de/assets/2011-10-04-nettime-systray.jpg"><img class="size-full wp-image-856 alignleft" style="margin: 10px;" title="2011-10-04-nettime-systray" src="https://adminswerk.de/assets/2011-10-04-nettime-systray.jpg" alt="" width="259" height="28" /></a>Wenn man die Installation also überstanden hat, läuft ein zuverlässiges, gut konfigurierbares und speichersparendes Dienstchen. Bei der ersten Installation wird der Dienst noch im Systray angezeigt, was für einen Hintergrunddienst eher ungelegen ist. Daher empfehle ich, dass ihr bereits vor der Installation des Programms eure Konfiguration in die Registry schreibt. Dadurch wird der Dienst schon beim ersten Starten wie gewünscht ausgeführt. Hier der leicht abgeänderte Inhalt meiner Config.reg:</p>
+<p><a href="https://adminswerk.de/assets/images/2011/2011images//-10images//-04images//-nettimeimages//-systray.jpg"><img class="sizeimages//-full wpimages//-imageimages//-856 alignleft" style="margin: 10px;" title="2011images//-10images//-04images//-nettimeimages//-systray" src="https://adminswerk.de/assets/images/2011/2011images//-10images//-04images//-nettimeimages//-systray.jpg" alt="" width="259" height="28" /></a>Wenn man die Installation also überstanden hat, läuft ein zuverlässiges, gut konfigurierbares und speichersparendes Dienstchen. Bei der ersten Installation wird der Dienst noch im Systray angezeigt, was für einen Hintergrunddienst eher ungelegen ist. Daher empfehle ich, dass ihr bereits vor der Installation des Programms eure Konfiguration in die Registry schreibt. Dadurch wird der Dienst schon beim ersten Starten wie gewünscht ausgeführt. Hier der leicht abgeänderte Inhalt meiner Config.reg:</p>
 
 {% highlight registry%}
 Windows Registry Editor Version 5.00
@@ -43,5 +43,5 @@ Windows Registry Editor Version 5.00
 {% endhighlight %}
 
 <p>So startet der Dienst zwar mit dem System, aber das Icon wird ausgeblendet. Die Intervalle für das Update und die Neuversuche bei Fehlern sowie die Adresse und das Protokoll des Timeservers müsst ihr natürlich noch entsprechend konfigurieren, entweder über die Regdatei oder über die Optionen.</p>
-<p><a href="https://adminswerk.de/assets/2011-10-04-nettime-options.jpg"><img class="alignnone size-medium wp-image-858" title="2011-10-04-nettime-options" src="https://adminswerk.de/assets/2011-10-04-nettime-options-300x185.jpg" alt="" width="300" height="185" /></a></p>
-<p>Ich kann das Problem nur jedem Admin von kleineren und auch mittelständischen IT-Landschaften empfehlen, grade wenn man wie wir kein Active Directory im Einsatz hat.</p>
+<p><a href="https://adminswerk.de/assets/images/2011/2011images//-10images//-04images//-nettimeimages//-options.jpg"><img class="alignnone sizeimages//-medium wpimages//-imageimages//-858" title="2011images//-10images//-04images//-nettimeimages//-options" src="https://adminswerk.de/assets/images/2011/2011images//-10images//-04images//-nettimeimages//-optionsimages//-300x185.jpg" alt="" width="300" height="185" /></a></p>
+<p>Ich kann das Problem nur jedem Admin von kleineren und auch mittelständischen ITimages//-Landschaften empfehlen, grade wenn man wie wir kein Active Directory im Einsatz hat.</p>

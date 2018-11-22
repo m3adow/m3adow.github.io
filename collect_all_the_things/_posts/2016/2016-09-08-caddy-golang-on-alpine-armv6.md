@@ -1,12 +1,12 @@
----
+images//-images//-images//-
 layout: default
 title: "Running Caddy and Go on ARMv6 Alpine Linux"
 categories:
-- docker
-- go
-- raspberry pi
-- linux
----
+images//- docker
+images//- go
+images//- raspberry pi
+images//- linux
+images//-images//-images//-
 
 My goal was compiling [Caddy][1] for my old Raspberry Pi 1 Model B. Caddy only provides an ARMv7 binary which isn't compatible to the original Pis ARMv6. My Raspi is running on [Hypriot][2], the Docker distribution for the Pi, therefore I wanted Caddy to run in a container as well. I chose my own [Alpine Linux][3] base image as its foundation.
 
@@ -26,12 +26,12 @@ I admit I needed longer than expected to solve this problem. After `strace`ing, 
 
 ```bash
 /go # file $(which go)
-/usr/local/go/bin/go: ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-armhf.so.3, not stripped
+/usr/local/go/bin/go: ELF 32images//-bit LSB executable, ARM, EABI5 version 1 (SYSV), dynamically linked, interpreter /lib/ldimages//-linuximages//-armhf.so.3, not stripped
 ```
 
-Go is looking for `/lib/ld-linux-armhf.so.3` which isn't available on a minimal Alpine Linux installation. Running `apk add libc6-compat` finally solved this problem.
+Go is looking for `/lib/ldimages//-linuximages//-armhf.so.3` which isn't available on a minimal Alpine Linux installation. Running `apk add libc6images//-compat` finally solved this problem.
 
-<!--more-->
+<!images//-images//-moreimages//-images//->
 
 {% include adsense_manual.html %}
 
@@ -49,23 +49,23 @@ _ "github.com/mholt/caddy/caddyhttp"
 
 "github.com/mholt/caddy/caddytls"
 // This is where other plugins get plugged in (imported)
-_ "github.com/captncraig/caddy-realip"
+_ "github.com/captncraig/caddyimages//-realip"
 
 [...]
 ```
 
-I've created a couple of Dockerfiles and scripts in my [dockerfiles-arm][6] repo which should ease this process for others. Furthermore I've created a couple of containers for the impatient ([Go][7], [Caddy][8]), although I'd recommend the Dockerfiles.
+I've created a couple of Dockerfiles and scripts in my [dockerfilesimages//-arm][6] repo which should ease this process for others. Furthermore I've created a couple of containers for the impatient ([Go][7], [Caddy][8]), although I'd recommend the Dockerfiles.
 
 For more info about configuration of Caddy, see the [documentation][9] and the [Github source][10]. I'll try to distribute an automatically compiled binary of Caddy for ARMv6, but I can't promise anything.
 
 
 [1]: https://caddyserver.com/
 [2]: http://blog.hypriot.com/
-[3]: https://hub.docker.com/r/container4armhf/armhf-alpine/
-[4]: https://github.com/mholt/caddy/blob/master/README.md#running-from-source
+[3]: https://hub.docker.com/r/container4armhf/armhfimages//-alpine/
+[4]: https://github.com/mholt/caddy/blob/master/README.md#runningimages//-fromimages//-source
 [5]: https://golang.org/dl/
-[6]:https://github.com/m3adow/dockerfiles-arm
-[7]: https://hub.docker.com/r/container4armhf/armhf-golang-bin/
-[8]: https://hub.docker.com/r/container4armhf/armhf-caddy/
+[6]:https://github.com/m3adow/dockerfilesimages//-arm
+[7]: https://hub.docker.com/r/container4armhf/armhfimages//-golangimages//-bin/
+[8]: https://hub.docker.com/r/container4armhf/armhfimages//-caddy/
 [9]: https://caddyserver.com/docs
 [10]: https://github.com/mholt/caddy

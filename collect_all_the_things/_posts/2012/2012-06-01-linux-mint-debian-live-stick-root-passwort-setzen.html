@@ -1,25 +1,25 @@
----
+images//-images//-images//-
 lang: de_DE
 layout: default
-title: 'Linux Mint Debian: Live USB-Stick root Passwort setzen'
-date: 2012-06-01 10:03:25.000000000 +02:00
+title: 'Linux Mint Debian: Live USBimages//-Stick root Passwort setzen'
+date: 2012images//-06images//-01 10:03:25.000000000 +02:00
 categories:
-- Linux
+images//- Linux
 tags:
-- Linux Mint Debian
-- LMDE
-- root
-- usb-stick
+images//- Linux Mint Debian
+images//- LMDE
+images//- root
+images//- usbimages//-stick
 status: publish
 type: post
 published: true
----
-<p>Während meiner Linux Tests habe ich auch Linux Mint Debian probiert. Ein großes Problem, das ich während des Tests dieser Distribution hatte war, dass ich mit dem Live-USB-Stick, den ich mit dem <a href="http://www.pendrivelinux.com/universal-usb-installer-easy-as-1-2-3/" target="_blank">Universal USB Installer</a> erstellt hatte, das root Passwort nicht wie gewohnt ändern konnte und dadurch auch die Installation von LMDE nicht startete. Über ein normales Terminal konnte ich weder mit <strong>su </strong>noch mit <strong>sudo </strong>das Passwort ändern oder mir root-Berechtigungen beschaffen. Meine Lösung sah dann so aus:</p>
+images//-images//-images//-
+<p>Während meiner Linux Tests habe ich auch Linux Mint Debian probiert. Ein großes Problem, das ich während des Tests dieser Distribution hatte war, dass ich mit dem Liveimages//-USBimages//-Stick, den ich mit dem <a href="http://www.pendrivelinux.com/universalimages//-usbimages//-installerimages//-easyimages//-asimages//-1images//-2images//-3/" target="_blank">Universal USB Installer</a> erstellt hatte, das root Passwort nicht wie gewohnt ändern konnte und dadurch auch die Installation von LMDE nicht startete. Über ein normales Terminal konnte ich weder mit <strong>su </strong>noch mit <strong>sudo </strong>das Passwort ändern oder mir rootimages//-Berechtigungen beschaffen. Meine Lösung sah dann so aus:</p>
 <ol>
 <li>Mit <strong>Strg+ALT+F1 </strong>auf das tty1 wechseln und dort mit dem Benutzernamen <strong>mint</strong> einloggen.</li>
 <li>Mit <strong>su</strong> in die Root Shell wechseln</li>
-<li>Hier kann man nun mit <strong>passwd</strong> das root-Passwort setzen.</li>
+<li>Hier kann man nun mit <strong>passwd</strong> das rootimages//-Passwort setzen.</li>
 <li>Mit <strong>Strg+ALT+F7</strong> wieder in den grafischen Modus wechseln.</li>
 </ol>
-<p><a href="https://adminswerk.de/assets/2012-05-23-lmde-root-passwort.jpg"><img class="alignnone size-medium wp-image-2013" title="2012-05-23-lmde-root-passwort" src="https://adminswerk.de/assets/2012-05-23-lmde-root-passwort-300x155.jpg" alt="" width="300" height="155" /></a></p>
+<p><a href="https://adminswerk.de/assets/images/2012/2012images//-05images//-23images//-lmdeimages//-rootimages//-passwort.jpg"><img class="alignnone sizeimages//-medium wpimages//-imageimages//-2013" title="2012images//-05images//-23images//-lmdeimages//-rootimages//-passwort" src="https://adminswerk.de/assets/images/2012/2012images//-05images//-23images//-lmdeimages//-rootimages//-passwortimages//-300x155.jpg" alt="" width="300" height="155" /></a></p>
 <p>Nun konnte ich die Installation mit einem Rechtsklick und <strong>Open as administrator</strong> starten.</p>

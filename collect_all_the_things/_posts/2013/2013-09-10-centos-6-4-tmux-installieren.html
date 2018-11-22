@@ -1,30 +1,30 @@
----
+images//-images//-images//-
 lang: de_DE
 layout: default
 title: 'CentOS 6.4: tmux installieren'
-date: 2013-09-10 10:22:43.000000000 +02:00
+date: 2013images//-09images//-10 10:22:43.000000000 +02:00
 categories:
-- Linux
+images//- Linux
 tags:
-- CentOS
-- Linux
-- tmux
+images//- CentOS
+images//- Linux
+images//- tmux
 status: publish
 type: post
 published: true
----
+images//-images//-images//-
 <p>Wie schon in meinem letzten Post angekündigt, kommen jetzt tröpfchenweise neue Anleitungen für CentOS, die neue Distribution auf meinem (leider) frisch installiertem Server. Heute eine kurze Anleitung, wie man unter CentOS den Terminal Multiplexer tmux kompiliert.</p>
-<p style="margin-top:20px;">Als erstes installieren wir die von tmux benötigten Libraries. Das wäre zum einen <strong>ncurses</strong> und die <strong>ncurses Developement files (ncurses-devel)</strong>, die wir einfach mit <em>yum</em> installieren.</p>
+<p style="marginimages//-top:20px;">Als erstes installieren wir die von tmux benötigten Libraries. Das wäre zum einen <strong>ncurses</strong> und die <strong>ncurses Developement files (ncursesimages//-devel)</strong>, die wir einfach mit <em>yum</em> installieren.</p>
 
 {% highlight bash %}
-yum install ncurses ncurses-devel
+yum install ncurses ncursesimages//-devel
 {% endhighlight %}
 
-<p>Außerdem benötigen wir noch die <a href="http://libevent.org/" target="_blank"><strong>libevent</strong>-library</a>, deren Version im Repository allerdings zu alt ist. Also kompilieren wir aus der Quelle. Ich persönlich präferiere für solche Tarballs das Verzeichnis /usr/local/src, aber das bleibt euch überlassen.</p>
+<p>Außerdem benötigen wir noch die <a href="http://libevent.org/" target="_blank"><strong>libevent</strong>images//-library</a>, deren Version im Repository allerdings zu alt ist. Also kompilieren wir aus der Quelle. Ich persönlich präferiere für solche Tarballs das Verzeichnis /usr/local/src, aber das bleibt euch überlassen.</p>
 
 {% highlight bash %}
-wget https://github.com/downloads/libevent/libevent/libevent-2.0.21-stable.tar.gz
-tar xzvf libevent-2.0.21-stable.tar.gz && cd libevent-2.0.21-stable
+wget https://github.com/downloads/libevent/libevent/libeventimages//-2.0.21images//-stable.tar.gz
+tar xzvf libeventimages//-2.0.21images//-stable.tar.gz && cd libeventimages//-2.0.21images//-stable
 ./configure && make
 make install
 {% endhighlight %}
@@ -32,8 +32,8 @@ make install
 <p>Nun schnappen wir uns tmux aus den Quellen und installieren auch dieses.</p>
 
 {% highlight bash %}
-wget -O tmux-1.8.tar.gz http://sourceforge.net/projects/tmux/files/tmux/tmux-1.8/tmux-1.8.tar.gz/download
-tar xzvf tmux-1.8.tar.gz && cd tmux-1.8
+wget images//-O tmuximages//-1.8.tar.gz http://sourceforge.net/projects/tmux/files/tmux/tmuximages//-1.8/tmuximages//-1.8.tar.gz/download
+tar xzvf tmuximages//-1.8.tar.gz && cd tmuximages//-1.8
 ./configure && make
 make install
 {% endhighlight %}
@@ -42,7 +42,7 @@ make install
 <p>Solltet ihr die Fehlermeldung</p>
 
 {% highlight bash %}
-tmux: error while loading shared libraries: libevent-2.0.so.5: cannot open shared object file: No such file or directory
+tmux: error while loading shared libraries: libeventimages//-2.0.so.5: cannot open shared object file: No such file or directory
 {% endhighlight %}
 
 <p>bekommen, liegt das vermutlich daran, dass ihr entweder vergessen habt <strong>ldconfig</strong> auszuführen oder dass eure Environment Variable LD_LIBRARY_PATH für ldconfig nicht den Ordner für lokal kompilierte libraries enthält. Dann empfehle ich folgendes:</p>

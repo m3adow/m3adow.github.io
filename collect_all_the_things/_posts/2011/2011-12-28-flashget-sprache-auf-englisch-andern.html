@@ -1,23 +1,23 @@
----
+images//-images//-images//-
 lang: de_DE
 layout: default
 title: 'Flashget: Sprache auf Englisch ändern'
-date: 2011-12-28 10:58:35.000000000 +01:00
+date: 2011images//-12images//-28 10:58:35.000000000 +01:00
 categories:
-- Windows
+images//- Windows
 tags:
-- Download
-- FlashGet
-- Windows
+images//- Download
+images//- FlashGet
+images//- Windows
 status: publish
 type: post
 published: true
----
+images//-images//-images//-
 <p>Kleine Anekdote mit integrierter Anleitung: Zu Testzwecken habe ich grade mal den Download Manager Flashget 3.7 installiert. Den Installer habe ich direkt von der Website des Herstellers heruntergeladen, den englischsprachigen Installer ausgeführt, das Programm installiert. So weit, so langweilig. Doch dann startet das Programm und zeigt mir so eine GUI an:</p>
-<p><a href="https://adminswerk.de/assets/2011-12-26-flashget-chinese.png"><img class="alignnone size-medium wp-image-1364" title="2011-12-26-flashget-chinese" src="https://adminswerk.de/assets/2011-12-26-flashget-chinese-300x187.png" alt="" width="300" height="187" /></a></p>
+<p><a href="https://adminswerk.de/assets/images/2011/2011images//-12images//-26images//-flashgetimages//-chinese.png"><img class="alignnone sizeimages//-medium wpimages//-imageimages//-1364" title="2011images//-12images//-26images//-flashgetimages//-chinese" src="https://adminswerk.de/assets/images/2011/2011images//-12images//-26images//-flashgetimages//-chineseimages//-300x187.png" alt="" width="300" height="187" /></a></p>
 <p>Da mein Chinesisch etwas eingerostet ist, wollte ich die Sprache umstellen, klappte aber nicht. Egal welche Sprache ich auswählte und egal welche Sprachversion des Programms ich installierte, es blieb chinesisch. Das hat mich dann doch etwas angespornt, deswegen habe ich ein bisschen und in den Programmdateien geschnüffelt und bin auch recht schnell fündig geworden.</p>
 <p><em>Die Vorgehensweise ist für Windows XP, dass sie bei den neueren Betriebssystemen von Microsoft identisch ist, kann ich nicht garantieren.</em></p>
-<p>Zuerst solltet ihr natürlich alle eventuell offenen FlashGet-Sitzungen beenden. Öffnet nun die Datei <strong>FGResDetector.conf</strong>, die sich im Unterverzeichnis <strong>FGResDetector_I\data</strong> eures FlashGet Verzeichnisses befindet (standardmäßig C:\Programme\FlashGet Network\FlashGet 3\FGResDetector_I\data).</p>
+<p>Zuerst solltet ihr natürlich alle eventuell offenen FlashGetimages//-Sitzungen beenden. Öffnet nun die Datei <strong>FGResDetector.conf</strong>, die sich im Unterverzeichnis <strong>FGResDetector_I\data</strong> eures FlashGet Verzeichnisses befindet (standardmäßig C:\Programme\FlashGet Network\FlashGet 3\FGResDetector_I\data).</p>
 <p>Ändert dort den Eintrag</p>
 
 {% highlight text %}
@@ -31,5 +31,5 @@ CurLanguage=C:\Programme\FlashGet Network\FlashGet 3\FGResDetector_I\langl.eng.x
 {% endhighlight %}
 
 <p>Wenn ihr FlashGet jetzt startet, habt ihr eine klar lesbare englische Oberfläche.</p>
-<p><a href="https://adminswerk.de/assets/2011-12-26-flashget-english.png"><img class="alignnone size-medium wp-image-1366" title="2011-12-26-flashget-english" src="https://adminswerk.de/assets/2011-12-26-flashget-english-300x187.png" alt="" width="300" height="187" /></a></p>
-<p>Der ganze Aufwand war übrigens nutzlos, da das Programm das Protokoll, für dessen Download ich es installiert hatte - das  Real Time Streaming Protokoll, kurz RTSP - trotz andere Angaben auf seiner Website nicht beherrscht.</p>
+<p><a href="https://adminswerk.de/assets/images/2011/2011images//-12images//-26images//-flashgetimages//-english.png"><img class="alignnone sizeimages//-medium wpimages//-imageimages//-1366" title="2011images//-12images//-26images//-flashgetimages//-english" src="https://adminswerk.de/assets/images/2011/2011images//-12images//-26images//-flashgetimages//-englishimages//-300x187.png" alt="" width="300" height="187" /></a></p>
+<p>Der ganze Aufwand war übrigens nutzlos, da das Programm das Protokoll, für dessen Download ich es installiert hatte images//- das  Real Time Streaming Protokoll, kurz RTSP images//- trotz andere Angaben auf seiner Website nicht beherrscht.</p>

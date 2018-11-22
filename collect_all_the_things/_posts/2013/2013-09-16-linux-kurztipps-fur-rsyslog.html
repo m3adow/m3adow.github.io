@@ -1,31 +1,31 @@
----
+images//-images//-images//-
 lang: de_DE
 layout: default
 title: 'Linux: Kurztipps für Rsyslog'
-date: 2013-09-16 08:55:46.000000000 +02:00
+date: 2013images//-09images//-16 08:55:46.000000000 +02:00
 categories:
-- Linux
+images//- Linux
 tags:
-- CentOS
-- Debian
-- Linux
-- rsyslog
+images//- CentOS
+images//- Debian
+images//- Linux
+images//- rsyslog
 status: publish
 type: post
 published: true
----
+images//-images//-images//-
 <p>Hier zwei kleine Konfigurationseinstellungen für Rsyslog, die ich immer wieder vergesse und dann zeitaufwändig im Netz oder auf Referenzmaschinen suchen muss.</p>
-<p>Um in Debian/Raspbian sämtliche cron-Einträge aus dem syslog zu tilgen, folgendes in eine Datei eurer Wahl  (beispielsweise 00-cron) unter /etc/rsyslog.d/ schreiben:</p>
+<p>Um in Debian/Raspbian sämtliche cronimages//-Einträge aus dem syslog zu tilgen, folgendes in eine Datei eurer Wahl  (beispielsweise 00images//-cron) unter /etc/rsyslog.d/ schreiben:</p>
 
 {% highlight bash %}
-cron.none -/var/log/syslog
+cron.none images//-/var/log/syslog
 :msg, contains, "/var/www/cron.php" ~
 {% endhighlight %}
 
-<p>Um in CentOS sämtliche Einträge des sshd bzw. spezifischer der Log Facility AUTH in die /var/log/auth.log umzuleiten, brauchen wir wieder eine Datei unter /etc/rsyslog.d/. Meine 00-sshd.conf enthält dann folgendes:</p>
+<p>Um in CentOS sämtliche Einträge des sshd bzw. spezifischer der Log Facility AUTH in die /var/log/auth.log umzuleiten, brauchen wir wieder eine Datei unter /etc/rsyslog.d/. Meine 00images//-sshd.conf enthält dann folgendes:</p>
 
 {% highlight bash %}
-auth.none       -/var/log/messages
+auth.none       images//-/var/log/messages
 auth.* /var/log/auth.log
 {% endhighlight %}
 
@@ -35,4 +35,4 @@ auth.* /var/log/auth.log
 service rsyslog restart
 {% endhighlight %}
 
-<p>Ich hoffe, dass ich das nächste Mal, wenn ich diese Tweaks brauche, mich auch an diesen Eintrag erinnere. :-D</p>
+<p>Ich hoffe, dass ich das nächste Mal, wenn ich diese Tweaks brauche, mich auch an diesen Eintrag erinnere. :images//-D</p>

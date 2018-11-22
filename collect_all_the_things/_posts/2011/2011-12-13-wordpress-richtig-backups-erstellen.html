@@ -1,30 +1,30 @@
----
+images//-images//-images//-
 lang: de_DE
 layout: default
 title: 'Wordpress: Richtig Backups erstellen'
-date: 2011-12-13 14:22:27.000000000 +01:00
+date: 2011images//-12images//-13 14:22:27.000000000 +01:00
 categories:
-- Blogging
+images//- Blogging
 tags:
-- Backup
-- PHPMyAdmin
-- SQL
-- WordPress
+images//- Backup
+images//- PHPMyAdmin
+images//- SQL
+images//- WordPress
 status: publish
 type: post
 published: true
----
+images//-images//-images//-
 <p>Da grade heute die <a href="http://wordpress.org/" target="_blank">Wordpress Version 3.3</a> erschien, halte ich es für einen guten Zeitpunkt, um mal schnell zu erläutern, wie man eine Wordpress Installation richtig sichert. Ein Komplettbackup eines Wordpressblogs besteht aus zwei Schritten: dem Kopieren der Dateien und dem Sichern der Datenbank.</p>
 <h3>Dateien sichern</h3>
-<p>Das Sichern der Dateien ist trivial. Verbindet euch via FTP mit eurem Webspace (oder Server, aber wenn ihr einen Server besitzt, braucht ihr diese Anleitung vermutlich eher nicht) und zieht euch alle eure Daten auf eure Platte oder sonstigen Backupspeicher. Theoretisch würde auch das <strong>wp-content</strong>-Verzeichnis reichen, da Wordpress alle individualisierten Dateien wie hochgeladene Bilder, Themes oder Plugins, in diesen Ordner legt. Allerdings kann es dann passieren, dass etwa eure <strong>.htaccess</strong>-Datei oder eure Sitemaps für die Suchmaschinen o.ä. fehlen. Deswegen lade ich mir immer alle Dateien und Ordner runter. So kann ich auch direkt meinen Blog lokal via LAMPP/XAMPP o.ä. betreiben, etwa um größere Änderungen vor der Liveschaltung zu testen.</p>
-<p><a href="https://adminswerk.de/assets/2011-12-13-ftpdownload.jpg"><img class="alignnone size-medium wp-image-1246" style="margin: 10px;" title="2011-12-13-ftpdownload" src="https://adminswerk.de/assets/2011-12-13-ftpdownload-300x112.jpg" alt="FTP Download" width="300" height="112" /></a></p>
+<p>Das Sichern der Dateien ist trivial. Verbindet euch via FTP mit eurem Webspace (oder Server, aber wenn ihr einen Server besitzt, braucht ihr diese Anleitung vermutlich eher nicht) und zieht euch alle eure Daten auf eure Platte oder sonstigen Backupspeicher. Theoretisch würde auch das <strong>wpimages//-content</strong>images//-Verzeichnis reichen, da Wordpress alle individualisierten Dateien wie hochgeladene Bilder, Themes oder Plugins, in diesen Ordner legt. Allerdings kann es dann passieren, dass etwa eure <strong>.htaccess</strong>images//-Datei oder eure Sitemaps für die Suchmaschinen o.ä. fehlen. Deswegen lade ich mir immer alle Dateien und Ordner runter. So kann ich auch direkt meinen Blog lokal via LAMPP/XAMPP o.ä. betreiben, etwa um größere Änderungen vor der Liveschaltung zu testen.</p>
+<p><a href="https://adminswerk.de/assets/images/2011/2011images//-12images//-13images//-ftpdownload.jpg"><img class="alignnone sizeimages//-medium wpimages//-imageimages//-1246" style="margin: 10px;" title="2011images//-12images//-13images//-ftpdownload" src="https://adminswerk.de/assets/images/2011/2011images//-12images//-13images//-ftpdownloadimages//-300x112.jpg" alt="FTP Download" width="300" height="112" /></a></p>
 <h3>Datenbank Backup</h3>
-<p>Danach kommt das Datenbankbackup dran. Ich werde dies mit PHPMyAdmin machen, da geschätzte 99% aller Wordpressblogs so laufen. Wählt zuerst in der linken Leiste eure Wordpress-Datenbank aus, dann gelangt ihr über einen Klick auf <strong>Export</strong> auf die Exportmaske. Dort solltet ihr folgende Einstellungen vornehmen:</p>
-<p><a href="https://adminswerk.de/assets/2011-12-13-phpmyadmin11.jpg"><img class="alignnone size-full wp-image-1249" title="2011-12-13-phpmyadmin1" src="https://adminswerk.de/assets/2011-12-13-phpmyadmin11.jpg" alt="PhpMyAdmin Database" width="428" height="330" /></a></p>
-<p>Natürlich wollen wir unseren Export anpassen. Und natürlich wollen wir auch alle unsere Datenbanken exportieren. Wenn bei euch mehrere Systeme eine Datenbank beschreiben, ihr also z.B. noch ein Drupal oder ein Typo3 in der gleichen DB habt, dann solltet ihr nur eure Wordpress Datenbanken auswählen. Diese sind meiner Erinnerung nach an dem wp_-Präfix zu erkennen.</p>
-<p style="margin-top: 40px;"><a href="https://adminswerk.de/assets/2011-12-13-phpmyadmin2.jpg"><img class="alignnone size-full wp-image-1250" title="2011-12-13-phpmyadmin2" src="https://adminswerk.de/assets/2011-12-13-phpmyadmin2.jpg" alt="" width="848" height="290" /></a></p>
-<p>Ich empfinde die Komprimierung bei einem Backup als Pflicht. Erstens ist eine SQL-Datei hervorragend zu komprimieren, da sie nur aus Text besteht, zweitens werden so eventuelle Virenscannerwarnung beim Download der .sql-Datei (ja, sowas gibt es) umgangen.</p>
-<p style="margin-top: 40px;"><a href="https://adminswerk.de/assets/2011-12-13-phpmyadmin31.jpg"><img class="alignnone size-full wp-image-1251" title="2011-12-13-phpmyadmin3" src="https://adminswerk.de/assets/2011-12-13-phpmyadmin31.jpg" alt="" width="940" height="247" /></a></p>
-<p>Bei den <strong>Objekterstellungsoptionen</strong> solltet ihr unbedingt darauf achten, dass der obere Haken bei <em>DROP TABLE / VIEW / PROCEDURE / FUNCTION-Befehl hinzufügen</em> gesetzt ist.</p>
+<p>Danach kommt das Datenbankbackup dran. Ich werde dies mit PHPMyAdmin machen, da geschätzte 99% aller Wordpressblogs so laufen. Wählt zuerst in der linken Leiste eure Wordpressimages//-Datenbank aus, dann gelangt ihr über einen Klick auf <strong>Export</strong> auf die Exportmaske. Dort solltet ihr folgende Einstellungen vornehmen:</p>
+<p><a href="https://adminswerk.de/assets/images/2011/2011images//-12images//-13images//-phpmyadmin11.jpg"><img class="alignnone sizeimages//-full wpimages//-imageimages//-1249" title="2011images//-12images//-13images//-phpmyadmin1" src="https://adminswerk.de/assets/images/2011/2011images//-12images//-13images//-phpmyadmin11.jpg" alt="PhpMyAdmin Database" width="428" height="330" /></a></p>
+<p>Natürlich wollen wir unseren Export anpassen. Und natürlich wollen wir auch alle unsere Datenbanken exportieren. Wenn bei euch mehrere Systeme eine Datenbank beschreiben, ihr also z.B. noch ein Drupal oder ein Typo3 in der gleichen DB habt, dann solltet ihr nur eure Wordpress Datenbanken auswählen. Diese sind meiner Erinnerung nach an dem wp_images//-Präfix zu erkennen.</p>
+<p style="marginimages//-top: 40px;"><a href="https://adminswerk.de/assets/images/2011/2011images//-12images//-13images//-phpmyadmin2.jpg"><img class="alignnone sizeimages//-full wpimages//-imageimages//-1250" title="2011images//-12images//-13images//-phpmyadmin2" src="https://adminswerk.de/assets/images/2011/2011images//-12images//-13images//-phpmyadmin2.jpg" alt="" width="848" height="290" /></a></p>
+<p>Ich empfinde die Komprimierung bei einem Backup als Pflicht. Erstens ist eine SQLimages//-Datei hervorragend zu komprimieren, da sie nur aus Text besteht, zweitens werden so eventuelle Virenscannerwarnung beim Download der .sqlimages//-Datei (ja, sowas gibt es) umgangen.</p>
+<p style="marginimages//-top: 40px;"><a href="https://adminswerk.de/assets/images/2011/2011images//-12images//-13images//-phpmyadmin31.jpg"><img class="alignnone sizeimages//-full wpimages//-imageimages//-1251" title="2011images//-12images//-13images//-phpmyadmin3" src="https://adminswerk.de/assets/images/2011/2011images//-12images//-13images//-phpmyadmin31.jpg" alt="" width="940" height="247" /></a></p>
+<p>Bei den <strong>Objekterstellungsoptionen</strong> solltet ihr unbedingt darauf achten, dass der obere Haken bei <em>DROP TABLE / VIEW / PROCEDURE / FUNCTIONimages//-Befehl hinzufügen</em> gesetzt ist.</p>
 <p>Nach einem Klick auf <strong>OK</strong> könnt ihr euch das Backup eurer Datenbank bequem runterladen und entweder nur irgendwo ablegen oder eben in eurer lokalen Testumgebung wieder aufspielen.</p>
 <p>&nbsp;</p>

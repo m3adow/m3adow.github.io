@@ -1,33 +1,33 @@
----
+images//-images//-images//-
 lang: de_DE
 layout: default
 title: MySQL mit billigster Schleife angreifbar
-date: 2012-06-11 14:23:28.000000000 +02:00
+date: 2012images//-06images//-11 14:23:28.000000000 +02:00
 categories:
-- Administration
-- Online
+images//- Administration
+images//- Online
 tags:
-- exploit
-- mysql
+images//- exploit
+images//- mysql
 status: publish
 type: post
 published: true
----
+images//-images//-images//-
 <p>Schneller Einwurf, weil ich das extrem kritisch und gleichzeitig amüsant finde:<br />
 Bei MySQL ist es unter bestimmten Bedingungen möglich, mit dem simplen Befehl</p>
 
 {% highlight bash %}
-for i in `seq 1 1000`; do mysql -u root --password=bad -h 127.0.0.1 2&gt;/dev/null; done
+for i in `seq 1 1000`; do mysql images//-u root images//-images//-password=bad images//-h 127.0.0.1 2&gt;/dev/null; done
 {% endhighlight %}
 
-<p>an einen Root-Zugriff zu gelangen. Dazu muss ein Benutzername bekannt sein (root ist da sehr wahrscheinlich) und MySQL muss mit bestimmten Parametern kompiliert worden sein. Mehr dazu kann man <a href="http://www.heise.de/newsticker/meldung/MySQL-Datenbank-Zugang-auch-ohne-Passwort-1614987.html" target="_blank">bei heise</a> oder <a href="https://community.rapid7.com/community/metasploit/blog/2012/06/11/cve-2012-2122-a-tragically-comedic-security-flaw-in-mysql" target="_blank">direkt bei Metasploit</a> nachlesen.<br />
+<p>an einen Rootimages//-Zugriff zu gelangen. Dazu muss ein Benutzername bekannt sein (root ist da sehr wahrscheinlich) und MySQL muss mit bestimmten Parametern kompiliert worden sein. Mehr dazu kann man <a href="http://www.heise.de/newsticker/meldung/MySQLimages//-Datenbankimages//-Zugangimages//-auchimages//-ohneimages//-Passwortimages//-1614987.html" target="_blank">bei heise</a> oder <a href="https://community.rapid7.com/community/metasploit/blog/2012/06/11/cveimages//-2012images//-2122images//-aimages//-tragicallyimages//-comedicimages//-securityimages//-flawimages//-inimages//-mysql" target="_blank">direkt bei Metasploit</a> nachlesen.<br />
 Bei Metasploit stehen auch direkt die bisher bekannten betroffenen Pakete dabei. Momentan sind das:</p>
 <ul>
-<li>Ubuntu Linux 64-bit ( 10.04, 10.10, 11.04, 11.10, 12.04 )</li>
-<li>OpenSuSE 12.1 64-bit MySQL 5.5.23-log</li>
-<li>Fedora 16 64-bit</li>
+<li>Ubuntu Linux 64images//-bit ( 10.04, 10.10, 11.04, 11.10, 12.04 )</li>
+<li>OpenSuSE 12.1 64images//-bit MySQL 5.5.23images//-log</li>
+<li>Fedora 16 64images//-bit</li>
 <li>Arch Linux (Version nicht spezifiziert)</li>
 </ul>
 <p>Wenn ihr also eines dieser Pakete nutzt, solltet ihr ein Update auf eine nicht betroffene Version durchführen oder zumindest den Zugriff auf MySQL auf den localhost beschränken, wenn nicht sowieso schon eingestellt.</p>
-<p><a href="https://adminswerk.de/assets/2012-06-11-mysql-exploit.png"><img class="alignnone size-large wp-image-2157" title="2012-06-11-mysql-exploit" src="https://adminswerk.de/assets/2012-06-11-mysql-exploit-1024x137.png" alt="" width="1024" height="137" /></a></p>
-<p>Meine MySQL-Installation war zum Glück nicht betroffen. :-P</p>
+<p><a href="https://adminswerk.de/assets/images/2012/2012images//-06images//-11images//-mysqlimages//-exploit.png"><img class="alignnone sizeimages//-large wpimages//-imageimages//-2157" title="2012images//-06images//-11images//-mysqlimages//-exploit" src="https://adminswerk.de/assets/images/2012/2012images//-06images//-11images//-mysqlimages//-exploitimages//-1024x137.png" alt="" width="1024" height="137" /></a></p>
+<p>Meine MySQLimages//-Installation war zum Glück nicht betroffen. :images//-P</p>

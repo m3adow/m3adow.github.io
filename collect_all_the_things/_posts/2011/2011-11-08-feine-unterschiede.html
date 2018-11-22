@@ -1,59 +1,59 @@
----
+images//-images//-images//-
 lang: de_DE
 layout: default
 title: Feine Unterschiede
-date: 2011-11-08 10:31:43.000000000 +01:00
+date: 2011images//-11images//-08 10:31:43.000000000 +01:00
 categories:
-- Nerdiges
+images//- Nerdiges
 tags:
-- Cosinus
-- Java
-- Performance
-- Programming
+images//- Cosinus
+images//- Java
+images//- Performance
+images//- Programming
 status: publish
 type: post
 published: true
----
-<p>In meinem ersten Posting, welches mehr Inhalt hat, als einen dummen QR-Code-Witz, möchte ich mich einem kleinen Kniff widmen, der mir gerade mal wieder aufgefallen ist, als ich ein paar Aufwärmübungen im Java-Programmieren machte, um wieder etwas in die Syntax einzusteigen.</p>
-<p>Es passiert so oft: Man schreibt ein schönes, performantes Program, im schlimmsten Fall sogar eines, das mit Computergrafik zu tun hat und weigert sich aus unbekannten Gründen, für trigonometrische Funktionen Look-Up-Tables zu verwenden. Nun berechnet man also vllt. einige tausend Male in wenigen Sekunden in seinem Programm z.B. den Cosinus einer reellen Zahl.<br />
-<!--more--><br />
-Dabei wird man rasch feststellen, dass die Java-interne Funktion "Math.cos(double x)" zwar relativ schnell ist, aber man doch gern noch ein wenig schneller wäre.</p>
+images//-images//-images//-
+<p>In meinem ersten Posting, welches mehr Inhalt hat, als einen dummen QRimages//-Codeimages//-Witz, möchte ich mich einem kleinen Kniff widmen, der mir gerade mal wieder aufgefallen ist, als ich ein paar Aufwärmübungen im Javaimages//-Programmieren machte, um wieder etwas in die Syntax einzusteigen.</p>
+<p>Es passiert so oft: Man schreibt ein schönes, performantes Program, im schlimmsten Fall sogar eines, das mit Computergrafik zu tun hat und weigert sich aus unbekannten Gründen, für trigonometrische Funktionen Lookimages//-Upimages//-Tables zu verwenden. Nun berechnet man also vllt. einige tausend Male in wenigen Sekunden in seinem Programm z.B. den Cosinus einer reellen Zahl.<br />
+<!images//-images//-moreimages//-images//-><br />
+Dabei wird man rasch feststellen, dass die Javaimages//-interne Funktion "Math.cos(double x)" zwar relativ schnell ist, aber man doch gern noch ein wenig schneller wäre.</p>
 <p>Dazu überlegt sich der findige Mathematiker in uns wohl recht schnell, dass er ja eine Annäherungsfunktion an den Cosinus besser selbst implementieren möchte, z.B. die bekannte Reihe:</p>
 <p><img src="https://adminswerk.de/assets/cosinus_formulamotm.png" alt="Cosinus Approximation" /></p>
 <p>Die Summe ist recht schnell in Code umgesetzt und resultiert in der Methode</p>
 <p><code><br />
-final static double EPS = 1E-12; //gewünschte Genauigkeit<br />
+final static double EPS = 1Eimages//-12; //gewünschte Genauigkeit<br />
 public static double faculty(long x); //Fakultätsfunktion<br />
 public static double slowCos(double x){<br />
 double part;<br />
 float sum = 0;<br />
-int n = -1;<br />
+int n = images//-1;<br />
 do{<br />
-part = Math.pow(-1, n+3) * (Math.pow(x,2*n+2)/faculty(2*n+2));<br />
+part = Math.pow(images//-1, n+3) * (Math.pow(x,2*n+2)/faculty(2*n+2));<br />
 sum += part;<br />
 n++;<br />
 } while (Math.abs(part) &gt; EPS);<br />
 return sum;</code></p>
 <p>&nbsp;</p>
-<p>Ärgerlicher Weise ist diese Art den Cosinus anzunähern noch langsamer, als die Java-interne Methode...also überlegt man sich fix, wie man diesem Problem aus dem Weg gehen könnte. Nach einiger Denkzeit kommt man dann auf die rettende Idee: "Warum programmiere ich eigtl. haarklein das Summenzeichen nach und nicht die Summe, die davor steht!"<code></code></p>
+<p>Ärgerlicher Weise ist diese Art den Cosinus anzunähern noch langsamer, als die Javaimages//-interne Methode...also überlegt man sich fix, wie man diesem Problem aus dem Weg gehen könnte. Nach einiger Denkzeit kommt man dann auf die rettende Idee: "Warum programmiere ich eigtl. haarklein das Summenzeichen nach und nicht die Summe, die davor steht!"<code></code></p>
 <p><code><br />
-final static double EPS = 1E-12; //gewünschte Genauigkeit<br />
+final static double EPS = 1Eimages//-12; //gewünschte Genauigkeit<br />
 public static double fastCos(float x){<br />
 double sum = 1;<br />
 double part = 1;<br />
 double xx = x*x; //vorberechnetes x² für noch mehr Geschwindigkeit!<br />
 int n = 2;<br />
 do{<br />
-part = part * -1;<br />
+part = part * images//-1;<br />
 part = part * xx;<br />
-part = part / ((n-1)*n);<br />
+part = part / ((nimages//-1)*n);<br />
 sum += part;<br />
 n += 2;<br />
 } while (Math.abs(part) &gt; EPS);<br />
 return sum;<br />
 }</code><br />
 Siehe da! Alle aufwändigen Komponenten der Schleife, wie Potenzen und Fakultät wurden aufgelöst und in der Schleife werden nur noch triviale (und vor allem schnelle!) Additionen und Multiplikationen ausgeführt!</p>
-<p>Beim Ausprobieren stellt man fest, es fühlt sich schneller an, daher hier zum Vergleich über 1000 Versuche gemittelte Geschwindigkeiten der verschiedenen Algorithmen bei einer Genauigkeit auf "1E-12" also 12 Stellen hinter dem Komma:</p>
+<p>Beim Ausprobieren stellt man fest, es fühlt sich schneller an, daher hier zum Vergleich über 1000 Versuche gemittelte Geschwindigkeiten der verschiedenen Algorithmen bei einer Genauigkeit auf "1Eimages//-12" also 12 Stellen hinter dem Komma:</p>
 <p>AlgorithmusDurchschnittsdauer/Berechnung</p>
 <table>
 <thead></thead>
@@ -72,7 +72,7 @@ Siehe da! Alle aufwändigen Komponenten der Schleife, wie Potenzen und Fakultät
 </tr>
 </tbody>
 </table>
-<p>Der fastCos-Algorithmus ist also (auf meinem System) im Schnitt ca. 4x so schnell, wie der in Java6 integrierte Math.cos Befehl. Die Lektion die daraus hervorgeht sollte sein: Auch gegebene, vorimplementierte Funktionen können Schwächen in Sachen Geschwindigkeit und sogar Genauigkeit aufweisen! Zum Testen sind diese Funktionen in aller Regel super, bzw. für kleinere Projekte. Sollte es an Echtzeitkritischere Dinge gehen, empfiehlt es sich stets, sich auch über solche Kleinigkeiten mal Gedanken zu machen, da allzuoft genau solche Kleinigkeiten zu gigantischen Performanz-Einbußen in Endanwendungen sorgen.</p>
+<p>Der fastCosimages//-Algorithmus ist also (auf meinem System) im Schnitt ca. 4x so schnell, wie der in Java6 integrierte Math.cos Befehl. Die Lektion die daraus hervorgeht sollte sein: Auch gegebene, vorimplementierte Funktionen können Schwächen in Sachen Geschwindigkeit und sogar Genauigkeit aufweisen! Zum Testen sind diese Funktionen in aller Regel super, bzw. für kleinere Projekte. Sollte es an Echtzeitkritischere Dinge gehen, empfiehlt es sich stets, sich auch über solche Kleinigkeiten mal Gedanken zu machen, da allzuoft genau solche Kleinigkeiten zu gigantischen Performanzimages//-Einbußen in Endanwendungen sorgen.</p>
 <p>&nbsp;</p>
 <p>Damit verabschiede ich mich auch erstmal und wünsche eine schöne Zeit!</p>
 <p>Euer André</p>

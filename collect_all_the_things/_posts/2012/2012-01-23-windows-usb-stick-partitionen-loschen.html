@@ -1,35 +1,35 @@
----
+images//-images//-images//-
 lang: de_DE
 layout: default
-title: 'Windows: USB-Stick Partitionen löschen'
-date: 2012-01-23 10:03:33.000000000 +01:00
+title: 'Windows: USBimages//-Stick Partitionen löschen'
+date: 2012images//-01images//-23 10:03:33.000000000 +01:00
 categories:
-- Windows
+images//- Windows
 tags:
-- diskpart
-- Partition
-- usb-stick
+images//- diskpart
+images//- Partition
+images//- usbimages//-stick
 status: publish
 type: post
 published: true
----
-<p>Es kann schnell passieren, dass man einen USB-Stick aus Versehen mit mehreren Partitionen versieht. In meinem Fall beim Versuch des Azubis Clonezilla als bootfähige Version zu konfigurieren.</p>
-<p><a href="https://adminswerk.de/assets/2012-01-23-usb-stick-partition.jpg"><img class="alignnone size-medium wp-image-1571" title="2012-01-23-usb-stick-partition" src="https://adminswerk.de/assets/2012-01-23-usb-stick-partition-300x140.jpg" alt="" width="300" height="140" /></a></p>
-<p>6 Partitionen bei einem 4 GB großen USB-Stick sind nicht grade meine Wunschformatierung, von der 4 MB großen aktiven Partition will ich gar nicht erst reden. :-P Also machen wir uns ran die Partitionen wieder zu löschen. Dafür gibt es zwei Wege.</p>
-<p><!--more--></p>
+images//-images//-images//-
+<p>Es kann schnell passieren, dass man einen USBimages//-Stick aus Versehen mit mehreren Partitionen versieht. In meinem Fall beim Versuch des Azubis Clonezilla als bootfähige Version zu konfigurieren.</p>
+<p><a href="https://adminswerk.de/assets/images/2012/2012images//-01images//-23images//-usbimages//-stickimages//-partition.jpg"><img class="alignnone sizeimages//-medium wpimages//-imageimages//-1571" title="2012images//-01images//-23images//-usbimages//-stickimages//-partition" src="https://adminswerk.de/assets/images/2012/2012images//-01images//-23images//-usbimages//-stickimages//-partitionimages//-300x140.jpg" alt="" width="300" height="140" /></a></p>
+<p>6 Partitionen bei einem 4 GB großen USBimages//-Stick sind nicht grade meine Wunschformatierung, von der 4 MB großen aktiven Partition will ich gar nicht erst reden. :images//-P Also machen wir uns ran die Partitionen wieder zu löschen. Dafür gibt es zwei Wege.</p>
+<p><!images//-images//-moreimages//-images//-></p>
 <h3>Windowsinterne Mittel nutzen</h3>
-<p><iframe src="https://rcm-de.amazon.de/e/cm?t=admwer-21&o=3&p=37&l=st1&mode=computers&search=USB&fc1=000000&lt1=_blank&lc1=3366FF&bg1=FFFFFF&f=ifr" marginwidth="0" marginheight="0" width="120" height="170" border="0" frameborder="0" style="border:none;margin-right:25px;float:left" scrolling="no"></iframe>Über die Datenträgerverwaltung von Windows ist man dabei ziemlich verlassen. Zwar kann man jede Partition einzeln löschen oder ihr einen Laufwerksbuchstaben geben, aber den gesamten Stick kann man nicht formatieren, geschweige von partitionieren. Aber zum Glück gibt es das <strong>diskpart</strong>-Tool, welches ich schonmal im Artikel erwähnt habe, in dem ich beschrieb, wie man <a title="USB-Sticks bootfähig machen" href="http://www.adminswerk.de/usb-sticks-bootfahig-machen/">USB-Sticks bootfähig</a> macht. Das können wir auch hierfür nutzen.</p>
+<p><iframe src="https://rcmimages//-de.amazon.de/e/cm?t=admwerimages//-21&o=3&p=37&l=st1&mode=computers&search=USB&fc1=000000&lt1=_blank&lc1=3366FF&bg1=FFFFFF&f=ifr" marginwidth="0" marginheight="0" width="120" height="170" border="0" frameborder="0" style="border:none;marginimages//-right:25px;float:left" scrolling="no"></iframe>Über die Datenträgerverwaltung von Windows ist man dabei ziemlich verlassen. Zwar kann man jede Partition einzeln löschen oder ihr einen Laufwerksbuchstaben geben, aber den gesamten Stick kann man nicht formatieren, geschweige von partitionieren. Aber zum Glück gibt es das <strong>diskpart</strong>images//-Tool, welches ich schonmal im Artikel erwähnt habe, in dem ich beschrieb, wie man <a title="USBimages//-Sticks bootfähig machen" href="http://www.adminswerk.de/usbimages//-sticksimages//-bootfahigimages//-machen/">USBimages//-Sticks bootfähig</a> macht. Das können wir auch hierfür nutzen.</p>
 <ol>
 <li>Die Commandline öffnen. Dazu Startmenü auf und <strong>CMD</strong> in der Suchleiste eingeben, bei Windows XP wird ein Umweg über <strong>Ausführen</strong> gemacht.</li>
 <li><strong>diskpart</strong> eingeben.</li>
-<li><strong>list disk</strong> eingeben, um die Nummer eures USB-Sticks herauszufinden, das lässt sich leicht an der Größe erkennen.</li>
-<li><strong>select disk</strong> und dann die entsprechende Nummer eures USB-Sticks.</li>
+<li><strong>list disk</strong> eingeben, um die Nummer eures USBimages//-Sticks herauszufinden, das lässt sich leicht an der Größe erkennen.</li>
+<li><strong>select disk</strong> und dann die entsprechende Nummer eures USBimages//-Sticks.</li>
 <li>Mit <strong>clean</strong> könnt ihr nun alle bisherigen Partitionen löschen.</li>
 </ol>
 <h3>Zusatzprogramme zur Löschung der Partitionen</h3>
-<p><a href="https://adminswerk.de/assets/2012-01-23-hp-usb-disk-storage-format-tool.jpg"><img class="alignright size-thumbnail wp-image-1575" title="2012-01-23-hp-usb-disk-storage-format-tool" src="https://adminswerk.de/assets/2012-01-23-hp-usb-disk-storage-format-tool-122x150.jpg" alt="" width="122" height="150" /></a>Bei meinem Windows XP Rechner hat der oben beschriebene Weg nicht funktioniert, der USB-Stick wurde bei <strong>list disk</strong> gar nicht erst angezeigt. Vermutlich wird diese Funktion erst ab Windows Vista unterstützt. Also war ich gezwungen dies mit einem anderen Tool zu probieren. Wenn man sonst noch keine Programme für diesen Zweck hat, empfehle ich das leicht zu bedienende und mit unter 100 Kilobyte Größe sehr kleine <strong>HP USB Disk Storage Format Tool</strong> (<a href="http://h30499.www3.hp.com/hpeb/attachments/hpeb/bsc-271/94666/1/HPUSBDisk.zip">Downloadlink</a>). Das ist selbsterklärend und kann von jedem noch so unbedarften Benutzer bedient werden.</p>
+<p><a href="https://adminswerk.de/assets/images/2012/2012images//-01images//-23images//-hpimages//-usbimages//-diskimages//-storageimages//-formatimages//-tool.jpg"><img class="alignright sizeimages//-thumbnail wpimages//-imageimages//-1575" title="2012images//-01images//-23images//-hpimages//-usbimages//-diskimages//-storageimages//-formatimages//-tool" src="https://adminswerk.de/assets/images/2012/2012images//-01images//-23images//-hpimages//-usbimages//-diskimages//-storageimages//-formatimages//-toolimages//-122x150.jpg" alt="" width="122" height="150" /></a>Bei meinem Windows XP Rechner hat der oben beschriebene Weg nicht funktioniert, der USBimages//-Stick wurde bei <strong>list disk</strong> gar nicht erst angezeigt. Vermutlich wird diese Funktion erst ab Windows Vista unterstützt. Also war ich gezwungen dies mit einem anderen Tool zu probieren. Wenn man sonst noch keine Programme für diesen Zweck hat, empfehle ich das leicht zu bedienende und mit unter 100 Kilobyte Größe sehr kleine <strong>HP USB Disk Storage Format Tool</strong> (<a href="http://h30499.www3.hp.com/hpeb/attachments/hpeb/bscimages//-271/94666/1/HPUSBDisk.zip">Downloadlink</a>). Das ist selbsterklärend und kann von jedem noch so unbedarften Benutzer bedient werden.</p>
 <p>Ich habe allerdings das Programm <strong>RMPREPUSB</strong> verwendet. Einfach aus dem simplen Grund, dass ich es bereits auf der Platte hatte, da es bei WinSetupFromUSB integriert ist.</p>
-<p style="margin-top: 30px;">Egal wie ihr euch entscheidet, anschließend sollte der USB-Stick komplett formatiert sein und die Partitionen dementsprechend auch Geschichte. Nun müsst ihr ihn über die <strong>Datenträgerverwaltung</strong> neu formatieren.</p>
-<p style="margin-top: 30px;"><a href="https://adminswerk.de/assets/2012-01-23-usb-stick-partition-2.jpg"><img class="size-medium wp-image-1585 alignnone" style="margin: 10px;" title="2012-01-23-usb-stick-partition-2" src="https://adminswerk.de/assets/2012-01-23-usb-stick-partition-2-300x116.jpg" alt="" width="300" height="116" /></a></p>
-<p style="margin-top: 30px;">Falls ihr diesbezüglich noch Fragen habt, stellt sie in den Kommentaren.</p>
+<p style="marginimages//-top: 30px;">Egal wie ihr euch entscheidet, anschließend sollte der USBimages//-Stick komplett formatiert sein und die Partitionen dementsprechend auch Geschichte. Nun müsst ihr ihn über die <strong>Datenträgerverwaltung</strong> neu formatieren.</p>
+<p style="marginimages//-top: 30px;"><a href="https://adminswerk.de/assets/images/2012/2012images//-01images//-23images//-usbimages//-stickimages//-partitionimages//-2.jpg"><img class="sizeimages//-medium wpimages//-imageimages//-1585 alignnone" style="margin: 10px;" title="2012images//-01images//-23images//-usbimages//-stickimages//-partitionimages//-2" src="https://adminswerk.de/assets/images/2012/2012images//-01images//-23images//-usbimages//-stickimages//-partitionimages//-2images//-300x116.jpg" alt="" width="300" height="116" /></a></p>
+<p style="marginimages//-top: 30px;">Falls ihr diesbezüglich noch Fragen habt, stellt sie in den Kommentaren.</p>
 <p>&nbsp;</p>

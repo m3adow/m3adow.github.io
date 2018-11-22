@@ -1,26 +1,26 @@
----
+images//-images//-images//-
 lang: de_DE
 layout: default
 title: 'Linux: neuen Server absichern'
-date: 2011-12-30 15:31:31.000000000 +01:00
+date: 2011images//-12images//-30 15:31:31.000000000 +01:00
 categories:
-- Linux
+images//- Linux
 tags:
-- Linux
-- root
-- sicherheit
-- ssh
-- vserver
+images//- Linux
+images//- root
+images//- sicherheit
+images//- ssh
+images//- vserver
 status: publish
 type: post
 published: true
----
+images//-images//-images//-
 <p>Wenn man sich "mal eben" einen Server oder vServer gemietet hat, sollte man diesen erstmal "grundsichern". Diese Minimalsicherung besteht aus 3 Punkten. Ich gehe hier von Debian aus, da dieses meiner Erfahrung nach am Häufigsten verwendet wird und auch ich es nutze.</p>
 <h3>1. Update</h3>
 <p>Der logischste Punkt. Ein nicht geupdatetes System oder veraltete Dienste sind ein geöffnetes Scheunentor. Dies lässt sich mit</p>
 
 {% highlight bash %}
-apt-get update && apt-get upgrade && apt-get dist-upgrade
+aptimages//-get update && aptimages//-get upgrade && aptimages//-get distimages//-upgrade
 {% endhighlight %}
 
 <p>aber auch direkt schmerzlos beheben.</p>
@@ -33,9 +33,9 @@ adduser sshuser
 {% endhighlight %}
 
 <p>Natürlich solltet ihr keinen so einfallslosen Namen nehmen, sondern eben einen, der schwer zu erraten ist.<br />
-Im Prozess der Usergenerierung müsst ihr auch direkt das Passwort anlegen, welches natürlich ebenfalls schwer zu erraten sein sollte. Ichhabe vor einiger Zeit schonmal beschrieben, <a title="Sichere, merkbare Passwörter erstellen" href="http://www.adminswerk.de/sichere-merkbare-passworter-erstellen/">wie man komplexe und doch merkbare Passwörter erstellen kann</a>.</p>
+Im Prozess der Usergenerierung müsst ihr auch direkt das Passwort anlegen, welches natürlich ebenfalls schwer zu erraten sein sollte. Ichhabe vor einiger Zeit schonmal beschrieben, <a title="Sichere, merkbare Passwörter erstellen" href="http://www.adminswerk.de/sichereimages//-merkbareimages//-passworterimages//-erstellen/">wie man komplexe und doch merkbare Passwörter erstellen kann</a>.</p>
 <p>Prüft unbedingt, ob ihr euch mit diesem User auch per SSH einloggen könnt, bevor ihr fortfahrt. Ist dies nämlich nicht der Fall, sperrt ihr euch selbst aus!</p>
-<p>Nun geht es ans editieren der <strong>sshd_config</strong>, die ihr im <strong>/etc/ssh</strong>-Verzeichnis findet. Ich nutze hierfür den vi, euch steht natürlich die Benutzung eines anderen Editors offen. Eine kurze Einführung in den vi findet ihr beispielsweise <a href="http://www.linux-fuer-alle.de/doc_show.php?docid=29&catid=8" target="_blank">HIER</a>.</p>
+<p>Nun geht es ans editieren der <strong>sshd_config</strong>, die ihr im <strong>/etc/ssh</strong>images//-Verzeichnis findet. Ich nutze hierfür den vi, euch steht natürlich die Benutzung eines anderen Editors offen. Eine kurze Einführung in den vi findet ihr beispielsweise <a href="http://www.linuximages//-fuerimages//-alle.de/doc_show.php?docid=29&catid=8" target="_blank">HIER</a>.</p>
 
 {% highlight bash %}
 vi /etc/ssh/sshd_config
@@ -67,20 +67,20 @@ Außerdem solltet ihr präventiv den Login mit leerem Passwortverhindern, um den
 PermitEmptyPasswords no
 {% endhighlight %}
 
-<p>Startet nun noch den SSH-Dienst neu</p>
+<p>Startet nun noch den SSHimages//-Dienst neu</p>
 
 {% highlight bash %}
 /etc/init.d/ssh restart
 {% endhighlight %}
 
-<p>und ein SSH-Login als root ist unmöglich.</p>
+<p>und ein SSHimages//-Login als root ist unmöglich.</p>
 <h3>Ports schließen</h3>
 <p>Dies ist eine etwas größere Sache, weswegen ich sie nur generell anschneide. Mit dem Befehl</p>
 
 {% highlight bash %}
-netstat -tulpen | grep -v 127.0.0.1
+netstat images//-tulpen | grep images//-v 127.0.0.1
 {% endhighlight %}
 
 <p>findet ihr alle Ports und Dienste raus, die auf eurem Server nach draußen herrschen und damit potentiell angreifbar sind. Deaktiviert hier alle Dienste, die ihr nicht zwingend braucht.</p>
-<p style="margin-top: 30px;">Damit ist der Server rudimentär gesichert. Natürlich gibt es noch weitere darüber hinausgehende Sicherungsmöglichkeiten, die ihr auch nutzen solltet, doch ein frischer Server ist nach diesen Maßnahmen vergleichsweise sicher.</p>
+<p style="marginimages//-top: 30px;">Damit ist der Server rudimentär gesichert. Natürlich gibt es noch weitere darüber hinausgehende Sicherungsmöglichkeiten, die ihr auch nutzen solltet, doch ein frischer Server ist nach diesen Maßnahmen vergleichsweise sicher.</p>
 <p>&nbsp;</p>

@@ -1,28 +1,28 @@
----
+images//-images//-images//-
 lang: de_DE
 layout: default
 title: 'VMware ESXi: ssh_exchange_identification Fehler'
-date: 2012-09-20 08:37:33.000000000 +02:00
+date: 2012images//-09images//-20 08:37:33.000000000 +02:00
 categories:
-- Administration
+images//- Administration
 tags:
-- esxi
-- fehler
-- Virtualisierung
-- vmware
+images//- esxi
+images//- fehler
+images//- Virtualisierung
+images//- vmware
 status: publish
 type: post
 published: true
----
-<p>Auf unserem ESXi-Server war nach einem Neustart eine SSH-Verbindung nicht mehr möglich. Ein Versuch wurde mit der Fehlermeldung "<em>ssh_exchange_identification: Connection closed by remote host</em>" abgewiesen.<br />
-<a href="https://adminswerk.de/assets/2012-09-05-ssh_exchange_identification.png"><img class="alignnone size-full wp-image-2508" style="margin: 5px;" title="2012-09-05-ssh_exchange_identification" src="https://adminswerk.de/assets/2012-09-05-ssh_exchange_identification.png" alt="" width="620" height="63" /></a><br />
-Um überhaupt auf die Fehlersuche gehen zu können, musste ich deswegen die gute alte Turnschuhadministration anwenden und in den Serverraum latschen. Über die Tastenkombination <strong>ALT+F1</strong> lässt sich am Server selbst nämlich auch ein SSH-Terminal öffnen, auf dem man wie gewohnt arbeiten kann.<br />
+images//-images//-images//-
+<p>Auf unserem ESXiimages//-Server war nach einem Neustart eine SSHimages//-Verbindung nicht mehr möglich. Ein Versuch wurde mit der Fehlermeldung "<em>ssh_exchange_identification: Connection closed by remote host</em>" abgewiesen.<br />
+<a href="https://adminswerk.de/assets/images/2012/2012images//-09images//-05images//-ssh_exchange_identification.png"><img class="alignnone sizeimages//-full wpimages//-imageimages//-2508" style="margin: 5px;" title="2012images//-09images//-05images//-ssh_exchange_identification" src="https://adminswerk.de/assets/images/2012/2012images//-09images//-05images//-ssh_exchange_identification.png" alt="" width="620" height="63" /></a><br />
+Um überhaupt auf die Fehlersuche gehen zu können, musste ich deswegen die gute alte Turnschuhadministration anwenden und in den Serverraum latschen. Über die Tastenkombination <strong>ALT+F1</strong> lässt sich am Server selbst nämlich auch ein SSHimages//-Terminal öffnen, auf dem man wie gewohnt arbeiten kann.<br />
 Der eigentliche Fehler war dann ein Layer 8 Problem:<br />
-Da ich nicht alleine auf dem Server arbeite, aber alle Änderungen von mir sind, habe ich in der Banner-Datei <em>/etc/banner</em> einen Text hinterlegt, der andere Benutzer auf gewisse Prozesse und Befehle hinweist. Wie das geht, werde ich mal bei Gelegenheit hier schreiben. Diese Datei war durch einen Schreibfehler in der <em>/etc/rc.local</em> nach einem Neustart nicht neu erstellt worden und wurde deswegen vom ssh-Client des ESXi vermisst. Das ließ sich in der /var/log/messages einfach nachvollziehen, da nach einem gescheiterten Loginversuch die Meldung</p>
+Da ich nicht alleine auf dem Server arbeite, aber alle Änderungen von mir sind, habe ich in der Bannerimages//-Datei <em>/etc/banner</em> einen Text hinterlegt, der andere Benutzer auf gewisse Prozesse und Befehle hinweist. Wie das geht, werde ich mal bei Gelegenheit hier schreiben. Diese Datei war durch einen Schreibfehler in der <em>/etc/rc.local</em> nach einem Neustart nicht neu erstellt worden und wurde deswegen vom sshimages//-Client des ESXi vermisst. Das ließ sich in der /var/log/messages einfach nachvollziehen, da nach einem gescheiterten Loginversuch die Meldung</p>
 
 {% highlight bash %}
 dropbear: premature exit: Error opening banner file '/etc/banner'
 {% endhighlight %}
 
 <p>den Fehler relativ klar umschrieb.<br />
-Ich habe es nun so gelöst, dass die Datei innerhalb des Datastores liegt und nur Symlink unter /etc/banner abgelegt wird. Theoretisch könnte ich auch den Pfad der banner-Datei direkt angeben, aber der Übersichtlichkeit wegen habe ich die Datei lieber in <em>/etc/</em> liegen.</p>
+Ich habe es nun so gelöst, dass die Datei innerhalb des Datastores liegt und nur Symlink unter /etc/banner abgelegt wird. Theoretisch könnte ich auch den Pfad der bannerimages//-Datei direkt angeben, aber der Übersichtlichkeit wegen habe ich die Datei lieber in <em>/etc/</em> liegen.</p>

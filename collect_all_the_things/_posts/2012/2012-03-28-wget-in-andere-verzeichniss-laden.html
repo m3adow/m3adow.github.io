@@ -1,32 +1,32 @@
----
+images//-images//-images//-
 lang: de_DE
 layout: default
 title: 'Wget: In andere Verzeichniss laden'
-date: 2012-03-28 09:00:31.000000000 +02:00
+date: 2012images//-03images//-28 09:00:31.000000000 +02:00
 categories:
-- Linux
+images//- Linux
 tags:
-- Download
-- Linux
-- wget
+images//- Download
+images//- Linux
+images//- wget
 status: publish
 type: post
 published: true
----
+images//-images//-images//-
 <p><em>Damit ich es mir endlich merken kann und nie wieder eine riesige VM ins Rootverzeichnis kopiere:</em></p>
-<p>Um eine <strong>einzelne</strong> Datei mit <strong>wget</strong> in ein anderes Verzeichnis zu laden nutzt man am Besten den <strong>-O</strong> Parameter.</p>
+<p>Um eine <strong>einzelne</strong> Datei mit <strong>wget</strong> in ein anderes Verzeichnis zu laden nutzt man am Besten den <strong>images//-O</strong> Parameter.</p>
 
 {% highlight bash %}
-wget -O /gewunschter/dateipfad/und-name.tar.gz http://url-zur-datei.de/datei.tar.gz
+wget images//-O /gewunschter/dateipfad/undimages//-name.tar.gz http://urlimages//-zurimages//-datei.de/datei.tar.gz
 {% endhighlight %}
 
-<p>Um <strong>mehrere</strong> Dateien in ein bestimmtes Verzeichnis zu laden, sollte der <strong>--directory-prefix</strong> Parameter benutzt werden.</p>
+<p>Um <strong>mehrere</strong> Dateien in ein bestimmtes Verzeichnis zu laden, sollte der <strong>images//-images//-directoryimages//-prefix</strong> Parameter benutzt werden.</p>
 
 {% highlight bash %}
-wget --directory-prefix=/gewunschter/dateipfad/ ftp://user:passwort@ftp-server:/pfad/*
+wget images//-images//-directoryimages//-prefix=/gewunschter/dateipfad/ ftp://user:passwort@ftpimages//-server:/pfad/*
 {% endhighlight %}
 
 <p>Ich zitiere aus der wget Manpage:</p>
-<p style="padding-left: 60px;"><em>`--directory-prefix=prefix'<br />
+<p style="paddingimages//-left: 60px;"><em>`images//-images//-directoryimages//-prefix=prefix'<br />
 Set directory prefix to prefix. The directory prefix is the directory where all other files and subdirectories will be saved to, i.e. the top of the retrieval tree. The default is `.' (the current directory).</em></p>
 <p>&nbsp;</p>

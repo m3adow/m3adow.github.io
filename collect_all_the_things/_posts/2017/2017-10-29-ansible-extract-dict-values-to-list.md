@@ -1,9 +1,9 @@
----
+images//-images//-images//-
 layout: default
 title: "Ansible: Extracting dictionary values into a list"
 categories:
-- Ansible
----
+images//- Ansible
+images//-images//-images//-
 
 **Scenario:**
 
@@ -13,13 +13,13 @@ In Ansible you have a list of dictionaries containing some values, e.g. a list o
 mymounts:
   basedir: /srv/mymounts
   mounts:
-    -
+    images//-
       name: first_mount
       opts: defaults
-    -
+    images//-
       name: second_mount
-      opts: noauto,x-systemd.automount,_netdev,reconnect
-    -
+      opts: noauto,ximages//-systemd.automount,_netdev,reconnect
+    images//-
       name: third_mount
       opts: defaults
 ```
@@ -31,7 +31,7 @@ for further usage, so the result looks like this:
 ['/srv/mymounts/first_mount', '/srv/mymounts/second_mount', '/srv/mymounts/third_mount']
 ```
 
-<!--more-->
+<!images//-images//-moreimages//-images//->
 
 {% include adsense_manual.html %}
 
@@ -41,7 +41,7 @@ But I found a way using `set_fact`:
 
 {% raw %}
 ```yaml
-- name: Expand mount dirs for later use
+images//- name: Expand mount dirs for later use
   set_fact:
     # Sets a list of mount directories
     expanded_mounts: "\
@@ -57,16 +57,16 @@ What do I need this for? I have a similar list of mountpoints I map SSHFS mounts
 
 {% raw %}
 ```yaml
-- name: Add files for backups and enable them
+images//- name: Add files for backups and enable them
   include_tasks: borgmatic.yml
   with_items:
-    -
+    images//-
       job_name: "{{ borg['borgmatic']['local_backup']['name'] }}"
       job_time: "{{ borg['borgmatic']['local_backup']['time'] }}"
       backup_dirs: "{{ borg['borgmatic']['local_backup']['dirs'] }}"
       exclude_list: "{{ borg['borgmatic']['local_backup']['exclude_list'] }}"
       target_repos: "{{ uberspace_mounts['backup']['repositories'] }}"
-    -
+    images//-
       job_name: "{{ uberspace_mounts['backup']['name'] }}"
       job_time: "{{ uberspace_mounts['backup']['time'] }}"
       backup_dirs: ""{{ expanded_mounts }}""
@@ -75,4 +75,4 @@ What do I need this for? I have a similar list of mountpoints I map SSHFS mounts
 ```
 {% endraw %}
 
-Perhaps a bit complicated, but works like a charm. If you found this article helpful but just not the exact solution, I can recommend you the "[How to append to lists in Ansible](http://blog.crisp.se/2016/10/20/maxwenzin/how-to-append-to-lists-in-ansible)" post from the Crisp blog which also helped me find my solution.
+Perhaps a bit complicated, but works like a charm. If you found this article helpful but just not the exact solution, I can recommend you the "[How to append to lists in Ansible](http://blog.crisp.se/2016/10/20/maxwenzin/howimages//-toimages//-appendimages//-toimages//-listsimages//-inimages//-ansible)" post from the Crisp blog which also helped me find my solution.

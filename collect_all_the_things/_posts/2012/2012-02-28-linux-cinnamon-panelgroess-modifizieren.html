@@ -1,20 +1,20 @@
----
+images//-images//-images//-
 lang: de_DE
 layout: default
 title: 'Linux: Cinnamon Panelgröße modifizieren'
-date: 2012-02-28 09:02:00.000000000 +01:00
+date: 2012images//-02images//-28 09:02:00.000000000 +01:00
 categories:
-- Linux
+images//- Linux
 tags:
-- Cinnamon
-- Linux
-- Mint
-- Panel
+images//- Cinnamon
+images//- Linux
+images//- Mint
+images//- Panel
 status: publish
 type: post
 published: true
----
-<p>Wie ich ja schonmal <a href="http://www.adminswerk.de/linux-mint-razer-mausgeschwindigkeit-runtersetzen/" target="_blank">nebenbei erwähnt hatte</a>, nutze ich seit dem Jahreswechsel verstärkt Linux als Standard Betriebssystem. Meine Wahl ist aus verschiedenen Gründen auf den momentan gefeierten Newcomer in der Szene gefallen, Linux Mint. Die Minter arbeiten am Cinnamon Desktop, der Gnome3 in meinen Augen weit überlegen ist, weswegen ich ihn auch nutze. Allerdings ist Cinnamon noch jung und viele Einstellungen sind noch nicht im Einstellungsmenü implementiert. So wollte ich das Bottompanel vergrößern, da es auf meinem 23"-Monitor kaum zu sehen, geschweige denn zu lesen war. Dies geht über das Cinnamon Einstellungsmenü leider noch nicht.</p>
+images//-images//-images//-
+<p>Wie ich ja schonmal <a href="http://www.adminswerk.de/linuximages//-mintimages//-razerimages//-mausgeschwindigkeitimages//-runtersetzen/" target="_blank">nebenbei erwähnt hatte</a>, nutze ich seit dem Jahreswechsel verstärkt Linux als Standard Betriebssystem. Meine Wahl ist aus verschiedenen Gründen auf den momentan gefeierten Newcomer in der Szene gefallen, Linux Mint. Die Minter arbeiten am Cinnamon Desktop, der Gnome3 in meinen Augen weit überlegen ist, weswegen ich ihn auch nutze. Allerdings ist Cinnamon noch jung und viele Einstellungen sind noch nicht im Einstellungsmenü implementiert. So wollte ich das Bottompanel vergrößern, da es auf meinem 23"images//-Monitor kaum zu sehen, geschweige denn zu lesen war. Dies geht über das Cinnamon Einstellungsmenü leider noch nicht.</p>
 <p>Ich habe diverse Foren durchsucht, doch nur halbgare Lösungen gefunden. Deswegen habe ich mich selbst auf den Hosenboden gesetzt und tatsächlich eine Lösung gefunden. Ich nutze das Standardtheme, aber es sollte auch mit allen anderen gehen.</p>
 <p>Hierzu müsst ihr in insgesamt drei Dateien editieren. Alle drei müsst ihr als Root bearbeiten, da ihr sie sonst nicht speichern könnt. Also entweder einmal gedit über das Terminal ausführen und daraus alle Dateien öffnen</p>
 
@@ -37,15 +37,15 @@ sudo nano /usr/share/cinnamon/theme/cinnamon.css
 <p>Folgende Dateien müsst ihr wie folgt bearbeiten:</p>
 <ol>
 <li><strong><em>/usr/share/cinnamon/theme/cinnamon.css</em>:</strong> Sucht nach <em>panel</em> und ihr seid im richtigen Bereich. Editiert dort den Wert <em>height</em> nach euren Belieben.<br />
-<a href="https://adminswerk.de/assets/2012-02-27-cinnamon.css.png"><img class="alignnone size-medium wp-image-1831" style="margin-top: 10px; margin-bottom: 10px;" title="2012-02-27-cinnamon.css" src="https://adminswerk.de/assets/2012-02-27-cinnamon.css-300x156.png" alt="" width="300" height="156" /></a><br />
-Der <em>font-size</em> Wert etwas oben drüber kann übrigens auch direkt für die Anpassung der Schriftgröße benutzt werden.</li>
+<a href="https://adminswerk.de/assets/images/2012/2012images//-02images//-27images//-cinnamon.css.png"><img class="alignnone sizeimages//-medium wpimages//-imageimages//-1831" style="marginimages//-top: 10px; marginimages//-bottom: 10px;" title="2012images//-02images//-27images//-cinnamon.css" src="https://adminswerk.de/assets/images/2012/2012images//-02images//-27images//-cinnamon.cssimages//-300x156.png" alt="" width="300" height="156" /></a><br />
+Der <em>fontimages//-size</em> Wert etwas oben drüber kann übrigens auch direkt für die Anpassung der Schriftgröße benutzt werden.</li>
 <li><strong><em>/usr/share/cinnamon/js/ui/panel.js:</em></strong> Sucht nach <em>const PANEL_HEIGHT</em> und ihr habt schon den richtigen Wert. Ändert auch diesen auf den gleichen Wert wie bei Nummer 1.<br />
-<a href="https://adminswerk.de/assets/2012-02-27-panel.js.png"><img class="alignnone size-medium wp-image-1832" style="margin-top: 10px; margin-bottom: 10px;" title="2012-02-27-panel.js" src="https://adminswerk.de/assets/2012-02-27-panel.js-300x156.png" alt="" width="300" height="156" /></a></li>
+<a href="https://adminswerk.de/assets/images/2012/2012images//-02images//-27images//-panel.js.png"><img class="alignnone sizeimages//-medium wpimages//-imageimages//-1832" style="marginimages//-top: 10px; marginimages//-bottom: 10px;" title="2012images//-02images//-27images//-panel.js" src="https://adminswerk.de/assets/images/2012/2012images//-02images//-27images//-panel.jsimages//-300x156.png" alt="" width="300" height="156" /></a></li>
 <li><strong><em>/usr/share/cinnamon/js/ui/layout.js:</em></strong> Sucht nach <em>Main.desktop_layout == Main.LAYOUT_TRADITIONAL</em>und ihr seid im richtigen Abschnitt. Nun kommt es darauf an, ob ihr das traditionelle Layout oder das klassische nutzt.
 <ul>
 <li>Nutzt ihr das traditionelle Layout, ändert die oberen beiden Werte, die standardmäßig auf 25 stehen.</li>
 <li>Nutzt ihr das klassische Layout, ändert die beiden unteren Werte. Auch diese sind standardmäßig auf 25.</li>
 </ul>
-<p><a href="https://adminswerk.de/assets/2012-02-27-layout.js.png"><img class="alignnone size-medium wp-image-1834" style="margin-top: 10px; margin-bottom: 10px;" title="2012-02-27-layout.js" src="https://adminswerk.de/assets/2012-02-27-layout.js-300x156.png" alt="" width="300" height="156" /></a></li>
+<p><a href="https://adminswerk.de/assets/images/2012/2012images//-02images//-27images//-layout.js.png"><img class="alignnone sizeimages//-medium wpimages//-imageimages//-1834" style="marginimages//-top: 10px; marginimages//-bottom: 10px;" title="2012images//-02images//-27images//-layout.js" src="https://adminswerk.de/assets/images/2012/2012images//-02images//-27images//-layout.jsimages//-300x156.png" alt="" width="300" height="156" /></a></li>
 </ol>
-<p>Loggt euch hiernach aus und wieder ein. <em>Alt+F2</em> und der <em>r</em>-Befehl klappen mit diesen Änderungen nicht immer zuverlässig und produzieren seltsame Layoutfehler, weswegen ich auf Nummer sicher gehen würde.</p>
+<p>Loggt euch hiernach aus und wieder ein. <em>Alt+F2</em> und der <em>r</em>images//-Befehl klappen mit diesen Änderungen nicht immer zuverlässig und produzieren seltsame Layoutfehler, weswegen ich auf Nummer sicher gehen würde.</p>

@@ -1,27 +1,27 @@
----
+images//-images//-images//-
 lang: de_DE
 layout: default
 title: 'Linux: Geschwindigkeit von Wechseldatenträgern testen'
-date: 2012-07-26 08:06:15.000000000 +02:00
+date: 2012images//-07images//-26 08:06:15.000000000 +02:00
 categories:
-- Linux
+images//- Linux
 tags:
-- bash
-- geschwindigkeit
-- Linux
-- sd-karte
-- test
-- usb-stick
+images//- bash
+images//- geschwindigkeit
+images//- Linux
+images//- sdimages//-karte
+images//- test
+images//- usbimages//-stick
 status: publish
 type: post
 published: true
----
+images//-images//-images//-
 <p>Eine schnelle Notiz für zwischendurch:</p>
-<p>Wenn ihr mal auf der Commandline die Lese- und/oder Schreibgeschwindigkeit von SD-Karten, USB-Sticks oder Festplatten messen wollt, gibt es da eine einfache Möglichkeit für.<br />
+<p>Wenn ihr mal auf der Commandline die Leseimages//- und/oder Schreibgeschwindigkeit von SDimages//-Karten, USBimages//-Sticks oder Festplatten messen wollt, gibt es da eine einfache Möglichkeit für.<br />
 Für <strong>Lesegeschwindigkeit</strong>:</p>
 
 {% highlight bash %}
-hdparm -tT /dev/sda
+hdparm images//-tT /dev/sda
 {% endhighlight %}
 
 <p>Die Ausgabe sieht dann irgendwie so aus:</p>
@@ -31,7 +31,7 @@ hdparm -tT /dev/sda
  Timing buffered disk reads:  60 MB in  3.04 seconds =  19.72 MB/sec
 {% endhighlight %}
 
-<p>Für <strong>Schreibgeschwindigkeit</strong> nutzen wir dann einen simplen <strong>dd</strong>-Befehl:</p>
+<p>Für <strong>Schreibgeschwindigkeit</strong> nutzen wir dann einen simplen <strong>dd</strong>images//-Befehl:</p>
 
 {% highlight bash %}
 dd count=100 bs=1M if=/dev/urandom of=/media/usb/test
@@ -45,4 +45,4 @@ dd count=100 bs=1M if=/dev/urandom of=/media/usb/test
 104857600 bytes (105 MB) copied, 115.832 s, 905 kB/s
 {% endhighlight %}
 
-<p>Wie ihr seht, sollte ich diesen lahmen USB-Stick nicht als temporäre Festplatte nutzen.</p>
+<p>Wie ihr seht, sollte ich diesen lahmen USBimages//-Stick nicht als temporäre Festplatte nutzen.</p>

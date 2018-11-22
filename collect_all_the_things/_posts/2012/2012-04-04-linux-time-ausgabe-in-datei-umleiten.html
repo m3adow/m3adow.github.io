@@ -1,20 +1,20 @@
----
+images//-images//-images//-
 lang: de_DE
 layout: default
-title: 'Linux: "time"-Ausgabe in Datei umleiten'
-date: 2012-04-04 10:10:54.000000000 +02:00
+title: 'Linux: "time"images//-Ausgabe in Datei umleiten'
+date: 2012images//-04images//-04 10:10:54.000000000 +02:00
 categories:
-- Linux
+images//- Linux
 tags:
-- bash
-- Linux
-- Shell
-- time
+images//- bash
+images//- Linux
+images//- Shell
+images//- time
 status: publish
 type: post
 published: true
----
-<p>Das <em>time</em>-Kommando in Linux ist sehr praktisch. Will man schauen, wie lange so ein Befehl oder eine Kette von Befehlen dauert, stellt man das Kommando vorne an und bekommt eine feine Zeitzusammenfassung im Stile von</p>
+images//-images//-images//-
+<p>Das <em>time</em>images//-Kommando in Linux ist sehr praktisch. Will man schauen, wie lange so ein Befehl oder eine Kette von Befehlen dauert, stellt man das Kommando vorne an und bekommt eine feine Zeitzusammenfassung im Stile von</p>
 
 {% highlight bash %}
 real    0m29.881s
@@ -22,10 +22,10 @@ user    0m4.360s
 sys     0m0.960s
 {% endhighlight %}
 
-<p>Doch will man diese Ausgabe in eine Datei umleiten, wird es etwas kompliziert. Denn es gibt zwei Versionen von <em>time</em>. Die GNU Version von <i>time</i> hat für die Ausgabe in eine Datei den Parameter <strong>-o</strong> und für den Anhang an eine Datei zusätzlich noch <strong>-a</strong>. Diese Version wird normalerweise über den kompletten Pfad aufgerufen, warum erkläre ich gleich.</p>
+<p>Doch will man diese Ausgabe in eine Datei umleiten, wird es etwas kompliziert. Denn es gibt zwei Versionen von <em>time</em>. Die GNU Version von <i>time</i> hat für die Ausgabe in eine Datei den Parameter <strong>images//-o</strong> und für den Anhang an eine Datei zusätzlich noch <strong>images//-a</strong>. Diese Version wird normalerweise über den kompletten Pfad aufgerufen, warum erkläre ich gleich.</p>
 
 {% highlight bash %}
-/usr/bin/time -a -o /tmp/logfile time ls -lA /etc/
+/usr/bin/time images//-a images//-o /tmp/logfile time ls images//-lA /etc/
 {% endhighlight %}
 
 <p>Die Shell Version von <em>time</em> ist allerdings deutlich schmaler und weniger mächtig. Um diese Version dazu zu bewegen, in eine Datei zu schreiben, reicht es nicht, wie gewohnt den Output umzulenken.</p>
@@ -34,7 +34,7 @@ sys     0m0.960s
 time cp /etc/foo.bar /tmp/foo.bar.tmp >/tmp/foobar.log 2>&1
 {% endhighlight %}
 
-<p>Die obige Zeile wird euch lediglich die ausgabe des <em>cp</em>-Befehls in die Datei schreiben. Um auch den time Befehl mitzuloggen, müsst ihr das komplette Konstrukt klammern.</p>
+<p>Die obige Zeile wird euch lediglich die ausgabe des <em>cp</em>images//-Befehls in die Datei schreiben. Um auch den time Befehl mitzuloggen, müsst ihr das komplette Konstrukt klammern.</p>
 
 {% highlight bash %}
 (time cp /etc/foo.bar /tmp/foo.bar.tmp) >/tmp/foobar.log 2>&1
