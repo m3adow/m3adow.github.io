@@ -10,7 +10,7 @@ Using Linux as your main OS takes some time getting used to when you came from W
 
 I'm using two monitors with different resolutions. DVI-0 uses 1280x1024, DVI-1 uses 1920x1080. Until now, having a nice dual screen wallpaper on my Ubuntu wasn't possible. It always looked ugly.
 
-<a href="https://adminswerk.de/assets/2015-12-29-ubuntu-dual-monitor-wallpaper-before.jpg"><img src="https://adminswerk.de/assets/2015-12-29-ubuntu-dual-monitor-wallpaper-before.jpg" alt="Dual monitor wallpaper before" width="80%" height="80%"></a>
+<a href="{{ site.url }}/assets/images/2015/2015-12-29-ubuntu-dual-monitor-wallpaper-before.jpg"><img src="{{ site.url }}/assets/images/2015/2015-12-29-ubuntu-dual-monitor-wallpaper-before.jpg" alt="Dual monitor wallpaper before" width="80%" height="80%"></a>
 
 Notice how much black bars I do have here despite the wallpaper having a resolution of 3510x2550, being larger than both of my screens together. The image scaling in Unity is just unsatisfying.
 <!--more-->
@@ -20,7 +20,7 @@ Notice how much black bars I do have here despite the wallpaper having a resolut
 That's why I now use [SyncWall](http://thehive.xbee.net/index.php?module=pages&func=display&pageid=1). It's a wallpaper manager with a lot of features like scheduling, network sync and some more, but I really only use the multi monitor feature (and the Wallpaper changing at startup, just because I can)
 Now my dual monitor setup looks really nice.
 
-<a href="https://adminswerk.de/assets/2015-12-29-ubuntu-dual-monitor-wallpaper-after.jpg"><img src="https://adminswerk.de/assets/2015-12-29-ubuntu-dual-monitor-wallpaper-after.jpg" alt="Dual monitor wallpaper after" width="80%" height="80%"></a>
+<a href="{{ site.url }}/assets/images/2015/2015-12-29-ubuntu-dual-monitor-wallpaper-after.jpg"><img src="{{ site.url }}/assets/images/2015/2015-12-29-ubuntu-dual-monitor-wallpaper-after.jpg" alt="Dual monitor wallpaper after" width="80%" height="80%"></a>
 
 ### Installing SyncWall
 

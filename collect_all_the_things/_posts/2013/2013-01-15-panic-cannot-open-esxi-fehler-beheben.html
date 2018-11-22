@@ -15,10 +15,10 @@ type: post
 published: true
 ---
 <p>Sowas ist schnell passiert: Man spielt aus seiner (hoffentlich zum Testen gedachten) ESXi-Maschine rum, testet eben etwas aus. Dann startet man neu und plötzlich kommt ein Fehler.<br />
-<a href="https://adminswerk.de/assets/2013-01-07-esxi-panic.jpg"><img class="size-medium wp-image-2678 alignnone" style="margin: 10px;" title="2013-01-07-esxi-panic" src="https://adminswerk.de/assets/2013-01-07-esxi-panic-300x225.jpg" alt="" width="300" height="225" /></a></p>
+<a href="{{ site.url }}/assets/images/2013/2013-01-07-esxi-panic.jpg"><img class="size-medium wp-image-2678 alignnone" style="margin: 10px;" title="2013-01-07-esxi-panic" src="{{ site.url }}/assets/images/2013/2013-01-07-esxi-panic-300x225.jpg" alt="" width="300" height="225" /></a></p>
 <p>Verdammt! Da habe ich wohl aus Versehen eine nicht existierende Datei im <em>modules</em>-Eintrag  der<em>/bootbank/boot.cfg</em> des ESXi geschrieben. Der Server will dann nicht mehr booten, findet er doch eine der in seinen Augen essentiellen Dateien nicht mehr. Um das zu lösen, brauchen wir eine Live-CD oder einen Live-USB-Stick oder whatever. Da hat sicher jeder seine eigenen Präferenzen, Ich wählte dafür <a href="http://www.slitaz.org/de/" target="_blank">Slitaz</a>, einfach weil es so schön klein ist und ich grade keinen Livestick zur Hand hatte.<br />
 Nach dem Start schauen wir uns dann mal die ESXi-Platte an. Dazu reicht ein <em>fdisk -l</em>. Das Ergebnis ist sehr umfangreich:</p>
-<p><a href="https://adminswerk.de/assets/2013-01-07-esxi-fehler_2.jpg"><img class="alignnone size-medium wp-image-2680" style="margin: 10px;" title="2013-01-07-esxi-fehler_2" src="https://adminswerk.de/assets/2013-01-07-esxi-fehler_2-300x225.jpg" alt="" width="300" height="225" /></a></p>
+<p><a href="{{ site.url }}/assets/images/2013/2013-01-07-esxi-fehler_2.jpg"><img class="alignnone size-medium wp-image-2680" style="margin: 10px;" title="2013-01-07-esxi-fehler_2" src="{{ site.url }}/assets/images/2013/2013-01-07-esxi-fehler_2-300x225.jpg" alt="" width="300" height="225" /></a></p>
 <p>Jetzt kann man entweder jede Partition mounten und durchsuchen oder mir glauben, dass es die fünfte ist, in meinem Fall also <em>/dev/sda5</em>.</p>
 <p>Nun mounten wir also die Partition</p>
 

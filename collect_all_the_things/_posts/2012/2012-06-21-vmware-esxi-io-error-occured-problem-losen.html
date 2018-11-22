@@ -17,9 +17,9 @@ published: true
 <p>Wenn ihr beim Upload einer Datei in den Datastore eines ESXi-Servers mit dem vSphere-Client habt und vom Datastore Browser die Fehlermeldung "<em>I/O error occured</em>" bekommt, könnte dies hier eventuell euer Problem lösen:</p>
 <ol>
 <li>Navigiert in den Einstellungen des betreffenden ESXi-Servers im vSphere-Client zu <strong>Configuration -&gt; Networking</strong>.<br />
-<a href="https://adminswerk.de/assets/2012-06-05-esxi-io-error.png"><img class="alignnone size-medium wp-image-2104" style="margin: 10px;" title="2012-06-05-esxi-io-error" src="https://adminswerk.de/assets/2012-06-05-esxi-io-error-300x130.png" alt="" width="300" height="130" /></a></li>
+<a href="{{ site.url }}/assets/images/2012/2012-06-05-esxi-io-error.png"><img class="alignnone size-medium wp-image-2104" style="margin: 10px;" title="2012-06-05-esxi-io-error" src="{{ site.url }}/assets/images/2012/2012-06-05-esxi-io-error-300x130.png" alt="" width="300" height="130" /></a></li>
 <li>Nun geht es über <strong>Properties</strong> in die Eigenschaften eures virtuellen Switches. Dort brauchen wir den Reiter <strong>Network Adapters</strong>. Ändert hier den Eintrag <strong>Configured Speed, Duplex</strong> auf <strong>Auto Negotiate</strong> über den <strong>Edit</strong>-Button.<br />
-<a href="https://adminswerk.de/assets/2012-06-05-esxi-io-error2.png"><img class="alignnone size-medium wp-image-2105" style="margin: 10px;" title="2012-06-05-esxi-io-error2" src="https://adminswerk.de/assets/2012-06-05-esxi-io-error2-300x195.png" alt="" width="300" height="195" /></a></li>
+<a href="{{ site.url }}/assets/images/2012/2012-06-05-esxi-io-error2.png"><img class="alignnone size-medium wp-image-2105" style="margin: 10px;" title="2012-06-05-esxi-io-error2" src="{{ site.url }}/assets/images/2012/2012-06-05-esxi-io-error2-300x195.png" alt="" width="300" height="195" /></a></li>
 <li>Ab jetzt sollte der Upload wie gewohnt funktionieren.</li>
 </ol>
 <p>Dies ist nach meinen Recherchen ein schon länger bekannter Bug, der aber zumindest bis zum ESXi 4.1 noch nicht gefixt wurde.</p>

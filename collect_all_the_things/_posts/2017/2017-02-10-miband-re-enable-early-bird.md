@@ -40,4 +40,4 @@ If you find a different working solution, please comment with your Mi Band versi
 [mifit18711]:https://www.apkmirror.com/apk/xiaomi-technology/mi-fit/mi-fit-1-8-711-release/mi-fit-1-8-711-android-apk-download/
 [mifit15912]: https://www.apkmirror.com/apk/xiaomi-technology/mi-fit/mi-fit-1-5-912-release/mi-fit-1-5-912-android-apk-download/
 [mifwinfo]: https://github.com/Freeyourgadget/Gadgetbridge/wiki/Mi-Band-Firmware-Information
-[modrepackageandroid]: https://adminswerk.de/modifying-and-repacking-android-apps/
+[modrepackageandroid]: {{ site.url }}/modifying-and-repacking-android-apps/

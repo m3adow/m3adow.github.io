@@ -17,10 +17,10 @@ published: true
 <p>Das Bundesamt für Sicherheit in der Informationstechnik (BSI) hat vor einer Infektion der DNSChanger-Malware <a href="http://www.heise.de/security/meldung/BSI-ruft-zum-DNS-Check-auf-1407567.html" target="_blank">gewarnt</a> und als Prüfmaßnahme die Website <a href="http://dns-ok.de/" target="_blank">DNS-OK.de</a> ins Netz gestellt. Eins vorweg: Die Seite ist sauber. Aber wer dem BSI trotzdem mißtraut, der kann den dort durchgeführten Check auch manuell machen.</p>
 <p>Dazu eine kurze <strong>Einleitung</strong>. Die Betreiber dieser Schadsoftware wurden im November vom FBI hochgenommen. Seitdem ist der DNS-Server dieser Schadsoftware in den Händen des FBI. Genau das nutzt das BSI jetzt aus.</p>
 <p>Und damit kommen wir zur <strong>Durchführung</strong>. Die Website DNS-OK.de wird bei normalen DNS Einstellungen auf die IP <strong>85.214.11.195</strong> aufgelöst. Dort sieht man dann diese Website mitsamt einer eindeutigen grünen Bestätigung.</p>
-<p><a href="https://adminswerk.de/assets/2011-01-11-dns-ok-de.png"><img class="alignnone size-medium wp-image-1497" style="margin: 5px;" title="2011-01-11-dns-ok-de" src="https://adminswerk.de/assets/2011-01-11-dns-ok-de-300x106.png" alt="" width="300" height="106" /></a></p>
+<p><a href="{{ site.url }}/assets/images/2011/2011-01-11-dns-ok-de.png"><img class="alignnone size-medium wp-image-1497" style="margin: 5px;" title="2011-01-11-dns-ok-de" src="{{ site.url }}/assets/images/2011/2011-01-11-dns-ok-de-300x106.png" alt="" width="300" height="106" /></a></p>
 <p>&nbsp;</p>
 <p>Ein infizierter Rechner wird aber bei der Eingabe von DNS-OK.de auf die IP <strong>85.214.11.194</strong> weitergeleitet. Die sieht dann eben etwas alarmierender aus.</p>
-<p><a href="https://adminswerk.de/assets/2011-01-11-dns-not-ok.png"><img class="alignnone size-medium wp-image-1498" style="margin: 5px;" title="2011-01-11-dns-not-ok" src="https://adminswerk.de/assets/2011-01-11-dns-not-ok-300x130.png" alt="" width="300" height="130" /></a></p>
+<p><a href="{{ site.url }}/assets/images/2011/2011-01-11-dns-not-ok.png"><img class="alignnone size-medium wp-image-1498" style="margin: 5px;" title="2011-01-11-dns-not-ok" src="{{ site.url }}/assets/images/2011/2011-01-11-dns-not-ok-300x130.png" alt="" width="300" height="130" /></a></p>
 <p>Das Prinzip funktioniert aber eben nur bei diesem speziellen DNSChanger, da das FBI einfach diese andere IP auf dem übernommenen Server eingestellt hat.</p>
 <p>Wollt ihr also manuell überprüfen, ob ihr infiziert seid, gebt in euer Terminal (Unix) den Befehl</p>
 
@@ -35,5 +35,5 @@ ping dns-ok.de
 {% endhighlight %}
 
 <p>ein und achtet darauf, auf welche der beiden oben genannten IPs die Domain aufgelöst wird. Bei mir war übrigens alles sauber. ;-)<br />
-<a href="https://adminswerk.de/assets/2011-01-11-terminal-dns.png"><img class="alignnone size-medium wp-image-1499" style="margin: 5px;" title="2011-01-11-terminal-dns" src="https://adminswerk.de/assets/2011-01-11-terminal-dns-300x197.png" alt="" width="300" height="197" /></a></p>
+<a href="{{ site.url }}/assets/images/2011/2011-01-11-terminal-dns.png"><img class="alignnone size-medium wp-image-1499" style="margin: 5px;" title="2011-01-11-terminal-dns" src="{{ site.url }}/assets/images/2011/2011-01-11-terminal-dns-300x197.png" alt="" width="300" height="197" /></a></p>
 <p>&nbsp;</p>
