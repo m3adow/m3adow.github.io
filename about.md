@@ -10,7 +10,7 @@ I'm merely an ordinary Systems Engineer fascinated by technology. I like playing
 
  If you want to know more about me or my projects, check my linked profiles in the footer.
 
-![Pixelized Picture]({{ site.url }}/assets/face_pixelized_320x200_opaque.png)
+![Pixelized Picture]({{ site.url }}/assets/images/misc/face_pixelized_320x200_opaque.png)
 
 ## The site
 This blog consists of static pages created by [Jekyll](https://jekyllrb.com). It's hosted on [Github Pages](https://pages.github.com/).
