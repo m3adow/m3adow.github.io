@@ -1,7 +1,6 @@
 _site/
 _drafts/*
 collect_all_the_things/_drafts/*
-_workdir/
 .vscode/
 .sass-cache/
 .jekyll-metadata
@@ -17,3 +16,4 @@ _watch/d.DEPLOY
 .stignore
 .stversions
 **.swp
+/_secret/

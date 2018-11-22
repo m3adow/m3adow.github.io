@@ -15,9 +15,9 @@
     <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
     <title>{% if page.title %} {{ page.title }} › {% endif %}{{ site.title }}</title>
     <link rel="canonical" href="{{ page.url | prepend: site.url }}">
-    <link href="{{ "/main.css" | prepend: site.url }}" rel="stylesheet" type="text/css">
-    <link href="{{ "/css/fonts.css" | prepend: site.url }}" rel="stylesheet" type="text/css">
-    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <link href="{{ '/main.css' | prepend: site.url }}" rel="stylesheet" type="text/css">
+    <link href="{{ '/assets/css/fonts.css' | prepend: site.url }}" rel="stylesheet" type="text/css">
+    <link href="{{ '/assets/font-awesome/css/font-awesome.min.css' | prepend: site.url }}" rel='stylesheet' type='text/css'>
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }} &raquo; Feed" href="{{ "/feed.xml" | prepend: site.url }}">
     {% if site.comments.isso %}
       <!-- Comments powered by isso -->
