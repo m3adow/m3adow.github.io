@@ -2,6 +2,7 @@
 title: "Ab0ut"
 permalink: about/
 show_blog_additions: false
+sitemap: false
 ---
 ## Me
 I'm merely an ordinary Systems Engineer fascinated by technology. I like playing

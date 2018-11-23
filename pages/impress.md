@@ -2,6 +2,7 @@
 title: "Impress"
 permalink: impress/
 show_blog_additions: false
+sitemap: false
 ---
 ### Legal Disclosure
 
