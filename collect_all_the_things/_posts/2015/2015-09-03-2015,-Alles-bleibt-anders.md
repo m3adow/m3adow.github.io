@@ -13,4 +13,4 @@ Hallo an alle Leser meines alten und eingestaubten Blogs. Der letzte Blogpost wa
 
 Meine Postfrequenz wird vermutlich nicht sehr hoch sein, aber ich würde mich darüber freuen, wenn ihr mir weiter (in englischer Sprache) treu bleibt.
 
-Abschließend der Hinweis, dass ich zwar versuchen werde, den alten Admins Werk RSS Feed beizubehalten, da es sich aber um einen Feedburner Feed handelt und Feedburner bereits seit geraumer Zeit von Google abgeschaltet wurde, kann ich nicht garantieren, wie lange der Feed bestehen bleibt. Die neue Feed-Url lautet <a href="{{ site.url }}/feed">{{ site.url }}/feed</a>.
+Abschließend der Hinweis, dass ich zwar versuchen werde, den alten Admins Werk RSS Feed beizubehalten, da es sich aber um einen Feedburner Feed handelt und Feedburner bereits seit geraumer Zeit von Google abgeschaltet wurde, kann ich nicht garantieren, wie lange der Feed bestehen bleibt. Die neue Feed-Url lautet <a href="{{ site.url }}/feed.xml">{{ site.url }}/feed.xml</a>.
