@@ -12,7 +12,7 @@ status: publish
 type: post
 published: true
 ---
-<p>Hin und wieder benötigt man mal den absoluten Pfad eines Ordners oder einer Datei auf dem Webserver. So brauchen etwa einige Wordpress Plugins den absoluten Pfad zur Wordpress Installation oder zu anderen Systemen wie <a href="http://www.adminswerk.de/?s=Piwik">Piwik</a>, etc. Was beim eigenen Server kein Problem ist, ist bei einem simplen Webhosting schon komplizierter.</p>
+<p>Hin und wieder benötigt man mal den absoluten Pfad eines Ordners oder einer Datei auf dem Webserver. So brauchen etwa einige Wordpress Plugins den absoluten Pfad zur Wordpress Installation oder zu anderen Systemen wie <a href="{{ site.url }}/?s=Piwik">Piwik</a>, etc. Was beim eigenen Server kein Problem ist, ist bei einem simplen Webhosting schon komplizierter.</p>
 <p>Schnellste Lösung:</p>
 <ol>
 <li>Eine PHP-Datei - nennen wir sie pfad.php - mit folgendem Inhalt in den Ordner kopieren, dessen Pfad ihr herausbekommen wollt.
@@ -24,7 +24,7 @@ echo $pfad;
 {% endhighlight %}
 
 </li>
-<li>Dann zur entsprechenden Seite navigieren, etwa <strong>http://www.adminswerk.de/pfad.php</strong>(Link ist nicht funktionstüchtig). Dort wird euch dann der absolute Pfad angezeigt, der in der Regel irgendwie so aussehen sollte:
+<li>Dann zur entsprechenden Seite navigieren, etwa <strong>{{ site.url }}/pfad.php</strong>(Link ist nicht funktionstüchtig). Dort wird euch dann der absolute Pfad angezeigt, der in der Regel irgendwie so aussehen sollte:
 
 {% highlight bash %}
 /var/www/meineseite/meinpfad

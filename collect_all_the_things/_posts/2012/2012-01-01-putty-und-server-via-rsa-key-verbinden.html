@@ -20,7 +20,7 @@ Es geht allerdings noch eine Stufe sicherer, mithilfe von Schlüsselauthentifizi
 <ol>
 <li>Klickt nach dem Start von Puttygen auf <strong>Generate</strong> und bewegt eure Maus den Anweisungen entsprechend möglichst zufällig auf der angezeigten Fläche.<br />
 <a href="{{ site.url }}/assets/images/2011/2011-12-28-puttygen-1.png"><img class="wp-image-1420 alignnone" style="margin: 5px;" title="2011-12-28-puttygen-1" alt="" src="{{ site.url }}/assets/images/2011/2011-12-28-puttygen-1-150x144.png" width="150" height="144" /></a></li>
-<li>Nachdem der Schlüssel erzeugt wurde, wollen wir ihn noch mit einem Passwort sichern. Dazu gebt ihr euer <a title="Sichere, merkbare Passwörter erstellen" href="http://www.adminswerk.de/sichere-merkbare-passworter-erstellen/">sicheres Passwort</a> in die beiden <strong>Passphrase</strong>-Felder ein.<br />
+<li>Nachdem der Schlüssel erzeugt wurde, wollen wir ihn noch mit einem Passwort sichern. Dazu gebt ihr euer <a title="Sichere, merkbare Passwörter erstellen" href="{{ site.url }}/sichere-merkbare-passworter-erstellen/">sicheres Passwort</a> in die beiden <strong>Passphrase</strong>-Felder ein.<br />
 <a href="{{ site.url }}/assets/images/2011/2011-12-28-puttygen-2.png"><img class="size-thumbnail wp-image-1421 alignnone" style="margin: 5px;" title="2011-12-28-puttygen-2" alt="" src="{{ site.url }}/assets/images/2011/2011-12-28-puttygen-2-150x144.png" width="150" height="144" /></a></li>
 <li>Anschließend sichern wir sowohl Private- als auch Public-Key irgenwohin, wo wir sie wiederfinden.</li>
 <li>Jetzt wird es interessant. Verbindet euch auf  eure Linuxkiste und loggt euch als der Benutzer ein, mit dem ihr euch auch mittelds Schlüsselauthentifizierung verbinden wollt. Bleiben wir beim Beispiel meiner letzten Anleitung und nennen ihn <em>sshuser</em>.</li>
@@ -34,7 +34,7 @@ chmod 600 ~/.ssh/authorized_keys
 {% endhighlight %}
 
 </li>
-<li>Kopiert euch anschließend den Schlüssel, der in der oberen Hälfte des PUTTYGEN-Fensters unterhalb von <strong>Public key for pasting into OpenSSH authorized_keys file</strong> steht in die Zwischenablage und fügt ihn in den nächsten Befehl ein. Hierbei will ich präventiv auf  meine Erläuterung zu <a title="Putty: Copy and Paste" href="http://www.adminswerk.de/putty-copy-and-paste/">Copy und Paste bei Putty</a> verweisen.
+<li>Kopiert euch anschließend den Schlüssel, der in der oberen Hälfte des PUTTYGEN-Fensters unterhalb von <strong>Public key for pasting into OpenSSH authorized_keys file</strong> steht in die Zwischenablage und fügt ihn in den nächsten Befehl ein. Hierbei will ich präventiv auf  meine Erläuterung zu <a title="Putty: Copy and Paste" href="{{ site.url }}/putty-copy-and-paste/">Copy und Paste bei Putty</a> verweisen.
 
 {% highlight bash %}
 echo [HIER DEN KOPIERTEN KEY EINFÜGEN] > ~/.ssh/authorized_keys
