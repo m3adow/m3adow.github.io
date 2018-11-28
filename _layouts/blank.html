@@ -46,7 +46,7 @@ window.cookieconsent.initialise({
   "content": {
     "message": "We may use cookies for one or more of the following features: To personalise content and ads, to provide social media features and to analyse our traffic. We also share information about your use of our site with our social media, advertising and analytics partners.",
     "dismiss": "Okay",
-    "href": "https://adminswerk.de/privacy-statement/"
+    "href": "{{ '/privacy-statement/' | prepend: site.url }}"
   }
 })});
 </script>
@@ -82,7 +82,7 @@ window.cookieconsent.initialise({
       {% unless site.style.headline %}<h1><a href="{{ site.url }}/">{{ site.title }}</a></h1>{% endunless %}
       <nav>
         <ul>
-          <li><a href="{{ site.url }}/">H0me</a></li>
+          <li><a href="{{ site.url }}/">Home</a></li>
       {% for node in site.pages %}{% if node.title and node.title != 'Impress' and node.title != 'Privacy Statement' %}<li><a href="{{ node.url | prepend: site.url }}"{% if page.url == node.url %} id="selected"{% endif %}>{{ node.title }}</a></li>{% endif %}{% endfor %}
           <li><form method="get" id="search" action="https://duckduckgo.com/"><input type="hidden" name="sites" value="adminswerk.de"/>
             <input type="hidden" name="kj" value="#3f3f3f"/><input type="hidden" name="kx" value="b">

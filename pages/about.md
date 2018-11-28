@@ -1,5 +1,5 @@
 ---
-title: "Ab0ut"
+title: "About"
 permalink: about/
 show_blog_additions: false
 sitemap: false
