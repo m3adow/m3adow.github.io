@@ -9,6 +9,9 @@ permalink: /:title/
 
 collections_dir: collect_all_the_things
 
+collections:
+    - codebites
+
 future: false
 comments:
     isso: "comments.tillwiese.de/adminswerk.de.fcgi"

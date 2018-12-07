@@ -1,5 +1,5 @@
 ---
-permalink: feed.xml
+permalink: codebites-feed.xml
 layout: null
 ---
 <?xml version="1.0" encoding="UTF-8"?>
@@ -15,7 +15,7 @@ layout: null
     {%- assign feedcounter = 0 -%}
     {%- assign maxfeeds = 10 -%}
     {%- for post in site.posts -%}
-      {%- unless post.categories contains 'codebites' %}
+      {%- if post.categories contains 'codebites' %}
       <item>
         <title>{{ post.title | xml_escape }}</title>
         <description>{{ post.content | xml_escape }}</description>
@@ -33,7 +33,7 @@ layout: null
         {%- if feedcounter >= maxfeeds -%}
           {%- break -%}
         {%- endif -%}
-      {%- endunless -%}
+      {%- endif -%}
     {%- endfor -%}
   </channel>
 </rss>
