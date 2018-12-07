@@ -3,7 +3,7 @@ layout: default
 title: "Custom resolution for an Ubuntu Virtual Box guest"
 categories:
 - Ubuntu
-- virtualization
+- Virtualization
 ---
 
 I've encountered this problem more often than I like to admit: I got an Ubuntu or Debian based Virtual Box guest and I'd like to change the resolution of the Desktop to one not being enabled by default.

@@ -4,7 +4,7 @@ title: "Kubernetes Single Node installation on CoreOS Container Linux"
 categories:
 - Docker
 - Linux
-- coreos
+- Coreos
 ---
 
 I've been playing with Kubernetes on CoreOS Container Linux for a couple of months now. As I prefer to implement real world workloads instead of examples, I planned on containerising a couple of applications my family and I rely on. Beforehand I wanted to create an easy way for installing a Kubernetes cluster spread across multiple VPS providers, securely connected over the internet via VPN or something similar. I did a [speed test][1] for initial evaluation of different methods and began working on a proof of concept [CoreOS Kubernetes cluster secured via tinc][2]. This prove more difficult than initially planned, taking me months for a simple setup and setting me back multiple times.  

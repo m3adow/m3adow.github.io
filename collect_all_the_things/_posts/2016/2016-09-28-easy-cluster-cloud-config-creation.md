@@ -2,8 +2,8 @@
 layout: default
 title: "Simplifying cloud-config creation for clusters"
 categories:
-- coreos
-- cloud
+- Coreos
+- Cloud
 ---
 
 I'm still experimenting with container orchestration. Currently I'm in the process of building a three node CoreOS cluster with Kubernetes on top of it, connected over the Internet. One problem I was constantly struggling with was keeping my cloud-configs in sync. Most of the configuration settings were identical or nearly identical on all three nodes. Still, when adding a small change, I needed to apply this change to all three files. Forgetting one or mistyping led to errors and unnecessary debugging sessions.

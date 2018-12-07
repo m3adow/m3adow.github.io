@@ -3,7 +3,7 @@ layout: default
 title: "Ubuntu: Full Youtube HTML5 Player support for Firefox"
 categories:
 - Linux
-- firefox
+- Firefox
 ---
 **Problem:** Firefox on Ubuntu doesn't support the whole spectrum of HTML5 features Youtube provides.
 

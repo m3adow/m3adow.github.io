@@ -3,8 +3,8 @@ layout: default
 title: "Running Caddy and Go on ARMv6 Alpine Linux"
 categories:
 - Docker
-- go
-- raspberry pi
+- Go
+- Raspberry Pi
 - Linux
 ---
 

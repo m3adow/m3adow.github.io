@@ -3,7 +3,7 @@ layout: default
 title: "Backup Windows partitions as virtual hard disk (VHD)"
 categories:
 - Windows
-- virtualization
+- Virtualization
 ---
 
 Although I prefer Linux as Desktop OS, Gaming on it is still very hard to realize. That's why I need a Windows installation on my system. Said installation didn't age well, so I decided to rejuvenate my six year old Windows installation and install Windows 10.

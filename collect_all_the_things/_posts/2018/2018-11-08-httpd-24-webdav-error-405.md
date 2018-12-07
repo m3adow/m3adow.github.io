@@ -2,8 +2,8 @@
 layout: default
 title: "Fixing HTTP 405 errors with httpd 2.4 WebDAV"
 categories:
- - httpd
- - webdav
+- httpd
+- Webdav
 ---
 
 While updating an Apache httpd from 2.2 to 2.4 we encountered a strange problem. The web server is used as a reverse proxy for a WebDAV application.

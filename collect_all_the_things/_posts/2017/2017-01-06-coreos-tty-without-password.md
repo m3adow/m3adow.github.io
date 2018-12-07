@@ -2,7 +2,7 @@
 layout: default
 title: "Container Linux: Get a TTY without password"
 categories:
-- coreos
+- Coreos
 ---
 
 I've been experimenting a lot with CoreOS Container Linux (formerly simply CoreOS). One of the issues I've had regularly was getting my cloud-config to the server after an initial install. There's no meta data drive or something similar on bare metal servers or normal VPS.

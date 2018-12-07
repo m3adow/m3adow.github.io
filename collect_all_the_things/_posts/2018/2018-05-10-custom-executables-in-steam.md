@@ -2,7 +2,7 @@
 layout: default
 title: "Using Custom executables in Steam applications"
 categories:
-- steam
+- Steam
 - Gaming
 ---
 

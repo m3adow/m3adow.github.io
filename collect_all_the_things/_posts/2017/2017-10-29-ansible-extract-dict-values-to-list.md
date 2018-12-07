@@ -41,7 +41,7 @@ But I found a way using `set_fact`:
 
 {% raw %}
 ```yaml
-- name: Expand mount dirs for later use
+- Name: Expand mount dirs for later use
   set_fact:
     # Sets a list of mount directories
     expanded_mounts: "\
@@ -57,7 +57,7 @@ What do I need this for? I have a similar list of mountpoints I map SSHFS mounts
 
 {% raw %}
 ```yaml
-- name: Add files for backups and enable them
+- Name: Add files for backups and enable them
   include_tasks: borgmatic.yml
   with_items:
     -
