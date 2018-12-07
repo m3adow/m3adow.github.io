@@ -2,7 +2,7 @@
 layout: default
 title: "Redirecting ports with iptables"
 categories:
-- linux
+- Linux
 ---
 
 From time to time I need to test the connectivity of applications listening on a port which has not yet been opened in the firewall. Therefore I use iptables to redirect an open port to the port the application is listening on. Lets assume I want to redirect port 80 to 8080 and port 443 to port 8443. Here's how to do it:

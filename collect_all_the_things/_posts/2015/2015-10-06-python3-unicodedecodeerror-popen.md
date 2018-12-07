@@ -2,7 +2,7 @@
 layout: default
 title: "Python3: UnicodeDecodeError when using subprocess.Popen"
 categories:
-- python
+- Python
 ---
 
 While writing a Python script which handles an applications STDOUT on Windows, I encountered an error:

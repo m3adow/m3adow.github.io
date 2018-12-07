@@ -2,9 +2,9 @@
 layout: default
 title: "OverlayFS as Docker storage driver in CentOS 7"
 categories:
-- linux
+- Linux
 - CentOS
-- docker
+- Docker
 ---
 
 For now, I was using Docker with devicemapper on my personal servers. As long as I considered Docker an early test, this was okay. But now I want to move some of my personal infrastructure into containers while also building an automatic service discovery environment for further test containers. Thus I wanted to skip to a faster storage driver. You can find a lot of material about Docker storage drivers in the net, there are several, each having its own pros and cons. If you want to read more into the issue, check the end of the post.  

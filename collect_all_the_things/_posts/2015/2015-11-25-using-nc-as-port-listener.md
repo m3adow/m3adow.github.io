@@ -2,7 +2,7 @@
 layout: default
 title: "Using netcat as port listener"
 categories:
-- linux
+- Linux
 ---
 
 Short but useful tip:

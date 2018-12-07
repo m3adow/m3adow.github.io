@@ -3,7 +3,7 @@ layout: default
 title: "Using Custom executables in Steam applications"
 categories:
 - steam
-- gaming
+- Gaming
 ---
 
 Nearly 10 years ago, on the 30th December of 2009, I bought League of Legends on Steam. Back in this time, DOTA 2 wasn't released yet and there was a Digital Collectors Edition for League available on Steam. Therefore, I'm one of the [very few users][lolcharts] who are playing League of Legends via Steam. But while the League of Legends client was further developed, the game version in Steam did not. Luckily, the small Steam League of Legends community found workarounds, so the tracking of ingame time still works.

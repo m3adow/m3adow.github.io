@@ -2,7 +2,7 @@
 layout: default
 title: "Technical fundament of /dev/blog/ID10T"
 categories:
-- blogging
+- Blogging
 ---
 <p>As the technical fundament of ID10T changed completely, it's a good idea to explicate its underlying infrastructure. I really like when other blogs websites or applications are thoroughly explaining their hosting technology, so I want to do it with my blog as well.</p>
 

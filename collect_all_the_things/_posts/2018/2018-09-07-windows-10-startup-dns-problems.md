@@ -2,7 +2,7 @@
 layout: default
 title: "How I miraculously fixed my Windows 10 startup DNS problems"
 categories:
-- windows
+- Windows
 ---
 
 I once again had a great experience with Windows 10. For some reason my DNS resolution stopped working for roughly two minutes

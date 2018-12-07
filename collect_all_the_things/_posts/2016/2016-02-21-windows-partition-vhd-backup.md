@@ -2,7 +2,7 @@
 layout: default
 title: "Backup Windows partitions as virtual hard disk (VHD)"
 categories:
-- windows
+- Windows
 - virtualization
 ---
 

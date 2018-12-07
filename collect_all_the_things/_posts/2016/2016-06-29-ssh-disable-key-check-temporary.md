@@ -2,7 +2,7 @@
 layout: default
 title: "SSH: Disable Host Key Checking temporarily"
 categories:
-- linux
+- Linux
 ---
 
 A couple of days ago I found an easy solution to a problem I ignored way too long. When working with Virtual Servers it's a common occurence that you test something, it doen't go as planned and the server doesn't boot properly anymore. Most VPS providers offer some kind of Recovery OS or a Rescue System for those situations. Just boot the server into this OS, revert your faulty changes, reboot the system and you're set to nuke your server again.  

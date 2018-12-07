@@ -2,7 +2,7 @@
 layout: default
 title: "Mount partitons of dd block device image"
 categories:
-- linux
+- Linux
 ---
 
 A small tip while I'm playing with my Raspberry Pi, Docker and the love child of both, [Hypriot](http://blog.hypriot.com/):

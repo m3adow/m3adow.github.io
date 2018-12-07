@@ -2,7 +2,7 @@
 layout: default
 title: "Windows 10: Fix Reboot instead of Shutdown"
 categories:
-- windows
+- Windows
 ---
 
 Short tip because I had to spend more time onto it than I wanted. If your Windows 10 often denies a shutdown and reboot instead, check the **Power Management** setting of your network cards.

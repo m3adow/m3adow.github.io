@@ -2,7 +2,7 @@
 layout: default
 title: "Linux: Empty swap space"
 categories:
-- linux
+- Linux
 ---
 
 *This is the translation of a [post]({% post_url 2013/2013-02-22-linux-swap-leeren %}) I wrote four years ago. I needed an english version of it for a friend of mine.*

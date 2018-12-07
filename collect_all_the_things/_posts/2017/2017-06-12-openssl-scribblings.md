@@ -3,7 +3,7 @@ layout: default
 title: "OpenSSL scribblings"
 categories:
 - ssl
-- linux
+- Linux
 ---
 
 Just a quick writeup from my notes so I know where to look it up if I ever search for it again. In my examples I use Comodo as the certificate authority and ssl.example.org as domain.

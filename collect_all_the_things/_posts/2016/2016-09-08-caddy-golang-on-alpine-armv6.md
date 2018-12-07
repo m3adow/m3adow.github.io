@@ -2,10 +2,10 @@
 layout: default
 title: "Running Caddy and Go on ARMv6 Alpine Linux"
 categories:
-- docker
+- Docker
 - go
 - raspberry pi
-- linux
+- Linux
 ---
 
 My goal was compiling [Caddy][1] for my old Raspberry Pi 1 Model B. Caddy only provides an ARMv7 binary which isn't compatible to the original Pis ARMv6. My Raspi is running on [Hypriot][2], the Docker distribution for the Pi, therefore I wanted Caddy to run in a container as well. I chose my own [Alpine Linux][3] base image as its foundation.

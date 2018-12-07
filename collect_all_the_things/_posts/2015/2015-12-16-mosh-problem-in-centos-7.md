@@ -2,7 +2,7 @@
 layout: default
 title: "Mosh problem in CentOS 7"
 categories:
-- linux
+- Linux
 ---
 While setting up a new server, I encountered a problem with [mosh](https://mosh.mit.edu/). If you don't know mosh, it's an extension to SSH which (among other features) enables instant reconnections after an internet shortage. This is especially useful if you're frequently connecting via mobile network and constantly lose your mobile Internet connection.
 

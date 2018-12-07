@@ -1,7 +1,7 @@
 ---
 layout: default
 categories:
-- linux
+- Linux
 ---
 Small tip for people often using sed for substitutions:
 In the process of porting my old wordpress blog posts to Jekyll I had to do a lot of substitutions. Specifically I had to substitute a lot of HTML Tags. Sadly, sed in most Linux distributions doesn't support lazy regex quantifiers. When searching for an expression which is only known to begin with **<code** and end with **>** and a lot of possibilites between those delimiters, it's really annoying to not have lazy quantifiers.

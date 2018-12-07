@@ -2,7 +2,7 @@
 layout: default
 title: "Video: Dockers '--userns-remap' feature explained"
 categories:
-- docker
+- Docker
 ---
 
 I have been up to the ears in work and in projects, that's why I haven't been posting a lot. I initially wanted to create a series about automatic service discovery and configuration with Consul, Registrator and consul-template, but decided to switch to [Rancher][1] in the process as I encountered too much hassle and had to make too much workarounds.

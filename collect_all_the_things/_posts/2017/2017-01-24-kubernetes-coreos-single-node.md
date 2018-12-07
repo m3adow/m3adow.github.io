@@ -2,7 +2,7 @@
 layout: default
 title: "Kubernetes Single Node installation on CoreOS Container Linux"
 categories:
-- docker
+- Docker
 - Linux
 - coreos
 ---

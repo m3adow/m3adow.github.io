@@ -2,8 +2,8 @@
 layout: default
 title: "Multi monitor wallpapers in Ubuntu"
 categories:
-- linux
-- ubuntu
+- Linux
+- Ubuntu
 ---
 
 Using Linux as your main OS takes some time getting used to when you came from Windows. The way is also plastered with little obstacles and annoyances you can either decide to ignore or solve one after another. One of those small annoyances I recently solved after a couple of years of willful ignorance was an easy way for multi monitor wallpapers on Ubuntu.
