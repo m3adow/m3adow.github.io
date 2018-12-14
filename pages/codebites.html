@@ -5,13 +5,13 @@ show_blog_additions: False
 ---
 {% for category in site.categories %}
   {%- capture category_name -%}{{ category | first }}{%- endcapture -%}
-  {% if category_name == 'codebites' %}
+  {% if category_name == 'Codebites' %}
     {% continue %}
   {% endif %}
   {%- assign bite_initialized = false -%}
   {%- assign category_posts = site.categories[category_name] | sort: 'title' %}
   {% for post in category_posts %}
-    {%- unless post.codebite == true -%}
+    {%- unless post.categories contains 'Codebites' -%}
       {%- continue -%}
     {%- endunless -%}
     {%- if bite_initialized == false -%}

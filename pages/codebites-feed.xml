@@ -15,7 +15,7 @@ layout: null
     {%- assign feedcounter = 0 -%}
     {%- assign maxfeeds = 10 -%}
     {%- for post in site.posts -%}
-      {%- if post.categories contains 'codebites' %}
+      {%- if post.categories contains 'Codebites' %}
       <item>
         <title>{{ post.title | xml_escape }}</title>
         <description>{{ post.content | xml_escape }}</description>

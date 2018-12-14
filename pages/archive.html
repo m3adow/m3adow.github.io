@@ -4,7 +4,7 @@ permalink: archive/
 show_blog_additions: false
 ---
 {% for post in site.posts %}
-  {% if post.codebite == true %}
+  {% if post.categories contains 'Codebites' %}
     {% continue %}
   {% endif %}
 
