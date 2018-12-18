@@ -16,6 +16,8 @@ Read from location 0000000e caused an access violation
 
 This seems to be an error common in many Unity Engine games, not exclusive to Subnautica. Therefore a lot of people experienced this crash issue. Most search results on the Internet recommend disabling overlays. I did that for Steam, Discord, Riva Tuner and f.lux, to no avail.  
 
+<!--more-->
+
 {% include adsense_manual.html %}
 
 Finally I found a [forum post](https://forums.unknownworlds.com/discussion/155160/discovered-reason-for-game-crashing-when-launching-access-violation#latest) in the official Subnautica forum which linked this issue to Citrix Workplace, formerly Citrix Connector. I actively use Citrix Workplace for work, so this directly related to my issue. But I didn't want to uninstall the application every time I want to play Subnautica. I tried disabling all of Citrix services (at least I tried, the installation creates a lot of background services), but that didn't help. After some tries I found out that disabling the device "Citrix Virtual Bus Enumerator" in the Device Manager does the trick.
