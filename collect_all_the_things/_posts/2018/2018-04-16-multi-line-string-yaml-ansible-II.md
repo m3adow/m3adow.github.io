@@ -173,7 +173,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
 No problems here, block styles as well as block chomping methods are respected.
 
-{% include gearbest_bottom.html %}
+{% include ad_gearbest_dynamic_promo.html %}
 
 ## lineinfile
 So far, so good! Now let's get to the hairy stuff. `lineinfile` for starters.
@@ -286,7 +286,7 @@ As we can see in the `msg` field, it's `useradd` which complains about an invali
 comment. Therefore it's very unlikely you could bork your `/etc/passwd` when using
 a block with a line feed at the end.
 
-{% include host1plus_banner.html %}
+{% include adsense_manual.html %}
 
 ## cron
 The `cron` module is where the problems start:

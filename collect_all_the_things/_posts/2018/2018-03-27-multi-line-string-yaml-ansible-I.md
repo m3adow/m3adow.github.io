@@ -158,7 +158,7 @@ We already observed the default `Clip` behavior. Trailing line breaks were reduc
 this one however was always preserved. Therefore, we skip this and directly proceed
 to the remaining two methods.
 
-{% include gearbest_bottom.html %}
+{% include ad_gearbest_dynamic_promo.html %}
 
 ## Stripping
 Here is our beloved Shakespeare citation, in **literal style**, with stripping enabled
@@ -227,7 +227,7 @@ ok: [localhost] => {
 }
 ```
 
-{% include host1plus_banner.html %}
+{% include adsense_manual.html %}
 
  Unsurprisingly, all line feeds within the string are preserved. Similarly, as
  described by the block chompings method description, all trailing line breaks

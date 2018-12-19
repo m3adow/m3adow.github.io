@@ -28,61 +28,13 @@
       {% endif %}
     {% else %}<!-- Problem with isso parsing -->
     {% endif %}
-    <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
-<script>
-window.addEventListener("load", function(){
-window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#252e39"
-    },
-    "button": {
-      "background": "#14a7d0"
-    }
-  },
-  "theme": "edgeless",
-  "content": {
-    "message": "We may use cookies for one or more of the following features: To personalise content and ads, to provide social media features and to analyse our traffic. We also share information about your use of our site with our social media, advertising and analytics partners.",
-    "dismiss": "Okay",
-    "href": "{{ '/privacy-statement/' | prepend: site.url }}"
-  }
-})});
-</script>
-
-    <!-- End Cookie Consent plugin -->
-    <!-- Piwik -->
-    <script type="text/javascript">
-      var _paq = _paq || [];
-      _paq.push(['trackPageView']);
-      _paq.push(['enableLinkTracking']);
-      (function() {
-      var u="https://piwik.tillwiese.de/";
-      _paq.push(['setTrackerUrl', u+'piwik.php']);
-      _paq.push(['setSiteId', 1]);
-      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-      g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-      })();
-    </script>
-    <noscript><p><img src="https://piwik.tillwiese.de/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
-    <!-- End Piwik Code -->
-{% comment %}
-        <!-- Adsense Auto ads -->
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <script>
-         (adsbygoogle = window.adsbygoogle || []).push({
-              google_ad_client: "ca-pub-7586970907106458",
-              enable_page_level_ads: true
-         });
-        </script>
-        <!-- End Adsense Auto ad block -->
-{% endcomment %}
-<style>
-  .gad_default { width: 320px; height: 50px; }
-  @media(min-width: 500px) { .gad_default { width: 468px; height: 60px; } }
-  @media(min-width: 800px) { .gad_default { width: 728px; height: 90px; } }
-</style>
+    {% include cookie_consent.html %}
+    {% include piwik_tracking.html %}
+    <style>
+      .gad_default { width: 320px; height: 50px; }
+      @media(min-width: 500px) { .gad_default { width: 468px; height: 60px; } }
+      @media(min-width: 800px) { .gad_default { width: 728px; height: 90px; } }
+    </style>
   </head>
   <body>
     <header>
