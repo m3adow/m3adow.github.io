@@ -137,7 +137,7 @@ ok: [localhost] => {
 ```
 As we can see, two of the three line breaks after the first line have been preserved.
 Single line breaks, like the one between line four and five, are still  replaced by
-one space while the three trailing line feeds have been reduce to one due to block
+one space while the three trailing line feeds have been reduced to one due to block
 chomping.  
 I have now mentioned it three times, so lets investigate...
 
