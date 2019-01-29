@@ -26,7 +26,20 @@ rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org \
 
 Don't reboot yet, we want to make at least one more change and this way you can directly see if every change is reboot safe.
 
-{% include adsense_manual.html %}
+{% include adwrap_top.html %}
+<script type="text/javascript">
+amzn_assoc_tracking_id = "admwer-20";
+amzn_assoc_ad_mode = "manual";
+amzn_assoc_ad_type = "smart";
+amzn_assoc_marketplace = "amazon";
+amzn_assoc_region = "US";
+amzn_assoc_design = "enhanced_links";
+amzn_assoc_asins = "B00LRROTI4";
+amzn_assoc_placement = "adunit";
+amzn_assoc_linkid = "a9d9099ea7587b9662db21270f190678";
+</script>
+<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
+{% include adwrap_bottom.html %}
 
 ## 2. Update system settings
 
@@ -62,7 +75,7 @@ mount /dev/vg/var_lib_docker /mnt \
 printf "/dev/vg/var_lib_docker\t/var/lib/docker\text4\tdefaults\t0\t0\n" >> /etc/fstab
 {% endhighlight %}
 
-{% include adsense_manual_link.html %}
+{% include adsense_manual.html %}
 
 ## 4. Testing
 Now we can `reboot`. Afterwards check if everything is working as intended by using `docker info`:
