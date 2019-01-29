@@ -33,7 +33,20 @@ for further usage, so the result looks like this:
 
 <!--more-->
 
-{% include adsense_manual.html %}
+{% include adwrap_top.html %}
+<script type="text/javascript">
+amzn_assoc_tracking_id = "admwer-20";
+amzn_assoc_ad_mode = "manual";
+amzn_assoc_ad_type = "smart";
+amzn_assoc_marketplace = "amazon";
+amzn_assoc_region = "US";
+amzn_assoc_design = "enhanced_links";
+amzn_assoc_asins = "098639341X";
+amzn_assoc_placement = "adunit";
+amzn_assoc_linkid = "5636cb4923820aae4eca31a18bc7f499";
+</script>
+<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
+{% include adwrap_bottom.html %}
 
 Sadly, I could not find an easy or intuitive way to do this. You can neither use
 Jinja2 {% raw %}`{% for %}`{% endraw %} loops in Playbooks or variable files, nor Python loops.  

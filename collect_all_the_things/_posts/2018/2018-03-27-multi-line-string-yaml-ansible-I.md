@@ -50,7 +50,20 @@ ok: [localhost] => {
 
 <!--more-->
 
-{% include adsense_manual.html %}
+{% include adwrap_top.html %}
+<script type="text/javascript">
+amzn_assoc_tracking_id = "admwer-20";
+amzn_assoc_ad_mode = "manual";
+amzn_assoc_ad_type = "smart";
+amzn_assoc_marketplace = "amazon";
+amzn_assoc_region = "US";
+amzn_assoc_design = "enhanced_links";
+amzn_assoc_asins = "098639341X";
+amzn_assoc_placement = "adunit";
+amzn_assoc_linkid = "5636cb4923820aae4eca31a18bc7f499";
+</script>
+<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
+{% include adwrap_bottom.html %}
 
 We can observe the preservation of every line break in the string. This also applies
 to multiple sequential line feeds:
@@ -89,7 +102,7 @@ ok: [localhost] => {
 All trailing line breaks except one are removed. This is called
 "[Block chomping][blockchomping]" which we'll come back to shortly.
 
-{% include adsense_manual_link.html %}
+{% include adsense_manual.html %}
 
 ## Folded
 The YAML specification describes the folded style as "*similar to the literal
@@ -129,12 +142,15 @@ my_pattern: >
 
 
 ```
+
 Output:
+
 ```
 ok: [localhost] => {
     "my_pattern": "With his own sword,\n\nWhich he did wave against my throat, I have ta’en His head from him.\n"
 }
 ```
+
 As we can see, two of the three line breaks after the first line have been preserved.
 Single line breaks, like the one between line four and five, are still  replaced by
 one space while the three trailing line feeds have been reduced to one due to block
@@ -158,7 +174,20 @@ We already observed the default `Clip` behavior. Trailing line breaks were reduc
 this one however was always preserved. Therefore, we skip this and directly proceed
 to the remaining two methods.
 
-{% include ad_gearbest_dynamic_promo.html %}
+{% include adwrap_top.html %}
+<script type="text/javascript">
+amzn_assoc_tracking_id = "admwer-20";
+amzn_assoc_ad_mode = "manual";
+amzn_assoc_ad_type = "smart";
+amzn_assoc_marketplace = "amazon";
+amzn_assoc_region = "US";
+amzn_assoc_design = "enhanced_links";
+amzn_assoc_asins = "1491979801";
+amzn_assoc_placement = "adunit";
+amzn_assoc_linkid = "fe5d809cd46682b9ffc9360ad75bccf8";
+</script>
+<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
+{% include adwrap_bottom.html %}
 
 ## Stripping
 Here is our beloved Shakespeare citation, in **literal style**, with stripping enabled

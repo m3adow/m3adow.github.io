@@ -12,7 +12,24 @@ I'm not certain if every action is needed. I tried dry testing my changes but al
 
 <!--more-->
 
-{% include adsense_manual.html %}
+{% include adwrap_top.html %}
+<div class="alignleft">
+     <script type="text/javascript">
+       	amzn_assoc_ad_type = "banner";
+	amzn_assoc_marketplace = "amazon";
+	amzn_assoc_region = "US";
+	amzn_assoc_placement = "assoc_banner_placement_default";
+	amzn_assoc_campaigns = "musicandentertainmentrot";
+	amzn_assoc_banner_type = "rotating";
+	amzn_assoc_p = "48";
+	amzn_assoc_width = "728";
+	amzn_assoc_height = "90";
+	amzn_assoc_tracking_id = "admwer-20";
+	amzn_assoc_linkid = "145d6a8af3cba352ca36fb96a177eb93";
+     </script>
+     <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
+    </div>
+{% include adwrap_bottom.html %}
 
 That said, here are all the steps I took to regain the Early Bird Alarm on my Mi Band:
 

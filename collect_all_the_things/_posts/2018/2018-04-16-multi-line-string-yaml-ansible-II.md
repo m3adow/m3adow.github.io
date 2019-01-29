@@ -42,7 +42,20 @@ the commands or chain them with `&&` or `||`.
 
 <!--more-->
 
-{% include adsense_manual.html %}
+{% include adwrap_top.html %}
+<script type="text/javascript">
+amzn_assoc_tracking_id = "admwer-20";
+amzn_assoc_ad_mode = "manual";
+amzn_assoc_ad_type = "smart";
+amzn_assoc_marketplace = "amazon";
+amzn_assoc_region = "US";
+amzn_assoc_design = "enhanced_links";
+amzn_assoc_asins = "1491979801";
+amzn_assoc_placement = "adunit";
+amzn_assoc_linkid = "fe5d809cd46682b9ffc9360ad75bccf8";
+</script>
+<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
+{% include adwrap_bottom.html %}
 
 One task I use in one of my server playbooks:
 ```yaml
@@ -95,7 +108,7 @@ vars:
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
 
-{% include adsense_manual_link.html %}
+{% include adsense_manual.html %}
 
 ## shell
 Now let's put these variable in a simple looped `shell` task. Just disregard the fact that
@@ -173,7 +186,20 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
 No problems here, block styles as well as block chomping methods are respected.
 
-{% include ad_gearbest_dynamic_promo.html %}
+{% include adwrap_top.html %}
+<script type="text/javascript">
+amzn_assoc_tracking_id = "admwer-20";
+amzn_assoc_ad_mode = "manual";
+amzn_assoc_ad_type = "smart";
+amzn_assoc_marketplace = "amazon";
+amzn_assoc_region = "US";
+amzn_assoc_design = "enhanced_links";
+amzn_assoc_asins = "098639341X";
+amzn_assoc_placement = "adunit";
+amzn_assoc_linkid = "5636cb4923820aae4eca31a18bc7f499";
+</script>
+<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
+{% include adwrap_bottom.html %}
 
 ## lineinfile
 So far, so good! Now let's get to the hairy stuff. `lineinfile` for starters.
@@ -397,7 +423,20 @@ We now have two non functional fstab entries. This will lead to errors when moun
 and booting. Of course one misformatted entry is added every time you run the
 playbook.
 
-{% include namesilo_banner.html %}
+{% include adwrap_top.html %}
+<script type="text/javascript">
+amzn_assoc_tracking_id = "admwer-20";
+amzn_assoc_ad_mode = "manual";
+amzn_assoc_ad_type = "smart";
+amzn_assoc_marketplace = "amazon";
+amzn_assoc_region = "US";
+amzn_assoc_design = "enhanced_links";
+amzn_assoc_asins = "1784398292";
+amzn_assoc_placement = "adunit";
+amzn_assoc_linkid = "b797d5b59e6a48e985f6a3bb07a0e9f9";
+</script>
+<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
+{% include adwrap_bottom.html %}
 
 # Solution
 

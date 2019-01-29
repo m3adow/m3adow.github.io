@@ -16,7 +16,24 @@ While I understand that Spotify wants to earn money, I heavily dislike the artif
 
 <!--more-->
 
-{% include adsense_manual.html %}
+<div class="alignleft">
+     <script type="text/javascript">
+       	amzn_assoc_ad_type = "banner";
+	amzn_assoc_marketplace = "amazon";
+	amzn_assoc_region = "US";
+	amzn_assoc_placement = "assoc_banner_placement_default";
+	amzn_assoc_campaigns = "amzn_music_bounty";
+	amzn_assoc_banner_type = "category";
+	amzn_assoc_p = "12";
+	amzn_assoc_isresponsive = "false";
+	amzn_assoc_banner_id = "01ZTJ18Y6PDZG4QH4NG2";
+	amzn_assoc_width = "300";
+	amzn_assoc_height = "250";
+	amzn_assoc_tracking_id = "admwer-20";
+	amzn_assoc_linkid = "abac2417484118c9500754a2cbe5a77d";
+     </script>
+     <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
+    </div>
 
 # Browser
 
@@ -38,7 +55,7 @@ This will change how web sites will be scaled, so don't be surprised if everythi
 
 Sadly, using Firefox Nightly with the changed scaling settings is not sufficient. We need to use two additional Firefox Addons: **[User-Agent Switcher and Manager][useragentswitcher]** and **[uBlock Origin][ublock]**.
 
-{% include adsense_manual_link.html %}
+{% include adsense_manual.html %}
 
 ## Changing the User-Agent
 
