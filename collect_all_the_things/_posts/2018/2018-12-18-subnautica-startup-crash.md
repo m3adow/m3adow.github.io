@@ -6,7 +6,7 @@ categories:
 - Windows
 ---
 
-<a href="{{site.url}}/assets/images/2018/2018-12-16-subnautica-banner.pn"><img src="{{site.url}}/assets/images/2018/2018-12-16-subnautica-banner-small.jpg" alt="Subnautica Banner Small"></a>
+<a href="{{site.url}}/assets/images/2018/2018-12-16-subnautica-banner.png"><img src="{{site.url}}/assets/images/2018/2018-12-16-subnautica-banner-small.jpg" alt="Subnautica Banner Small"></a>
 
 [Subnautica](https://www.humblebundle.com/store/subnautica?partner=m3adow) is available for free on the [Epic Game Store](https://www.epicgames.com/store/en-US/product/subnautica/home)  until 27th December. It was on my radar for quite some time, so I decided to try it out. Unfortunately on my PC the game crashed before even starting properly. At least it creates crash logs. While most of those were useless to me, one part was constant in all my tries:
 
