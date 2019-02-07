@@ -11,6 +11,16 @@ collections_dir: collect_all_the_things
 
 collections:
     - codebites
+    - category:
+        output: true
+
+defaults:
+    -
+        scope:
+            path: ""
+            type: category
+        values:
+            layout: "category"
 
 future: false
 comments:
