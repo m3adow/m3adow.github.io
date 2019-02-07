@@ -2,8 +2,8 @@
 layout: default
 title: "OpenWRT: Upgrade all packages with opkg"
 categories:
-- Codebites
 - OpenWRT
+- Codebites
 hidden: true
 ---
 I'm using OpenWRT on my [Linksys WRT3200ACM][wrt_amazon]. As the integrated package manager `opkg` does not have a pendant to `apt-get dist-upgrade`, this is the command I regularly execute, to upgrade the system:
