@@ -10,26 +10,25 @@ permalink: /:title/
 collections_dir: collect_all_the_things
 
 collections:
-    - codebites
+  - codebites
 
 future: false
 comments:
-    isso: "comments.tillwiese.de/adminswerk.de.fcgi"
+  isso: "comments.tillwiese.de/adminswerk.de.fcgi"
 
 lang: en_US
 
 style:
-#    body: "whitesmoke"
-    padding: 33%
-    anchor: "#46f"
-    serif-heading: false
-    nav: "#181818"
-#    headline: "#06f"
-    description: "white"
-    article:
-        odd: "#fff"
-        #even: "#fff"
-#       even: #222222
+  # body: "whitesmoke"
+  padding: 33%
+  anchor: "#46f"
+  serif-heading: false
+  nav: "#181818"
+  # headline: "#06f"
+  description: "white"
+  article:
+    odd: "#fff"
+    # even: "#fff"
 
 paginate: 5
 paginate_path: "/older/page:num"
@@ -39,11 +38,6 @@ links:
   - bitbucket: "https://bitbucket.org/m3adow/"
   - xing: "https://www.xing.com/profile/Till_Wiese"
   - linkedin: "https://www.linkedin.com/pub/till-wiese/46/403/7b4"
-#  - twitter: "https://twitter.com/me/"
-#  - google-plus: "https://plus.google.com/+me"
-#  - reddit: "https://www.reddit.com/user/me/"
-#  - youtube: "https://www.youtube.com/user/me"
-#  - steam: "http://steamcommunity.com/id/me/"
 
 excerpt_separator: "<!--more-->"
 defaults: [{scope: {path: ""}, values: {layout: "default"}}, {scope: {path: "", type: "posts"}, values: {comments: true}}]
