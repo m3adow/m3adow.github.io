@@ -2,7 +2,7 @@
 layout: default
 title: "Compile Blackcoin headless on Raspbian"
 categories:
-- Crypto currency
+- Crypto Currency
 - Raspberry Pi
 ---
 
