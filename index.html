@@ -11,7 +11,7 @@ layout: blank
       <div id="post_header_info">{% if post.author %}{{ post.author }} • {% endif %}{% if post.date %}<time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>{% endif %}{% if post.categories %} •
         <span class="categorylisting">
           {% for category in post.categories %}
-            <a href="{{ site.url }}/category/{{ category | downcase }}">{{ category }}</a>{% unless forloop.last %},{% endunless %}
+            <a href="{{ site.url }}/category/{{ category | downcase }}/">{{ category }}</a>{% unless forloop.last %},{% endunless %}
           {% endfor %}
           </span>{% endif %}
           {% if page.show_blog_additions != false %} • <a href="{{ post.url | prepend: site.url}}#isso-thread" class="header_comment">Comments</a></div>
