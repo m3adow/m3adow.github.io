@@ -17,14 +17,41 @@ layout: blank
         {{ content }}
         
         {% include adsense_bottom.html %}
-      {% if page.show_blog_additions != false %}
-        <b>More posts</b>
-        <ul>
-          {% for post in site.related_posts limit:3 %}
-            <li><a href="{{post.url | prepend: site.url}}">{{post.title}}</a></li>
-          {% endfor %}
-        </ul>
-        </div>
+        {% if page.show_blog_additions != false %}
+          <div class="related">
+            <b>Related Posts</b>
+            <ul>
+              {% comment %}
+                Iterate through all categories of the post and afterwards through related posts until 'related_post_count_max' posts have been found
+              {% endcomment %}
+              {% assign related_post_count = 0 %}
+              {% assign related_post_count_max = 3 %}     
+              {% for category in page.categories %}         
+                {% for related in site.categories[category] %}
+                  {% unless page.url == related.url %}
+                    {% assign related_post_count = related_post_count | plus: 1 %}
+                    <li><a href="{{ related.url | prepend: site.url }}">{{ related.title }}</a></li>
+                  {% endunless %}
+                  {% if related_post_count == related_post_count_max %}
+                    {% break %}
+                  {% endif %}
+                {% endfor %}
+                {% if related_post_count == related_post_count_max %}
+                  {% break %}
+                {% endif %}
+              {% endfor %}
+              {% unless related_post_count == related_post_count_max %}
+                {% for post in site.related_posts %}
+                  {% assign related_post_count = related_post_count | plus: 1 %}
+                  <li><a href="{{post.url | prepend: site.url}}">{{ post.title }}</a></li>
+                  {% if related_post_count == related_post_count_max %}
+                    {% break %}
+                  {% endif %}
+                {% endfor %}
+              {% endunless %}
+            </ul>
+          </div>
+      </div>
         {% if site.comments.isso and page.comments != false %}
         <div id="isso-thread"></div>
         <a href="https://posativ.org/isso/" id="isso-brlink">comments powered by <b>isso</b></a></div>
