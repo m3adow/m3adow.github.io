@@ -10,7 +10,8 @@ permalink: /:title/
 collections_dir: collect_all_the_things
 
 collections:
-  - codebites
+  category:
+    output: true
 
 future: false
 comments:
