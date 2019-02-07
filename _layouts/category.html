@@ -1,12 +1,27 @@
 ---
 layout: blank
-show_blog_additions: false
 ---
-CATEGORY LAYOUT!!!
-<div class="blog list">
-    <h1>Filed Under <small>#{{ page.tag }}</small></h1>
+<article>
+    <header>
+        <h2><a href="{{ page.url | prepend: site.url }}">{{ page.title }}</a></h2>
+    </header>
+    <div>
+        {% include adsense_top.html %}
 
-    {% for post in site.categories[page.tag] %}
-        {% include post_preview.html %}
-    {% endfor %}
-</div>
+        <div id="#{{ page.tag | slugize }}">
+            {% for post in site.categories[page.title] %}
+                {% assign currentdate = post.date | date: "%Y" %}
+                {% if currentdate != date %}
+                    {% unless forloop.first %}</ul>{% endunless %}
+                    <h3 id="y{{post.date | date: "%Y"}}">{{ currentdate }}</h3>
+                    <ul>
+                    {% assign date = currentdate %}
+                {% endif %}
+                <li><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d" }}</time>: 
+                    <a href="{{ post.url }}">{{ post.title }}</a></li>
+                {% if forloop.last %}</ul>{% endif %}
+            {% endfor %}
+        </div>
+        {% include ad_amazon_ezlink.html %}
+    </div>
+</article>
