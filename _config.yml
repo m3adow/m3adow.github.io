@@ -57,4 +57,3 @@ plugins:
     - jekyll-sitemap
     - jekyll-paginate
     - jekyll-seo-tag
-    - jekyll-include-cache
