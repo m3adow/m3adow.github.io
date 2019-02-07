@@ -2,7 +2,7 @@
 layout: default
 title: "OpenSSL scribblings"
 categories:
-- Ssl
+- SSL
 - Linux
 ---
 

@@ -2,7 +2,8 @@
 layout: default
 title: "Compile Blackcoin headless on Raspbian"
 categories:
-- Crypto currency
+- Crypto Currency
+- Raspberry Pi
 ---
 
 As I'm working with my Raspberry Pis again, I wanted to reactivate the wallets of crypto currencies I used to mine some time ago. The Pi is not very potent, so only Proof-of-stake coins qualify. For me those are [Blackcoin](http://blackcoin.co/), [Mintcoin](http://www.mintcoinofficial.com/) and [Reddcoin](https://www.reddcoin.com/) all of which I wanted to run on the Pi. Of course I needed the headless version, I'm not using X11, not even speaking of QT.
