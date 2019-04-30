@@ -19,7 +19,6 @@ Scenario: Utilize Pythons string substitution in Ansible variables
     foobar: ">>%s<<"
     substitution: "adminswerk.de"
 
-
   tasks:
     - debug:
         msg: "{{ foobar % substitution }}"
