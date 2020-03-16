@@ -14,6 +14,8 @@ interact with different Ansible use cases.
 # Multi line strings in Modules
 The classic usage of a multi line string in Ansible is in the `command` or `shell`
 module. This example is directly taken from the [Ansible docs][commandmodule]:
+
+{% raw %}
 ```yaml
 # You can use shell to run other executables to perform actions inline
 - name: Run expect to wait for a successful PXE boot via out-of-band CIMC
@@ -35,6 +37,7 @@ module. This example is directly taken from the [Ansible docs][commandmodule]:
     executable: /usr/bin/expect
   delegate_to: localhost
 ```
+{% endraw %}
 
 A literal style block with clip chomping is used to send several commands.
 Folded style would not make any sense here, except if you wanted to either pipe
@@ -42,22 +45,11 @@ the commands or chain them with `&&` or `||`.
 
 <!--more-->
 
-{% include adwrap_top.html %}
-<script type="text/javascript">
-amzn_assoc_tracking_id = "admwer-20";
-amzn_assoc_ad_mode = "manual";
-amzn_assoc_ad_type = "smart";
-amzn_assoc_marketplace = "amazon";
-amzn_assoc_region = "US";
-amzn_assoc_design = "enhanced_links";
-amzn_assoc_asins = "1491979801";
-amzn_assoc_placement = "adunit";
-amzn_assoc_linkid = "fe5d809cd46682b9ffc9360ad75bccf8";
-</script>
-<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
-{% include adwrap_bottom.html %}
+{% include adsense_manual.html %}
 
 One task I use in one of my server playbooks:
+
+{% raw %}
 ```yaml
 - name: Get public IP
   shell: >
@@ -70,10 +62,14 @@ One task I use in one of my server playbooks:
   failed_when: node_public_ip.rc > 0
   check_mode: no
 ```
+{% endraw %}
+
 To ease the readability, I use folded style here. This enables me to do line breaks
 whenever I want without using \"\\\".
 
 A similar approach for the `blockinfile` module:
+
+{% raw %}
 ```yaml
 - name: insert/update eth0 configuration stanza in /etc/network/interfaces
         (it might be better to copy files into /etc/network/interfaces.d/)
@@ -84,6 +80,8 @@ A similar approach for the `blockinfile` module:
           address 192.0.2.23
           netmask 255.255.255.0
 ```
+{% endraw %}
+
 Once again, literal style with clip chomping. Folded style would not make any
 sense at all, as it would reduce the block to one line.
 As in the other two examples, the different block folding methods would not
@@ -92,6 +90,8 @@ change the functionality at all.
 # Multi line strings in variables and loops
 Let's start easy with these three example variables with a couple of lines
 from the Linux kernel `copyright` file:
+
+{% raw %}
 ```yaml
 vars:
   literal: |
@@ -107,6 +107,7 @@ vars:
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
+{% endraw %}
 
 {% include adsense_manual.html %}
 
@@ -114,6 +115,7 @@ vars:
 Now let's put these variable in a simple looped `shell` task. Just disregard the fact that
 you would probably never use this in a real playbook.
 
+{% raw %}
 ```yaml
 - name: Ensure the file does not exist first
   file:
@@ -125,6 +127,8 @@ you would probably never use this in a real playbook.
     - "{{ folded }}"
     - "{{ folded_strip }}"
 ```
+{% endraw %}
+
 Note that we use markers around each string, to ease the detection of the block
 end. If we now manually output the file, we can clearly see the differences:
 ```bash
@@ -151,6 +155,7 @@ also applies to the blocks when looped.
 ## blockinfile
 Now, let's use `blockinfile` with these vars:
 
+{% raw %}
 ```yaml
 - name: Ensure the file does not exist first
   file:
@@ -166,6 +171,8 @@ Now, let's use `blockinfile` with these vars:
     - {"content": "{{ folded }}", "marker": 2}
     - {"content": "{{ folded_strip }}", "marker": 3}
 ```
+{% endraw %}
+
 The content is as expected:
 
 ```bash
@@ -186,20 +193,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
 No problems here, block styles as well as block chomping methods are respected.
 
-{% include adwrap_top.html %}
-<script type="text/javascript">
-amzn_assoc_tracking_id = "admwer-20";
-amzn_assoc_ad_mode = "manual";
-amzn_assoc_ad_type = "smart";
-amzn_assoc_marketplace = "amazon";
-amzn_assoc_region = "US";
-amzn_assoc_design = "enhanced_links";
-amzn_assoc_asins = "098639341X";
-amzn_assoc_placement = "adunit";
-amzn_assoc_linkid = "5636cb4923820aae4eca31a18bc7f499";
-</script>
-<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
-{% include adwrap_bottom.html %}
+{% include adsense_manual.html %}
 
 ## lineinfile
 So far, so good! Now let's get to the hairy stuff. `lineinfile` for starters.
@@ -212,6 +206,8 @@ make what would otherwise be a very long line easier to read and edit.** In eith
 case the indentation will be ignored.
 
 Okay, let's see! Here is our playbook:
+
+{% raw %}
 ```yaml
 - hosts: localhost
   gather_facts: no
@@ -233,6 +229,8 @@ tasks:
     - "{{folded_line}}"                       
     - "{{folded_strip_line}}"
 ```
+{% endraw %}
+
 And here is the content of `mylinetemp` after the first run:
 ```bash
 $ cat /tmp/mytemp
@@ -282,6 +280,8 @@ stuff.
 
 First of all the good news, my tests with the `user` module were unsuccessful.
 I always got an error:
+
+{% raw %}
 ```yaml
 - hosts: localhost
   connection: local
@@ -299,6 +299,8 @@ I always got an error:
           createhome: no
         with_items: "{{ users }}"
 ```
+{% endraw %}
+
 Output:
 ```
 TASK [user] **********************************************************************************************************************************************************************************************
@@ -317,6 +319,7 @@ a block with a line feed at the end.
 ## cron
 The `cron` module is where the problems start:
 
+{% raw %}
 ```yaml
 - hosts: localhost
   connection: local
@@ -338,6 +341,8 @@ The `cron` module is where the problems start:
         user: "{{ ansible_user_id }}"             
       with_items: "{{ cronjobs }}"
 ```
+{% endraw %}
+
 The output of the first run is only mildly annoying:
 ```bash
 $ cat /tmp/mytempcron
@@ -368,6 +373,8 @@ perhaps a small problem but nothing more.
 ## mount
 
 Talking about functional errors, let's look into the `mount` module of Ansible:
+
+{% raw %}
 ```yaml
 - hosts: localhost
   connection: local
@@ -394,6 +401,8 @@ Talking about functional errors, let's look into the `mount` module of Ansible:
         state: present
       with_items: "{{ mounts }}"
 ```
+{% endraw %}
+
 And here is the content of the `/tmp/mytempfstab`:
 
 ```bash
@@ -423,20 +432,7 @@ We now have two non functional fstab entries. This will lead to errors when moun
 and booting. Of course one misformatted entry is added every time you run the
 playbook.
 
-{% include adwrap_top.html %}
-<script type="text/javascript">
-amzn_assoc_tracking_id = "admwer-20";
-amzn_assoc_ad_mode = "manual";
-amzn_assoc_ad_type = "smart";
-amzn_assoc_marketplace = "amazon";
-amzn_assoc_region = "US";
-amzn_assoc_design = "enhanced_links";
-amzn_assoc_asins = "1784398292";
-amzn_assoc_placement = "adunit";
-amzn_assoc_linkid = "b797d5b59e6a48e985f6a3bb07a0e9f9";
-</script>
-<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
-{% include adwrap_bottom.html %}
+{% include adsense_manual.html %}
 
 # Solution
 
@@ -475,6 +471,7 @@ Using `trim` does not solve our problem with `mount`. While the trailing line br
 would be removed, the spaces in the `mount_options` variable would remain. It
 seems we need stronger weapons for this to work. The only reliable solution I
 could find is the Jinja2 `regex_replace` filter available since Ansible 2.2.
+
 {% raw %}
 ```yaml
 tasks:
@@ -488,6 +485,7 @@ tasks:
     with_items: "{{ mounts }}"
 ```
 {% endraw %}
+
 This does the job:
 ```bash
 $ cat /tmp/mytempfstab
