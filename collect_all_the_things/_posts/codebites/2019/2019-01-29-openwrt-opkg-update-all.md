@@ -6,6 +6,15 @@ categories:
 - Codebites
 hidden: true
 ---
+**Update April 2020:**
+J. Reis rightfully mentioned in the comments this is not a good way. OpenWRT recommends flashing a sysupgrade.
+> There seems to be some indication that this may be a terrible idea and isn’t actually supported by OpenWRT in any official way (which may account for the lack of any simple GUI way of performing this function): https://forum.openwrt.org/t/okpg-upgrade-safeguards/30326
+>
+> https://forum.openwrt.org/t/opkg-upgrade-vs-flashing-sysupgrade/58906
+> https://forum.openwrt.org/t/sysupgrade-instead-of-opkg-upgrade/32897/4
+
+**Original Post**
+
 I'm using OpenWRT on my [Linksys WRT3200ACM][wrt_amazon]. As the integrated package manager `opkg` does not have a pendant to `apt-get dist-upgrade`, this is the command I regularly execute, to upgrade the system:
 
 ```bash
