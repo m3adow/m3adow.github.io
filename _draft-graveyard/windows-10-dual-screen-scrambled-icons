@@ -1,0 +1,9 @@
+How I fixed scrambled Icons at startup in a Dual Screen Windows 10 setup
+
+1. Select your second monitor as primary monitor --> All icons are moved to the second monitor
+2. Select your first monitor as your primary monitor --> Only some icons are moved to the first monitor
+3. Move all items remaining on monitor 1 to monitor 2
+4. Select your second monitor as primary monitor again
+5. Select your first monitor as primary monitor again
+6. ???
+7. Profit
