@@ -3,6 +3,7 @@ layout: default
 title: "Ansible: Extend variable values in Jinja 2 templates"
 categories:
 - Ansible
+excerpt: How to create loops in Jinja2 which propagate changes across scopes
 ---
 
 In a Jinja 2 Template for one of my Ansible playbooks I wanted to construct a string containing several potentially filled variables to eventually append it to a command execution.
