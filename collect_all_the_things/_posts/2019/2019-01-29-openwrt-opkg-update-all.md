@@ -4,7 +4,6 @@ title: "OpenWRT: Upgrade all packages with opkg"
 categories:
 - OpenWRT
 - Codebites
-hidden: true
 ---
 **Update April 2020:**
 J. Reis rightfully mentioned in the comments this is not a good way. OpenWRT recommends flashing a sysupgrade.

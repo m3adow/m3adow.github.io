@@ -4,10 +4,6 @@ permalink: archive/
 show_blog_additions: false
 ---
 {% for post in site.posts %}
-  {% if post.categories contains 'Codebites' %}
-    {% continue %}
-  {% endif %}
-
   {% assign currentdate = post.date | date: "%Y" %}
   {% if currentdate != date %}
     {% unless forloop.first %}</ul>{% endunless %}

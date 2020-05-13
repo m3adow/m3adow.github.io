@@ -4,7 +4,6 @@ title: "Ansible: Using programatically constructed variables"
 categories:
 - Ansible
 - Codebites
-hidden: true
 ---
 
 Scenario:
