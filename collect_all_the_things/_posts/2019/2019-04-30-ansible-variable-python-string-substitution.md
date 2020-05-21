@@ -4,7 +4,6 @@ title: "Ansible: Using Python string substituition in variables"
 categories:
 - Ansible
 - Codebites
-hidden: true
 ---
 
 Scenario: Utilize Pythons string substitution in Ansible variables

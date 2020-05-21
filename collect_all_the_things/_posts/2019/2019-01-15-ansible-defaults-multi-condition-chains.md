@@ -4,7 +4,6 @@ title: "Ansible: Global defaults with local overwrites via conditional chaining"
 categories:
 - Ansible
 - Codebites
-hidden: true
 ---
 
 Playbook:

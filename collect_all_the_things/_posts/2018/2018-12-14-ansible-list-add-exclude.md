@@ -4,7 +4,6 @@ title: "Ansible: Add two lists, then filter with third list"
 categories:
 - Ansible
 - Codebites
-hidden: true
 ---
 
 Playbook:
