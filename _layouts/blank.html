@@ -22,8 +22,13 @@
     {% if site.comments.isso %}
       <!-- Comments powered by isso -->
       {% if page.show_blog_additions != false %}
-        {% if page.comments %}<script data-isso="https://{{ site.comments.isso }}" src="https://{{ site.comments.isso }}/js/embed.min.js"></script>
-        {% else %}<script data-isso="https://{{ site.comments.isso }}" src="https://{{ site.comments.isso }}/js/count.min.js"></script>{% endif %}
+        <script data-isso="https://{{ site.comments.isso }}"
+                data-isso-reply-to-self="true"
+                data-isso-require-author="false"
+                data-isso-require-email="false"
+                data-isso-vote="true"
+                data-isso-reply-notifications="false"
+                src="https://{{ site.comments.isso }}/js/embed.min.js"></script>
       {% else %} <!-- '{{ page.show_blog_additions }}' -->
       {% endif %}
     {% else %}<!-- Problem with isso parsing -->
@@ -58,7 +63,6 @@
       <span><a href="{{ site.url }}/impress/">Impress</a> • <a href="{{ site.url }}/privacy-statement/">Privacy</a></span>
       <span>{% for link_hash in site.links %}{% for link in link_hash %}<a href="{{ link[1] }}"><i class="fa fa-{{ link[0] }}-square"></i></a>{% endfor %}{% endfor %}</span>
       <span><a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="{{site.url}}/assets/images/main/cc-by-sa.png" /></a></span>
-      {% include amazon_one_link.html %}
     </footer>
   </body>
 </html>
