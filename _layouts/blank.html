@@ -22,7 +22,7 @@
     {% if site.comments.isso %}
       <!-- Comments powered by isso -->
       {% if page.show_blog_additions != false %}
-        <script async data-isso="https://{{ site.comments.isso }}"
+        <script defer data-isso="https://{{ site.comments.isso }}"
                 data-isso-reply-to-self="true"
                 data-isso-require-author="false"
                 data-isso-require-email="false"
