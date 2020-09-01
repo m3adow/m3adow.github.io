@@ -6,6 +6,9 @@ categories:
 - Web
 ---
 
+**Update September 2020: While these exact instructions don't work anymore, there are solutions in the comments.
+So please read the comments as well until I found the time to test new ways and to update the post.**
+
 A friend of mine asked me if it was possible to use the Spotify Web Player on his Android smartphone.  
 
 <a href="{{site.url}}/assets/images/2018/2018-10-15-spotify-app-android.png"><img src="{{site.url}}/assets/images/2018/2018-10-15-spotify-app-android_thumb.png" style="width: 30%; margin: 10px; float: right" alt="Spotify Android App"></a>
@@ -16,24 +19,7 @@ While I understand that Spotify wants to earn money, I heavily dislike the artif
 
 <!--more-->
 
-<div class="alignleft">
-     <script type="text/javascript">
-       	amzn_assoc_ad_type = "banner";
-	amzn_assoc_marketplace = "amazon";
-	amzn_assoc_region = "US";
-	amzn_assoc_placement = "assoc_banner_placement_default";
-	amzn_assoc_campaigns = "amzn_music_bounty";
-	amzn_assoc_banner_type = "category";
-	amzn_assoc_p = "12";
-	amzn_assoc_isresponsive = "false";
-	amzn_assoc_banner_id = "01ZTJ18Y6PDZG4QH4NG2";
-	amzn_assoc_width = "300";
-	amzn_assoc_height = "250";
-	amzn_assoc_tracking_id = "admwer-20";
-	amzn_assoc_linkid = "abac2417484118c9500754a2cbe5a77d";
-     </script>
-     <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
-    </div>
+{% include adsense_manual.html %}
 
 # Browser
 
@@ -87,7 +73,7 @@ If you don't hear any sound, don't forget to check your current playback device 
 This could work on iOS as well, but I have neither tested it nor do I have any interest in doing so.
 
 [eme]: https://en.wikipedia.org/wiki/Encrypted_Media_Extensions
-[ffnightly]: https://play.google.com/store/apps/details?id=org.mozilla.fennec_aurora
+[ffnightly]: https://play.google.com/store/apps/details?id=org.mozilla.fenix
 [reddit_1]: https://www.reddit.com/r/firefox/comments/81nlk6/is_it_possible_to_use_the_spotify_web_player_on/dw1jrhb/
 [useragentswitcher]: https://addons.mozilla.org/en-US/firefox/addon/user-agent-string-switcher/?src=search
 [ublock]: https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/?src=search
