@@ -6,6 +6,8 @@ categories:
 - Codebites
 ---
 
+# Ansible: Loop 'find' with Regexes and exclude list
+
 Scenario: Utilize Ansibles "find" module to find all directories and files matching a list of regexes but not matching another list of regexes
 
 {% raw %}

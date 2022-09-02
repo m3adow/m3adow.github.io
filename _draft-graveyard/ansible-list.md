@@ -6,6 +6,8 @@ categories:
 - Codebites
 ---
 
+# "Ansible: Cleanly Adding n-dimensional lists"
+
 Targets:
 
 - Create lists without defining empty variables beforehand
