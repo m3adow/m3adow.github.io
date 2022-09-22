@@ -3,16 +3,16 @@ layout: default
 title: "Extract ICS from Google Calendars"
 categories:
 - Google
-- Owncloud
+- Nextcloud
 ---
 
-I wanted to import the [Openshift.tv Google Calendar][otvgcalendar] to my Owncloud calendar app. The URL looks like this:
+I wanted to import the [Openshift.tv Google Calendar][otvgcalendar] to my Nextcloud calendar app. The URL looks like this:
 
 ```
 https://calendar.google.com/calendar/embed?src=redhatstreaming@gmail.com
 ```
 
-A simple import in Ownclouds calendar app didn't work, I figured I needed to get either an ICS or ICAL file, but couldn't find any easy way. No button on the website, no knowledge base entries either.  
+A simple import in Nextclouds calendar app didn't work, I figured I needed to get either an ICS or ICAL file, but couldn't find any easy way. No button on the website, no knowledge base entries either.  
 By chance, I found [a thread][gsuppforum] in Googles support forum which describes a way how to extract the ICS from a Google calendar:
 
 > 1. Go to the settings for the Other Calendar, and note down the Public URL to this calendar, for example: `https://calendar.google.com/calendar/embed?src=en-gb.christian%23holiday%40group.v.calendar.google.com&ctz=Europe%2FParis`
