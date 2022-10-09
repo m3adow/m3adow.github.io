@@ -13,7 +13,7 @@ There are a lot of tutorials online how to achieve that, so I won't cover this. 
 
 <a href="{{site.url}}/assets/images/2020/2020-11-05-stardew-valley.jpg"><img src="{{site.url}}/assets/images/2020/2020-11-05-stardew-valley.jpg" style="margin: 10px; max-width: 60%; max-height: auto; border-radius: 5%;" alt="Stardew Valley"></a>
 
-This worked niceley 90% of the time. Sadly, Stardew Valley on PC crashed every once in a while while saving. The error logs in the `ErrorLogs` directory made the problem very clear:
+This worked nicely 90% of the time. Sadly, Stardew Valley on PC crashed every once in a while while saving. The error logs in the `ErrorLogs` directory made the problem very clear:
 
 ```
 Message: The process cannot access the file because it is being used by another process.
