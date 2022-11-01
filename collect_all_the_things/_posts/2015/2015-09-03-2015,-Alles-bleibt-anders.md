@@ -1,7 +1,7 @@
 ---
 layout: default
 categories:
-- Blogging
+- Blog
 ---
 Hallo an alle Leser meines alten und eingestaubten Blogs. Der letzte Blogpost war 2013, seitdem war Sendepause. Bis jetzt! Allerdings wird sich damit auch einiges verändern:
 
