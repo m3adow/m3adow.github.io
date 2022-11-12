@@ -1,6 +1,6 @@
 ---
-title: "Impress"
-permalink: impress/
+title: "Imprint"
+permalink: imprint/
 show_blog_additions: false
 sitemap: false
 ---
