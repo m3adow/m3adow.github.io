@@ -8,6 +8,7 @@ categories:
 
 Most users of Kustomize know this problem: You have some kind of list and want to replace the same key in every item of the list in an overlay. Let's say you have a list of `ClusterRules`:
 
+{% raw %}
 ```yaml
 ---
 apiVersion: monitoring.googleapis.com/v1
@@ -34,6 +35,7 @@ spec:
           annotations:
             summary: "Pod '{{ $labels.exported_pod }}' not healthy"
 ```
+{% endraw %}
 
 But you want to have a more lenient alerting time in the development environment, as the stuff there tends to break and isn't as important as production. Thusly, we want to patch the `spec.groups[].rules[].for` path. Should be easy, targeting list items with Kustomize `patchesJson6902` method is simple. Sadly, wildcard replacement for list items are not implemented in the JSON Patch standard. To replace each value of the list above, we would need to use a dedicated JSON Patch for each list item:
 
@@ -89,6 +91,7 @@ replacements:
 
 That properly replaces the values as we wanted:
 
+{% raw %}
 ```yaml
 ---
 apiVersion: monitoring.googleapis.com/v1
@@ -115,6 +118,7 @@ spec:
           annotations:
             summary: "Pod '{{ $labels.exported_pod }}' not healthy"
 ```
+{% endraw %}
 
 If you dislike the need to have a permanent useless `ConfigMap` in your cluster, I have slightly bad news for you: Using `patchesJson6902` to delete the `ConfigMap` is not possible. Therefore, I recommend coupling this dirty hack with another small hack and using a "no-op" Job with a low `  ttlSecondsAfterFinished` value (available since Kubernetes 1.23) using an annotation as a replacement:
 
