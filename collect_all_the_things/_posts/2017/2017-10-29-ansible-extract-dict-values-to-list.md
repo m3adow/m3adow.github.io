@@ -34,7 +34,7 @@ for further usage, so the result looks like this:
 <!--more-->
 
 {% include adwrap_top.html %}
-<script type="text/javascript">
+<script type="text/plain" cookie-consent="targeting">
 amzn_assoc_tracking_id = "admwer-20";
 amzn_assoc_ad_mode = "manual";
 amzn_assoc_ad_type = "smart";
@@ -45,7 +45,7 @@ amzn_assoc_asins = "098639341X";
 amzn_assoc_placement = "adunit";
 amzn_assoc_linkid = "5636cb4923820aae4eca31a18bc7f499";
 </script>
-<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
+<script type="text/plain" cookie-consent="targeting" src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
 {% include adwrap_bottom.html %}
 
 Sadly, I could not find an easy or intuitive way to do this. You can neither use

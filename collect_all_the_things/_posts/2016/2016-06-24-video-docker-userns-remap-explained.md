@@ -15,7 +15,7 @@ What is it you ask? The original description from the `docker-daemon` manpage:
 
 Here's my video explaining it:
 
-<script type="text/javascript" src="https://asciinema.org/a/49994.js" id="asciicast-49994" async></script>
+<script type="text/plain" cookie-consent="strictly-necessary" src="https://asciinema.org/a/49994.js" id="asciicast-49994" async></script>
 
 
 [1]: http://rancher.com/

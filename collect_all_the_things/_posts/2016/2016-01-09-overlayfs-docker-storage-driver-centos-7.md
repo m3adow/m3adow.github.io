@@ -27,7 +27,7 @@ rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org \
 Don't reboot yet, we want to make at least one more change and this way you can directly see if every change is reboot safe.
 
 {% include adwrap_top.html %}
-<script type="text/javascript">
+<script type="text/plain" cookie-consent="targeting">
 amzn_assoc_tracking_id = "admwer-20";
 amzn_assoc_ad_mode = "manual";
 amzn_assoc_ad_type = "smart";
@@ -38,7 +38,7 @@ amzn_assoc_asins = "B00LRROTI4";
 amzn_assoc_placement = "adunit";
 amzn_assoc_linkid = "a9d9099ea7587b9662db21270f190678";
 </script>
-<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
+<script type="text/plain" cookie-consent="targeting" src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
 {% include adwrap_bottom.html %}
 
 ## 2. Update system settings

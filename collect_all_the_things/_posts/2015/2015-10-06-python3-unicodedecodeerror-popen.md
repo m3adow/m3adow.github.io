@@ -30,7 +30,7 @@ def openme(bin_args):
 After hours of investigation, I found my answer [at Stack Overflow](https://stackoverflow.com/questions/29546311/popen-communicate-throws-unicodedecodeerror).
 
 {% include adwrap_top.html %}
-<script type="text/javascript">
+<script type="text/plain" cookie-consent="targeting">
 amzn_assoc_tracking_id = "admwer-20";
 amzn_assoc_ad_mode = "manual";
 amzn_assoc_ad_type = "smart";
@@ -41,7 +41,7 @@ amzn_assoc_asins = "B0785Q7GSY";
 amzn_assoc_placement = "adunit";
 amzn_assoc_linkid = "e7e09f69f432bb5e1749c833de063957";
 </script>
-<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
+<script type="text/plain" cookie-consent="targeting" src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
 {% include adwrap_bottom.html %}
 
 The applications STDOUT includes a lot of Asian symbols which don't go well with the formatting Python wants to use when setting **universal_newlines=True**. When setting this attribute, text mode is enabled and Python tries to automatically decode the byte output of STDOUT to the systems locale. Windows uses a very limited encoding page which lacks the needed Asian symbols.

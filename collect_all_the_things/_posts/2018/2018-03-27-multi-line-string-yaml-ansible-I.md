@@ -51,7 +51,7 @@ ok: [localhost] => {
 <!--more-->
 
 {% include adwrap_top.html %}
-<script type="text/javascript">
+<script type="text/plain" cookie-consent="targeting">
 amzn_assoc_tracking_id = "admwer-20";
 amzn_assoc_ad_mode = "manual";
 amzn_assoc_ad_type = "smart";
@@ -62,7 +62,7 @@ amzn_assoc_asins = "098639341X";
 amzn_assoc_placement = "adunit";
 amzn_assoc_linkid = "5636cb4923820aae4eca31a18bc7f499";
 </script>
-<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
+<script type="text/plain" cookie-consent="targeting" src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
 {% include adwrap_bottom.html %}
 
 We can observe the preservation of every line break in the string. This also applies
@@ -175,7 +175,7 @@ this one however was always preserved. Therefore, we skip this and directly proc
 to the remaining two methods.
 
 {% include adwrap_top.html %}
-<script type="text/javascript">
+<script type="text/plain" cookie-consent="targeting">
 amzn_assoc_tracking_id = "admwer-20";
 amzn_assoc_ad_mode = "manual";
 amzn_assoc_ad_type = "smart";
@@ -186,7 +186,7 @@ amzn_assoc_asins = "1491979801";
 amzn_assoc_placement = "adunit";
 amzn_assoc_linkid = "fe5d809cd46682b9ffc9360ad75bccf8";
 </script>
-<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
+<script type="text/plain" cookie-consent="targeting" src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
 {% include adwrap_bottom.html %}
 
 ## Stripping
