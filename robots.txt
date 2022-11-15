@@ -8,3 +8,6 @@ Sitemap: https://adminswerk.de/sitemap.xml
 Disallow: /imprint/
 Disallow: /about/
 Disallow: /privacy-statement/
+Disallow: /assets/font-awesome
+Disallow: /assets/fonts
+Disallow: *?replytocom
