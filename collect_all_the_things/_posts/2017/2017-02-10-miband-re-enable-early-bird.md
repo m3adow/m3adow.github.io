@@ -14,7 +14,7 @@ I'm not certain if every action is needed. I tried dry testing my changes but al
 
 {% include adwrap_top.html %}
 <div class="alignleft">
-     <script type="text/javascript">
+     <script type="text/plain" cookie-consent="targeting">
        	amzn_assoc_ad_type = "banner";
 	amzn_assoc_marketplace = "amazon";
 	amzn_assoc_region = "US";
@@ -27,7 +27,7 @@ I'm not certain if every action is needed. I tried dry testing my changes but al
 	amzn_assoc_tracking_id = "admwer-20";
 	amzn_assoc_linkid = "145d6a8af3cba352ca36fb96a177eb93";
      </script>
-     <script src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
+     <script type="text/plain" cookie-consent="targeting" src="//z-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1"></script>
     </div>
 {% include adwrap_bottom.html %}
 

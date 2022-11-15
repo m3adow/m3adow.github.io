@@ -22,7 +22,8 @@
     {% if site.comments.isso %}
       <!-- Comments powered by isso -->
       {% if page.show_blog_additions != false %}
-        <script defer data-isso="https://{{ site.comments.isso }}"
+        <script type="text/plain" cookie-consent="strictly-necessary"
+                defer data-isso="https://{{ site.comments.isso }}"
                 data-isso-reply-to-self="true"
                 data-isso-require-author="false"
                 data-isso-require-email="false"
@@ -33,7 +34,7 @@
       {% endif %}
     {% else %}<!-- Problem with isso parsing -->
     {% endif %}
-    {% include ccm19.html %}
+    {% include cookie_consent.html %}
     {% include piwik_tracking.html %}
     {% include adsense_auto_ads.html %}
     <style>
