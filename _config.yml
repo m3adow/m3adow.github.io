@@ -49,6 +49,10 @@ kramdown:
   syntax_highlighter: rouge
 
 plugins:
-    - jekyll-sitemap
-    - jekyll-paginate
-    - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-redirect-from
+
+whitelist:
+  - jekyll-redirect-from
